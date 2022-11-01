@@ -1,0 +1,66 @@
+<div class="userCfg">
+    <div class="user-title">
+        <b>用户管理</b> 
+        <div>
+            <yu-button key="add" @click="handleClick('ADD')">新增</yu-button>
+            <yu-button key="start" @click="handleClick('EDIT')">修改</yu-button>
+            <yu-button key="pause" @click="handleClick('DETAIL')">查看</yu-button>
+            <yu-button key="delete" @click="handleClick('EDIT')">删除</yu-button>
+            <yu-button key="import" @click="handleClick('EDIT')">导入</yu-button>
+            <yu-button key="export" @click="handleClick">导出</yu-button>
+            <yu-button key="resetPwd" @click="handleClick">重置密码</yu-button>
+            <yu-button key="resetPwd" type="text" @click="showSearchform=!showSearchform">高级搜索</yu-button>
+        </div>
+
+    </div>
+    <div class="user-table">
+        <yu-xform-q v-show="showSearchform" ref="reformq" :field-data="queryFields" :buttons="queryButtons" :columns="3"></yu-xform-q>
+        <div>
+            
+        </div>
+        <yu-xtable-x
+            ref="reftable"
+            :data-url="dataUrl" 
+            request-type="POST"
+            @row-click="rowClick"
+            :table-columns="tableColumns">
+        </yu-xtable-x>
+    </div>
+    <yu-xdialog
+        width="80%"
+        :title="dialogTitle"
+        @close="closeFn"
+        @open="initData"
+        :visible.sync="dialogVisible"
+    >
+        <yu-xform ref="refForm" label-width="120px"  v-model="formdata">
+            <yu-xform-group column="3">
+                <yu-xform-item label="是否柜员"  ctype="yu-xradio" data-code="YESNO"  name="title" :hidden="pageType!=='ADD'"></yu-xform-item>
+                </yu-xform-group>
+                <yu-xform-group column="3">
+                <yu-xform-item label="用户代码" name="userCode" ctype="input" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="用户姓名" name="userName"  ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="身份证号" name="idCardNo"  ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="机构代码" name="orgCode"   ctype="input" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="所属分行" name="ownBranch" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="联系电话" name="telPhone"  ctype="input" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="邮箱" name="email"  ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="职级"  name="staffingLevel" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="状态" name="status" ctype="select"  data-code="USER_STATUS"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="密码失效日期" name="pwdValdaDate"  ctype="yu-date-picker"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="是否使用指纹"  name="isUseFingerprint" ctype="select" data-code="YESNO" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="柜员级别"  name="tellerLevel"  ctype="select" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="柜员类别"  name="tellerCategory" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="学历水平"  name="eduLevel" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="最后修改人"  name="lastUpdateUser" ctype="input" :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="最后修改日期"  name="lastUpdateTime" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="创建日期" name="createTime" ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+                <yu-xform-item label="创建人" name="createUser"  ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>
+            </yu-xform-group>
+        </yu-xform>
+        <div slot="footer" class="dialog-footer">
+        <yu-button @click="closeFn">取 消</yu-button>
+        <yu-button type="primary" @click="comfirmFn">确 定</yu-button>
+        </div>
+    </yu-xdialog>
+</div>

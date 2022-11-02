@@ -1,1 +1,81 @@
-define(["./pages/common/frame/tree-menu.js"],function(e,i){i.ready=function(e,i,a){var r=yufp.require.require("./pages/common/frame/tree-menu.js"),u=[];$("#_my_menu").html(function e(i){for(var a="",r=0;r<i.length;r++){var n=i[r],t="el-icon-yx-file-text2";n.children&&0<n.children.length?(a+='<li><a href="javascript:void(0);"><i class='+(n.mIcon?n.mIcon:t)+'></i><span class="title">'+n.mText+'</span><span class="arrow"></span></a>',a+='<ul class="sub-menu">',a+=e(n.children),a+="</ul></li>"):n.isIndex?(u.push(n.routeId,n.mText,"0"),a+='<li class="active"><a href="javascript:void(0);" class="yu-isMenu" data-mId="'+n.mId+'" data-path="'+n.routeUrl+'" data-url="'+n.routeId+'" data-key="0"><i class="'+(n.mIcon?n.mIcon:t)+'"></i><span class="title">'+n.mText+"</span></a></li>"):a+='<li><a href="javascript:void(0);" class="yu-isMenu" data-mId="'+n.mId+'" data-path="'+n.routeUrl+'"  data-url="'+n.routeId+'"><i class="'+(n.mIcon?n.mIcon:t)+'"></i><span>'+n.mText+"</span></a></li>"}return a}(yufp.session.getMenuTree())),$(".yu-idxMenuSwiper").height($(".yu-idxBody").height()),$(window).resize(function(){$(".yu-idxMenuSwiper").height($(".yu-idxBody").height())}),yufp.frame.idxMenuSwiper=$(".yu-idxMenuSwiper").swiper({mode:"vertical",simulateTouch:!1,slidesPerView:"auto",spaceBetween:0,mousewheelControl:!0,scrollContainer:!0,resizeReInit:!0,scrollbar:{container:".yu-idxMenuScrollbar",draggable:!0}}),r.init(yufp.frame.idxMenuSwiper),yufp.frame.addTab({id:u[0],title:u[1],key:u[2]}),yufp.frame.menuClick($("a.yu-isMenu")),$("#more").mouseout(function(){document.querySelector(".yu-framer-popover").style.display="none"}),$("#more").mouseover(function(){document.querySelector(".yu-framer-popover").style.display="block"}),$("#yu-exit").click(function(){yufp.frame.exit()}),yufp.frame.init()}});
+/**
+ * @created by wangyin 2018-01-04
+ * @updated by
+ * @description 系统主页面-左侧竖向菜单模式
+ */
+define(['./pages/common/frame/tree-menu.js'], function (require, exports) {
+  /**
+     * 页面加载完成时触发
+     * @param hashCode 路由ID
+     * @param data 传递数据对象
+     * @param cite 页面站点信息
+     */
+  exports.ready = function (hashCode, data, cite) {
+    var treeMenu = yufp.require.require('./pages/common/frame/tree-menu.js');// 获取tree-menu
+    var indexRouter = []; // 首页路由
+    // 创建菜单
+    function createMenu (menus) {
+      var domStr = '';
+      for (var i = 0; i < menus.length; i++) {
+        var menu = menus[i];// 获取menu
+        var defaultIcon = 'el-icon-yx-file-text2';
+        // 判断是否有子菜单
+        if (menu.children && menu.children.length > 0) {
+          domStr += '<li><a href="javascript:void(0);"><i class=' + (menu.mIcon ? menu.mIcon : defaultIcon) + '></i><span class="title">' + menu.mText + '</span><span class="arrow"></span></a>';
+          var subStr = createMenu(menu.children);// 创建子菜单
+          domStr += '<ul class="sub-menu">';
+          domStr += subStr;
+          domStr += '</ul></li>';
+        } else {
+          if (menu.isIndex) {
+            var indexDateKey = '0';
+            indexRouter.push(menu.routeId, menu.mText, indexDateKey);
+            domStr += '<li class="active"><a href="javascript:void(0);" class="yu-isMenu" data-mId="' + menu.mId + '" data-path="' + menu.routeUrl + '" data-url="' + menu.routeId + '" data-key="' + indexDateKey + '"><i class="' + (menu.mIcon ? menu.mIcon : defaultIcon) + '"></i><span class="title">' + menu.mText + '</span></a></li>';
+          } else {
+            domStr += '<li><a href="javascript:void(0);" class="yu-isMenu" data-mId="' + menu.mId + '" data-path="' + menu.routeUrl + '"  data-url="' + menu.routeId + '"><i class="' + (menu.mIcon ? menu.mIcon : defaultIcon) + '"></i><span>' + menu.mText + '</span></a></li>';
+          }
+        }
+      }
+      return domStr;
+    };
+
+    // 初始化菜单
+    function initMenu () {
+      $('#_my_menu').html(createMenu(yufp.session.getMenuTree()));
+      // 菜单swiper相关调用
+      $('.yu-idxMenuSwiper').height($('.yu-idxBody').height());
+      $(window).resize(function () {
+        $('.yu-idxMenuSwiper').height($('.yu-idxBody').height());
+      });
+      yufp.frame.idxMenuSwiper = $('.yu-idxMenuSwiper').swiper({
+        mode: 'vertical',
+        simulateTouch: false,
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        mousewheelControl: true,
+        scrollContainer: true,
+        resizeReInit: true,
+        scrollbar: {
+          container: '.yu-idxMenuScrollbar',
+          draggable: true
+        }
+      });
+      treeMenu.init(yufp.frame.idxMenuSwiper);// 菜单组件调用
+      yufp.frame.addTab({id: indexRouter[0], title: indexRouter[1], key: indexRouter[2]});// 首页页签初始化
+      yufp.frame.menuClick($('a.yu-isMenu')); // 菜单事件绑定
+    };
+
+    initMenu();
+    $('#more').mouseout(function () {
+      document.querySelector('.yu-framer-popover').style.display = 'none';
+    });
+    $('#more').mouseover(function () {
+      document.querySelector('.yu-framer-popover').style.display = 'block';
+    });
+    // 注销退出
+    $('#yu-exit').click(function () {
+      yufp.frame.exit();
+    });
+    yufp.frame.init();
+  };
+});

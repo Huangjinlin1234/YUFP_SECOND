@@ -27,15 +27,7 @@ function (require, exports) {
     return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\n/g, '\\n') + '"}');
   };
   var demoMenus = [
-    {
-      'menuId': 'lp-10000',
-      'menuName': '首页',
-      'upMenuId': null,
-      'menuIcon': 'el-icon-yx-home',
-      'funcId': 'dashboard',
-      'funcUrl': 'pages/common/dashboard/dashboard',
-      'legalOrgCode': null
-    },
+
     {
       'menuId': 'lp-92010',
       'menuName': '用户管理',
@@ -71,6 +63,14 @@ function (require, exports) {
       'funcId': 'sDutyPageInfo',
       'funcUrl': 'pages/console/system/sDutyPageInfo',
       'legalOrgCode': null
+    }, {
+      'menuId': 'lp-10000',
+      'menuName': '首页',
+      'upMenuId': null,
+      'menuIcon': 'el-icon-yx-home',
+      'funcId': 'dashboard',
+      'funcUrl': 'pages/common/dashboard/dashboard',
+      'legalOrgCode': null
     },
     {
       'menuId': 'lp-92050',
@@ -104,36 +104,16 @@ function (require, exports) {
     {
       'menuId': 'lp-79901',
       'menuName': '用户日志',
-      'upMenuId': 'lp-79900',
+      'upMenuId': null,
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'SUserOperLog',
       'funcUrl': 'pages/console/SUserOperLog',
       'legalOrgCode': null
     },
-
-    {
-      'menuId': 'lp-79900',
-      'menuName': '用户日志',
-      'upMenuId': '',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': '',
-      'funcUrl': '',
-      'legalOrgCode': null
-    },
-
-    {
-      'menuId': 'lp-140000',
-      'menuName': '机构撤并管理',
-      'upMenuId': '',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'OrgRepealManager',
-      'funcUrl': '',
-      'legalOrgCode': null
-    },
     {
       'menuId': 'lp-141000',
       'menuName': '机构撤并管理',
-      'upMenuId': 'lp-140000',
+      'upMenuId': null,
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'SOrgRepealPageInfo',
       'funcUrl': 'pages/console/SOrgRepealPageInfo',

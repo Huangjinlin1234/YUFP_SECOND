@@ -1,1 +1,0 @@
-define(function(n,e){e.localLookup={CRUD_TYPE:[{enname:"ADD",cnname:"新增"},{enname:"EDIT",cnname:"修改"},{enname:"DETAIL",cnname:"详情"}],QT_ANSWER_CORT:[]}});

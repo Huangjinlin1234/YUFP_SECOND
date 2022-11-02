@@ -158,7 +158,7 @@
           processFn.call(_this, rows);
         }
         _this.loadMenus(callback);
-        // _this.loadCtrls(); //由于控制点数据和菜单一起加载则无需要单独加载
+        // _this.loadCtrls(); //由于d控制点数据和菜单一起加载则无需要单独加载
       }
     });
   };

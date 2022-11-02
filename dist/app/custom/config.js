@@ -1,1 +1,0 @@
-define(function(e,o,r){r.exports={url:"47.107.173.118:8808",reportUrl:"http://localhost:8080/cmis-report",ssl:!1,webSocketType:"get",defaultRootId:"_rootDiv",startPage:"login",recorderModel:!1,recorderScope:["yufp.service"],debugModel:!0,debugScope:["yufp.service"],compactMode:!1}});

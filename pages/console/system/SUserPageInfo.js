@@ -14,6 +14,7 @@ define(function (require, exports) {
           dataUrl: '/api//console/api/s/users',
           baseParams: {
           },
+          queryData: {},
           queryFields: [
             { placeholder: '用户名称', field: 'bizSerno', type: 'input' },
             { placeholder: '账号', field: 'contNo', type: 'input' },

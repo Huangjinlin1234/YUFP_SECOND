@@ -33,10 +33,15 @@
         @open="initData"
         :visible.sync="dialogVisible"
     >
+    <yu-xform ref="refForm" label-width="120px"  v-model="queryData">
+         <yu-xform-group column="3"> 
+           <yu-xform-item label="用户代码"  ctype="yu-xradio" data-code="YESNO"  name="title" :hidden="pageType!=='ADD'"></yu-xform-item>
+         </yu-xform-group>
+    </yu-xform>
         <yu-xform ref="refForm" label-width="120px"  v-model="formdata">
             <yu-xform-group column="3">
-                <yu-xform-item label="是否柜员"  ctype="yu-xradio" data-code="YESNO"  name="title" :hidden="pageType!=='ADD'"></yu-xform-item>
-                </yu-xform-group>
+                 <yu-xform-item label="是否柜员"  ctype="yu-xradio" data-code="YESNO"  name="title" :hidden="pageType!=='ADD'"></yu-xform-item>
+            </yu-xform-group>
                 <yu-xform-group column="3">
                 <yu-xform-item label="用户代码" name="userCode" ctype="input" :disabled="pageType=='DETAIL'"></yu-xform-item>
                 <yu-xform-item label="用户姓名" name="userName"  ctype="input"  :disabled="pageType=='DETAIL'"></yu-xform-item>

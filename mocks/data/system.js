@@ -27,7 +27,15 @@ function (require, exports) {
     return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\n/g, '\\n') + '"}');
   };
   var demoMenus = [
-
+    {
+      'menuId': 'lp-10000',
+      'menuName': '首页',
+      'upMenuId': null,
+      'menuIcon': 'el-icon-yx-home',
+      'funcId': 'dashboard',
+      'funcUrl': 'pages/common/dashboard/dashboard',
+      'legalOrgCode': null
+    },
     {
       'menuId': 'lp-92010',
       'menuName': '用户管理',
@@ -62,14 +70,6 @@ function (require, exports) {
       'menuIcon': '',
       'funcId': 'sDutyPageInfo',
       'funcUrl': 'pages/console/system/sDutyPageInfo',
-      'legalOrgCode': null
-    }, {
-      'menuId': 'lp-10000',
-      'menuName': '首页',
-      'upMenuId': null,
-      'menuIcon': 'el-icon-yx-home',
-      'funcId': 'dashboard',
-      'funcUrl': 'pages/common/dashboard/dashboard',
       'legalOrgCode': null
     },
     {

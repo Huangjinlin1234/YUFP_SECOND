@@ -532,3 +532,27 @@ a:active {color: #666;}
 }
 .el-button.el-button--primary{background-color: #2647a7 }
 .adjust{position: absolute;right: 0}
+
+
+.el-panel{
+    background-color: #fff;
+    margin: 24px;
+}
+.el-panel>.title-area{
+    padding: 10px 24px;
+    border-bottom: 1px solid rgb(237, 237, 237);
+    font-size: 16px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.el-panel>.title-area>.title{
+    font-size: 16px;
+    color: #444444;
+}
+.el-panel>.title-area>.el-col.el-col-18{
+    text-align: right;
+}
+.el-panel>.content-area{
+    padding: 16px 24px;
+}

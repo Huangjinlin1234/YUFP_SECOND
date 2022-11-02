@@ -701,7 +701,6 @@
     $(menusObj).bind('click', function () {
       // 如果已经打开则激活
       var cMenu = $(this), dataKey = cMenu.attr('data-key');
-      console.log(1111);
       if (dataKey) {
         _this.focusTab(dataKey);
         _this.focusMenu(dataKey);

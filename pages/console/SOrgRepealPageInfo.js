@@ -143,7 +143,9 @@ define(function (require, exports) {
       },
 
       methods: {
+        handleClick: function () {
 
+        },
         	/**
         	 * @param ctrlCode 操作码
         	 */

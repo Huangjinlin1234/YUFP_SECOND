@@ -16,9 +16,12 @@ define(function (require) {
     sDutyPageInfo: {
       html: 'pages/system/sDutyPageInfo.html',
       js: 'pages/system/sDutyPageInfo.js'
+    },
+    SRoleDataRulePageInfo: {
+      html: 'pages/system/SRoleDataRulePageInfo.html',
+      js: 'pages/system/SRoleDataRulePageInfo.js'
     }
-
   };
-    // 注册路由表
+  // 注册路由表
   yufp.router.addRouteTable(routeTable);
 });

@@ -316,9 +316,9 @@
       } else {
         var delay = config.debugModel ? 300 : 0;
         setTimeout(function () {
-          // yufp.session.loadUserSession(function () {
-          //   yufp.router.to(route, data);
-          // });
+          yufp.session.loadUserSession(function () {
+            yufp.router.to(route, data);
+          });
           // 模板开发直接进入页面 项目实际使用请使用上面代码
           yufp.router.to(route, data);
         }, delay);

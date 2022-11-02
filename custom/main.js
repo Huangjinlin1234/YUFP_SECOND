@@ -36,7 +36,7 @@
     './viewReport_files/report.css'
   ];
 
-    // js依赖库
+  // js依赖库
   var libsJs = [
     'config',
     'vue',
@@ -54,7 +54,7 @@
 
   // 判断是否IE9及以下
   if (typeof navigator !== 'undefined' && /MSIE [1-9]\./.test(navigator.userAgent)) {
-  	 libsJs.push('./libs/blob/Blob.js');
+    libsJs.push('./libs/blob/Blob.js');
     libsJs.push('./libs/blob/Uint8Array.js');
     libsJs.push('./libs/blob/FileSaver.js');
     libsJs.push('./libs/downloadify/swfobject.js');
@@ -280,12 +280,12 @@
         if (eIndex != -1 && hash.slice(eIndex + 1)) {
           try {
             data = JSON.parse('{"' +
-            decodeURIComponent(hash.slice(eIndex + 1))
-              .replace(/"/g, '\\"')
-              .replace(/&/g, '","')
-              .replace(/=/g, '":"')
-              .replace(/\n/g, '\\n') +
-            '"}');
+              decodeURIComponent(hash.slice(eIndex + 1))
+                .replace(/"/g, '\\"')
+                .replace(/&/g, '","')
+                .replace(/=/g, '":"')
+                .replace(/\n/g, '\\n') +
+              '"}');
           } catch (e) {
             console.log(e);
           }
@@ -316,11 +316,11 @@
       } else {
         var delay = config.debugModel ? 300 : 0;
         setTimeout(function () {
-          // yufp.session.loadUserSession(function () {
-          //   yufp.router.to(route, data);
-          // });
+          yufp.session.loadUserSession(function () {
+            yufp.router.to(route, data);
+          });
           // 模板开发直接进入页面 项目实际使用请使用上面代码
-          yufp.router.to(route, data);
+          // yufp.router.to(route, data);
         }, delay);
       }
     };

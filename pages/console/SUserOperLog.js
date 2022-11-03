@@ -24,6 +24,7 @@ define(function (require, exports) {
             { label: '查询',
               op: 'submit',
               type: 'primary',
+              icon: 'search',
               click: function (model, valid) {
                 if (valid) {
                   	if (model.createTime2e.length > 0) {
@@ -33,7 +34,7 @@ define(function (require, exports) {
                   _self.$refs.reftable.remoteData(model);
                 }
               } },
-            { label: '重置', op: 'reset' }
+            { label: '重置', op: 'reset', type: 'primary', icon: 'yx-loop2' }
           ],
 
           tableColumns: [

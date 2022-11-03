@@ -36,13 +36,14 @@ function (require, exports) {
       'funcUrl': 'pages/common/dashboard/dashboard',
       'legalOrgCode': null
     },
+    // 二级菜单 组织管理
     {
-      'menuId': 'lp-92010',
-      'menuName': '用户管理',
-      'upMenuId': 'lp-92000',
-      'menuIcon': '',
-      'funcId': 'sUserPageInfo',
-      'funcUrl': 'pages/console/system/SUserPageInfo',
+      'menuId': 'lp-92000',
+      'menuName': '组织管理',
+      'upMenuId': 'lp-90000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
       'legalOrgCode': null
     },
     {
@@ -55,21 +56,12 @@ function (require, exports) {
       'legalOrgCode': null
     },
     {
-      'menuId': 'lp-92030',
-      'menuName': '数据权限',
+      'menuId': 'lp-92010',
+      'menuName': '用户管理',
       'upMenuId': 'lp-92000',
       'menuIcon': '',
-      'funcId': 'SRoleDataRulePageInfo',
-      'funcUrl': 'pages/console/system/SRoleDataRulePageInfo',
-      'legalOrgCode': null
-    },
-    {
-      'menuId': 'lp-92040',
-      'menuName': '岗位管理',
-      'upMenuId': 'lp-92000',
-      'menuIcon': '',
-      'funcId': 'sDutyPageInfo',
-      'funcUrl': 'pages/console/system/sDutyPageInfo',
+      'funcId': 'sUserPageInfo',
+      'funcUrl': 'pages/console/system/SUserPageInfo',
       'legalOrgCode': null
     },
     {
@@ -82,22 +74,57 @@ function (require, exports) {
       'legalOrgCode': null
     },
     {
-      'menuId': 'lp-92060',
-      'menuName': '资源管理',
+      'menuId': 'lp-92040',
+      'menuName': '岗位管理',
       'upMenuId': 'lp-92000',
       'menuIcon': '',
-      'funcId': null,
-      'funcUrl': null,
+      'funcId': 'sDutyPageInfo',
+      'funcUrl': 'pages/console/system/sDutyPageInfo',
       'legalOrgCode': null
     },
-
     {
-      'menuId': 'lp-92000',
-      'menuName': '系统配置',
-      'upMenuId': 'lp-90000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': null,
-      'funcUrl': null,
+      'menuId': 'lp-92060',
+      'menuName': '资源定义',
+      'upMenuId': 'lp-92000',
+      'menuIcon': '',
+      'funcId': 'resource',
+      'funcUrl': 'pages/console/system/SResourcePageInfo',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-92070',
+      'menuName': '资源权限',
+      'upMenuId': 'lp-92000',
+      'menuIcon': '',
+      'funcId': 'SResourcePageInfo',
+      'funcUrl': 'pages/console/system/SRoleRescRulePageInfo',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-92080',
+      'menuName': '报表权限管理',
+      'upMenuId': 'lp-92000',
+      'menuIcon': '',
+      'funcId': 'SPrdOrgPageInfo',
+      'funcUrl': 'pages/console/prd/SPrdOrgPageInfo',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-92090',
+      'menuName': '数据权限',
+      'upMenuId': 'lp-92000',
+      'menuIcon': '',
+      'funcId': 'SRoleDataRulePageInfo',
+      'funcUrl': 'pages/console/system/SRoleDataRulePageInfo',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-92100',
+      'menuName': '策略管理',
+      'upMenuId': 'lp-92000',
+      'menuIcon': '',
+      'funcId': 'methodManage',
+      'funcUrl': 'pages/console/system/logicSysManager',
       'legalOrgCode': null
     },
 
@@ -110,15 +137,15 @@ function (require, exports) {
       'funcUrl': 'pages/console/SUserOperLog',
       'legalOrgCode': null
     },
-    {
-      'menuId': 'lp-141000',
-      'menuName': '机构撤并管理',
-      'upMenuId': null,
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'SOrgRepealPageInfo',
-      'funcUrl': 'pages/console/SOrgRepealPageInfo',
-      'legalOrgCode': null
-    },
+    // {
+    //   'menuId': 'lp-141000',
+    //   'menuName': '机构撤并管理',
+    //   'upMenuId': null,
+    //   'menuIcon': 'el-icon-yx-books',
+    //   'funcId': 'SOrgRepealPageInfo',
+    //   'funcUrl': 'pages/console/SOrgRepealPageInfo',
+    //   'legalOrgCode': null
+    // },
     {
       'menuId': 'lp-90000',
       'menuName': '系统管理',
@@ -126,6 +153,62 @@ function (require, exports) {
       'menuIcon': 'el-icon-yx-books',
       'funcId': null,
       'funcUrl': null,
+      'legalOrgCode': null
+    },
+    // 二级功能 参数管理
+    {
+      'menuId': 'lp-93000',
+      'menuName': '参数管理',
+      'upMenuId': 'lp-90000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-93010',
+      'menuName': '数据字典配置',
+      'upMenuId': 'lp-93000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'lookupdict',
+      'funcUrl': 'pages/console/system/lookupdict',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-93020',
+      'menuName': '系统参数',
+      'upMenuId': 'lp-93000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'sysprop',
+      'funcUrl': 'pages/console/system/sysprop',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-93030',
+      'menuName': '系统提示消息管理',
+      'upMenuId': 'lp-93000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'messageManager',
+      'funcUrl': 'pages/console/system/messageManager',
+      'legalOrgCode': null
+    },
+    // 二级菜单 系统监控
+    {
+      'menuId': 'lp-94000',
+      'menuName': '系统监控',
+      'upMenuId': 'lp-90000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-94010',
+      'menuName': '日志管理',
+      'upMenuId': 'lp-94000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'SUserOperLog',
+      'funcUrl': 'pages/console/SUserOperLog',
       'legalOrgCode': null
     }
   ];

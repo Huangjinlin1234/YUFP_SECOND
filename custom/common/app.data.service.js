@@ -4,6 +4,7 @@
  */
 var backend = {
   adminService: '/yusp-admin',
+  ocaService: 'yusp-app-oca',
   uaaService: '/e4a',
   consoleService: '/console',
   creditService: '/nls',
@@ -16,7 +17,7 @@ var backend = {
   flowService: '/flow',
   xfService: '/xf',
   edocService: '/edoc',
-  riskmService:'/riskm'
+  riskmService: '/riskm'
 };
 /**
  * JS常量

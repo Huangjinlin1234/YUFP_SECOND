@@ -2,7 +2,9 @@
  * @create by chenqm1 on 2018-05-03
  * @description 系统角色表
  */
-define(['./custom/widgets/js/OrgDistribution.js'
+define(['./custom/widgets/js/OrgDistribution.js',
+  './custom/widgets/js/panel.js'
+
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
@@ -45,17 +47,17 @@ define(['./custom/widgets/js/OrgDistribution.js'
             { label: '创建时间', prop: 'createTime', type: 'date', hidden: true}
           ],
 
-          //updateLoading: false,
+          // updateLoading: false,
           updateFields: [{
             columnCount: 2,
             fields: [
               { field: 'roleCode', label: '角色码', disabled: true, placeholder: '系统自动生成' },
               { field: 'roleName', label: '角色名称', rules: [ { required: true, message: '角色名称是必填项', trigger: 'blur' }, { max: 60, message: '最大长度为60'}] },
-              { field: 'roleType', label: '角色类型', type: 'select', dataCode: 'ROLE_TYPE', disabled: true, value: '001' , hidden: true},
+              { field: 'roleType', label: '角色类型', type: 'select', dataCode: 'ROLE_TYPE', disabled: true, value: '001', hidden: true},
 			  { field: 'orgCode', label: '适用机构', type: 'custom', is: 'div-org-distribution', placeholder: '机构代码', rules: [ { required: true, message: '适用机构是必填项', trigger: 'blur' }]},
-				/** rules: [{ required: true, message: '必输项', trigger: 'blur' }]}, @date 2019/12/09 禅道bug6972*/
+              /** rules: [{ required: true, message: '必输项', trigger: 'blur' }]}, @date 2019/12/09 禅道bug6972*/
               { field: 'legalOrgCode', label: '法人机构代码', type: 'custom', is: 'div-org-selector', params: {placeholder: '法人机构代码'}, hidden: true},
-              { field: 'orderId', label: '排序字段', rules: [ { validator: yufp.validator.number, message: '排序字段必须为数字值'} ] , hidden: true},
+              { field: 'orderId', label: '排序字段', rules: [ { validator: yufp.validator.number, message: '排序字段必须为数字值'} ], hidden: true},
               { field: 'createTime', label: '创建日期', hidden: true },
               { field: 'createUser', label: '创建人', hidden: true },
               { field: 'lastUpdateTime', label: '最后修改时间', hidden: true },
@@ -69,7 +71,10 @@ define(['./custom/widgets/js/OrgDistribution.js'
           }],
 
           updateButtons: [
-        	  { label: '保存',type: 'primary', icon: 'check', hidden: false,
+        	  { label: '保存',
+              type: 'primary',
+              icon: 'check',
+              hidden: false,
         		  click: function (model) {
         			  var validate = false;
         			  _self.$refs.reform.validate(function (valid) {
@@ -86,48 +91,46 @@ define(['./custom/widgets/js/OrgDistribution.js'
         				  rMethod = 'POST';
         			  }
         			  var msg = '保存后立即生效，请确认是否继续！';
-        			  if(model.orgCode == null || model.orgCode == ''){
+        			  if (model.orgCode == null || model.orgCode == '') {
         			  	 msg = '【' + model.roleName + '】角色默认为全行适用，保存后可点击“设置适用机构”修改适用机构，' + msg;
-					  }else{
-
-						  var messOrgCode = model.orgCode;//机构码过程值
-						  var tipsOrgCode = "";//最终提示机构
-						  if(messOrgCode.indexOf(",")!=-1){
-							  var selList = messOrgCode.split(",");
-							  for(var j=0;j<selList.length;j++){
-
-								  if(j == selList.length-1){//最后一个元素  不加 ,
+					  } else {
+						  var messOrgCode = model.orgCode;// 机构码过程值
+						  var tipsOrgCode = '';// 最终提示机构
+						  if (messOrgCode.indexOf(',') != -1) {
+							  var selList = messOrgCode.split(',');
+							  for (var j = 0; j < selList.length; j++) {
+								  if (j == selList.length - 1) { // 最后一个元素  不加 ,
 									  tipsOrgCode = tipsOrgCode + selList[j];
-								  }else{
-									  //按一行9个 9的倍数的元素时添加换行
-									  tipsOrgCode = tipsOrgCode + selList[j]+ ",";
-									  if(j!=0 && (j+1)%9==0){
-										  tipsOrgCode = tipsOrgCode+"\n";
+								  } else {
+									  // 按一行9个 9的倍数的元素时添加换行
+									  tipsOrgCode = tipsOrgCode + selList[j] + ',';
+									  if (j != 0 && (j + 1) % 9 == 0) {
+										  tipsOrgCode = tipsOrgCode + '\n';
 									  }
 								  }
 							  }
-						  }else {
+						  } else {
 							  tipsOrgCode = messOrgCode;
 						  }
 
 						  msg = '角色【' + model.roleName + '】将适用于机构【' + tipsOrgCode + '】及它的上级机构。' + msg;
 					  }
 					  _self.$confirm(msg, '提示').then(function () {
-						  //_self.updateLoading = true;
+						  // _self.updateLoading = true;
 						  yufp.service.request({
 							  method: rMethod,
 							  url: backend.consoleService + '/api/s/role',
 							  data: model,
 							  callback: function (code, message, response) {
-								  //_self.updateLoading = false;
+								  // _self.updateLoading = false;
 								  if (code == 0 && response.rows == 1) {
 									  _self.$refs.reftable.remoteData();
 									  _self.$message('操作成功');
 									  _self.dialogVisible = false;
-								  } else if(response.rows == -11){
+								  } else if (response.rows == -11) {
 									  _self.$message('该角色名称信息已存在！');
 								  }
-								  /**else if (response.rows == -11) {
+								  /** else if (response.rows == -11) {
 									  _self.$message('该角色信息已存在，在适用机构【' + model.orgCode + '】或其上下属机构中！');
 								  } */
 								  else {
@@ -137,12 +140,18 @@ define(['./custom/widgets/js/OrgDistribution.js'
 						  });
 					  });
         		  } },
-        		  { label: '取消', type: 'primary', icon: 'yx-undo2', hidden: false,
+        		  { label: '取消',
+              type: 'primary',
+              icon: 'yx-undo2',
+              hidden: false,
         			  click: function (model) {
         				  _self.dialogVisible = false;
         			  }
         		  },
-        		  { label: '返回', type: 'primary', icon: 'yx-undo2', hidden: false,
+        		  { label: '返回',
+              type: 'primary',
+              icon: 'yx-undo2',
+              hidden: false,
         			  click: function (model) {
         				  _self.dialogVisible = false;
         			  }
@@ -165,14 +174,14 @@ define(['./custom/widgets/js/OrgDistribution.js'
           dialogVisibleView: false,
           viewType: 'DETAIL',
           viewTitle: yufp.lookup.find('CRUD_TYPE', false),
-			setOrg:[],
-			orgData:[],
-			orgDialogVisible:false
+          setOrg: [],
+          orgData: [],
+          orgDialogVisible: false
         };
       },
 
       methods: {
-    	  
+
     	  /**
     	   * @param ctrlCode 操作码
     	   */
@@ -189,8 +198,8 @@ define(['./custom/widgets/js/OrgDistribution.js'
     		  _self.viewType = viewType;
     		  _self.updateButtons[0].hidden = !editable;
     		  _self.updateButtons[1].hidden = !editable;
-    		  _self.updateButtons[2].hidden =  editable;
-    		  
+    		  _self.updateButtons[2].hidden = editable;
+
     		  _self.formDisabled = !editable;
     		  _self.dialogVisible = true;
     	  },
@@ -208,73 +217,73 @@ define(['./custom/widgets/js/OrgDistribution.js'
 		  // setOrgFn: function() {
     	  // 	  var _self = this;
     	  // 	  _self.orgDialogVisible = true;
-			//   if (_self.$refs.reftable.selections.length != 1) {
-			// 	  _self.$message({message: '请先选择一条记录', type: 'warning'});
-			// 	  return
-			//   }
-			//   _self.orgData = [];
-			//   yufp.service.request({
-			// 	  method: 'POST',
-			// 	  url: backend.consoleService + '/api/s/orgs',
-			// 	  data: {},
-			// 	  callback: function (code, message, response) {
-			// 		  if (code == 0 && response.code == '0') {
-			// 			  for (var i = 0; i < response.rows.length; i++) {
-			// 				  _self.orgData.push({
-			// 					  key: response.rows[i].orgCode,
-			// 					  label: response.rows[i].orgName
-			// 				  })
-			// 			  }
-			// 		  } else {
-			// 			  _self.$message('获取待分配机构失败');
-			// 		  }
-			// 	  }
-			//   });
-			//   var roleCode = _self.$refs.reftable.selections[0].roleCode;
-			//   _self.setOrg = [];
-			//   yufp.service.request({
-			// 	  method: 'GET',
-			// 	  url: backend.consoleService + '/api/sRole/org/' + roleCode + '?timestamp='+ new Date().getTime(),
-			// 	  /**
-			// 	   * url加时间戳，是为了避免AJAX
-			// 	   * GET请求加载的是缓存数据
-			// 	   */
-			// 	  data: {},
-			// 	  callback: function (code, message, response) {
-			// 		  if (code == 0 && response.code == '0') {
-			// 			  for (var i = 0; i < response.rows.length; i++) {
-			// 				  _self.setOrg.push(response.rows[i].orgCode);
-			// 			  }
-			// 		  } else {
-			// 			  this.$message('获取已分配机构失败');
-			// 		  }
-			// 	  }
-			//   });
+        //   if (_self.$refs.reftable.selections.length != 1) {
+        // 	  _self.$message({message: '请先选择一条记录', type: 'warning'});
+        // 	  return
+        //   }
+        //   _self.orgData = [];
+        //   yufp.service.request({
+        // 	  method: 'POST',
+        // 	  url: backend.consoleService + '/api/s/orgs',
+        // 	  data: {},
+        // 	  callback: function (code, message, response) {
+        // 		  if (code == 0 && response.code == '0') {
+        // 			  for (var i = 0; i < response.rows.length; i++) {
+        // 				  _self.orgData.push({
+        // 					  key: response.rows[i].orgCode,
+        // 					  label: response.rows[i].orgName
+        // 				  })
+        // 			  }
+        // 		  } else {
+        // 			  _self.$message('获取待分配机构失败');
+        // 		  }
+        // 	  }
+        //   });
+        //   var roleCode = _self.$refs.reftable.selections[0].roleCode;
+        //   _self.setOrg = [];
+        //   yufp.service.request({
+        // 	  method: 'GET',
+        // 	  url: backend.consoleService + '/api/sRole/org/' + roleCode + '?timestamp='+ new Date().getTime(),
+        // 	  /**
+        // 	   * url加时间戳，是为了避免AJAX
+        // 	   * GET请求加载的是缓存数据
+        // 	   */
+        // 	  data: {},
+        // 	  callback: function (code, message, response) {
+        // 		  if (code == 0 && response.code == '0') {
+        // 			  for (var i = 0; i < response.rows.length; i++) {
+        // 				  _self.setOrg.push(response.rows[i].orgCode);
+        // 			  }
+        // 		  } else {
+        // 			  this.$message('获取已分配机构失败');
+        // 		  }
+        // 	  }
+        //   });
 		  //
 		  // },
 		  // sendRoleFn: function(){
-			//   var _self = this;
-			//   var obj = this.$refs.reftable.selections[0];
-			//   yufp.service.request({
-			// 	  method: 'POST',
-			// 	  url: backend.consoleService + '/api/sRole/orgs',
-			// 	  data: {
-			// 		  roleCode: obj.roleCode,
-			// 		  orgcodeList: _self.setOrg
-			// 	  },
-			// 	  callback: function (code, message, response) {
-			// 		  if (code == 0 && response.code == '0') {
-			// 			  _self.$message('操作成功');
-			// 			  _self.orgDialogVisible = false;
-			// 		  } else {
-			// 			  _self.$message('操作失败');
-			// 		  }
-			// 	  }
-			//   })
+        //   var _self = this;
+        //   var obj = this.$refs.reftable.selections[0];
+        //   yufp.service.request({
+        // 	  method: 'POST',
+        // 	  url: backend.consoleService + '/api/sRole/orgs',
+        // 	  data: {
+        // 		  roleCode: obj.roleCode,
+        // 		  orgcodeList: _self.setOrg
+        // 	  },
+        // 	  callback: function (code, message, response) {
+        // 		  if (code == 0 && response.code == '0') {
+        // 			  _self.$message('操作成功');
+        // 			  _self.orgDialogVisible = false;
+        // 		  } else {
+        // 			  _self.$message('操作失败');
+        // 		  }
+        // 	  }
+        //   })
 		  // },
 		  // cancleSendRoleFn: function(){
-			//   var _self = this;
-			//   _self.orgDialogVisible = false;
+        //   var _self = this;
+        //   _self.orgDialogVisible = false;
 		  // },
 
     	  addFn: function () {
@@ -318,11 +327,11 @@ define(['./custom/widgets/js/OrgDistribution.js'
     			  this.$message({ message: '请先选择一条记录', type: 'warning' });
     			  return;
     		  }
-        this.dialogVisibleView = true;
+          this.dialogVisibleView = true;
           this.dialogVisible = false;
           _self.baseParamsView = {
 						 roleCode: _self.$refs.reftable.selections[0].roleCode
-        };
+          };
 
     		  this.$nextTick(function () {
             _self.$refs.viewReftable.remoteData(_self.baseParamsView);// 异步传输
@@ -337,7 +346,7 @@ define(['./custom/widgets/js/OrgDistribution.js'
     			  return;
     		  }
 			  var obj = _self.$refs.reftable.selections[0];
-			  _self.$confirm('是否删除角色【' + obj.roleName +'】？', '提示', {type: 'warning'}).then(function () {
+			  _self.$confirm('是否删除角色【' + obj.roleName + '】？', '提示', {type: 'warning'}).then(function () {
     			  // var len = selections.length, arr = [];
     			  // for (var i = 0; i < len; i++) {
     				//   arr.push(selections[i].roleCode);
@@ -351,8 +360,8 @@ define(['./custom/widgets/js/OrgDistribution.js'
     				  callback: function (code, message, response) {
     					  if (code == 0 && response) {
     						  if (response.rows > 0) {
-								  _self.$message({ message: '角色【' + obj.roleName +'】与用户存在关联关系，无法删除！', type: 'warning' });
-    							  /**_self.$confirm('角色【' + obj.roleName +'】与用户存在关联关系，是否解除关联关系？', '提示').then(function () {
+								  _self.$message({ message: '角色【' + obj.roleName + '】与用户存在关联关系，无法删除！', type: 'warning' });
+    							  /** _self.$confirm('角色【' + obj.roleName +'】与用户存在关联关系，是否解除关联关系？', '提示').then(function () {
 									  _self.confirmDelteFn(obj.roleCode);
 								  }).catch(function () {
 									  _self.$message('角色【' + obj.roleName +'】与用户存在关联关系，无法进行删除操作！');

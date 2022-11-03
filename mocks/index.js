@@ -60,7 +60,9 @@ function (require, exports) {
     { url: '/trade/api/demo/list', method: 'POST', fn: demo.getList},
     { url: '/trade/api/demo/save', method: 'POST', fn: demo.save},
     { url: '/trade/api/demo/info', method: 'GET', fn: demo.info},
-    { url: '/trade/api/demo/delete', method: 'DELETE', fn: demo.delete}
+    { url: '/trade/api/demo/delete', method: 'DELETE', fn: demo.delete},
+
+    { url: backend.ocaService + '/api/adminsmcrelstra/getall', method: 'GET', fn: demo.getallFn}
 
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}

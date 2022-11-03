@@ -1,0 +1,18 @@
+<!--
+	@create by huangjinlin
+	@update by 
+	@description 策略管理
+-->
+<div>
+    <panel title="系统参数" ></panel>
+    <el-form-q :field-data="queryFields" :buttons="queryButtons"></el-form-q>
+     <div class="yu-toolBar">
+        <el-button-group>
+          <el-button icon="plus" @click="deleteFn"  >新增</el-button> 
+          <el-button icon="edit" @click="deleteFn"> 删除</el-button>
+          <el-button icon="document" @click="deleteFn"  >redisc缓存属性</el-button>
+        </el-button-group>
+    </div>
+    <el-table-x ref="reftable" :row-index="true" :radiobox="false" :base-params="baseParams"
+    :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'"></el-table-x>
+</div>

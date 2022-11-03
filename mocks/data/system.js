@@ -106,7 +106,7 @@ function (require, exports) {
       'upMenuId': 'lp-92000',
       'menuIcon': '',
       'funcId': 'SPrdOrgPageInfo',
-      'funcUrl': 'pages/console/prd/SPrdOrgPageInfo',
+      'funcUrl': 'pages/console/system/SPrdOrgPageInfo',
       'legalOrgCode': null
     },
     {
@@ -128,15 +128,6 @@ function (require, exports) {
       'legalOrgCode': null
     },
 
-    {
-      'menuId': 'lp-79901',
-      'menuName': '用户日志',
-      'upMenuId': null,
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'SUserOperLog',
-      'funcUrl': 'pages/console/SUserOperLog',
-      'legalOrgCode': null
-    },
     // {
     //   'menuId': 'lp-141000',
     //   'menuName': '机构撤并管理',
@@ -208,7 +199,7 @@ function (require, exports) {
       'upMenuId': 'lp-94000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'SUserOperLog',
-      'funcUrl': 'pages/console/SUserOperLog',
+      'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
     }
   ];

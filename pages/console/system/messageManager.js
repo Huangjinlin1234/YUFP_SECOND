@@ -5,7 +5,6 @@
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
   './custom/widgets/js/panel.js'
-
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {

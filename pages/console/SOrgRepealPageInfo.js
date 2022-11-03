@@ -2,7 +2,9 @@
  * @create by xieziwei on 2020-09-25
  * @description 机构撤并申请表
  */
-define(function (require, exports) {
+define([
+  './custom/widgets/js/panel.js'
+], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
     yufp.lookup.reg('JGCB_DEAL_STATUS,JGCB_DEAL_RESULT');

@@ -14,7 +14,7 @@ define([
       data: function () {
         var _self = this;
         return {
-          	dataUrl: backend.consoleService + '/api/s/orgs',
+    	  dataUrl: backend.consoleService + '/api/s/orgs',
           baseParams: {
           },
           queryFields: [

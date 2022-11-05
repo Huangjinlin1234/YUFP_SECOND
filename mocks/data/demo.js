@@ -7,29 +7,29 @@ define([
 ],
 function (require, exports) {
   var List = [];
-  var count = 55;
+  var count = 10;
 
   Mock.Random.increment(100);
   for (var i = 0; i < count; i++) {
     List.push(Mock.mock({
       id: '@increment(2)',
-      name: '@cname',
-      orgId: '100',
+      propName: '@cname',
+      propValue: '100',
       'gender|1': ['01', '02'],
       'education|1': ['0', '1', '2', '3', '4'],
       'cardType|1': ['1', '2', '3', '4'],
       barthday: '@date',
       cardNo: '@id(18)',
       company: '@cname',
-      company: '@ctitle(5, 18)',
+      message: '@ctitle(5, 18)',
       email: '@email',
       mount: '10000000.00',
-      obligate1: '@ctitle(5, 18)',
+      messageId: '@ctitle(5, 18)',
       obligate2: '@ctitle(5, 18)',
       obligate3: '@ctitle(5, 18)',
       obligate4: '@ctitle(5, 18)',
       obligate5: '@ctitle(5, 18)',
-      obligate6: '@ctitle(5, 18)',
+      messageLevel: '@ctitle(5, 18)',
       obligate7: '@ctitle(5, 18)',
       obligate8: '@ctitle(5, 18)',
       obligate21: '@ctitle(5, 18)',
@@ -173,7 +173,7 @@ function (require, exports) {
       'total': 0,
       'message': null,
       'level': 'info',
-      'data': [ {
+      'rows': [ {
         'crelId': '1',
         'sysId': 'dscms',
         'crelKey': 'LOGIN_PASSWORD_COMPEL_CHANGE',
@@ -184,78 +184,6 @@ function (require, exports) {
         'actionType': '4',
         'lastChgUsr': 'admin',
         'lastChgDt': '2022-11-03 11:47:42',
-        'sysDefault': 0
-      }, {
-        'crelId': '107de7a9a62f4665ab1d34ec9f33e814',
-        'sysId': 'dscms',
-        'crelKey': 'LOGIN_SINGLE_AGENT_A',
-        'crelName': '渠道互斥策略',
-        'enableFlag': '1',
-        'crelDetail': '',
-        'crelDescribe': '同一用户只能在一个终端登录',
-        'actionType': '4',
-        'lastChgUsr': 'admin',
-        'lastChgDt': '2022-11-03 11:47:57',
-        'sysDefault': 0
-      }, {
-        'crelId': '1505d47c2f93404cb6832eb6d640f929',
-        'sysId': 'dscms',
-        'crelKey': 'LOGIN_PASSWORD_WRONG',
-        'crelName': '口令错误策略',
-        'enableFlag': '1',
-        'crelDetail': '5',
-        'crelDescribe': '密码连续输入错误5次，需等1个小时后再重新登录',
-        'actionType': '1',
-        'lastChgUsr': 'admin',
-        'lastChgDt': '2022-11-03 11:08:56',
-        'sysDefault': 0
-      }, {
-        'crelId': '2',
-        'sysId': 'dscms',
-        'crelKey': 'LOGIN_IP_CHECK_A',
-        'crelName': '登录ip保存策略',
-        'enableFlag': '1',
-        'crelDetail': '',
-        'crelDescribe': '登录ip保存',
-        'actionType': '2',
-        'lastChgUsr': 'admin',
-        'lastChgDt': '2021-12-11 23:14:50',
-        'sysDefault': 0
-      }, {
-        'crelId': '34404cd4c4a94d059f831b253770df2f',
-        'sysId': 'dscms',
-        'crelKey': 'PASSWD_LENGTH_RULE',
-        'crelName': '口令长度策略',
-        'enableFlag': '2',
-        'crelDetail': '8',
-        'crelDescribe': '密码长度必须不小于8位，不大于24位',
-        'actionType': '2',
-        'lastChgUsr': 'admin',
-        'lastChgDt': '2021-12-27 16:56:11',
-        'sysDefault': 0
-      }, {
-        'crelId': '5a8f2c44a9c94b26adb6b9bbabcb1a9e',
-        'sysId': 'dscms',
-        'crelKey': 'PASSWD_COMPLEX_RULE',
-        'crelName': '口令复杂度策略',
-        'enableFlag': '2',
-        'crelDetail': 'number,uppercase,lowercase',
-        'crelDescribe': '密码中至少有指定的一个字符',
-        'actionType': '2',
-        'lastChgUsr': 'admin',
-        'lastChgDt': '2021-12-27 16:56:12',
-        'sysDefault': 0
-      }, {
-        'crelId': 'b90c1dcd624949cca78e7cae12707468',
-        'sysId': 'dscms',
-        'crelKey': 'LOGIN_TIMES_B',
-        'crelName': '登录时间段策略',
-        'enableFlag': '2',
-        'crelDetail': '08:00,09:00',
-        'crelDescribe': '在规定的时间内登录',
-        'actionType': '2',
-        'lastChgUsr': '40',
-        'lastChgDt': '2021-05-21 15:16:17',
         'sysDefault': 0
       }, {
         'crelId': 'f84e9f8869c04d5390e8233dbe43bde6',
@@ -275,5 +203,47 @@ function (require, exports) {
     };
 
     return stencisets;
+  };
+  exports.lookupListFn = function () {
+    var lookupList = {
+      'code': '0',
+      'total': 0,
+      'message': null,
+      'level': 'info',
+      'rows': [{
+        id: '12987122',
+        name: '好滋好味鸡蛋仔',
+        category: '江浙小吃、小吃零食',
+        desc: '荷兰优质淡奶，奶香浓而不腻',
+        address: '上海市普陀区真北路',
+        shop: '王小虎夫妻店',
+        shopId: '10333'
+      }, {
+        id: '12987126',
+        name: '好滋好味鸡蛋仔',
+        category: '江浙小吃、小吃零食',
+        desc: '荷兰优质淡奶，奶香浓而不腻',
+        address: '上海市普陀区真北路',
+        shop: '王小虎夫妻店',
+        shopId: '10333'
+      }],
+      'i18nData': null,
+      'extData': null
+    };
+
+    return lookupList;
+  };
+  exports.queryAllFn = function () {
+    var lookupList = {
+      'code': '0',
+      'total': List.length,
+      'message': null,
+      'level': 'info',
+      'rows': List,
+      'i18nData': null,
+      'extData': null
+    };
+
+    return lookupList;
   };
 });

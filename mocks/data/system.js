@@ -127,16 +127,6 @@ function (require, exports) {
       'funcUrl': 'pages/console/system/logicSysManager',
       'legalOrgCode': null
     },
-
-    // {
-    //   'menuId': 'lp-141000',
-    //   'menuName': '机构撤并管理',
-    //   'upMenuId': null,
-    //   'menuIcon': 'el-icon-yx-books',
-    //   'funcId': 'SOrgRepealPageInfo',
-    //   'funcUrl': 'pages/console/SOrgRepealPageInfo',
-    //   'legalOrgCode': null
-    // },
     {
       'menuId': 'lp-90000',
       'menuName': '系统管理',
@@ -235,6 +225,7 @@ function (require, exports) {
       returnObj.code = '-1';
       returnObj.message = '系统错误，请联系系统管理员!';
     }
+    console.log(returnObj, 'returnObj');
     return returnObj;
   };
 

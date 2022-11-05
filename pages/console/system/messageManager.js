@@ -35,26 +35,21 @@ define([
           updateFields: [{
             columnCount: 1,
             fields: [
-              { field: 'propName',
+              { field: 'messageId',
                 label: '信息码',
                 rules: [
                   { required: true, message: '必填项', trigger: 'blur' }
                 ]},
-              { field: 'propValue',
+              { field: 'messageLevel',
                 label: '信息级别',
-                rules: [
-                  { required: true, message: '必填项', trigger: 'blur' }
-                ]},
-              { field: 'remark',
+                rules: [ { required: true, message: '必填项', trigger: 'blur' } ]},
+              { field: 'messageType',
                 label: '消息类别',
-                rules: [
-                  { required: false, trigger: 'blur' }
-                ]},
-              { field: 'remark',
+                rules: [ { required: false, trigger: 'blur' } ]},
+              { field: 'funcName',
                 label: '所属模块名称',
-                rules: [
-                  { required: false, trigger: 'blur' }
-                ]}]
+                rules: [ { required: false, trigger: 'blur' } ]}
+            ]
           } ],
           tableColumns: [
             { label: '信息码', prop: 'messageId' },

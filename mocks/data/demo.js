@@ -7,14 +7,14 @@ define([
 ],
 function (require, exports) {
   var List = [];
-  var count = 10;
+  var count = 5;
 
   Mock.Random.increment(100);
   for (var i = 0; i < count; i++) {
     List.push(Mock.mock({
       id: '@increment(2)',
       propName: '@cname',
-      propValue: '100',
+      propValue: '@id(5)',
       'gender|1': ['01', '02'],
       'education|1': ['0', '1', '2', '3', '4'],
       'cardType|1': ['1', '2', '3', '4'],

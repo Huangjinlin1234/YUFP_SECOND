@@ -23,7 +23,7 @@
     </yu-xtable-column>
   </yu-xtable>
   <yu-xdialog class="edit-sys-prop-dialog" :title="viewTitle[viewType]" @close="close" :visible.sync="isShowEditSysPropDialog" :center="true" :close-on-click-modal="false" size="tiny">
-    <yu-xform-x ref="reform" :group-fields="updateFields" label-width="80px"></yu-xform-x>
+    <yu-xform-x ref="reform" label-suffix="：" :group-fields="updateFields" label-width="125px"></yu-xform-x>
     <div slot="footer" class="yu-grpButton">
       <yu-button type="primary" @click="saveSysProp"> 保存</yu-button>
       <yu-button @click="closeFn">取消</yu-button>

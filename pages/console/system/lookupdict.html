@@ -5,7 +5,7 @@
 -->
 <div>
   <panel title="数据字典配置"></panel>
-  <el-form-q :field-data="queryFields" :buttons="queryButtons"></el-form-q>
+  <el-form-q :field-data="queryFields" label-suffix="：" :buttons="queryButtons"></el-form-q>
   <div class="yu-toolBar">
     <el-button-group>
       <el-button icon="plus" @click="addFn">新增</el-button>
@@ -35,7 +35,7 @@
   </yu-xtable>
   <yu-xdialog ref="editLookupItemsDialog" class="edit-lookup-items-dialog" :center="true" :title="viewType==='UPDATE'?'修改':'新增'" :visible.sync="isShowEditLookupItemsDialog" size="small"
     height="360px">
-    <yu-xform ref="editLookupForm" v-model="editLookupFormData" label-width="120px" :rules="editLookupFormRules">
+    <yu-xform ref="editLookupForm" label-suffix="：" v-model="editLookupFormData" label-width="120px" :rules="editLookupFormRules">
       <yu-xform-group :column="1">
         <yu-xform-item name="lookupName" label="字典名称"></yu-xform-item>
       </yu-xform-group>

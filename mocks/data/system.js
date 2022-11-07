@@ -269,8 +269,8 @@ function (require, exports) {
       'menuName': '定期检查',
       'upMenuId': 'lp-82000',
       'menuIcon': '',
-      'funcId': null,
-      'funcUrl': null,
+      'funcId': 'regularCheck',
+      'funcUrl': 'pages/postLoanCheck/regularCheck/regularCheck',
       'legalOrgCode': null
     },
     {

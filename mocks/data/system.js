@@ -260,8 +260,8 @@ function (require, exports) {
       'menuName': '首次检查',
       'upMenuId': 'lp-82000',
       'menuIcon': '',
-      'funcId': null,
-      'funcUrl': null,
+      'funcId': 'firstCheck',
+      'funcUrl': 'pages/postLoanCheck/firstCheck/firstCheck',
       'legalOrgCode': null
     },
     {

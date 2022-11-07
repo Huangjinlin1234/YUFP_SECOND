@@ -1,0 +1,66 @@
+<!--
+	@create by huangjinlin
+	@update by 
+	@description 数据字典配置
+-->
+<div>
+  <panel title="数据字典配置"></panel>
+  <el-form-q :field-data="queryFields" label-suffix="：" :buttons="queryButtons"></el-form-q>
+  <div class="yu-toolBar">
+    <el-button-group>
+      <el-button icon="plus" @click="addFn">新增</el-button>
+      <el-button icon="edit" @click="deleteFn"> 删除</el-button>
+      <el-button icon="document" @click="deleteFn">redisc缓存属性</el-button>
+    </el-button-group>
+  </div>
+  <yu-xtable ref="reftable" style="width: 100%" :data-url="dataUrl" json-data="rows" @expand="expandFn">
+    <yu-xtable-column type="expand">
+      <template scope="scope">
+        <span>{{scope.row}}</span>
+      </template>
+    </yu-xtable-column>
+    <yu-xtable-column label="商品 ID" prop="id">
+    </yu-xtable-column>
+    <yu-xtable-column label="商品名称" prop="name">
+    </yu-xtable-column>
+    <yu-xtable-column label="描述" prop="desc">
+    </yu-xtable-column>
+    <yu-xtable-column label="操作" prop="desc">
+      <template scope="scope">
+        <yu-button type="text" @click="deleteLookupItem(scope)">新增字典项</yu-button>
+        <yu-button type="text" @click="deleteLookupItem(scope)">修改</yu-button>
+        <yu-button type="text" @click="deleteLookupItem(scope)">删除</yu-button>
+      </template>
+    </yu-xtable-column>
+  </yu-xtable>
+  <yu-xdialog ref="editLookupItemsDialog" class="edit-lookup-items-dialog" :center="true" :title="viewType==='UPDATE'?'修改':'新增'" :visible.sync="isShowEditLookupItemsDialog" size="small"
+    height="360px">
+    <yu-xform ref="editLookupForm" label-suffix="：" v-model="editLookupFormData" label-width="120px" :rules="editLookupFormRules">
+      <yu-xform-group :column="1">
+        <yu-xform-item name="lookupName" label="字典名称"></yu-xform-item>
+      </yu-xform-group>
+      <yu-xform-group :column="2">
+        <yu-xform-item name="lookupCode" label="字典代码" :disabled="viewType === 'UPDATE'"></yu-xform-item>
+        <yu-xform-item name="lookupTypeId" label="字典分类" ctype="select" :options="lookupTypeOptions"></yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <div class="btn-box">
+      <yu-button @click="pushLookupItem">新增字典项</yu-button>
+    </div>
+    <yu-xtable ref="editLookupItemTable" row-number :data="currentLookupItems" :pageable="false" :rules="lookupItemRule">
+      <yu-xtable-column prop="lookupItemCode" ctype="input" autofocus label="key"></yu-xtable-column>
+      <yu-xtable-column prop="lookupItemName" ctype="input" label="value"></yu-xtable-column>
+      <yu-xtable-column class="handle-box" label="操作" width="180px">
+        <template scope="scope">
+          <yu-button type="text" @click="deleteLookupItem(scope)" :disabled="currentLookupItems.length === 1">删除</yu-button>
+          <yu-button type="text" v-if="scope.$index != 0" @click="moveUp(scope.$index)">上移</yu-button>
+          <yu-button type="text" v-if="scope.$index < currentLookupItems.length - 1" @click="moveDown(scope.$index)">下移</yu-button>
+        </template>
+      </yu-xtable-column>
+    </yu-xtable>
+    <div slot="footer" class="yu-grpButton">
+      <yu-button @click="closeEditLookupItemsDialog">取消</yu-button>
+      <yu-button type="primary" @click="addLookupItems"> 保存</yu-button>
+    </div>
+  </yu-xdialog>
+</div>

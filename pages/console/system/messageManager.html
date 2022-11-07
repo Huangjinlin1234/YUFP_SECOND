@@ -1,0 +1,32 @@
+<!--
+	@create by huangjinlin
+	@update by 
+	@description 系统参数
+-->
+<div>
+  <panel title="系统提示消息管理"></panel>
+  <el-form-q :field-data="queryFields" :buttons="queryButtons"></el-form-q>
+  <div class="yu-toolBar">
+    <el-button-group>
+      <el-button icon="plus" @click="addFn">新增</el-button>
+    </el-button-group>
+  </div>
+  <yu-xtable row-number :data-url="dataUrl" json-data="rows">
+    <yu-xtable-column v-for="(item,index) in tableColumns" :key="index" :prop="item.prop" :label="item.label">
+    </yu-xtable-column>
+
+    <yu-xtable-column label="操作">
+      <template scope="scope">
+        <yu-button type="text" @click="editFn(scope.row)">修改</yu-button>
+        <yu-button type="text" @click="deleteFn">删除</yu-button>
+      </template>
+    </yu-xtable-column>
+  </yu-xtable>
+  <yu-xdialog class="edit-sys-prop-dialog" :title="viewTitle[viewType]" @close="close" :visible.sync="isShowEditSysPropDialog" :center="true" :close-on-click-modal="false" size="tiny">
+    <yu-xform-x ref="reform" :group-fields="updateFields" label-suffix="：" label-width="120px"></yu-xform-x>
+    <div slot="footer" class="yu-grpButton">
+      <yu-button type="primary" @click="saveSysProp"> 保存</yu-button>
+      <yu-button @click="closeFn">取消</yu-button>
+    </div>
+  </yu-xdialog>
+</div>

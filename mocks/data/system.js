@@ -96,7 +96,7 @@ function (require, exports) {
       'menuName': '资源定义',
       'upMenuId': 'lp-92000',
       'menuIcon': '',
-      'funcId': 'resource',
+      'funcId': 'SResourcePageInfo',
       'funcUrl': 'pages/console/system/SResourcePageInfo',
       'legalOrgCode': null
     },
@@ -105,7 +105,7 @@ function (require, exports) {
       'menuName': '资源权限',
       'upMenuId': 'lp-92000',
       'menuIcon': '',
-      'funcId': 'SResourcePageInfo',
+      'funcId': 'SRoleRescRulePageInfo',
       'funcUrl': 'pages/console/system/SRoleRescRulePageInfo',
       'legalOrgCode': null
     },
@@ -132,7 +132,7 @@ function (require, exports) {
       'menuName': '策略管理',
       'upMenuId': 'lp-92000',
       'menuIcon': '',
-      'funcId': 'methodManage',
+      'funcId': 'logicSysManager',
       'funcUrl': 'pages/console/system/logicSysManager',
       'legalOrgCode': null
     },
@@ -336,6 +336,34 @@ function (require, exports) {
       'funcUrl': null,
       'legalOrgCode': null
     },
+    // 一级菜单 模板
+    {
+      'menuId': 'lp-080000',
+      'menuName': '模板',
+      'upMenuId': '',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080001',
+      'menuName': '模板一',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'treeForm',
+      'funcUrl': 'pages/console/demo/treeForm',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080002',
+      'menuName': '模板二',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'tabTemplate',
+      'funcUrl': 'pages/console/demo/tabTemplate',
+      'legalOrgCode': null
+    }
   ];
     /**
      * POST请求BODY参数转换

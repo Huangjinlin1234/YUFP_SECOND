@@ -12,7 +12,7 @@
     </el-button-group>
   </div>
 
-  <el-table-x ref="reftable" :radiobox="false" :base-params="baseParams" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'POST'">
+  <el-table-x ref="reftable" :radiobox="false" :base-params="baseParams" :data-url="dataUrl" :table-columns="tableColumns" request-type="GET">
   </el-table-x>
 
   <el-dialog-x :title="viewTitle[viewType]" :visible.sync="dialogVisible" size="large">

@@ -64,7 +64,8 @@ function (require, exports) {
 
     { url: backend.ocaService + '/api/adminsmcrelstra/getall', method: 'GET', fn: demo.getallFn},
     { url: backend.ocaService + '/api/adminsmlookupdict/list', method: 'GET', fn: demo.lookupListFn},
-    { url: backend.ocaService + '/api/adminSmProp/queryAll', method: 'GET', fn: demo.queryAllFn}
+    { url: backend.ocaService + '/api/adminSmProp/queryAll', method: 'GET', fn: demo.queryAllFn},
+    { url: backend.consoleService + '/api/user/oper/logs', method: 'GET', fn: demo.queryLogFn}
 
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}

@@ -9,11 +9,12 @@
  */
 (function (vue, $, name) {
   vue.component(name, {
-    template: '<div class="panel-class">\
-        <div >\
-         <b>{{title}}</b> \
-            <slot></slot>\
+    template: '<div >\
+        <div class="panel-class" >\
+            <b  class="left">{{title}}</b> \
+            <slot name="right"></slot>\
         </div>\
+         <slot></slot>\
         </div>',
     props: {
       // 下述字段为el-input组件中部分属性，配置文档参见element-ui
@@ -21,6 +22,7 @@
         type: String,
         default: '机构'
       }
+
     },
 
     data: function () {

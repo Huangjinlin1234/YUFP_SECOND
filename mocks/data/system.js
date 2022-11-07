@@ -36,6 +36,15 @@ function (require, exports) {
       'funcUrl': 'pages/common/dashboard/dashboard',
       'legalOrgCode': null
     },
+    {
+      'menuId': 'lp-90000',
+      'menuName': '系统管理',
+      'upMenuId': '',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
     // 二级菜单 组织管理
     {
       'menuId': 'lp-92000',
@@ -44,15 +53,6 @@ function (require, exports) {
       'menuIcon': 'el-icon-yx-books',
       'funcId': null,
       'funcUrl': null,
-      'legalOrgCode': null
-    },
-    {
-      'menuId': 'lp-92020',
-      'menuName': '机构管理',
-      'upMenuId': 'lp-92000',
-      'menuIcon': '',
-      'funcId': 'sOrgPageInfo',
-      'funcUrl': 'pages/console/system/SOrgPageInfo',
       'legalOrgCode': null
     },
     {
@@ -65,12 +65,12 @@ function (require, exports) {
       'legalOrgCode': null
     },
     {
-      'menuId': 'lp-92050',
-      'menuName': '角色管理',
+      'menuId': 'lp-92020',
+      'menuName': '机构管理',
       'upMenuId': 'lp-92000',
-      'menuIcon': 'el-icon-yx-command',
-      'funcId': 'SRolePageInfo',
-      'funcUrl': 'pages/console/system/SRolePageInfo',
+      'menuIcon': '',
+      'funcId': 'sOrgPageInfo',
+      'funcUrl': 'pages/console/system/SOrgPageInfo',
       'legalOrgCode': null
     },
     {
@@ -80,6 +80,15 @@ function (require, exports) {
       'menuIcon': '',
       'funcId': 'sDutyPageInfo',
       'funcUrl': 'pages/console/system/sDutyPageInfo',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-92050',
+      'menuName': '角色管理',
+      'upMenuId': 'lp-92000',
+      'menuIcon': 'el-icon-yx-command',
+      'funcId': 'SRolePageInfo',
+      'funcUrl': 'pages/console/system/SRolePageInfo',
       'legalOrgCode': null
     },
     {
@@ -127,15 +136,6 @@ function (require, exports) {
       'funcUrl': 'pages/console/system/logicSysManager',
       'legalOrgCode': null
     },
-    {
-      'menuId': 'lp-90000',
-      'menuName': '系统管理',
-      'upMenuId': '',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': null,
-      'funcUrl': null,
-      'legalOrgCode': null
-    },
     // 二级功能 参数管理
     {
       'menuId': 'lp-93000',
@@ -181,6 +181,15 @@ function (require, exports) {
       'menuIcon': 'el-icon-yx-books',
       'funcId': null,
       'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-94010',
+      'menuName': '日志管理',
+      'upMenuId': 'lp-94000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'SUserOperLog',
+      'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
     },
     {
@@ -325,14 +334,8 @@ function (require, exports) {
       'menuIcon': 'el-icon-yx-books',
       'funcId': null,
       'funcUrl': null,
-      'menuId': 'lp-94010',
-      'menuName': '日志管理',
-      'upMenuId': 'lp-94000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'SUserOperLog',
-      'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
-    }
+    },
   ];
     /**
      * POST请求BODY参数转换

@@ -39,7 +39,6 @@ define(function (require, exports) {
       },
       methods: {
         identified () {
-          console.log('123121313');
           yufp.router.to('fiveType', {}, 'yu-idxTabBox');
         },
         view () {

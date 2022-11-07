@@ -8,6 +8,8 @@
     <el-col :span="3">
       <el-tree
       :data="data"
+      node-key="id"
+      :current-node-key="2"
       :props="defaultProps"
       :highlight-current="true"
       :default-expand-all="true"

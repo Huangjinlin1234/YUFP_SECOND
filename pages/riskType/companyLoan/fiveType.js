@@ -11,12 +11,16 @@
       data: function () {
         return {
           data: [{
+            id: 1,
             label: '五级分类认定',
             children: [{
+              id: 2,
               label: '任务基本信息'
             },{
+              id: 3,
               label: '五级分类认定'
             },{
+              id: 4,
               label: '影像资料'
             }]
           }],
@@ -26,16 +30,19 @@
           }
         };
       },
+      created() {
+        this.handleNodeClick(2);
+      },
       methods: {
         handleNodeClick(data) {
-          switch (data.label) {
-            case '任务基本信息': yufp.router.to('basicInfo', {}, 'info'); break;
-            case '五级分类认定': yufp.router.to('fiveTypeIdtf', {}, 'info'); break;
-            default: yufp.router.to('basicInfo', {}, 'info'); break;
+          switch (data.id) {
+            case 2: yufp.router.to('basicInfo', {}, 'info'); break;
+            case 3: yufp.router.to('fiveTypeIdtf', {}, 'info'); break;
+            default: yufp.router.to('basicInfo', {}, 'info');
           }
         },
         back() {
-          yufp.router.to('fiveType', {}, 'yu-idxTabBox');
+          yufp.router.to('companyLoan', {}, 'yu-idxTabBox');
         }
       }
     });

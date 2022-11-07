@@ -10,20 +10,28 @@ define(function (require) {
             js: 'pages/demo/demoOne.js'
         },
         fiveType: {
-            html: 'pages/postLoanMgt/companyLoan/fiveType.html',
-            js: 'pages/postLoanMgt/companyLoan/fiveType.js'
+            html: 'pages/riskType/companyLoan/fiveType.html',
+            js: 'pages/riskType/companyLoan/fiveType.js'
         },
         basicInfo: {
-            html: 'pages/postLoanMgt/companyLoan/basicInfo.html',
-            js: 'pages/postLoanMgt/companyLoan/basicInfo.js'
+            html: 'pages/riskType/companyLoan/basicInfo.html',
+            js: 'pages/riskType/companyLoan/basicInfo.js'
         },
         fiveTypeIdtf: {
-            html: 'pages/postLoanMgt/companyLoan/fiveTypeIdtf.html',
-            js: 'pages/postLoanMgt/companyLoan/fiveTypeIdtf.js'
+            html: 'pages/riskType/companyLoan/fiveTypeIdtf.html',
+            js: 'pages/riskType/companyLoan/fiveTypeIdtf.js'
         },
         addPage: {
-            html: 'pages/postLoanMgt/riskAdjust/addPage.html',
-            js: 'pages/postLoanMgt/riskAdjust/addPage.js'
+            html: 'pages/riskType/riskAdjust/addPage.html',
+            js: 'pages/riskType/riskAdjust/addPage.js'
+        },
+        checkPage: {
+            html: 'pages/postLoanCheck/firstCheck/checkPage.html',
+            js: 'pages/postLoanCheck/firstCheck/checkPage.js'
+        },
+        checkInfo: {
+            html: 'pages/postLoanCheck/firstCheck/checkInfo.html',
+            js: 'pages/postLoanCheck/firstCheck/checkInfo.js'
         },
 
     };

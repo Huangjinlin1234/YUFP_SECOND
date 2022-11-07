@@ -14,11 +14,12 @@ function (require, exports) {
     List.push(Mock.mock({
       id: '@increment(2)',
       propName: '@cname',
+      userName: '@cname',
       propValue: '@id(5)',
-      'gender|1': ['01', '02'],
+      'operType|1': ['01', '02'],
       'education|1': ['0', '1', '2', '3', '4'],
       'cardType|1': ['1', '2', '3', '4'],
-      barthday: '@date',
+      createTime: '@date',
       cardNo: '@id(18)',
       company: '@cname',
       message: '@ctitle(5, 18)',
@@ -38,8 +39,8 @@ function (require, exports) {
       obligate24: '@ctitle(5, 18)',
       obligate25: '@ctitle(5, 18)',
       obligate26: '@ctitle(5, 18)',
-      obligate27: '@ctitle(5, 18)',
-      obligate28: '@ctitle(5, 18)'
+      userOrgCode: '999999999',
+      userId: '@ctitle(5, 18)'
     }));
   }
 
@@ -244,6 +245,19 @@ function (require, exports) {
       'extData': null
     };
 
+    return lookupList;
+  };
+  exports.queryLogFn = function () {
+    var lookupList = {
+      'code': '0',
+      'total': List.length,
+      'message': null,
+      'level': 'info',
+      'rows': List,
+      'i18nData': null,
+      'extData': null
+    };
+    console.log(List, 'List');
     return lookupList;
   };
 });

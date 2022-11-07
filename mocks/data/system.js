@@ -136,15 +136,6 @@ function (require, exports) {
       'funcUrl': null,
       'legalOrgCode': null
     },
-    {
-      'menuId': 'lp-80000',
-      'menuName': '贷后管理',
-      'upMenuId': '',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': null,
-      'funcUrl': null,
-      'legalOrgCode': null
-    },
     // 二级功能 参数管理
     {
       'menuId': 'lp-93000',
@@ -156,9 +147,6 @@ function (require, exports) {
       'legalOrgCode': null
     },
     {
-      'menuId': 'lp-81000',
-      'menuName': '风险分类',
-      'upMenuId': 'lp-80000',
       'menuId': 'lp-93010',
       'menuName': '数据字典配置',
       'upMenuId': 'lp-93000',
@@ -193,6 +181,24 @@ function (require, exports) {
       'menuIcon': 'el-icon-yx-books',
       'funcId': null,
       'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-80000',
+      'menuName': '贷后管理',
+      'upMenuId': '',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81000',
+      'menuName': '风险分类',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'lookupdict',
+      'funcUrl': 'pages/console/system/lookupdict',
       'legalOrgCode': null
     },
     {

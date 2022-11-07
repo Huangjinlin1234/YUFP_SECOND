@@ -127,6 +127,150 @@ function (require, exports) {
       'funcId': null,
       'funcUrl': null,
       'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-80000',
+      'menuName': '贷后管理',
+      'upMenuId': '',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81000',
+      'menuName': '风险分类',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81010',
+      'menuName': '个贷风险分类',
+      'upMenuId': 'lp-81000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'personalLoan',
+      'funcUrl': 'pages/postLoanMgt/personalLoan/personalLoan',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81020',
+      'menuName': '对公风险分类',
+      'upMenuId': 'lp-81000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'companyLoan',
+      'funcUrl': 'pages/postLoanMgt/companyLoan/companyLoan',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81030',
+      'menuName': '风险分类调整申请',
+      'upMenuId': 'lp-81000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'riskAdjust',
+      'funcUrl': 'pages/postLoanMgt/riskAdjust/riskAdjust',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81040',
+      'menuName': '风险分类台账',
+      'upMenuId': 'lp-81000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'riskType',
+      'funcUrl': 'pages/postLoanMgt/riskType/riskType',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82000',
+      'menuName': '贷后检查',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82010',
+      'menuName': '首次检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82020',
+      'menuName': '定期检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82030',
+      'menuName': '不定期检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-83000',
+      'menuName': '风险预警',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-84000',
+      'menuName': '贷后催收',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85000',
+      'menuName': '贷款核销',
+      'upMenuId': 'lp-80000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85010',
+      'menuName': '单户核销登记',
+      'upMenuId': 'lp-85000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85020',
+      'menuName': '批量核销登记',
+      'upMenuId': 'lp-85000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85030',
+      'menuName': '已核销资产台账',
+      'upMenuId': 'lp-85000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
     }
   ];
     /**

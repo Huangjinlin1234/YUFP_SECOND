@@ -62,7 +62,11 @@ function (require, exports) {
     { url: '/trade/api/demo/info', method: 'GET', fn: demo.info},
     { url: '/trade/api/demo/delete', method: 'DELETE', fn: demo.delete},
 
-    { url: backend.ocaService + '/api/adminsmcrelstra/getall', method: 'GET', fn: demo.getallFn}
+    { url: backend.ocaService + '/api/adminsmcrelstra/getall', method: 'GET', fn: demo.getallFn},
+    { url: backend.ocaService + '/api/adminsmlookupdict/list', method: 'GET', fn: demo.lookupListFn},
+    { url: backend.ocaService + '/api/adminSmProp/queryAll', method: 'GET', fn: demo.queryAllFn},
+    { url: backend.consoleService + '/api/user/oper/logs', method: 'GET', fn: demo.queryLogFn},
+    { url: backend.consoleService + '/api/s/creditPrp', method: 'GET', fn: demo.queryPrpFn}
 
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}

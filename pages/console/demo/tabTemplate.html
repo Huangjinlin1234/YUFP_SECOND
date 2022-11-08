@@ -1,0 +1,29 @@
+<div>
+  <yu-tabs v-model="activeName">
+    <yu-tab-pane label="合作方案信息" name="first">
+      <panel title="协议基本信息">
+        <div slot="right">
+          <el-button type="primary" @click="viewFn">查看</el-button>
+        </div>
+        <yu-xform ref="refFormDemo" label-width="120px" :disabled="true" v-model="formdata">
+          <yu-xform-group>
+            <yu-xform-item label="操作类型" ctype="input" value="标题" name="title" placeholder="5到25个字符" @focus="change"></yu-xform-item>
+            <yu-xform-item label="类型" ctype="input" name="type"></yu-xform-item>
+            <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+            <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+          </yu-xform-group>
+        </yu-xform>
+      </panel>
+      <panel title="合作方分项/项目额度">
+
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+    </yu-tab-pane>
+    <yu-tab-pane label="资质信息" name="second">
+      <panel title="合作方资质信息列表">
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+    </yu-tab-pane>
+  </yu-tabs>
+  <div></div>
+</div>

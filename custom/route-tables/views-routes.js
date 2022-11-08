@@ -9,6 +9,38 @@ define(function (require) {
             html: 'pages/demo/demoOne.html',
             js: 'pages/demo/demoOne.js'
         },
+        fiveType: {
+            html: 'pages/riskType/companyLoan/fiveType.html',
+            js: 'pages/riskType/companyLoan/fiveType.js'
+        },
+        basicInfo: {
+            html: 'pages/riskType/companyLoan/basicInfo.html',
+            js: 'pages/riskType/companyLoan/basicInfo.js'
+        },
+        fiveTypeIdtf: {
+            html: 'pages/riskType/companyLoan/fiveTypeIdtf.html',
+            js: 'pages/riskType/companyLoan/fiveTypeIdtf.js'
+        },
+        addPage: {
+            html: 'pages/riskType/riskAdjust/addPage.html',
+            js: 'pages/riskType/riskAdjust/addPage.js'
+        },
+        checkPage: {
+            html: 'pages/postLoanCheck/firstCheck/checkPage.html',
+            js: 'pages/postLoanCheck/firstCheck/checkPage.js'
+        },
+        checkInfo: {
+            html: 'pages/postLoanCheck/firstCheck/checkInfo.html',
+            js: 'pages/postLoanCheck/firstCheck/checkInfo.js'
+        },
+        personalCheck: {
+            html: 'pages/postLoanCheck/regularCheck/personalCheck.html',
+            js: 'pages/postLoanCheck/regularCheck/personalCheck.js'
+        },
+        checkPage1: {
+            html: 'pages/postLoanCheck/regularCheck/checkPage.html',
+            js: 'pages/postLoanCheck/regularCheck/checkPage.js'
+        },
 
     };
     //注册路由表

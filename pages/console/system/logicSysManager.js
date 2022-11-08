@@ -1,6 +1,6 @@
 /**
  * @create by fuzm on 2018-05-04
- * @description 系统机构表
+ * @description 策略管理
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
@@ -29,11 +29,20 @@ define([
               </template>';
               } },
             { label: '策略详情', prop: 'crelDetail', resizable: true, hidden: true },
-            { label: '详情保存', prop: 'orgTel', resizable: true }
+            { label: '详情保存',
+              prop: 'orgTel',
+              resizable: true,
+              template: function () {
+                return '<template scope="scope">\
+                <yu-button type="text">保存</yu-button>\
+              </template>';
+              } }
           ]
         };
       },
-
+      mounted: function () {
+        console.log(this.$refs.reftable, 'reftable');
+      },
       methods: {
 
       }

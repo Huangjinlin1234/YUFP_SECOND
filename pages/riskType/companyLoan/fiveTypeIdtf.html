@@ -1,0 +1,28 @@
+<div>
+  <div>
+    <p>借据信息</p>
+    <yu-xtable
+      index
+      border
+      :data-url="dataUrl"
+      style="width: 100%">
+      <yu-xtable-column
+        align="center"
+        v-for="(item,index) in tableTitle"
+        :key="index"
+        :prop="item.prop"
+        :label="item.label">
+      </yu-xtable-column>
+    </yu-xtable>
+  </div>
+  <div>
+    <p>五级分类信息</p>
+    <yu-xform ref="refFormDemo" label-width="120px" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
+      <yu-xform-group>
+        <yu-xform-item label="机评分类结果" ctype="input" name="author"></yu-xform-item>
+        <yu-xform-item label="人工分类结果" ctype="select" name="author" :options="options" rules="required"></yu-xform-item>
+        <yu-xform-item label="人工分类理由" ctype="textarea" name="author" rules="required"></yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </div>
+</div>

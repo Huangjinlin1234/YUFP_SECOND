@@ -33,6 +33,14 @@ define(function (require) {
             html: 'pages/postLoanCheck/firstCheck/checkInfo.html',
             js: 'pages/postLoanCheck/firstCheck/checkInfo.js'
         },
+        personalCheck: {
+            html: 'pages/postLoanCheck/regularCheck/personalCheck.html',
+            js: 'pages/postLoanCheck/regularCheck/personalCheck.js'
+        },
+        checkPage1: {
+            html: 'pages/postLoanCheck/regularCheck/checkPage.html',
+            js: 'pages/postLoanCheck/regularCheck/checkPage.js'
+        },
 
     };
     //注册路由表

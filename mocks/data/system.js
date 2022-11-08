@@ -201,6 +201,7 @@ function (require, exports) {
     //   'funcUrl': null,
     //   'legalOrgCode': null
     // },
+<<<<<<< HEAD
     // {
     //   'menuId': 'lp-81000',
     //   'menuName': '风险分类',
@@ -336,6 +337,143 @@ function (require, exports) {
     //   'funcUrl': null,
     //   'legalOrgCode': null
     // },
+=======
+    {
+      'menuId': 'lp-81000',
+      'menuName': '风险分类',
+      'upMenuId': 'lp-80000',
+      'menuIcon': '',
+      'funcId': 'lookupdict',
+      'funcUrl': 'pages/console/system/lookupdict',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81010',
+      'menuName': '个贷风险分类',
+      'upMenuId': 'lp-81000',
+      'menuIcon': '',
+      'funcId': 'personalLoan',
+      'funcUrl': 'pages/riskType/personalLoan/personalLoan',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81020',
+      'menuName': '对公风险分类',
+      'upMenuId': 'lp-81000',
+      'menuIcon': '',
+      'funcId': 'companyLoan',
+      'funcUrl': 'pages/riskType/companyLoan/companyLoan',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81030',
+      'menuName': '风险分类调整申请',
+      'upMenuId': 'lp-81000',
+      'menuIcon': '',
+      'funcId': 'riskAdjust',
+      'funcUrl': 'pages/riskType/riskAdjust/riskAdjust',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-81040',
+      'menuName': '风险分类台账',
+      'upMenuId': 'lp-81000',
+      'menuIcon': '',
+      'funcId': 'riskType',
+      'funcUrl': 'pages/riskType/riskType/riskType',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82000',
+      'menuName': '贷后检查',
+      'upMenuId': 'lp-80000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82010',
+      'menuName': '首次检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': '',
+      'funcId': 'firstCheck',
+      'funcUrl': 'pages/postLoanCheck/firstCheck/firstCheck',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82020',
+      'menuName': '定期检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': '',
+      'funcId': 'regularCheck',
+      'funcUrl': 'pages/postLoanCheck/regularCheck/regularCheck',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-82030',
+      'menuName': '不定期检查',
+      'upMenuId': 'lp-82000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-83000',
+      'menuName': '风险预警',
+      'upMenuId': 'lp-80000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-84000',
+      'menuName': '贷后催收',
+      'upMenuId': 'lp-80000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85000',
+      'menuName': '贷款核销',
+      'upMenuId': 'lp-80000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85010',
+      'menuName': '单户核销登记',
+      'upMenuId': 'lp-85000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85020',
+      'menuName': '批量核销登记',
+      'upMenuId': 'lp-85000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-85030',
+      'menuName': '已核销资产台账',
+      'upMenuId': 'lp-85000',
+      'menuIcon': '',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
+    },
+>>>>>>> 8b38c1386407a7c653cf79c8a6997b15affe471b
     // 一级菜单 模板
     {
       'menuId': 'lp-080000',
@@ -348,7 +486,7 @@ function (require, exports) {
     },
     {
       'menuId': 'lp-080001',
-      'menuName': '模板一',
+      'menuName': '树形页面模板',
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'treeForm',
@@ -357,11 +495,20 @@ function (require, exports) {
     },
     {
       'menuId': 'lp-080002',
-      'menuName': '模板二',
+      'menuName': '标签页面模板',
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'tabTemplate',
       'funcUrl': 'pages/console/demo/tabTemplate',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080003',
+      'menuName': 'POP页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'popTemplate',
+      'funcUrl': 'pages/console/demo/popTemplate',
       'legalOrgCode': null
     }
   ];

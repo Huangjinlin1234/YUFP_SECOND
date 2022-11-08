@@ -7,7 +7,7 @@ define([
 ],
 function (require, exports) {
   var List = [];
-  var count = 5;
+  var count = 20;
 
   Mock.Random.increment(100);
   for (var i = 0; i < count; i++) {

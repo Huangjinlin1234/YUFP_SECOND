@@ -2495,3 +2495,14 @@ a:active {
 .panel-class .left {
   padding-left: 23px;
 }
+.el-form-item .el-form-item__content .is-disabled .el-input__inner {
+  color: #2647aa;
+}
+.yu-xtable {
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+}
+.yu-xtable .el-table {
+  flex: 1;
+}

@@ -192,6 +192,72 @@ define([
         'funcUrl': 'pages/console/system/SUserOperLog',
         'legalOrgCode': null
       },
+      //一级菜单
+      {
+        menuId: 'lp-60000',
+        menuName: '合同管理',
+        upMenuId: null,
+        menuIcon: 'el-icon-yx-books'
+      },
+
+      //二级菜单
+      {
+        menuId: 'lp-61000',
+        menuName: '主合同申请',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-62000',
+        menuName: '合同审批',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-63000',
+        menuName: '主合同管理',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-64000',
+        menuName: '担保合同管理',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      //三级菜单
+      {
+        menuId: 'lp-61100',
+        menuName: '授信合同申请',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'CtrCredContAppl',
+        funcUrl: 'pages/ctr/CtrCredContAppl'
+      },
+      {
+        menuId: 'lp-61200',
+        menuName: '授信合同申请历史',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'CtrCredContHis',
+        funcUrl: 'pages/ctr/CtrCredContAppl'
+      },
+      {
+        menuId: 'lp-61300',
+        menuName: '借款合同申请',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'CtrLoanContAppl',
+        funcUrl: 'pages/ctr/CtrLoanContAppl'
+      },
+      {
+        menuId: 'lp-61400',
+        menuName: '借款合同申请历史',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'CtrLoanContHis',
+        funcUrl: 'pages/ctr/CtrLoanContHis'
+      },
       // {
       //   'menuId': 'lp-80000',
       //   'menuName': '贷后管理',

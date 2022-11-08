@@ -472,6 +472,10 @@ a:active {
   padding: 0px 24px;
 }
 
+.yu-idxTabBox .ck .mt24 {
+  padding-top: 24px
+}
+
 /* yu-idxTabBox>div.ck div div{padding: 0 24px;background-color: #ffff} */
 .yu-idxTabBox>div>iframe {
   display: block;

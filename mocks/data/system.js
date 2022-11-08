@@ -449,7 +449,7 @@ function (require, exports) {
       'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080004',
+      'menuId': 'lp-080005',
       'menuName': '多列表页面模板',
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',

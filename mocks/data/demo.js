@@ -260,4 +260,17 @@ function (require, exports) {
     console.log(List, 'List');
     return lookupList;
   };
+  exports.queryPrpFn = function () {
+    var prpList = [{prpNo: '999', custName: '基金水电费12'}, {custName: '基金水电费'}];
+    var lookupList = {
+      'code': '0',
+      'total': prpList.length,
+      'message': null,
+      'level': 'info',
+      'rows': prpList,
+      'i18nData': null,
+      'extData': null
+    };
+    return lookupList;
+  };
 });

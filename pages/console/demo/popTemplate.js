@@ -3,6 +3,8 @@
  * @description
  */
 define([
+  './custom/widgets/js/UserSelecter.js'
+
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
@@ -12,14 +14,32 @@ define([
       data: function () {
         return {
 
+          updateFields: [
+            {
+              columnCount: 3,
+              fields: [
+                { field: 'prpNo',
+                  label: '授权统一流水号',
+                  type: 'custom',
+                  is: 'div-user-selector',
+                  params: {orgLevel: ''}
+                  // clickFn: function (value, model, args) {
+                  //   console.log(111);
+                  // },
+                }
+
+              ]
+            }],
+          formdata2: {}
         };
       },
       mounted: function () {
 
       },
       methods: {
-        openFn () {
-
+        handleIconClick () {
+          console.log(111);
+          this.$refs.refDia.dialogVisable = true;
         }
       }
     });

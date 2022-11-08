@@ -192,15 +192,15 @@ function (require, exports) {
       'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
     },
-    {
-      'menuId': 'lp-80000',
-      'menuName': '贷后管理',
-      'upMenuId': '',
-      'menuIcon': '',
-      'funcId': null,
-      'funcUrl': null,
-      'legalOrgCode': null
-    },
+    // {
+    //   'menuId': 'lp-80000',
+    //   'menuName': '贷后管理',
+    //   'upMenuId': '',
+    //   'menuIcon': '',
+    //   'funcId': null,
+    //   'funcUrl': null,
+    //   'legalOrgCode': null
+    // },
     {
       'menuId': 'lp-81000',
       'menuName': '风险分类',

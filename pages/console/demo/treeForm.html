@@ -1,11 +1,61 @@
-<div>
+<div class="treeform-container">
   <el-row>
     <el-col :span="6">
       <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
     </el-col>
     <el-col :span="18">
-      <div v-show="current=='1'">
+      <div v-show="current=='1'" class="right-content">
         <panel title="基本信息">
+          <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>
+              <yu-xform-item label="类型" ctype="input" value="类型" name="type"></yu-xform-item>
+              <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+        <panel title="集团信息">
+          <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>
+              <yu-xform-item label="类型" ctype="input" value="类型" name="type"></yu-xform-item>
+              <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+        <panel title="常规信息">
+          <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>
+              <yu-xform-item label="类型" ctype="input" value="类型" name="type"></yu-xform-item>
+              <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+        <panel title="放款信息">
+          <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>
+              <yu-xform-item label="类型" ctype="input" value="类型" name="type"></yu-xform-item>
+              <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+        <panel title="客户信息">
+          <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>
+              <yu-xform-item label="类型" ctype="input" value="类型" name="type"></yu-xform-item>
+              <yu-xform-item label="状态" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="作者" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+        <panel title="贷款信息">
           <yu-xform ref="refForm" label-width="120px" :disabled="true" v-model="formdata">
             <yu-xform-group>
               <yu-xform-item label="信息标题" ctype="input" value="标题" name="title"></yu-xform-item>

@@ -22,10 +22,11 @@ define([
                   label: '授权统一流水号',
                   type: 'custom',
                   is: 'div-user-selector',
-                  params: {orgLevel: ''}
-                  // clickFn: function (value, model, args) {
-                  //   console.log(111);
-                  // },
+                  params: {orgLevel: ''},
+                  selectFn: function (value, model, args) {
+                    console.log(value, model, args);
+                    // this.$refs.reform.formdata.prpNo = args[1].prpNo;
+                  }
                 }
 
               ]

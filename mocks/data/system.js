@@ -372,7 +372,26 @@ function (require, exports) {
       'funcId': 'popTemplate',
       'funcUrl': 'pages/console/demo/popTemplate',
       'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080004',
+      'menuName': '简洁新增模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'sympleAdd',
+      'funcUrl': 'pages/console/demo/sympleAdd',
+      'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080004',
+      'menuName': '多列表页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'treeMoreTable',
+      'funcUrl': 'pages/console/demo/treeMoreTable',
+      'legalOrgCode': null
     }
+
   ];
     /**
      * POST请求BODY参数转换

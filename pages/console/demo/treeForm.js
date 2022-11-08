@@ -19,10 +19,9 @@ define([
           currentKey: '1',
           treeData: [
             { id: '0', label: '同业机构准入申报', pid: '-1' },
-            { id: '1', label: '1-1', pid: '0' },
-            { id: '2', label: '1-2', pid: '0' },
-            { id: '3', label: '1-3', pid: '0' }
-
+            { id: '1', label: '示例1', pid: '0' },
+            { id: '2', label: '示例2', pid: '0' },
+            { id: '3', label: '示例3', pid: '0' }
           ],
           updateFields: [{
             columnCount: 2,

@@ -231,32 +231,32 @@ define([
         menuName: '授信合同申请',
         upMenuId: 'lp-61000',
         menuIcon: '',
-        funcId: 'CtrCredContAppl',
-        funcUrl: 'pages/ctr/CtrCredContAppl'
+        funcId: 'CredContAppl',
+        funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
       },
       {
         menuId: 'lp-61200',
         menuName: '授信合同申请历史',
         upMenuId: 'lp-61000',
         menuIcon: '',
-        funcId: 'CtrCredContHis',
-        funcUrl: 'pages/ctr/CtrCredContAppl'
+        funcId: 'CredContHis',
+        funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
       },
       {
         menuId: 'lp-61300',
         menuName: '借款合同申请',
         upMenuId: 'lp-61000',
         menuIcon: '',
-        funcId: 'CtrLoanContAppl',
-        funcUrl: 'pages/ctr/CtrLoanContAppl'
+        funcId: 'LoanContAppl',
+        funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
       },
       {
         menuId: 'lp-61400',
         menuName: '借款合同申请历史',
         upMenuId: 'lp-61000',
         menuIcon: '',
-        funcId: 'CtrLoanContHis',
-        funcUrl: 'pages/ctr/CtrLoanContHis'
+        funcId: 'LoanContHis',
+        funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
       },
       // {
       //   'menuId': 'lp-80000',

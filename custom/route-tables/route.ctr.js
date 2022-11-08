@@ -7,74 +7,74 @@ define(function (require) {
   // 定义路由表
   var routeTable = {
     // 授信合同申请
-    CtrCredContAppl: {
-      html: 'pages/ctr/CtrCredContAppl.html',
-      js: 'pages/ctr/CtrCredContAppl.js'
+    CredContAppl: {
+      html: 'pages/ctr/mainCtrAppli/CredContAppl.html',
+      js: 'pages/ctr/mainCtrAppli/CredContAppl.js'
     },
     // 授信合同申请历史
-    CtrCredContHis: {
-      html: 'pages/ctr/CtrCredContAppl.html',
-      js: 'pages/ctr/CtrCredContAppl.js'
+    CredContHis: {
+      html: 'pages/ctr/mainCtrAppli/CredContAppl.html',
+      js: 'pages/ctr/mainCtrAppli/CredContAppl.js'
     },
     // 借款合同申请
-    CtrLoanContAppl: {
-      html: 'pages/ctr/CtrLoanContAppl.html',
-      js: 'pages/ctr/CtrLoanCredContAppl.js'
+    LoanContAppl: {
+      html: 'pages/ctr/mainCtrAppli/LoanContAppl.html',
+      js: 'pages/ctr/mainCtrAppli/LoanContAppl.js'
     },
     // 借款合同申请历史
-    CtrLoanContHis: {
-      html: 'pages/ctr/CtrLoanContHis.html',
-      js: 'pages/ctr/CtrLoanCredContAppl.js'
+    LoanContHis: {
+      html: 'pages/ctr/mainCtrAppli/LoanContAppl.html',
+      js: 'pages/ctr/mainCtrAppli/LoanContAppl.js'
     },
     // 授信合同申请详情
-    CtrCredContDetail: {
-      html: 'pages/ctr/CtrCredContDetail/index.html',
-      js: 'pages/ctr/CtrCredContDetail/index.js'
+    CredContDetail: {
+      html: 'pages/ctr/mainCtrAppli/credit/index.html',
+      js: 'pages/ctr/mainCtrAppli/credit/index.js'
     },
     // 授信合同申请基本信息
     CredBaseInfo: {
-      html: 'pages/ctr/CtrCredContDetail/BaseInfo.html',
-      js: 'pages/ctr/CtrCredContDetail/BaseInfo.js'
+      html: 'pages/ctr/mainCtrAppli/credit/BaseInfo.html',
+      js: 'pages/ctr/mainCtrAppli/credit/BaseInfo.js'
     },
     // 授信合同申请担保合同信息
     CredGuaranteeCtr: {
-      html: 'pages/ctr/CtrCredContDetail/GuaranteeCtr.html',
-      js: 'pages/ctr/CtrCredContDetail/GuaranteeCtr.js'
+      html: 'pages/ctr/mainCtrAppli/credit/GuaranteeCtr.html',
+      js: 'pages/ctr/mainCtrAppli/credit/GuaranteeCtr.js'
     },
     // 授信合同申请第三方担保合同信息
     CredThirdGuarCtr: {
-      html: 'pages/ctr/CtrCredContDetail/ThirdGuarCtr.html',
-      js: 'pages/ctr/CtrCredContDetail/ThirdGuarCtr.js'
+      html: 'pages/ctr/mainCtrAppli/credit/ThirdGuarCtr.html',
+      js: 'pages/ctr/mainCtrAppli/credit/ThirdGuarCtr.js'
     },
     // 授信合同申请借款人信息
     CredBorrowerCtr: {
-      html: 'pages/ctr/CtrCredContDetail/BorrowerCtr.html',
-      js: 'pages/ctr/CtrCredContDetail/BorrowerCtr.js'
+      html: 'pages/ctr/mainCtrAppli/credit/BorrowerCtr.html',
+      js: 'pages/ctr/mainCtrAppli/credit/BorrowerCtr.js'
     },
     // 授信合同申请共同授信人信息
     CredJointCreditorCtr: {
-      html: 'pages/ctr/CtrCredContDetail/JointCreditorCtr.html',
-      js: 'pages/ctr/CtrCredContDetail/JointCreditorCtr.js'
+      html: 'pages/ctr/mainCtrAppli/credit/JointCreditorCtr.html',
+      js: 'pages/ctr/mainCtrAppli/credit/JointCreditorCtr.js'
     },
     // 授信合同申请共同授信人信息
     CredContractPreview: {
-      html: 'pages/ctr/CtrCredContDetail/ContractPreview.html',
-      js: 'pages/ctr/CtrCredContDetail/ContractPreview.js'
+      html: 'pages/ctr/mainCtrAppli/common/ContractPreview.html',
+      js: 'pages/ctr/mainCtrAppli/common/ContractPreview.js'
     },
     // 授信合同申请合同预览
     CredContractPreview: {
-      html: 'pages/ctr/ContractPreview.html',
-      js: 'pages/ctr/ContractPreview.js'
+      html: 'pages/ctr/mainCtrAppli/common/ContractPreview.html',
+      js: 'pages/ctr/mainCtrAppli/common/ContractPreview.js'
     },
     // 授信合同申请审批历史
     CredApprovalHis: {
-      html: 'pages/ctr/ApprovalHis.html',
-      js: 'pages/ctr/ApprovalHis.js'
+      html: 'pages/ctr/mainCtrAppli/common/ApprovalHis.html',
+      js: 'pages/ctr/mainCtrAppli/common/ApprovalHis.js'
     },
     // 最高额担保合同详情
     CredMaxAmountGuar: {
-      html: 'pages/ctr/CtrCredContDetail/MaxAmountGuar.html',
-      js: 'pages/ctr/CtrCredContDetail/MaxAmountGuar.js'
+      html: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.html',
+      js: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.js'
     }
     // Approval information
     // Imaging data

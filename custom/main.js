@@ -8,16 +8,16 @@
   yufp.config({
     // path配置
     paths: {
-      'plugins': './custom/plugins'
+      plugins: './custom/plugins'
     },
     // 别名配置
     alias: {
-      'config': './custom/config.js',
-      'vue': './libs/vue/vue-2.3.4.js',
-      'jquery': './libs/jquery/jquery-1.8.0.js',
-      'echarts': './libs/echarts/echarts.min.js',
-      'uplaod': './libs/vue-upload/vue-upload-component.js',
-      'jsencrypt': './libs/jsencrypt/jsencrypt.min.js'
+      config: './custom/config.js',
+      vue: './libs/vue/vue-2.3.4.js',
+      jquery: './libs/jquery/jquery-1.8.0.js',
+      echarts: './libs/echarts/echarts.min.js',
+      uplaod: './libs/vue-upload/vue-upload-component.js',
+      jsencrypt: './libs/jsencrypt/jsencrypt.min.js'
     },
     // 文件编码
     charset: 'UTF-8',
@@ -66,36 +66,32 @@
   var routeTables = [
     './custom/route-tables/route.common.js',
     './custom/route-tables/route.console.js',
+    './custom/route-tables/route.ctr.js',
     './custom/route-tables/views-routes.js'
   ];
-
   var env = 'DEV'; // 设置当前环境 PRD/UAT/DEV
   // 根据运行环境参数 选择读取不同的js 原始js/合并js/压缩js
   switch (env) {
-  case 'DEV':
-    libsJs = libsJs.concat([
-      './custom/plugins/yufp.settings.js',
-      './custom/plugins/yufp.localstorage.js',
-      './custom/plugins/yufp.sessionstorage.js',
-      './custom/plugins/yufp.service.js',
-      './custom/plugins/yufp.validator.js',
-      './custom/plugins/yufp.util.js',
-      './custom/plugins/yufp.lookup.js',
-      './custom/plugins/yufp.session.js',
-      './custom/plugins/yufp.frame.js',
-      './custom/common/app.js'
-    ]);
-    break;
-  case 'UAT':
-    libsJs = libsJs.concat([
-      './custom/build/packagejs/yufp-custom-debug.js'
-    ]);
-    break;
-  case 'PRD':
-    libsJs = libsJs.concat([
-      './custom/build/packagejs/yufp-custom-min.js'
-    ]);
-    break;
+    case 'DEV':
+      libsJs = libsJs.concat([
+        './custom/plugins/yufp.settings.js',
+        './custom/plugins/yufp.localstorage.js',
+        './custom/plugins/yufp.sessionstorage.js',
+        './custom/plugins/yufp.service.js',
+        './custom/plugins/yufp.validator.js',
+        './custom/plugins/yufp.util.js',
+        './custom/plugins/yufp.lookup.js',
+        './custom/plugins/yufp.session.js',
+        './custom/plugins/yufp.frame.js',
+        './custom/common/app.js'
+      ]);
+      break;
+    case 'UAT':
+      libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-debug.js']);
+      break;
+    case 'PRD':
+      libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-min.js']);
+      break;
   }
 
   // route_tables信息和app.js 打包一起导致平台加载先后顺序异常
@@ -118,7 +114,6 @@
 
     // 加入请求过滤器
     yufp.service.addFilter({
-
       // 过滤器名称
       name: 'messageParser',
 
@@ -175,31 +170,31 @@
         var flag = true;
         var me = yufp.custom.vue({});
         switch (status) {
-        case 401:
-          yufp.session.logout(true);
-          flag = false;
-          break;
-        case 403:
-          me.$message({
-            message: '您无权限访问，请联系系统管理员!',
-            type: 'warning'
-          });
-          flag = false;
-          break;
-        case 404:
-          me.$message({
-            message: '系统错误，请联系系统管理员!',
-            type: 'error'
-          });
-          flag = false;
-          break;
-        default:
-          me.$message({
-            message: '系统错误，请联系系统管理员!',
-            type: 'error'
-          });
-          flag = false;
-          break;
+          case 401:
+            yufp.session.logout(true);
+            flag = false;
+            break;
+          case 403:
+            me.$message({
+              message: '您无权限访问，请联系系统管理员!',
+              type: 'warning'
+            });
+            flag = false;
+            break;
+          case 404:
+            me.$message({
+              message: '系统错误，请联系系统管理员!',
+              type: 'error'
+            });
+            flag = false;
+            break;
+          default:
+            me.$message({
+              message: '系统错误，请联系系统管理员!',
+              type: 'error'
+            });
+            flag = false;
+            break;
         }
         return flag;
       }
@@ -209,7 +204,6 @@
     yufp.router.setDefaultRootId(config.defaultRootId);
     // 加入路由过滤器
     yufp.router.addFilter({
-
       /**
        * 过滤器名称
        */
@@ -223,6 +217,7 @@
       before: function (code, data, cite) {
         if (config.debugModel) {
           var route = yufp.router.getRoute(code) || {};
+          console.log(route, 'route::: ');
           yufp.logger.info('【Router-JS】【' + code + '】: ' + route.js);
         }
         return true;
@@ -233,8 +228,7 @@
        * @param code
        * @param cite
        */
-      mount: function (code, cite) {
-      },
+      mount: function (code, cite) {},
 
       /**
        * ready函数执行
@@ -243,17 +237,14 @@
        * @param data
        * @param cite
        */
-      ready: function (exports, code, data, cite) {
-      },
+      ready: function (exports, code, data, cite) {},
 
       /**
        * 卸载路由内容前执行
        * @param code
        * @param cite
        */
-      unMount: function (code, cite) {
-
-      },
+      unMount: function (code, cite) {},
 
       /**
        * destroy函数执行
@@ -261,31 +252,33 @@
        * @param code
        * @param cite
        */
-      destroy: function (exports, code, cite) {
-
-      }
-
+      destroy: function (exports, code, cite) {}
     });
 
     /**
-      * 创建hash处理事件
-      */
+     * 创建hash处理事件
+     */
     var hashFn = function () {
-      var route = config.startPage, data = {}, hash = location.hash;
+      var route = config.startPage,
+        data = {},
+        hash = location.hash;
       var currRoute = yufp.session.getCurrentRoute();
       route = currRoute || route;
-      var sIndex = hash.indexOf('!'), eIndex = hash.indexOf('?');
+      var sIndex = hash.indexOf('!'),
+        eIndex = hash.indexOf('?');
       if (sIndex != -1) {
         route = eIndex != -1 ? hash.substring(sIndex + 1, eIndex) : hash.slice(sIndex + 1);
         if (eIndex != -1 && hash.slice(eIndex + 1)) {
           try {
-            data = JSON.parse('{"' +
-              decodeURIComponent(hash.slice(eIndex + 1))
-                .replace(/"/g, '\\"')
-                .replace(/&/g, '","')
-                .replace(/=/g, '":"')
-                .replace(/\n/g, '\\n') +
-              '"}');
+            data = JSON.parse(
+              '{"' +
+                decodeURIComponent(hash.slice(eIndex + 1))
+                  .replace(/"/g, '\\"')
+                  .replace(/&/g, '","')
+                  .replace(/=/g, '":"')
+                  .replace(/\n/g, '\\n') +
+                '"}'
+            );
           } catch (e) {
             console.log(e);
           }
@@ -335,4 +328,4 @@
     // 页面跳转
     hashFn();
   });
-}(window, yufp));
+})(window, yufp);

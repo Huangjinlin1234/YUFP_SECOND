@@ -15,10 +15,10 @@ define([
 ],
 function (require, exports) {
   /**
-     * GET请求URL参数转换
-     * @param url
-     * @returns {{}}
-     */
+       * GET请求URL参数转换
+       * @param url
+       * @returns {{}}
+       */
   var paramUrl2Obj = function (url) {
     var search = url.split('?')[1];
     if (!search) {
@@ -191,6 +191,72 @@ function (require, exports) {
       'funcId': 'SUserOperLog',
       'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
+    },
+    // 一级菜单
+    {
+      menuId: 'lp-60000',
+      menuName: '合同管理',
+      upMenuId: null,
+      menuIcon: 'el-icon-yx-books'
+    },
+
+    // 二级菜单
+    {
+      menuId: 'lp-61000',
+      menuName: '主合同申请',
+      upMenuId: 'lp-60000',
+      menuIcon: 'el-icon-yx-books'
+    },
+    {
+      menuId: 'lp-62000',
+      menuName: '合同审批',
+      upMenuId: 'lp-60000',
+      menuIcon: 'el-icon-yx-books'
+    },
+    {
+      menuId: 'lp-63000',
+      menuName: '主合同管理',
+      upMenuId: 'lp-60000',
+      menuIcon: 'el-icon-yx-books'
+    },
+    {
+      menuId: 'lp-64000',
+      menuName: '担保合同管理',
+      upMenuId: 'lp-60000',
+      menuIcon: 'el-icon-yx-books'
+    },
+    // 三级菜单
+    {
+      menuId: 'lp-61100',
+      menuName: '授信合同申请',
+      upMenuId: 'lp-61000',
+      menuIcon: '',
+      funcId: 'CredContAppl',
+      funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+    },
+    {
+      menuId: 'lp-61200',
+      menuName: '授信合同申请历史',
+      upMenuId: 'lp-61000',
+      menuIcon: '',
+      funcId: 'CredContHis',
+      funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+    },
+    {
+      menuId: 'lp-61300',
+      menuName: '借款合同申请',
+      upMenuId: 'lp-61000',
+      menuIcon: '',
+      funcId: 'LoanContAppl',
+      funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
+    },
+    {
+      menuId: 'lp-61400',
+      menuName: '借款合同申请历史',
+      upMenuId: 'lp-61000',
+      menuIcon: '',
+      funcId: 'LoanContHis',
+      funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
     },
     // {
     //   'menuId': 'lp-80000',
@@ -372,26 +438,7 @@ function (require, exports) {
       'funcId': 'popTemplate',
       'funcUrl': 'pages/console/demo/popTemplate',
       'legalOrgCode': null
-    },
-    {
-      'menuId': 'lp-080004',
-      'menuName': '简洁新增模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'sympleAdd',
-      'funcUrl': 'pages/console/demo/sympleAdd',
-      'legalOrgCode': null
-    },
-    {
-      'menuId': 'lp-080004',
-      'menuName': '多列表页面模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'treeMoreTable',
-      'funcUrl': 'pages/console/demo/treeMoreTable',
-      'legalOrgCode': null
     }
-
   ];
     /**
      * POST请求BODY参数转换
@@ -405,11 +452,11 @@ function (require, exports) {
     return JSON.parse('{"' + decodeURIComponent(body).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\n/g, '\\n') + '"}');
   };
 
-  /**
-     * oauth认证获取token
-     * @param config
-     * @returns {{code: string}}
-     */
+    /**
+       * oauth认证获取token
+       * @param config
+       * @returns {{code: string}}
+       */
   exports.loginFn = function (config) {
     var returnObj = {};
     try {
@@ -430,9 +477,9 @@ function (require, exports) {
   };
 
   /**
-     * 注销模拟
-     * @param config
-     */
+       * 注销模拟
+       * @param config
+       */
   exports.logoutFn = function (config) {
     return {
       code: 0,
@@ -441,10 +488,10 @@ function (require, exports) {
   };
 
   /**
-     * 模拟会话信息
-     * @param config
-     * @returns
-     */
+       * 模拟会话信息
+       * @param config
+       * @returns
+       */
   exports.sessionInfoFn = function (config) {
     var data = paramUrl2Obj(config.url);
     console.log('session info here');
@@ -467,65 +514,68 @@ function (require, exports) {
         'loginTime': null,
         'dataContr': [],
         'OPENDAY': '2018-05-14'
-      }};
+      }
+    };
   };
 
   /**
-     * 模拟菜单、控制点数据
-     * @returns {{menus, ctrls}}
-     */
+       * 模拟菜单、控制点数据
+       * @returns {{menus, ctrls}}
+       */
   exports.menuAndContrFn = function () {
     // var menus = demoMenus.concat(loanMenu).concat(riskMenu).concat(ctrMenu).concat(limitMenu).concat(consoleMenu);
     var menus = demoMenus;
     // var menuCtrls = demoCtrls.concat(loanCtrls).concat(riskCtrls).concat(limitCtrls).concat(consoleCtrls).concat(ctrMenu);
     var menuCtrls = [];
-    return {rows: {
-      menus: menus,
-      ctrls: menuCtrls
-    }};
+    return {
+      rows: {
+        menus: menus,
+        ctrls: menuCtrls
+      }
+    };
   };
 
   /**
-     * 数据权限数据
-     */
+       * 数据权限数据
+       */
   exports.dataContrFn = function () {
     return demoDataContr;
   };
 
   /**
-     * 密码加密
-     */
+       * 密码加密
+       */
   exports.passwordFn = function () {
 
   };
 
   /**
-     * 查询全部控制点信息
-     */
+       * 查询全部控制点信息
+       */
   exports.contrUrlFn = function () {
     return {};
   };
 
   /**
-     * 模拟后台数据字典库
-     * @type
-     * @private
-     */
+       * 模拟后台数据字典库
+       * @type
+       * @private
+       */
   var _all_lookup = {
     USER_STATUS: [
-      {key: '01', value: '正常'},
-      {key: '02', value: '冻结'},
-      {key: '03', value: '销户'}
+      { key: '01', value: '正常' },
+      { key: '02', value: '冻结' },
+      { key: '03', value: '销户' }
     ],
     CUST_TYPE: [
-      {key: '1', value: '零售'},
-      {key: '2', value: '公司'}
+      { key: '1', value: '零售' },
+      { key: '2', value: '公司' }
     ],
     IDENT_TYPE: [
-      {key: '1', value: '居民身份证'},
-      {key: '2', value: '居民户口薄'},
-      {key: '3', value: '组织机构代码'},
-      {key: '4', value: '营业执照代码'}
+      { key: '1', value: '居民身份证' },
+      { key: '2', value: '居民户口薄' },
+      { key: '3', value: '组织机构代码' },
+      { key: '4', value: '营业执照代码' }
     ],
     NATIONALITY: [
       { key: 'CN', value: '中国' },
@@ -554,7 +604,7 @@ function (require, exports) {
       { key: '4', value: '高中及以下' }
     ],
     biz_flow_type: [
-      { key: '01', value: '测试'}
+      { key: '01', value: '测试' }
     ]
 
   };

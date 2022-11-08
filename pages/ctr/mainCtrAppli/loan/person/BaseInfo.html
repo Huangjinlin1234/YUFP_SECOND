@@ -1,0 +1,362 @@
+<yu-collapse v-model="activeNames">
+  <yu-collapse-item title="合同基本信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="客户编号" name="" icon="">
+        </yu-xform-item>
+        <yu-xform-item label="客户名称" name="">
+        </yu-xform-item>
+        <yu-xform-item label="合同编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="合同类型" name="" ctype="select" data-code="ctrType">
+        </yu-xform-item>
+        <yu-xform-item label="产品名称" name="">
+        </yu-xform-item>
+        <yu-xform-item label="合同状态" name="" ctype="select" data-code="ctrStatus">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- 当合同建立来源为授信申请时才显示本栏目，否则隐藏 -->
+  <yu-collapse-item title="授信合同信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="授信合同编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="授信额度编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="授信额度(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="授信额度可用金额" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="额度期限" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="是否循环" name="" ctype="select" data-code="shifou">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- 当合同建立来源为单笔单批时才显示本栏目，否则隐藏 -->
+  <yu-collapse-item title="单笔单批批复信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="批复编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="业务申请流水号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="贷款金额(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="贷款期限(月)" name="" ctype="textarea" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="金额期限" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="合同币种" name="" ctype="select" data-code="bizhong">
+        </yu-xform-item>
+        <yu-xform-item label="合同金额(元)" name="" :disabled="false" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="合同起始日" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="合同到期日" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="合同期限(月)" name="" ctype="textarea" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="合同余额(元)" name="" :rules="['money']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="利率信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="利率类型" name="" ctype="select" :disabled="true" :rules="[]" data-code="lllx">
+        </yu-xform-item>
+        <yu-xform-item label="利率模式" name="" ctype="select" data-code="llms">
+        </yu-xform-item>
+        <yu-xform-item label="利率档次" name="" ctype="select" :disabled="true" :rules="[]" data-code="lldc">
+        </yu-xform-item>
+        <yu-xform-item label="报价利率(%)" name="" ctype="textarea" :rules="['float']">
+        </yu-xform-item>
+        <yu-xform-item label="LPR发布日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="利率加减点符号" name="" ctype="select" data-code="llms">
+        </yu-xform-item>
+        <yu-xform-item label="基点(BP)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="执行年利率(%)" name="" ctype="textarea" :disabled="true" :rules="['float']">
+        </yu-xform-item>
+        <yu-xform-item label="利率调整方式" name="" ctype="select" data-code="lldc">
+        </yu-xform-item>
+        <yu-xform-item label="利率调整日期" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="其他利率确定方式" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="罚息复利信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="罚息浮动比(%)" name="" ctype="textarea" :rules="['float']"></yu-xform-item>
+        </yu-xform-item>
+        <yu-xform-item label="挪用罚息浮动比(%)" name="" ctype="textarea" :rules="['float']"></yu-xform-item>
+        </yu-xform-item>
+        <yu-xform-item label="复利浮动比(%)" name="" ctype="textarea" :rules="['float']"></yu-xform-item>
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="放款信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="放款前提条件" name="" ctype="textarea" :disabled="true" :rules="[]" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="收款账号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="收款账号开户行" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="收款账号收款账号户名" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="还款信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="还款账号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="还款账户户名" name="">
+        </yu-xform-item>
+        <yu-xform-item label="还款方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="hkfs">
+        </yu-xform-item>
+        <yu-xform-item label="气球贷还款方式" name="" ctype="select" data-code="qqd">
+        </yu-xform-item>
+        <yu-xform-item label="设定还款期数" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="其他还款方式说明" name="">
+        </yu-xform-item>
+        <yu-xform-item label="还本周期" name="" ctype="select" data-code="hbzq">
+        </yu-xform-item>
+        <yu-xform-item label="还息周期" name="" ctype="select" data-code="hxzq">
+        </yu-xform-item>
+        <yu-xform-item label="扣款日确定方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="扣款日" name="" ctype="datepicker">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="支付信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="支付方式" name="" ctype="select" data-code="zffs">
+        </yu-xform-item>
+        <yu-xform-item label="支付对象(范围)" name="" ctype="datepicker">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="提前还款收取违约金方式" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="提前还款收取违约金方式" name="" ctype="select" data-code="danbao" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="提前还款锁定期(月)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="提前还款收违约金比例" name="" :rules="['float']">
+        </yu-xform-item>
+        <yu-xform-item label="提前还款收违约金固定金额(元)" name="" :rules="['float']">
+        </yu-xform-item>
+        <yu-xform-item label="提前还款收违约金其他方式" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="担保条款" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="主担保方式" name="" ctype="select" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="其他担保方式1" name="" ctype="select" data-code="dbfs1">
+        </yu-xform-item>
+        <yu-xform-item label="其他担保方式2" name="" ctype="select" data-code="dbfs2">
+        </yu-xform-item>
+        <yu-xform-item label="是否纳入风险分担机制" name="" ctype="select" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="其他担保方式说明" name="" ctype="textarea" :disabled="false">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="用途信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="投向行业" name="" ctype="select" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="投贷款投向地区" name="" ctype="select" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="投贷款用途" name="" ctype="select" data-code="danbao">
+        </yu-xform-item>
+        <yu-xform-item label="具体用途" name="" ctype="select" data-code="danbao">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="合作方信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="合作项目编号" name="" icon="">
+        </yu-xform-item>
+        <yu-xform-item label="合作项目名称" name="">
+        </yu-xform-item>
+        <yu-xform-item label="合作方编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="合作方名称" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="统计信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="普惠政策性贷款" name="" ctype="select" data-code="zcdk">
+        </yu-xform-item>
+        <yu-xform-item label="是否涉及农业" name="" ctype="select" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="是否绿色信贷(人行口径)" name="" ctype="select" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="绿色信贷类型(人行口径)" name="" ctype="select" data-code="rhkj">
+        </yu-xform-item>
+        <yu-xform-item label="是否绿色信贷(新银保监口径)" name="" ctype="select" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="绿色信贷类型(新银保监口径)" name="" ctype="select" data-code="xybj">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="合同当事人" name="1">
+    <div>甲方信息</div>
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="贷款人" name="">
+        </yu-xform-item>
+        <yu-xform-item label="负责人" name="">
+        </yu-xform-item>
+        <yu-xform-item label="住所" name="">
+        </yu-xform-item>
+        <yu-xform-item label="邮政编码" name="" :rules="['yzbm']">
+        </yu-xform-item>
+        <yu-xform-item label="联系电话" name="" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="传真" name="" :rules="['cz']">
+        </yu-xform-item>
+        <yu-xform-item label="电子邮箱" name="" :rules="['dzyx']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <div>乙方信息</div>
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="借款人客户编号" name="">
+        </yu-xform-item>
+        <yu-xform-item label="借款人名称" name="">
+        </yu-xform-item>
+        <yu-xform-item label="证件类型" name="" data-code="zjlx">
+        </yu-xform-item>
+        <yu-xform-item label="证件号码" name="" :rules="['zjhm']">
+        </yu-xform-item>
+        <yu-xform-item label="住所" name="">
+        </yu-xform-item>
+        <yu-xform-item label="邮政编码" name="" :rules="['yzbm']">
+        </yu-xform-item>
+        <yu-xform-item label="联系电话" name="" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="传真" name="" :rules="['cz']">
+        </yu-xform-item>
+        <yu-xform-item label="电子邮箱" name="" :rules="['dzyx']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="特别送达电子地址" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="特别约定手机号" name="" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="特别约定电子邮箱" name="" :rules="['dzyx']">
+          <yu-xform-item label="特别约定传真" name="" :rules="['cz']">
+          </yu-xform-item>
+          <yu-xform-item label="特别约定其他" name="" ctype="">
+          </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="争议解决" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="争议解决方式" name="" data-code="zyjc">
+        </yu-xform-item>
+        <yu-xform-item label="签订地法院" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="合同份数" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="合同签订份数" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="甲乙双方各执份数" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="担保人所执份数" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="其他人所执份数" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="其他约定事项" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="其他事项" name="" ctype="textarea">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="签约信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="签约方式" name="" ctype="select">
+        </yu-xform-item>
+        <yu-xform-item label="签约日期" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="登记信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea">
+      <yu-xform-group>
+        <yu-xform-item label="登记人" name="">
+        </yu-xform-item>
+        <yu-xform-item label="登记机构" name="">
+        </yu-xform-item>
+        <yu-xform-item label="管户人" name="">
+        </yu-xform-item>
+        <yu-xform-item label="管户机构" name="">
+        </yu-xform-item>
+        <yu-xform-item label="登记日期" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="财务机构" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+</yu-collapse>
+<yu-button type="primary" @click="tempSave">暂存</yu-button>
+<yu-button type="primary" @click="tempSave">保存</yu-button>
+<yu-button type="primary" @click="tempSave">返回</yu-button>

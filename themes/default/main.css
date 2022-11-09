@@ -2931,3 +2931,4 @@ a:active {
   text-align: center;
   padding: 10px 0;
 }
+.el-collapse-item__header{font-size: 16px;font-weight: 600;color: #000000;}

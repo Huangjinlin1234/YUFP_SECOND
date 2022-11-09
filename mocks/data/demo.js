@@ -7,7 +7,7 @@ define([
 ],
 function (require, exports) {
   var List = [];
-  var count = 20;
+  var count = 5;
 
   Mock.Random.increment(100);
   for (var i = 0; i < count; i++) {
@@ -21,6 +21,7 @@ function (require, exports) {
       'cardType|1': ['1', '2', '3', '4'],
       createTime: '@date',
       cardNo: '@id(18)',
+      date: '@date',
       company: '@cname',
       message: '@ctitle(5, 18)',
       email: '@email',
@@ -28,10 +29,10 @@ function (require, exports) {
       messageId: '@ctitle(5, 18)',
       obligate2: '@ctitle(5, 18)',
       obligate3: '@ctitle(5, 18)',
-      obligate4: '@ctitle(5, 18)',
+      address: '@ctitle(5, 18)',
       obligate5: '@ctitle(5, 18)',
       messageLevel: '@ctitle(5, 18)',
-      obligate7: '@ctitle(5, 18)',
+      zip: '@ctitle(5, 6)',
       obligate8: '@ctitle(5, 18)',
       obligate21: '@ctitle(5, 18)',
       obligate22: '@ctitle(5, 18)',
@@ -257,6 +258,7 @@ function (require, exports) {
       'i18nData': null,
       'extData': null
     };
+    console.log(List, 'llll');
     return lookupList;
   };
   exports.queryPrpFn = function () {

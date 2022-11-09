@@ -13,42 +13,16 @@ define([
       el: cite.el,
       data: function () {
         return {
+          dataUrl: {
+            first: backend.consoleService + '/api/user/oper/logs'
+          },
           treeData: [
             { id: '0', label: '同业机构准入申报', pid: '-1' },
             { id: '1', label: '示例1', pid: '0' },
             { id: '2', label: '示例2', pid: '0' },
             { id: '3', label: '示例3', pid: '0' }
           ],
-          activeNames: ['1', '2', '3', '4'],
-          tableData6: [{
-            date: '2016-05-03',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '上海市普陀区金沙江路 1518 弄',
-            zip: 200333
-          }, {
-            date: '2016-05-02',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '上海市普陀区金沙江路 1518 弄',
-            zip: 200333
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '上海市普陀区金沙江路 1518 弄',
-            zip: 200333
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            province: '上海',
-            city: '普陀区',
-            address: '上海市普陀区金沙江路 1518 弄',
-            zip: 200333
-          }]
+          activeNames: ['1', '2', '3', '4']
         };
       },
       methods: {

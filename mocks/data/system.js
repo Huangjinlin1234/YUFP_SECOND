@@ -492,7 +492,6 @@ define([
         'legalOrgCode': null
       }
     ];
->>>>>>> 363b5648c9a2d41b2ec9d3593347b3e1dcfc5db1
     /**
      * POST请求BODY参数转换
      * @param body

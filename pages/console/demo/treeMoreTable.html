@@ -1,0 +1,110 @@
+<div class="treeform-container">
+  <el-row>
+    <el-col :span="5">
+      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
+    </el-col>
+    <el-col :span="19">
+      <div class="right-content">
+        <yu-collapse v-show="current==1" v-model="activeNames">
+          <yu-collapse-item title="一致性" name="1">
+            <div class="panel-class">
+              <div class="button-content">
+                <yu-button type="primary" @click="addFn">新增</yu-button>
+                <yu-button type="primary" @click="addFn">删除</yu-button>
+                <yu-button type="primary" @click="addFn">保存</yu-button>
+              </div>
+              <div><label>单位：万元</label></div>
+            </div>
+            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+              <yu-xtable-column prop="date" label="日期" width="150">
+              </yu-xtable-column>
+              <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="province" label="省份" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="city" label="市区" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="address" label="地址" width="300">
+              </yu-xtable-column>
+              <yu-xtable-column prop="zip" label="邮编" width="120">
+              </yu-xtable-column>
+            </yu-xtable>
+          </yu-collapse-item>
+          <yu-collapse-item title="反馈" name="2">
+            <div class="panel-class">
+              <div class="button-content">
+                <yu-button type="primary" @click="addFn">新增</yu-button>
+                <yu-button type="primary" @click="addFn">删除</yu-button>
+                <yu-button type="primary" @click="addFn">保存</yu-button>
+              </div>
+              <div><label>单位：万元</label></div>
+            </div>
+            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+              <yu-xtable-column prop="date" label="日期" width="150">
+              </yu-xtable-column>
+              <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="province" label="省份" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="city" label="市区" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="address" label="地址" width="300">
+              </yu-xtable-column>
+              <yu-xtable-column prop="zip" label="邮编" width="150">
+              </yu-xtable-column>
+            </yu-xtable>
+          </yu-collapse-item>
+          <yu-collapse-item title="效率" name="3">
+            <div class="panel-class">
+              <div class="button-content">
+                <yu-button type="primary" @click="addFn">新增</yu-button>
+                <yu-button type="primary" @click="addFn">删除</yu-button>
+                <yu-button type="primary" @click="addFn">保存</yu-button>
+              </div>
+              <div><label>单位：万元</label></div>
+            </div>
+            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+              <yu-xtable-column prop="date" label="日期" width="150">
+              </yu-xtable-column>
+              <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="province" label="省份" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="city" label="市区" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="address" label="地址" width="300">
+              </yu-xtable-column>
+              <yu-xtable-column prop="zip" label="邮编" width="120">
+              </yu-xtable-column>
+            </yu-xtable>
+          </yu-collapse-item>
+          <yu-collapse-item title="可控" name="4">
+            <div class="panel-class">
+              <div class="button-content">
+                <yu-button type="primary" @click="addFn">新增</yu-button>
+                <yu-button type="primary" @click="addFn">删除</yu-button>
+                <yu-button type="primary" @click="addFn">保存</yu-button>
+              </div>
+              <div><label>单位：万元</label></div>
+            </div>
+            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+              <yu-xtable-column prop="date" label="日期" width="150">
+              </yu-xtable-column>
+              <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="province" label="省份" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="city" label="市区" width="120">
+              </yu-xtable-column>
+              <yu-xtable-column prop="address" label="地址" width="300">
+              </yu-xtable-column>
+              <yu-xtable-column prop="zip" label="邮编" width="120">
+              </yu-xtable-column>
+            </yu-xtable>
+          </yu-collapse-item>
+        </yu-collapse>
+      </div>
+
+    </el-col>
+  </el-row>
+</div>

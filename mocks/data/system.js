@@ -15,10 +15,10 @@ define([
 ],
   function (require, exports) {
     /**
-       * GET请求URL参数转换
-       * @param url
-       * @returns {{}}
-       */
+         * GET请求URL参数转换
+         * @param url
+         * @returns {{}}
+         */
     var paramUrl2Obj = function (url) {
       var search = url.split('?')[1];
       if (!search) {
@@ -472,8 +472,27 @@ define([
         'funcId': 'popTemplate',
         'funcUrl': 'pages/console/demo/popTemplate',
         'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-080004',
+        'menuName': '简洁新增模板',
+        'upMenuId': 'lp-080000',
+        'menuIcon': 'el-icon-yx-books',
+        'funcId': 'sympleAdd',
+        'funcUrl': 'pages/console/demo/sympleAdd',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-080005',
+        'menuName': '多列表页面模板',
+        'upMenuId': 'lp-080000',
+        'menuIcon': 'el-icon-yx-books',
+        'funcId': 'treeMoreTable',
+        'funcUrl': 'pages/console/demo/treeMoreTable',
+        'legalOrgCode': null
       }
     ];
+>>>>>>> 363b5648c9a2d41b2ec9d3593347b3e1dcfc5db1
     /**
      * POST请求BODY参数转换
      * @param body
@@ -511,9 +530,9 @@ define([
     };
 
     /**
-       * 注销模拟
-       * @param config
-       */
+         * 注销模拟
+         * @param config
+         */
     exports.logoutFn = function (config) {
       return {
         code: 0,
@@ -522,10 +541,10 @@ define([
     };
 
     /**
-       * 模拟会话信息
-       * @param config
-       * @returns
-       */
+         * 模拟会话信息
+         * @param config
+         * @returns
+         */
     exports.sessionInfoFn = function (config) {
       var data = paramUrl2Obj(config.url);
       console.log('session info here');
@@ -553,9 +572,9 @@ define([
     };
 
     /**
-       * 模拟菜单、控制点数据
-       * @returns {{menus, ctrls}}
-       */
+         * 模拟菜单、控制点数据
+         * @returns {{menus, ctrls}}
+         */
     exports.menuAndContrFn = function () {
       // var menus = demoMenus.concat(loanMenu).concat(riskMenu).concat(ctrMenu).concat(limitMenu).concat(consoleMenu);
       var menus = demoMenus;
@@ -570,31 +589,31 @@ define([
     };
 
     /**
-       * 数据权限数据
-       */
+         * 数据权限数据
+         */
     exports.dataContrFn = function () {
       return demoDataContr;
     };
 
     /**
-       * 密码加密
-       */
+         * 密码加密
+         */
     exports.passwordFn = function () {
 
     };
 
     /**
-       * 查询全部控制点信息
-       */
+         * 查询全部控制点信息
+         */
     exports.contrUrlFn = function () {
       return {};
     };
 
     /**
-       * 模拟后台数据字典库
-       * @type
-       * @private
-       */
+         * 模拟后台数据字典库
+         * @type
+         * @private
+         */
     var _all_lookup = {
       USER_STATUS: [
         { key: '01', value: '正常' },

@@ -372,6 +372,15 @@ function (require, exports) {
       'funcId': 'popTemplate',
       'funcUrl': 'pages/console/demo/popTemplate',
       'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080004',
+      'menuName': '编辑列表模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'editListTemplate',
+      'funcUrl': 'pages/common/template/editListTemplate',
+      'legalOrgCode': null
     }
   ];
     /**

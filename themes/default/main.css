@@ -2501,7 +2501,6 @@ a:active {
 .yu-xtable {
   display: flex;
   flex-direction: column;
-  height: 520px;
 }
 .yu-xtable .el-table {
   flex: 1;
@@ -2509,4 +2508,16 @@ a:active {
 .dialog-panel {
   padding: 10px;
   font-size: 16px;
+}
+
+.align-center{
+  text-align: center;
+}
+.spacing10{
+  height:10px;
+  clear: both;
+  overflow: hidden;
+}
+.p20{
+  padding: 20px;
 }

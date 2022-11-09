@@ -490,6 +490,15 @@ function (require, exports) {
       'funcId': 'treeMoreTable',
       'funcUrl': 'pages/common/template/hjlTemplate/treeMoreTable',
       'legalOrgCode': null
+    },
+    {
+      'menuId': 'lp-080006',
+      'menuName': '编辑列表页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'editListTemplate',
+      'funcUrl': 'pages/common/template/editListTemplate',
+      'legalOrgCode': null
     }
   ];
     /**

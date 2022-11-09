@@ -2886,7 +2886,6 @@ a:active {
 .yu-xtable {
   display: flex;
   flex-direction: column;
-  height: 520px;
 }
 
 .yu-xtable .el-table {
@@ -2897,6 +2896,17 @@ a:active {
   padding: 10px;
   font-size: 16px;
 }
+
+.align-center{
+  text-align: center;
+}
+.spacing10{
+  height:10px;
+  clear: both;
+  overflow: hidden;
+}
+.p20{
+  padding: 20px;
 .treeform-container {
   margin-left: 24px;
   height: 600px;

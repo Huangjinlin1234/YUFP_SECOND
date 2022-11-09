@@ -5,7 +5,7 @@
                 <div class="dialog-panel"><b>{{title}}</b></div>\
                 <div class="form-content">\
                   <yu-xform ref="refSympleAdd" label-width="120px" v-model="formdata"  :rules="rules">\
-                    <yu-xform-group :column="column">\
+                    <yu-xform-group :column="1">\
                       <yu-xform-item v-for="(item,index) in formFileds" :key="index" :label="item.label" :options="item.options" :ctype="item.ctype" :name="item.name" :disabled="item.disabled" :data-code="item.dataCode"   ></yu-xform-item>\
                     </yu-xform-group>\
                   </yu-xform>\
@@ -20,20 +20,10 @@
         type: String,
         default: ''
       },
-      column: {
-        type: Number,
-        default: 1
-      },
       rules: {
         type: Object,
         default: ()=>{
-          return {
-            'custType': [{required: true, message: '必填项'}],
-            'cerType': [{required: true, message: '必填项'}],
-            'cerNo': [{required: true, message: '必填项'}],
-            'custName': [{required: true, message: '必填项'}]
-
-          };
+          return {};
         }
       },
       formFileds: {
@@ -66,7 +56,7 @@
       },
 
       backTo () {
-        this.$message.success('你要返回哪里？');
+        this.$message.success('您要返回哪里？');
       }
     }
   });

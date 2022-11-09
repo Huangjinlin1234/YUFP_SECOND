@@ -43,7 +43,6 @@ define([
           this.current = node.id;
         },
         addFn (num) {
-          console.log(num, 'nnnnnnn');
           this.tableIndex = num;
           this.dialogVisible = true;
         },
@@ -58,9 +57,11 @@ define([
         },
         handleClose () {
           this.$refs.refFormDemo.resetFields();
+          this.dialogVisible = false;
         },
         submitFn () {
-          this.$refs[`refTable${this.tableIndex}`].tabledata.push(this.tableItem);
+          let model = yufp.util.clone(this.tableItem);
+          this.$refs[`refTable${this.tableIndex}`].tabledata.push(model);
           this.dialogVisible = false;
         },
         saveFn (index) {

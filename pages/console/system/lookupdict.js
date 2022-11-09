@@ -76,7 +76,17 @@ define([
           editLookupItemsFormData: {} // 编辑数据字典项的表单数据
         };
       },
+      watch: {
+        currentLookupItems (value) {
+          console.log(value, 'value');
+          this.$nextTick(function () {
+            console.log(this.$refs.editLookupItemTable, 'editLookupItemTable');
+            console.log(this.$refs.editLookupItemTable.data, 'dd');
+            this.$refs.editLookupItemTable.setCurrentRow(this.$refs.editLookupItemTable.data[0]);
+          });
+        }
 
+      },
       methods: {
         codeKeyValid (rule, value, callbackFn) {
           var _this = this;
@@ -95,10 +105,10 @@ define([
         },
         saveFn () {
         },
+        // 新增数据字典
         pushLookupItem () {
           var _this = this;
-          this.currentLookupItems.push({});
-          console.log(this.$refs.editLookupItemTable, 'editLookupItemTable');
+          this.currentLookupItems.push({a: '111'});
           this.$refs.editLookupItemTable.setCurrentRow(this.currentLookupItems[0]);
           this.$refs.editLookupItemTable.validate(()=>{}, true);
           // this.$refs.editLookupItemTable.validate(function (fields) {
@@ -112,7 +122,6 @@ define([
         },
         deleteFn () {},
         expandFn (row, expanded) {
-          console.log(row, expanded, 'row, expanded');
         },
 
         deleteLookupItem (scope) {

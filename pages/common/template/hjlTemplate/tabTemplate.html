@@ -1,4 +1,4 @@
-<div>
+<div class="tab-container">
   <yu-tabs v-model="activeName">
     <yu-tab-pane label="合作方案信息" name="first">
       <panel title="协议基本信息">
@@ -15,7 +15,18 @@
         </yu-xform>
       </panel>
       <panel title="合作方分项/项目额度">
-
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+      <panel title="合作方分项/项目额度">
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+      <panel title="合作方分项/项目额度">
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+      <panel title="合作方分项/项目额度">
+        <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
+      </panel>
+      <panel title="合作方分项/项目额度">
         <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'">
       </panel>
     </yu-tab-pane>

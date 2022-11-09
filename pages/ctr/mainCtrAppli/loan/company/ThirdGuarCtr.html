@@ -1,0 +1,80 @@
+<yu-xform ref="refForm" v-model="formdata" label-width="140px">
+  <yu-xform-group>
+    <yu-xform-item label="是否纳入风险分担机制" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+      icon="">
+    </yu-xform-item>
+    <yu-xform-item label="风险分担机制" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+      icon="">
+    </yu-xform-item>
+  </yu-xform-group>
+</yu-xform>
+<yu-collapse v-model="activeNames">
+  <yu-collapse-item title="保证保险信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="保险公司名称" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="保险类型" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="保险金额(元)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="是否全程担保" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="担保有效期(月)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="保险期限(月)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="其他事项" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="简况" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="其他风险分担信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="项目名称" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="见贷保客群业务类型" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="风险分担比例(%)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="风险分担金额(元)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="是否全程担保" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="担保有效期(月)" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+        <yu-xform-item label="简况" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="追加其他增信措施" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="其他可追加增信措施" name="" ctype="select" :disabled="true" :rules="[]" :options="[]" data-code=""
+          icon="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+</yu-collapse>
+<yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="deleteFn">保存</yu-button>
+<yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">返回</yu-button>

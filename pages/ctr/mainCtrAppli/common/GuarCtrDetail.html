@@ -1,0 +1,349 @@
+<yu-collapse v-model="activeNames">
+  <yu-collapse-item title="合同基本信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="担保合同编号" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="担保合同类型" name="" ctype="select" :disabled="true" :rules="[]" data-code="ctrType">
+        </yu-xform-item>
+        <yu-xform-item label="借款人客户编号" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="借款人名称" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="担保方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="ctrType">
+        </yu-xform-item>
+        <yu-xform-item label="是否追加担保" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="是否授信项下" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="合同起始日" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="合同到期日" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="担保币种" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="合同状态" name="" ctype="select" :disabled="true" :rules="[]" data-code="ctrStatus">
+        </yu-xform-item>
+        <yu-xform-item label="担保合同金额(元)" name="" :rules="['money']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="担保债权范围" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="关联主合同方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当关联主合同方式选择1时显示本栏目，否则隐藏不显示） -->
+  <yu-collapse-item title="关联授信合同信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="授信合同编号" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当关联主合同方式选择2时显示本栏目，否则隐藏不显示） -->
+  <yu-collapse-item title="担保主债权发生期间" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="担保主债权发生起始日" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="担保主债权发生到期日" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当关联主合同方式选择3时显示本栏目，否则隐藏不显示） -->
+  <yu-collapse-item title="关联存量借款合同列表" name="1">
+    <yu-button-group>
+      <yu-button type="primary" @click="tempSave">新增</yu-button>
+      <yu-button type="primary" @click="tempSave">删除</yu-button>
+    </yu-button-group>
+    <yu-xtable ref="refTable" :data="tableData" row-number>
+      <yu-xtable-column label="合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同类型" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="客户名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="币种" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同金额(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同起始日" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同到期日" prop="" data-code="item.dataCode"></yu-xtable-column>
+    </yu-xtable>
+  </yu-collapse-item>
+  <yu-collapse-item title="债务人信息列表" name="1">
+    <yu-button-group>
+      <yu-button type="primary" @click="tempSave">新增</yu-button>
+      <yu-button type="primary" @click="tempSave">删除</yu-button>
+    </yu-button-group>
+    <yu-xtable ref="refTable" :data="tableData" row-number>
+      <yu-xtable-column label="债务人客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="债务人名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+    </yu-xtable>
+  </yu-collapse-item>
+  <!-- （当最高额担保合同的担保方式为抵押时，才显示本栏目；否则隐藏不显示。本栏目对应纸质合同条款） -->
+  <yu-collapse-item title="抵押信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="抵押财产价值(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="抵押财产是否存在租赁" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="租赁资料提交时限(天)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="押登记办理时限要求(天)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="抵押财产保管方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="抵押财产是否投保" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="抵押财产保险期限超出主合同履行期间要求(月)" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当最高额担保合同的担保方式为质押时，才显示本栏目；否则隐藏不显示。本栏目对应纸质合同条款） -->
+  <yu-collapse-item title="质押信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="质押财产价值(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="质押手续办理时限要求(天)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="质押财产是否投保" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="质押财产保险期限超出主合同履行期间要求(月)" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当担保合同的担保方式为质押并且质押合同类型为存单质押时，才显示本栏目；否则隐藏不显示。 -->
+  <yu-collapse-item title="质押存单信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="存单种类" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="号码" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="数量" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="存单户名" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="存单期限(月)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="存单利率" name="" :rules="['lv']">
+        </yu-xform-item>
+        <yu-xform-item label="存单签发行" name="" :rules="['lv']">
+        </yu-xform-item>
+        <yu-xform-item label="存单现值(元)" name="" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当担保合同的担保方式为质押并且质押合同类型为权利质押时，才显示本栏目；否则隐藏不显示。 -->
+  <yu-collapse-item title="质押权利信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="质押权利" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="质押权利价值(元)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="需5个工作日内追加担保措施的股权质押率上限(%)" name="" :rules="['lv']">
+        </yu-xform-item>
+        <yu-xform-item label="5个工作日内追加担保措施后的股权质押率上限(%)" name="" :rules="['lv']">
+        </yu-xform-item>
+        <yu-xform-item label="需3个工作日内追加担保措施的股权质押率上限(%)" name="" :rules="['lv']">
+        </yu-xform-item>
+        <yu-xform-item label="3个工作日内追加担保措施后的股权质押率上限(%)" name="" :rules="['lv']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- （当担保合同的担保方式为质押并且质押合同类型为权利质押时，才显示本栏目；否则隐藏不显示。 -->
+  <yu-collapse-item title="应收账款质押信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="应收账款描述" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款金额合计(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款回款账号" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款回款账户户名" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款回款账户开户行" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款回款处理方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="应收账户回款其他处理方式" name="">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款质押通知条款" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="应收账款质押通知时限要求(天)" name="" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="合同当事人" name="1">
+    <div>甲方信息</div>
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="债权人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="负责人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="住所" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="邮政编码" name="" :disabled="true" :rules="['yzbm']">
+        </yu-xform-item>
+        <yu-xform-item label="联系电话" name="" :disabled="true" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="传真" name="" :disabled="true" :rules="['cz']">
+        </yu-xform-item>
+        <yu-xform-item label="电子邮箱" name="" :disabled="true" :rules="['dzyx']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <div>乙方信息</div>
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="担保人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="法定代表人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="证件类型" name="" :disabled="true" :rules="[]" data-code="zjlx">
+        </yu-xform-item>
+        <yu-xform-item label="证件号码" name="" :disabled="true" :rules="['zjhm']">
+        </yu-xform-item>
+        <yu-xform-item label="住所" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="邮政编码" name="" :disabled="true" :rules="['yzbm']">
+        </yu-xform-item>
+        <yu-xform-item label="联系电话" name="" :disabled="true" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="传真" name="" :disabled="true" :rules="['cz']">
+        </yu-xform-item>
+        <yu-xform-item label="电子邮箱" name="" :disabled="true" :rules="['dzyx']">
+        </yu-xform-item>
+        <yu-xform-item label="开户金融机构及账号" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="特别送达电子地址" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="特别约定手机号" name="" :rules="['lxfs']">
+        </yu-xform-item>
+        <yu-xform-item label="特别约定电子邮箱" name="" :rules="['dzyx']">
+          <yu-xform-item label="特别约定传真" name="" :rules="['cz']">
+          </yu-xform-item>
+          <yu-xform-item label="特别约定其他" name="" ctype="">
+          </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="争议解决" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="争议解决方式" name="" data-code="zyjc">
+        </yu-xform-item>
+        <yu-xform-item label="签订地法院" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="合同份数" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="合同签订份数" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="甲乙双方各执份数" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="担保人所执份数" name="" :disabled="true" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="其他人所执份数" name="" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="其他约定事项" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="其他事项" name="">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="签约信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="签约日期" name="" ctype="datepicker">
+        </yu-xform-item>
+        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="登记信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="登记人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="登记机构" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="管户人" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="管户机构" name="" :disabled="true" :rules="[]">
+        </yu-xform-item>
+        <yu-xform-item label="登记日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+</yu-collapse>
+<yu-button type="primary" @click="tempSave">保存</yu-button>
+<yu-button type="primary" @click="tempSave">返回</yu-button>
+<yu-collapse-item title="抵质押物列表" name="1">
+  <yu-button-group>
+    <yu-button type="primary" @click="tempSave">引入批复押品</yu-button>
+    <yu-button type="primary" @click="tempSave">取消引入</yu-button>
+    <yu-button type="primary" @click="tempSave">引用存量押品</yu-button>
+    <yu-button type="primary" @click="tempSave">取消引用</yu-button>
+    <yu-button type="primary" @click="tempSave">新增押品</yu-button>
+    <yu-button type="primary" @click="tempSave">修改</yu-button>
+    <yu-button type="primary" @click="tempSave">删除</yu-button>
+    <yu-button type="primary" @click="tempSave">查看押品信息</yu-button>
+  </yu-button-group>
+  <yu-xtable ref="refTable" :data="tableData" row-number>
+    <yu-xtable-column label="押品编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="押品类型" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="押品名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="权属人名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="权属人证件类型" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="权属人证件号码" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="我行确认价值(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="担保主债权(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
+  </yu-xtable>
+</yu-collapse-item>
+<yu-collapse-item title="保证人列表" name="1">
+  <yu-button-group>
+    <yu-button type="primary" @click="tempSave">引入批复保证人</yu-button>
+    <yu-button type="primary" @click="tempSave">取消引入</yu-button>
+    <yu-button type="primary" @click="tempSave">修改</yu-button>
+    <yu-button type="primary" @click="tempSave">删除</yu-button>
+    <yu-button type="primary" @click="tempSave">查看</yu-button>
+  </yu-button-group>
+  <yu-xtable ref="refTable" :data="tableData" row-number>
+    <yu-xtable-column label="保证人客户号" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="保证人名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="保证人证件类型" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="保证人证件号码" prop="" data-code="item.dataCode"></yu-xtable-column>
+    <yu-xtable-column label="担保金额(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
+  </yu-xtable>
+</yu-collapse-item>

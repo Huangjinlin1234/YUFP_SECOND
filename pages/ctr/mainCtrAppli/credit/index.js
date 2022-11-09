@@ -29,17 +29,13 @@ define([''], function (require, exports) {
               ]
             }
           ],
-          defaultProps: {
-            children: 'children',
-            label: 'label'
-          }
         };
       },
       methods: {
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId);
         },
-        clickNode(data) {
+        clickNode (data) {
           console.log(data, 'data::: ');
           switch (data.id) {
             case 2:
@@ -76,7 +72,7 @@ define([''], function (require, exports) {
   };
 
   // 消息处理
-  exports.onmessage = function (type, message) {};
+  exports.onmessage = function (type, message) { };
   // page销毁时触发destroy方法
-  exports.destroy = function (id, cite) {};
+  exports.destroy = function (id, cite) { };
 });

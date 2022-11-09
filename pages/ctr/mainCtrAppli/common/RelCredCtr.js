@@ -1,5 +1,5 @@
 /*
- * @description: 借款合同第三方合同信息（对公）
+ * @description: 借款合同关联授信合同（对公和个人）
  * @author: ljl
  * @date: 2022-11-07
  */
@@ -11,7 +11,6 @@ define([''], function (require, exports) {
       data: function () {
         return {
           activeNames: ['1'],
-          formdata: {},
           tableData: []
         };
       },

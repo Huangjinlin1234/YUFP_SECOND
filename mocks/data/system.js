@@ -192,72 +192,106 @@ define([
         'funcUrl': 'pages/console/system/SUserOperLog',
         'legalOrgCode': null
       },
-      //一级菜单
-      {
-        menuId: 'lp-60000',
-        menuName: '合同管理',
-        upMenuId: null,
-        menuIcon: 'el-icon-yx-books'
-      },
+      // //一级菜单
+      // {
+      //   menuId: 'lp-60000',
+      //   menuName: '合同管理',
+      //   upMenuId: null,
+      //   menuIcon: 'el-icon-yx-books'
+      // },
 
-      //二级菜单
-      {
-        menuId: 'lp-61000',
-        menuName: '主合同申请',
-        upMenuId: 'lp-60000',
-        menuIcon: 'el-icon-yx-books'
-      },
-      {
-        menuId: 'lp-62000',
-        menuName: '合同审批',
-        upMenuId: 'lp-60000',
-        menuIcon: 'el-icon-yx-books'
-      },
-      {
-        menuId: 'lp-63000',
-        menuName: '主合同管理',
-        upMenuId: 'lp-60000',
-        menuIcon: 'el-icon-yx-books'
-      },
-      {
-        menuId: 'lp-64000',
-        menuName: '担保合同管理',
-        upMenuId: 'lp-60000',
-        menuIcon: 'el-icon-yx-books'
-      },
-      //三级菜单
-      {
-        menuId: 'lp-61100',
-        menuName: '授信合同申请',
-        upMenuId: 'lp-61000',
-        menuIcon: '',
-        funcId: 'CredContAppl',
-        funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
-      },
-      {
-        menuId: 'lp-61200',
-        menuName: '授信合同申请历史',
-        upMenuId: 'lp-61000',
-        menuIcon: '',
-        funcId: 'CredContHis',
-        funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
-      },
-      {
-        menuId: 'lp-61300',
-        menuName: '借款合同申请',
-        upMenuId: 'lp-61000',
-        menuIcon: '',
-        funcId: 'LoanContAppl',
-        funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
-      },
-      {
-        menuId: 'lp-61400',
-        menuName: '借款合同申请历史',
-        upMenuId: 'lp-61000',
-        menuIcon: '',
-        funcId: 'LoanContHis',
-        funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
-      },
+      // //二级菜单
+      // {
+      //   menuId: 'lp-61000',
+      //   menuName: '主合同申请',
+      //   upMenuId: 'lp-60000',
+      //   menuIcon: 'el-icon-yx-books'
+      // },
+      // {
+      //   menuId: 'lp-62000',
+      //   menuName: '合同审批',
+      //   upMenuId: 'lp-60000',
+      //   menuIcon: 'el-icon-yx-books'
+      // },
+      // {
+      //   menuId: 'lp-63000',
+      //   menuName: '主合同管理',
+      //   upMenuId: 'lp-60000',
+      //   menuIcon: 'el-icon-yx-books'
+      // },
+      // {
+      //   menuId: 'lp-64000',
+      //   menuName: '担保合同管理',
+      //   upMenuId: 'lp-60000',
+      //   menuIcon: 'el-icon-yx-books'
+      // },
+      // //三级菜单
+      // {
+      //   menuId: 'lp-61100',
+      //   menuName: '授信合同申请',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'CredContAppl',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+      // },
+      // {
+      //   menuId: 'lp-61200',
+      //   menuName: '授信合同申请历史',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'CredContHis',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+      // },
+      // {
+      //   menuId: 'lp-61300',
+      //   menuName: '借款合同申请',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'LoanContAppl',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+      // },
+      // {
+      //   menuId: 'lp-61400',
+      //   menuName: '借款合同申请历史',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'LoanContHis',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+      // },
+
+      // *******************
+      // {
+      //   menuId: 'lp-61100',
+      //   menuName: '授信合同申请',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'CredContAppl',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+      // },
+      // {
+      //   menuId: 'lp-61200',
+      //   menuName: '授信合同申请历史',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'CredContHis',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+      // },
+      // {
+      //   menuId: 'lp-61300',
+      //   menuName: '借款合同申请',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'LoanContAppl',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
+      // },
+      // {
+      //   menuId: 'lp-61400',
+      //   menuName: '借款合同申请历史',
+      //   upMenuId: 'lp-61000',
+      //   menuIcon: '',
+      //   funcId: 'LoanContHis',
+      //   funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
+      // },
       // {
       //   'menuId': 'lp-80000',
       //   'menuName': '贷后管理',

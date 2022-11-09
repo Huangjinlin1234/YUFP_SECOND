@@ -438,58 +438,58 @@ function (require, exports) {
     // },
     // 一级菜单 模板
     {
-      'menuId': 'lp-080000',
-      'menuName': '模板',
-      'upMenuId': '',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': null,
-      'funcUrl': null,
-      'legalOrgCode': null
+      'menuId': 'lp-080000',
+      'menuName': '模板',
+      'upMenuId': '',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': null,
+      'funcUrl': null,
+      'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080001',
-      'menuName': '树形页面模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'treeForm',
-      'funcUrl': 'pages/console/demo/treeForm',
-      'legalOrgCode': null
+      'menuId': 'lp-080001',
+      'menuName': '树形页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'treeForm',
+      'funcUrl': 'pages/common/template/hjlTemplate/treeForm',
+      'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080002',
-      'menuName': '标签页面模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'tabTemplate',
-      'funcUrl': 'pages/console/demo/tabTemplate',
-      'legalOrgCode': null
+      'menuId': 'lp-080002',
+      'menuName': '标签页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'tabTemplate',
+      'funcUrl': 'pages/common/template/hjlTemplate/tabTemplate',
+      'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080003',
-      'menuName': 'POP页面模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'popTemplate',
-      'funcUrl': 'pages/console/demo/popTemplate',
-      'legalOrgCode': null
+      'menuId': 'lp-080003',
+      'menuName': 'POP页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'popTemplate',
+      'funcUrl': 'pages/common/template/hjlTemplate/popTemplate',
+      'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080004',
-      'menuName': '简洁新增模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'sympleAdd',
-      'funcUrl': 'pages/console/demo/sympleAdd',
-      'legalOrgCode': null
+      'menuId': 'lp-080004',
+      'menuName': '简洁新增模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'sympleAdd',
+      'funcUrl': 'pages/common/template/hjlTemplate/sympleAdd',
+      'legalOrgCode': null
     },
     {
-      'menuId': 'lp-080005',
-      'menuName': '多列表页面模板',
-      'upMenuId': 'lp-080000',
-      'menuIcon': 'el-icon-yx-books',
-      'funcId': 'treeMoreTable',
-      'funcUrl': 'pages/console/demo/treeMoreTable',
-      'legalOrgCode': null
+      'menuId': 'lp-080005',
+      'menuName': '多列表页面模板',
+      'upMenuId': 'lp-080000',
+      'menuIcon': 'el-icon-yx-books',
+      'funcId': 'treeMoreTable',
+      'funcUrl': 'pages/common/template/hjlTemplate/treeMoreTable',
+      'legalOrgCode': null
     }
   ];
     /**

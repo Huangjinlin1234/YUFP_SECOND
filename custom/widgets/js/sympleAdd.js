@@ -2,7 +2,6 @@
 (function (vue, $, name) {
   vue.component(name, {
     template: '<div class="symple-add">\
-              <div>\
                 <div class="dialog-panel"><b>{{title}}</b></div>\
                 <div class="form-content">\
                   <yu-xform ref="refSympleAdd" label-width="120px" v-model="formdata"  :rules="rules">\
@@ -15,7 +14,6 @@
                   <el-button type="primary" @click="nextStesp">下一步</el-button>\
                   <el-button @click="backTo">返回</el-button>\
                 </div>\
-              </div>\
           </div>',
     props: {
       title: {

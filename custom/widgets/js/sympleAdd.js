@@ -10,7 +10,7 @@
                     </yu-xform-group>\
                   </yu-xform>\
                 </div>\
-                <div class="foot">\
+                <div class="symple-foot">\
                   <el-button type="primary" @click="nextStesp">下一步</el-button>\
                   <el-button @click="backTo">返回</el-button>\
                 </div>\

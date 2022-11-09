@@ -418,7 +418,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'treeForm',
-      'funcUrl': 'pages/console/demo/treeForm',
+      'funcUrl': 'pages/common/template/hjlTemplate/treeForm',
       'legalOrgCode': null
     },
     {
@@ -427,7 +427,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'tabTemplate',
-      'funcUrl': 'pages/console/demo/tabTemplate',
+      'funcUrl': 'pages/common/template/hjlTemplate/tabTemplate',
       'legalOrgCode': null
     },
     {
@@ -436,7 +436,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'popTemplate',
-      'funcUrl': 'pages/console/demo/popTemplate',
+      'funcUrl': 'pages/common/template/hjlTemplate/popTemplate',
       'legalOrgCode': null
     },
     {
@@ -445,7 +445,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'sympleAdd',
-      'funcUrl': 'pages/console/demo/sympleAdd',
+      'funcUrl': 'pages/common/template/hjlTemplate/sympleAdd',
       'legalOrgCode': null
     },
     {
@@ -454,7 +454,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'treeMoreTable',
-      'funcUrl': 'pages/console/demo/treeMoreTable',
+      'funcUrl': 'pages/common/template/hjlTemplate/treeMoreTable',
       'legalOrgCode': null
     }
   ];

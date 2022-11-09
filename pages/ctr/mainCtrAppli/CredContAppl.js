@@ -40,7 +40,7 @@ define(['pages/ctr/mainCtrAppli/credit/index.js'], function (require, exports) {
             { label: '合同类型', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '客户编号', prop: 'ctrNo', width: 120 },
             { label: '客户名称', prop: 'ctrNo', width: 120 },
-            { label: '合同币种', prop: 'ctrNo', width: 120, dataCode: '' },
+            { label: '币种', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '合同金额（元）', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '产品名称', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '审批状态', prop: 'ctrNo', width: 120, options: [] },

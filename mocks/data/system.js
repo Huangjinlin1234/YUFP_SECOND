@@ -15,10 +15,10 @@ define([
 ],
 function (require, exports) {
   /**
-       * GET请求URL参数转换
-       * @param url
-       * @returns {{}}
-       */
+         * GET请求URL参数转换
+         * @param url
+         * @returns {{}}
+         */
   var paramUrl2Obj = function (url) {
     var search = url.split('?')[1];
     if (!search) {
@@ -192,72 +192,106 @@ function (require, exports) {
       'funcUrl': 'pages/console/system/SUserOperLog',
       'legalOrgCode': null
     },
-    // 一级菜单
-    {
-      menuId: 'lp-60000',
-      menuName: '合同管理',
-      upMenuId: null,
-      menuIcon: 'el-icon-yx-books'
-    },
+    // //一级菜单
+    // {
+    //   menuId: 'lp-60000',
+    //   menuName: '合同管理',
+    //   upMenuId: null,
+    //   menuIcon: 'el-icon-yx-books'
+    // },
 
-    // 二级菜单
-    {
-      menuId: 'lp-61000',
-      menuName: '主合同申请',
-      upMenuId: 'lp-60000',
-      menuIcon: 'el-icon-yx-books'
-    },
-    {
-      menuId: 'lp-62000',
-      menuName: '合同审批',
-      upMenuId: 'lp-60000',
-      menuIcon: 'el-icon-yx-books'
-    },
-    {
-      menuId: 'lp-63000',
-      menuName: '主合同管理',
-      upMenuId: 'lp-60000',
-      menuIcon: 'el-icon-yx-books'
-    },
-    {
-      menuId: 'lp-64000',
-      menuName: '担保合同管理',
-      upMenuId: 'lp-60000',
-      menuIcon: 'el-icon-yx-books'
-    },
-    // 三级菜单
-    {
-      menuId: 'lp-61100',
-      menuName: '授信合同申请',
-      upMenuId: 'lp-61000',
-      menuIcon: '',
-      funcId: 'CredContAppl',
-      funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
-    },
-    {
-      menuId: 'lp-61200',
-      menuName: '授信合同申请历史',
-      upMenuId: 'lp-61000',
-      menuIcon: '',
-      funcId: 'CredContHis',
-      funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
-    },
-    {
-      menuId: 'lp-61300',
-      menuName: '借款合同申请',
-      upMenuId: 'lp-61000',
-      menuIcon: '',
-      funcId: 'LoanContAppl',
-      funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
-    },
-    {
-      menuId: 'lp-61400',
-      menuName: '借款合同申请历史',
-      upMenuId: 'lp-61000',
-      menuIcon: '',
-      funcId: 'LoanContHis',
-      funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
-    },
+    // //二级菜单
+    // {
+    //   menuId: 'lp-61000',
+    //   menuName: '主合同申请',
+    //   upMenuId: 'lp-60000',
+    //   menuIcon: 'el-icon-yx-books'
+    // },
+    // {
+    //   menuId: 'lp-62000',
+    //   menuName: '合同审批',
+    //   upMenuId: 'lp-60000',
+    //   menuIcon: 'el-icon-yx-books'
+    // },
+    // {
+    //   menuId: 'lp-63000',
+    //   menuName: '主合同管理',
+    //   upMenuId: 'lp-60000',
+    //   menuIcon: 'el-icon-yx-books'
+    // },
+    // {
+    //   menuId: 'lp-64000',
+    //   menuName: '担保合同管理',
+    //   upMenuId: 'lp-60000',
+    //   menuIcon: 'el-icon-yx-books'
+    // },
+    // //三级菜单
+    // {
+    //   menuId: 'lp-61100',
+    //   menuName: '授信合同申请',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'CredContAppl',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+    // },
+    // {
+    //   menuId: 'lp-61200',
+    //   menuName: '授信合同申请历史',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'CredContHis',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+    // },
+    // {
+    //   menuId: 'lp-61300',
+    //   menuName: '借款合同申请',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'LoanContAppl',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+    // },
+    // {
+    //   menuId: 'lp-61400',
+    //   menuName: '借款合同申请历史',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'LoanContHis',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/ContractAppli'
+    // },
+
+    // *******************
+    // {
+    //   menuId: 'lp-61100',
+    //   menuName: '授信合同申请',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'CredContAppl',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+    // },
+    // {
+    //   menuId: 'lp-61200',
+    //   menuName: '授信合同申请历史',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'CredContHis',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/CredContAppl'
+    // },
+    // {
+    //   menuId: 'lp-61300',
+    //   menuName: '借款合同申请',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'LoanContAppl',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
+    // },
+    // {
+    //   menuId: 'lp-61400',
+    //   menuName: '借款合同申请历史',
+    //   upMenuId: 'lp-61000',
+    //   menuIcon: '',
+    //   funcId: 'LoanContHis',
+    //   funcUrl: 'pages/ctr/mainCtrAppli/LoanContAppl'
+    // },
     // {
     //   'menuId': 'lp-80000',
     //   'menuName': '贷后管理',
@@ -418,7 +452,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'treeForm',
-      'funcUrl': 'pages/common/template/hjlTemplate/treeForm',
+      'funcUrl': 'pages/console/demo/treeForm',
       'legalOrgCode': null
     },
     {
@@ -427,7 +461,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'tabTemplate',
-      'funcUrl': 'pages/common/template/hjlTemplate/tabTemplate',
+      'funcUrl': 'pages/console/demo/tabTemplate',
       'legalOrgCode': null
     },
     {
@@ -436,7 +470,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'popTemplate',
-      'funcUrl': 'pages/common/template/hjlTemplate/popTemplate',
+      'funcUrl': 'pages/console/demo/popTemplate',
       'legalOrgCode': null
     },
     {
@@ -445,7 +479,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'sympleAdd',
-      'funcUrl': 'pages/common/template/hjlTemplate/sympleAdd',
+      'funcUrl': 'pages/console/demo/sympleAdd',
       'legalOrgCode': null
     },
     {
@@ -454,7 +488,7 @@ function (require, exports) {
       'upMenuId': 'lp-080000',
       'menuIcon': 'el-icon-yx-books',
       'funcId': 'treeMoreTable',
-      'funcUrl': 'pages/common/template/hjlTemplate/treeMoreTable',
+      'funcUrl': 'pages/console/demo/treeMoreTable',
       'legalOrgCode': null
     }
   ];
@@ -495,9 +529,9 @@ function (require, exports) {
   };
 
   /**
-       * 注销模拟
-       * @param config
-       */
+         * 注销模拟
+         * @param config
+         */
   exports.logoutFn = function (config) {
     return {
       code: 0,
@@ -506,10 +540,10 @@ function (require, exports) {
   };
 
   /**
-       * 模拟会话信息
-       * @param config
-       * @returns
-       */
+         * 模拟会话信息
+         * @param config
+         * @returns
+         */
   exports.sessionInfoFn = function (config) {
     var data = paramUrl2Obj(config.url);
     console.log('session info here');
@@ -537,9 +571,9 @@ function (require, exports) {
   };
 
   /**
-       * 模拟菜单、控制点数据
-       * @returns {{menus, ctrls}}
-       */
+         * 模拟菜单、控制点数据
+         * @returns {{menus, ctrls}}
+         */
   exports.menuAndContrFn = function () {
     // var menus = demoMenus.concat(loanMenu).concat(riskMenu).concat(ctrMenu).concat(limitMenu).concat(consoleMenu);
     var menus = demoMenus;
@@ -554,31 +588,31 @@ function (require, exports) {
   };
 
   /**
-       * 数据权限数据
-       */
+         * 数据权限数据
+         */
   exports.dataContrFn = function () {
     return demoDataContr;
   };
 
   /**
-       * 密码加密
-       */
+         * 密码加密
+         */
   exports.passwordFn = function () {
 
   };
 
   /**
-       * 查询全部控制点信息
-       */
+         * 查询全部控制点信息
+         */
   exports.contrUrlFn = function () {
     return {};
   };
 
   /**
-       * 模拟后台数据字典库
-       * @type
-       * @private
-       */
+         * 模拟后台数据字典库
+         * @type
+         * @private
+         */
   var _all_lookup = {
     USER_STATUS: [
       { key: '01', value: '正常' },

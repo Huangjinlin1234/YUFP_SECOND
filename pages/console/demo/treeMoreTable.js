@@ -16,6 +16,8 @@ define([
           dataUrl: {
             first: backend.consoleService + '/api/user/oper/logs'
           },
+          current: '1',
+          currentKey: '1',
           treeData: [
             { id: '0', label: '同业机构准入申报', pid: '-1' },
             { id: '1', label: '示例1', pid: '0' },
@@ -27,7 +29,6 @@ define([
       },
       methods: {
         nodeClick (node) {
-          console.log(node, 'ddd');
           this.current = node.id;
         },
         addFn () {

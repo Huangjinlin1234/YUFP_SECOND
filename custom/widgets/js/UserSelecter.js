@@ -113,8 +113,7 @@
           this.$message('请先选择一条数据');
           return;
         }
-        console.log(this.selections[0], 'sss');
-        this.$emit('input', this.selections[0].bookNo);
+        this.$emit('input', this.selections[0].prpNo);
         if (this.params && typeof this.params.valid == 'function') {
           if (this.params.valid() == false) {
             this.selectedVal = '';
@@ -126,10 +125,9 @@
         } else {
           this.selectedVal = this.selections[0].prpNo;
         }
-        console.log(this.selections[0].prpNo, 'this.selections[0].prpNo');
         // 这个是你自定义返回的接口事件
         this.$emit('select-fn', this.selections[0].prpNo, this.selections[0]);
-        // this.dialogVisible = false;
+        this.dialogVisible = false;
       },
       // 对外提供选择器显示值
       getRawValue: function () {

@@ -72,26 +72,26 @@
   var env = 'DEV'; // 设置当前环境 PRD/UAT/DEV
   // 根据运行环境参数 选择读取不同的js 原始js/合并js/压缩js
   switch (env) {
-    case 'DEV':
-      libsJs = libsJs.concat([
-        './custom/plugins/yufp.settings.js',
-        './custom/plugins/yufp.localstorage.js',
-        './custom/plugins/yufp.sessionstorage.js',
-        './custom/plugins/yufp.service.js',
-        './custom/plugins/yufp.validator.js',
-        './custom/plugins/yufp.util.js',
-        './custom/plugins/yufp.lookup.js',
-        './custom/plugins/yufp.session.js',
-        './custom/plugins/yufp.frame.js',
-        './custom/common/app.js'
-      ]);
-      break;
-    case 'UAT':
-      libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-debug.js']);
-      break;
-    case 'PRD':
-      libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-min.js']);
-      break;
+  case 'DEV':
+    libsJs = libsJs.concat([
+      './custom/plugins/yufp.settings.js',
+      './custom/plugins/yufp.localstorage.js',
+      './custom/plugins/yufp.sessionstorage.js',
+      './custom/plugins/yufp.service.js',
+      './custom/plugins/yufp.validator.js',
+      './custom/plugins/yufp.util.js',
+      './custom/plugins/yufp.lookup.js',
+      './custom/plugins/yufp.session.js',
+      './custom/plugins/yufp.frame.js',
+      './custom/common/app.js'
+    ]);
+    break;
+  case 'UAT':
+    libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-debug.js']);
+    break;
+  case 'PRD':
+    libsJs = libsJs.concat(['./custom/build/packagejs/yufp-custom-min.js']);
+    break;
   }
 
   // route_tables信息和app.js 打包一起导致平台加载先后顺序异常
@@ -170,31 +170,31 @@
         var flag = true;
         var me = yufp.custom.vue({});
         switch (status) {
-          case 401:
-            yufp.session.logout(true);
-            flag = false;
-            break;
-          case 403:
-            me.$message({
-              message: '您无权限访问，请联系系统管理员!',
-              type: 'warning'
-            });
-            flag = false;
-            break;
-          case 404:
-            me.$message({
-              message: '系统错误，请联系系统管理员!',
-              type: 'error'
-            });
-            flag = false;
-            break;
-          default:
-            me.$message({
-              message: '系统错误，请联系系统管理员!',
-              type: 'error'
-            });
-            flag = false;
-            break;
+        case 401:
+          yufp.session.logout(true);
+          flag = false;
+          break;
+        case 403:
+          me.$message({
+            message: '您无权限访问，请联系系统管理员!',
+            type: 'warning'
+          });
+          flag = false;
+          break;
+        case 404:
+          me.$message({
+            message: '系统错误，请联系系统管理员!',
+            type: 'error'
+          });
+          flag = false;
+          break;
+        default:
+          me.$message({
+            message: '系统错误，请联系系统管理员!',
+            type: 'error'
+          });
+          flag = false;
+          break;
         }
         return flag;
       }
@@ -328,4 +328,4 @@
     // 页面跳转
     hashFn();
   });
-})(window, yufp);
+}(window, yufp));

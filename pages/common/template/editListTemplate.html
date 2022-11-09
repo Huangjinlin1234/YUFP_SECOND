@@ -1,0 +1,106 @@
+<!-- 必须全局拥有唯一的id -->
+<div id="exampleEdit">
+    <panel title="编辑列表模板"></panel>
+    <div class="yu-toolBar">
+        <el-button-group>
+            <el-button icon="plus" @click="addFn">新增</el-button>
+            <el-button icon="edit" @click="modifyFn">修改</el-button>
+            <el-button icon="document" @click="infoFn">查看</el-button>
+            <el-button icon="delete" @click="delFn">删除</el-button>
+        </el-button-group>
+    </div>
+    <el-col class="spacing10" :span="24"></el-col>
+    <el-row>        
+        <el-col :span="24">            
+                <yu-xtable
+                selection-type="radio"
+                @cell-click="cellClick"
+                row-number
+                ref="yutable2"
+                :data="tableData1"
+                :pageable="false"
+                style="width: 100%" >
+                <yu-xtable-column
+                  prop="date"
+                  label="日期">
+                </yu-xtable-column>
+                <yu-xtable-column
+                  prop="name"
+                  :options="options"
+                  label="状态">
+                </yu-xtable-column>
+                <yu-xtable-column
+                  prop="address"
+                  label="地址">
+                </yu-xtable-column>                
+              </yu-xtable>
+        </el-col>       
+    </el-row>
+
+    <panel title="编辑列表模板"></panel>
+    <div class="yu-toolBar">
+        <el-button-group>
+            <el-button icon="plus" @click="addFn1">新增</el-button>
+            <el-button icon="delete" @click="delFn1">删除</el-button>
+        </el-button-group>
+    </div>
+    <el-col class="spacing10" :span="24"></el-col>
+    <el-row>        
+        <el-col :span="24">            
+                <yu-xtable
+                @cell-dblclick="cellClick"
+                selection-type="radio"
+                row-number
+                
+                :pageable="false"
+                ref="yutable3"
+                :data="tableData2"
+                style="width: 100%" >
+                <yu-xtable-column
+                  prop="date"
+                  ctype="datepicker"
+                  label="日期">
+                </yu-xtable-column>
+                  <yu-xtable-column
+                  prop="id"
+                  label="产品ID">
+                </yu-xtable-column>
+                <yu-xtable-column
+                  :options="options"
+                  ctype="select"
+                  @change="change"
+                  prop="name"                  
+                  label="状态">
+                </yu-xtable-column>
+                <yu-xtable-column
+                  ctype="input"
+                  placeholder="请输入地址"
+                  prop="address"
+                  label="地址">
+                </yu-xtable-column>                
+              </yu-xtable>
+              <div class="p20 align-center">
+                <yu-button type="primary" @click="saveFn1">保存</yu-button>
+            </div>
+        </el-col>       
+        
+    <el-col class="spacing10" :span="24"></el-col>
+    <el-col class="spacing10" :span="24"></el-col>
+    <el-col class="spacing10" :span="24"></el-col>
+    </el-row>
+
+    <!--新增弹框-->
+    <yu-xdialog :title="viewTitle[viewType]" :min-width="700" :visible.sync="dialogVisible">
+            <yu-xform ref="refForm" label-width="100px" label-suffix="：" v-model="formdataX" :disabled="formDisabled">
+                <yu-xform-group>  
+                <yu-xform-item label="日期" ctype="datepicker" name="date" placeholder="日期"></yu-xform-item>
+                <yu-xform-item label="地址" required ctype="input" name="address"></yu-xform-item>
+                <yu-xform-item label="状态" required ctype="select" name="name" :options="options" placeholder="是否可见"></yu-xform-item>
+                </yu-xform-group>
+            </yu-xform>
+            <div slot="footer" class="dialog-footer">
+                <yu-button v-show="saveBtnShow" icon="check" type="primary" @click="saveFn">保存</yu-button>
+                <yu-button icon="yx-undo2" type="primary" @click="cancelFn">取消</yu-button>
+            </div>
+        </yu-xdialog>
+</div>

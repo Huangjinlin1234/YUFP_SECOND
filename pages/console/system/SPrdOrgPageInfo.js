@@ -51,7 +51,7 @@ define([
           {
             label: '重置',
             op: 'reset',
-            type: 'primary',
+
             icon: 'yx-loop2',
             click: function () {
               _self.resetQuery = false;

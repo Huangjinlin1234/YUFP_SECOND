@@ -41,9 +41,27 @@ define(function (require) {
       html: 'pages/common/template/editListTemplate.html',
       css: 'pages/common/template/editListTemplate.css',
       js: 'pages/common/template/editListTemplate.js'
+    },
+    creditManage: {
+      html: 'pages/common/template/hjlTemplate/creditManage.html',
+      js: 'pages/common/template/hjlTemplate/creditManage.js'
+    },
+    allCtedit: {
+      html: 'pages/common/template/hjlTemplate/allCtedit.html',
+      js: 'pages/common/template/hjlTemplate/allCtedit.js'
+    },
+    oprFinance: {
+      html: 'pages/common/template/hjlTemplate/oprFinance.html',
+      js: 'pages/common/template/hjlTemplate/oprFinance.js'
+    },
+    methodInfo: {
+      html: 'pages/common/template/hjlTemplate/methodInfo.html',
+      js: 'pages/common/template/hjlTemplate/methodInfo.js'
+    },
+    qualiafyInfo: {
+      html: 'pages/common/template/hjlTemplate/qualiafyInfo.html',
+      js: 'pages/common/template/hjlTemplate/qualiafyInfo.js'
     }
-
-
   };
     // 注册路由表
   yufp.router.addRouteTable(routeTable);

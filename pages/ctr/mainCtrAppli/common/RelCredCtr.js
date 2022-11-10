@@ -11,6 +11,8 @@ define([''], function (require, exports) {
       data: function () {
         return {
           activeNames: ['1'],
+          dataUrl: '',
+          baseParams: {},
           tableData: []
         };
       },

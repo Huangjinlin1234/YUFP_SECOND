@@ -14,31 +14,24 @@ define([
       data: function () {
         return {
           activeName: 'first',
-          dataUrl: backend.ocaService + '/api/adminsmcrelstra/getall',
-          tableColumns: [
-            { label: '策略名称', prop: 'crelName' },
-            { label: '策略描述', prop: 'crelDescribe', sortable: true, resizable: true },
-            { label: '策略分类', prop: 'actionType', sortable: true, resizable: true, dataCode: 'ORG_LEVEL' },
-            { label: '是否启用',
-              prop: 'enableFlag',
-              resizable: true,
-              hidden: false,
-              template: function () {
-                return '<template scope="scope">\
-                <yu-switch   v-model="scope.row.enableFlag" ></yu-switch>\
-              </template>';
-              } },
-            { label: '策略详情', prop: 'crelDetail', resizable: true, hidden: true }
-          ],
-          formdata: {}
+          dataUrl: backend.ocaService + '/api/adminsmcrelstra/getall'
         };
       },
       mounted: function () {
-
+        yufp.router.to('methodInfo', {}, 'tabContent');
       },
       methods: {
-        viewFn () {
-          this.$refs.reform.formdata = yufp.util.clone({ oprType: '正常', prpId: '9999' });
+        tabClick (v) {
+          switch (v.name) {
+          case 'first':
+            yufp.router.to('methodInfo', {}, 'tabContent');
+            break;
+          case 'second':
+            yufp.router.to('qualiafyInfo', {}, 'qualifyInfo');
+            break;
+          default:
+            yufp.router.to('methodInfo', {}, 'tabContent');
+          }
         }
       }
     });

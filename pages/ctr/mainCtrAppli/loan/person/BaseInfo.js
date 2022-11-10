@@ -11,6 +11,7 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          disabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {}
         };
@@ -19,13 +20,13 @@ define([''], function (require, exports) {
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId);
         },
-        tempSave() {}
+        tempSave () { }
       }
     });
   };
 
   // 消息处理
-  exports.onmessage = function (type, message) {};
+  exports.onmessage = function (type, message) { };
   // page销毁时触发destroy方法
-  exports.destroy = function (id, cite) {};
+  exports.destroy = function (id, cite) { };
 });

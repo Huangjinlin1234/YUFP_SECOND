@@ -1,45 +1,32 @@
 <div class="treeform-container">
   <el-row>
-    <el-col :span="5">
-      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
-    </el-col>
-    <el-col :span="19">
+    <el-col>
       <div class="right-content">
         <yu-collapse v-show="current==1" v-model="activeNames">
           <yu-collapse-item title="一致性" name="1">
             <div class="panel-class">
               <div class="button-content">
-                <yu-button type="primary" @click="addFn">新增</yu-button>
-                <yu-button type="primary" @click="addFn">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="addFn(1)">新增</yu-button>
+                <yu-button type="primary" @click="deleteFn(1)">删除</yu-button>
+                <yu-button type="primary" @click="saveFn(1)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>
-            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
-              <yu-xtable-column prop="date" label="日期" width="150">
-              </yu-xtable-column>
-              <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
-              </yu-xtable-column>
-              <yu-xtable-column prop="province" label="省份" width="120">
-              </yu-xtable-column>
-              <yu-xtable-column prop="city" label="市区" width="120">
-              </yu-xtable-column>
-              <yu-xtable-column prop="address" label="地址" width="300">
-              </yu-xtable-column>
-              <yu-xtable-column prop="zip" label="邮编" width="120">
+            <yu-xtable ref="refTable1" :data-url="dataUrl.first" selection-type="radio" :pageable="false" json-data="rows" style="width: 100%">
+              <yu-xtable-column v-for="(item,index) in fields" :key="index" :prop="item.name" :label="item.label" :width="item.width">
               </yu-xtable-column>
             </yu-xtable>
           </yu-collapse-item>
           <yu-collapse-item title="反馈" name="2">
             <div class="panel-class">
               <div class="button-content">
-                <yu-button type="primary" @click="addFn">新增</yu-button>
-                <yu-button type="primary" @click="addFn">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="addFn(2)">新增</yu-button>
+                <yu-button type="primary" @click="deleteFn(2)">删除</yu-button>
+                <yu-button type="primary" @click="saveFn(2)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>
-            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+            <yu-xtable ref="refTable2" :data-url="dataUrl.first" selection-type="radio" :pageable="false" json-data="rows" style="width: 100%">
               <yu-xtable-column prop="date" label="日期" width="150">
               </yu-xtable-column>
               <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
@@ -57,13 +44,13 @@
           <yu-collapse-item title="效率" name="3">
             <div class="panel-class">
               <div class="button-content">
-                <yu-button type="primary" @click="addFn">新增</yu-button>
-                <yu-button type="primary" @click="addFn">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="addFn(3)">新增</yu-button>
+                <yu-button type="primary" @click="deleteFn(3)">删除</yu-button>
+                <yu-button type="primary" @click="saveFn(3)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>
-            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+            <yu-xtable ref="refTable3" :data-url="dataUrl.first" :pageable="false" selection-type="radio" json-data="rows" style="width: 100%">
               <yu-xtable-column prop="date" label="日期" width="150">
               </yu-xtable-column>
               <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
@@ -81,13 +68,13 @@
           <yu-collapse-item title="可控" name="4">
             <div class="panel-class">
               <div class="button-content">
-                <yu-button type="primary" @click="addFn">新增</yu-button>
-                <yu-button type="primary" @click="addFn">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="addFn(4)">新增</yu-button>
+                <yu-button type="primary" @click="deleteFn(4)">删除</yu-button>
+                <yu-button type="primary" @click="saveFn(4)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>
-            <yu-xtable :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+            <yu-xtable ref="refTable4" :data-url="dataUrl.first" :pageable="false" selection-type="radio" json-data="rows" style="width: 100%">
               <yu-xtable-column prop="date" label="日期" width="150">
               </yu-xtable-column>
               <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
@@ -107,4 +94,15 @@
 
     </el-col>
   </el-row>
+  <yu-xdialog title="新增" :visible.sync="dialogVisible" @close="handleClose">
+    <yu-xform ref="refFormDemo" label-width="120px" v-model="tableItem">
+      <yu-xform-group>
+        <yu-xform-item v-for="(item,index) in fields" :key="index" :label="item.label" :ctype="item.ctype" :value-format="item.valueFormat" :name="item.name"></yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <span slot="footer" class="dialog-footer">
+      <yu-button @click="handleClose">取 消</yu-button>
+      <yu-button type="primary" @click="submitFn">确 定</yu-button>
+    </span>
+  </yu-xdialog>
 </div>

@@ -10,6 +10,8 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          dataUrl: '',
+          baseParams: {},
           activeNames: ['1'],
           tableData: []
         };

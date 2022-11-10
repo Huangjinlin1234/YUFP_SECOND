@@ -1,6 +1,6 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="合同基本信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="客户编号" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -32,7 +32,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="担保条款" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="主担保方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
         </yu-xform-item>
@@ -48,7 +48,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="统计信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="普惠政策性贷款" name="" ctype="select" data-code="zcdk">
         </yu-xform-item>
@@ -57,7 +57,7 @@
   </yu-collapse-item>
   <yu-collapse-item title="合同当事人" name="1">
     <div>甲方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="贷款人" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -76,7 +76,7 @@
       </yu-xform-group>
     </yu-xform>
     <div>乙方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="借款人客户编号" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -100,7 +100,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="特别送达电子地址" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="特别约定手机号" name="" :rules="['lxfs']">
         </yu-xform-item>
@@ -113,7 +113,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="争议解决" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="争议解决方式" name="" data-code="zyjc">
         </yu-xform-item>
@@ -123,7 +123,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="合同份数" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="合同签订份数" name="" :disabled="true" :rules="['int']">
         </yu-xform-item>
@@ -137,7 +137,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="其他约定事项" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="其他事项" name="">
         </yu-xform-item>
@@ -145,7 +145,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="签约信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -157,7 +157,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="登记信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="登记人" name="" :disabled="true" :rules="[]">
         </yu-xform-item>

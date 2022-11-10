@@ -19,12 +19,6 @@ define([
           current: '1',
           currentKey: '1',
           tableItem: {},
-          treeData: [
-            { id: '0', label: '同业机构准入申报', pid: '-1' },
-            { id: '1', label: '示例1', pid: '0' },
-            { id: '2', label: '示例2', pid: '0' },
-            { id: '3', label: '示例3', pid: '0' }
-          ],
           fields: [
             {label: '日期', name: 'date', ctype: 'input', width: '120', valueFormat: 'yyyy-MM-dd'},
             {label: '姓名', name: 'userName', ctype: 'input', width: '120' },

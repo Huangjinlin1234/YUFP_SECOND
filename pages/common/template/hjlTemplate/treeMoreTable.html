@@ -1,9 +1,6 @@
 <div class="treeform-container">
   <el-row>
-    <el-col :span="5">
-      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
-    </el-col>
-    <el-col :span="19">
+    <el-col>
       <div class="right-content">
         <yu-collapse v-show="current==1" v-model="activeNames">
           <yu-collapse-item title="一致性" name="1">
@@ -29,7 +26,7 @@
               </div>
               <div><label>单位：万元</label></div>
             </div>
-            <yu-xtable ref="refTable2" :data-url="dataUrl.first" :pageable="false" json-data="rows" style="width: 100%">
+            <yu-xtable ref="refTable2" :data-url="dataUrl.first" selection-type="radio" :pageable="false" json-data="rows" style="width: 100%">
               <yu-xtable-column prop="date" label="日期" width="150">
               </yu-xtable-column>
               <yu-xtable-column prop="userName" label="姓名" :fixed="false" width="120">
@@ -49,7 +46,7 @@
               <div class="button-content">
                 <yu-button type="primary" @click="addFn(3)">新增</yu-button>
                 <yu-button type="primary" @click="deleteFn(3)">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="saveFn(3)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>
@@ -73,7 +70,7 @@
               <div class="button-content">
                 <yu-button type="primary" @click="addFn(4)">新增</yu-button>
                 <yu-button type="primary" @click="deleteFn(4)">删除</yu-button>
-                <yu-button type="primary" @click="addFn">保存</yu-button>
+                <yu-button type="primary" @click="saveFn(4)">保存</yu-button>
               </div>
               <div><label>单位：万元</label></div>
             </div>

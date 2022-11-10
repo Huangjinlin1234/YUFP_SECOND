@@ -1,6 +1,6 @@
 /**
  * @create by fuzm on 2018-05-04
- * @description 模板二
+ * @description 策略管理
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
@@ -13,26 +13,13 @@ define([
       el: cite.el,
       data: function () {
         return {
-          activeName: 'first',
-          dataUrl: backend.ocaService + '/api/adminsmcrelstra/getall'
+          formdata: { }
         };
       },
       mounted: function () {
-        yufp.router.to('methodInfo', {}, 'tabContent');
+
       },
       methods: {
-        tabClick (v) {
-          switch (v.name) {
-          case 'first':
-            yufp.router.to('methodInfo', {}, 'tabContent');
-            break;
-          case 'second':
-            yufp.router.to('qualiafyInfo', {}, 'qualifyInfo');
-            break;
-          default:
-            yufp.router.to('methodInfo', {}, 'tabContent');
-          }
-        }
       }
     });
   };

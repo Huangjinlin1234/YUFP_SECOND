@@ -41,6 +41,26 @@ define(function (require) {
       html: 'pages/common/template/editListTemplate.html',
       css: 'pages/common/template/editListTemplate.css',
       js: 'pages/common/template/editListTemplate.js'
+    },
+    creditManage: {
+      html: 'pages/common/template/hjlTemplate/creditManage.html',
+      js: 'pages/common/template/hjlTemplate/creditManage.js'
+    },
+    allCtedit: {
+      html: 'pages/common/template/hjlTemplate/allCtedit.html',
+      js: 'pages/common/template/hjlTemplate/allCtedit.js'
+    },
+    operatingFinance: {
+      html: 'pages/common/template/hjlTemplate/allCtedit.html',
+      js: 'pages/common/template/hjlTemplate/allCtedit.js'
+    },
+    methodInfo: {
+      html: 'pages/common/template/hjlTemplate/methodInfo.html',
+      js: 'pages/common/template/hjlTemplate/methodInfo.js'
+    },
+    qualiafyInfo: {
+      html: 'pages/common/template/hjlTemplate/qualiafyInfo.html',
+      js: 'pages/common/template/hjlTemplate/qualiafyInfo.js'
     }
 
 

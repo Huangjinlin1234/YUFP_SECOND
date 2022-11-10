@@ -14,7 +14,7 @@ define([''], function (require, exports) {
           disabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {}
-          rule: [{ require: true, message: '字段不能为空', triggle: 'blur' }],
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
         };
       },
       methods: {

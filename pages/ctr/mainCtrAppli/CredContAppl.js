@@ -44,9 +44,9 @@ define(['pages/ctr/mainCtrAppli/credit/index.js'], function (require, exports) {
             { label: '合同金额（元）', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '产品名称', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '审批状态', prop: 'ctrNo', width: 120, options: [] },
-            { label: '登记日期', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记人', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记机构', prop: 'ctrNo', width: 120, dataCode: '' },
+            { label: '登记日期', prop: 'ctrNo', width: 120 },
+            { label: '登记人', prop: 'ctrNo', width: 120 },
+            { label: '登记机构', prop: 'ctrNo', width: 120 },
             { label: '申请流水号', prop: 'ctrNo', width: 120, dataCode: '' },
           ],
         }

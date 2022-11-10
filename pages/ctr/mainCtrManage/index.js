@@ -56,9 +56,9 @@ define([''], function (require, exports) {
             { label: '主担保方式', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '产品名称', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '签约方式', prop: 'ctrNo', width: 120, options: [] },
-            { label: '登记日期', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记人', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记机构', prop: 'ctrNo', width: 120, dataCode: '' },
+            { label: '登记日期', prop: 'ctrNo', width: 120 },
+            { label: '登记人', prop: 'ctrNo', width: 120 },
+            { label: '登记机构', prop: 'ctrNo', width: 120 },
             // { label: '申请流水号', prop: 'ctrNo', width: 120, dataCode: '' },
           ],
         }

@@ -1,0 +1,83 @@
+<div>
+  <yu-row :gutter="16">
+    <yu-col :span="5">
+      <yu-tree ref="refTree" :data="treeData" node-key="id" highlight-current default-expand-all @node-click="clickNode"
+        :current-node-key="2">
+      </yu-tree>
+    </yu-col>
+    <yu-col :span="19">
+      <yu-collapse v-model="activeNames">
+        <yu-collapse-item title="原协议信息" name="1">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+            <yu-xform-group>
+              <yu-xform-item label="协议登记流水号" name="" icon="">
+              </yu-xform-item>
+              <yu-xform-item label="合作方编号" name="">
+              </yu-xform-item>
+              <yu-xform-item label="合作方名称" name="">
+              </yu-xform-item>
+              <yu-xform-item label="关联合作项目编号" name="" ctype="select" data-code="ctrType">
+              </yu-xform-item>
+              <yu-xform-item label="关联合作项目名称" name="">
+              </yu-xform-item>
+              <yu-xform-item label="纸质协议编号" name="" ctype="select" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="协议是否长期有效" name="" ctype="select" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="协议起始日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议到期日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议签订日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议金额(元)" name="">
+              </yu-xform-item>
+              <yu-xform-item label="合作方协议操作类型" name="" ctype="select" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="其他说明" name="" ctype="textarea" data-code="shifou">
+              </yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </yu-collapse-item>
+        <yu-collapse-item title="续签后协议信息" name="1">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+            <yu-xform-group>
+              <yu-xform-item label="续签后纸质协议编号" name="" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="协议是否长期有效" name="" ctype="select" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="操作类型" name="" ctype="select" data-code="shifou">
+              </yu-xform-item>
+              <yu-xform-item label="协议起始日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议到期日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议签订日" name="" ctype="datepicker">
+              </yu-xform-item>
+              <yu-xform-item label="协议金额(元)" name="">
+              </yu-xform-item>
+              <yu-xform-item label="其他说明" name="" ctype="textarea" data-code="shifou">
+              </yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </yu-collapse-item>
+        <yu-collapse-item title="登记信息" name="1">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea">
+            <yu-xform-group>
+              <yu-xform-item label="登记人" name="">
+              </yu-xform-item>
+              <yu-xform-item label="登记机构" name="">
+              </yu-xform-item>
+              <yu-xform-item label="登记日期" name="" ctype="datepicker">
+              </yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </yu-collapse-item>
+      </yu-collapse>
+      <yu-button type="primary" @click="tempSave">暂存</yu-button>
+      <yu-button type="primary" @click="tempSave">保存</yu-button>
+      <yu-button type="primary" @click="tempSave">提交</yu-button>
+      <yu-button type="primary" @click="tempSave">返回</yu-button>
+    </yu-col>
+  </yu-row>
+</div>

@@ -97,14 +97,14 @@
 
     </el-col>
   </el-row>
-  <yu-xdialog title="新增" :visible.sync="dialogVisible" :before-close="handleClose">
+  <yu-xdialog title="新增" :visible.sync="dialogVisible" @close="handleClose">
     <yu-xform ref="refFormDemo" label-width="120px" v-model="tableItem">
       <yu-xform-group>
         <yu-xform-item v-for="(item,index) in fields" :key="index" :label="item.label" :ctype="item.ctype" :value-format="item.valueFormat" :name="item.name"></yu-xform-item>
       </yu-xform-group>
     </yu-xform>
     <span slot="footer" class="dialog-footer">
-      <yu-button @click="dialogVisible = false">取 消</yu-button>
+      <yu-button @click="handleClose">取 消</yu-button>
       <yu-button type="primary" @click="submitFn">确 定</yu-button>
     </span>
   </yu-xdialog>

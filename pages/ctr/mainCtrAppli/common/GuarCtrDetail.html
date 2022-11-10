@@ -1,6 +1,6 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="合同基本信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="担保合同编号" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -30,7 +30,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="担保债权范围" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="关联主合同方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
         </yu-xform-item>
@@ -39,7 +39,7 @@
   </yu-collapse-item>
   <!-- （当关联主合同方式选择1时显示本栏目，否则隐藏不显示） -->
   <yu-collapse-item title="关联授信合同信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="授信合同编号" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -48,7 +48,7 @@
   </yu-collapse-item>
   <!-- （当关联主合同方式选择2时显示本栏目，否则隐藏不显示） -->
   <yu-collapse-item title="担保主债权发生期间" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="担保主债权发生起始日" name="" ctype="datepicker" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -86,7 +86,7 @@
   </yu-collapse-item>
   <!-- （当最高额担保合同的担保方式为抵押时，才显示本栏目；否则隐藏不显示。本栏目对应纸质合同条款） -->
   <yu-collapse-item title="抵押信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="抵押财产价值(元)" name="" :rules="['money']">
         </yu-xform-item>
@@ -107,7 +107,7 @@
   </yu-collapse-item>
   <!-- （当最高额担保合同的担保方式为质押时，才显示本栏目；否则隐藏不显示。本栏目对应纸质合同条款） -->
   <yu-collapse-item title="质押信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="质押财产价值(元)" name="" :rules="['money']">
         </yu-xform-item>
@@ -122,7 +122,7 @@
   </yu-collapse-item>
   <!-- （当担保合同的担保方式为质押并且质押合同类型为存单质押时，才显示本栏目；否则隐藏不显示。 -->
   <yu-collapse-item title="质押存单信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="存单种类" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
         </yu-xform-item>
@@ -145,7 +145,7 @@
   </yu-collapse-item>
   <!-- （当担保合同的担保方式为质押并且质押合同类型为权利质押时，才显示本栏目；否则隐藏不显示。 -->
   <yu-collapse-item title="质押权利信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="质押权利" name="" :rules="['']">
         </yu-xform-item>
@@ -164,7 +164,7 @@
   </yu-collapse-item>
   <!-- （当担保合同的担保方式为质押并且质押合同类型为权利质押时，才显示本栏目；否则隐藏不显示。 -->
   <yu-collapse-item title="应收账款质押信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="应收账款描述" name="" :rules="['']">
         </yu-xform-item>
@@ -189,7 +189,7 @@
   </yu-collapse-item>
   <yu-collapse-item title="合同当事人" name="1">
     <div>甲方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="债权人" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -208,7 +208,7 @@
       </yu-xform-group>
     </yu-xform>
     <div>乙方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="担保人" name="" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -234,7 +234,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="特别送达电子地址" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="特别约定手机号" name="" :rules="['lxfs']">
         </yu-xform-item>
@@ -247,7 +247,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="争议解决" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="争议解决方式" name="" data-code="zyjc">
         </yu-xform-item>
@@ -257,7 +257,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="合同份数" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="合同签订份数" name="" :disabled="true" :rules="['int']">
         </yu-xform-item>
@@ -271,7 +271,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="其他约定事项" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="其他事项" name="">
         </yu-xform-item>
@@ -279,7 +279,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="签约信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -291,7 +291,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="登记信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="登记人" name="" :disabled="true" :rules="[]">
         </yu-xform-item>

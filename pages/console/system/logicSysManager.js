@@ -41,7 +41,6 @@ define([
         };
       },
       mounted: function () {
-        console.log(this.$refs.reftable, 'reftable');
       },
       methods: {
 

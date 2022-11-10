@@ -13,6 +13,8 @@ define([''], function (require, exports) {
           disabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {},
+          dataUrl: '',
+          baseParams: {},
           tableData: []
         };
       },

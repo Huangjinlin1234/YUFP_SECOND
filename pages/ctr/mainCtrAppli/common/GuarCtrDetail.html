@@ -63,7 +63,7 @@
       <yu-button type="primary" @click="tempSave">新增</yu-button>
       <yu-button type="primary" @click="tempSave">删除</yu-button>
     </yu-button-group>
-    <yu-xtable ref="refTable" :data="tableData" row-number>
+    <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
       <yu-xtable-column label="合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
       <yu-xtable-column label="合同类型" prop="" data-code="item.dataCode"></yu-xtable-column>
       <yu-xtable-column label="客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
@@ -79,7 +79,7 @@
       <yu-button type="primary" @click="tempSave">新增</yu-button>
       <yu-button type="primary" @click="tempSave">删除</yu-button>
     </yu-button-group>
-    <yu-xtable ref="refTable" :data="tableData" row-number>
+    <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
       <yu-xtable-column label="债务人客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
       <yu-xtable-column label="债务人名称" prop="" data-code="item.dataCode"></yu-xtable-column>
     </yu-xtable>
@@ -320,7 +320,7 @@
     <yu-button type="primary" @click="tempSave">删除</yu-button>
     <yu-button type="primary" @click="tempSave">查看押品信息</yu-button>
   </yu-button-group>
-  <yu-xtable ref="refTable" :data="tableData" row-number>
+  <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
     <yu-xtable-column label="押品编号" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="押品类型" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="押品名称" prop="" data-code="item.dataCode"></yu-xtable-column>
@@ -339,7 +339,7 @@
     <yu-button type="primary" @click="tempSave">删除</yu-button>
     <yu-button type="primary" @click="tempSave">查看</yu-button>
   </yu-button-group>
-  <yu-xtable ref="refTable" :data="tableData" row-number>
+  <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
     <yu-xtable-column label="保证人客户号" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="保证人名称" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="保证人证件类型" prop="" data-code="item.dataCode"></yu-xtable-column>

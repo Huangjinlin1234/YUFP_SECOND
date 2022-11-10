@@ -34,7 +34,7 @@ define([
                   _self.$refs.reftable.remoteData(model);
                 }
               } },
-            { label: '重置', op: 'reset', type: 'primary', icon: 'yx-loop2' }
+            { label: '重置', op: 'reset', icon: 'yx-loop2' }
           ],
           tableData: [ ],
           tableColumns: [

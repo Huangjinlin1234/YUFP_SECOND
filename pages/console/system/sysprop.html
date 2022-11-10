@@ -11,7 +11,7 @@
       <el-button icon="plus" @click="addFn">新增</el-button>
     </el-button-group>
   </div>
-  <yu-xtable ref="reftable" row-number :pageable="true" :data-url="dataUrl" json-data="rows" height="100%">
+  <yu-xtable ref="reftable" row-number :pageable="true" :data-url="dataUrl" json-data="rows">
     <yu-xtable-column v-for="(item,index) in tableColumns" :key="index" :prop="item.prop" :label="item.label">
     </yu-xtable-column>
 

@@ -6,6 +6,7 @@
 define(function (require) {
   // 定义路由表
   var routeTable = {
+    //  主合同申请 start
     // 授信合同申请
     CredContAppl: {
       html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
@@ -180,8 +181,49 @@ define(function (require) {
       html: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.html',
       js: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.js'
     },
-    // Approval information
-    // Imaging data
+    //  主合同申请 end
+
+
+    //  合同审批 start
+    // 合同审批
+    ContractApprv: {
+      html: 'pages/ctr/contractApprv/index.html',
+      js: 'pages/ctr/contractApprv/index.js'
+    },
+    //  合同审批 end
+
+
+    //  主合同管理 start
+    // 授信合同管理待签授信合同
+    UnsignCredCtr: {
+      html: 'pages/ctr/mainCtrManage/index.html',
+      js: 'pages/ctr/mainCtrManage/index.js'
+    },
+    // 授信合同管理历史授信合同
+    HisCredCtr: {
+      html: 'pages/ctr/mainCtrManage/index.html',
+      js: 'pages/ctr/mainCtrManage/index.js'
+    },
+    // 借款合同管理待签授信合同
+    UnsignLoanCtr: {
+      html: 'pages/ctr/mainCtrManage/index.html',
+      js: 'pages/ctr/mainCtrManage/index.js'
+    },
+    // 借款合同管理历史授信合同
+    HisLoanCtr: {
+      html: 'pages/ctr/mainCtrManage/index.html',
+      js: 'pages/ctr/mainCtrManage/index.js'
+    },
+    //  主合同管理 end
+
+
+    //  担保合同管理 start
+    // 担保合同管理列表页
+    GuarCtrManage: {
+      html: 'pages/ctr/guarCtrManage/index.html',
+      js: 'pages/ctr/guarCtrManage/index.js'
+    },
+    //  担保合同管理 end
   };
   // 注册路由表
   yufp.router.addRouteTable(routeTable);

@@ -2897,17 +2897,16 @@ a:active {
   font-size: 16px;
 }
 
-.align-center{
+.align-center {
   text-align: center;
 }
-.spacing10{
-  height:10px;
+.spacing10 {
+  height: 10px;
   clear: both;
   overflow: hidden;
 }
 .p20 {
   padding: 20px;
-  overflow: hidden;
 }
 .bottom-foot{
   min-height:80px;
@@ -2928,6 +2927,18 @@ a:active {
   height: 100%;
   overflow: auto;
 }
+.symple-add .dialog-panel {
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 5px;
+}
+.symple-add .form-content {
+  margin: 0 auto;
+  width: 500px;
+}
+.symple-add .symple-foot {
+  text-align: center;
+  padding: 10px 0;
+}
 .tab-container {
   height: 600px;
   overflow: hidden;
@@ -2945,11 +2956,11 @@ a:active {
   border-bottom: 1px solid #ededed;
   margin-bottom: 5px;
 }
-.symple-add .form-content {
+.form-content {
   margin: 0 auto;
   width: 500px;
 }
-.symple-add .foot {
+.symple-add .symple-foot {
   text-align: center;
   padding: 10px 0;
 }

@@ -80,7 +80,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="利率信息" name="1" :rules="[]">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="利率类型" name="" ctype="select" :disabled="true" :rules="[]" data-code="lllx">
         </yu-xform-item>
@@ -108,7 +108,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="罚息复利信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="罚息浮动比(%)" name="" ctype="textarea" :rules="['float']"></yu-xform-item>
         </yu-xform-item>
@@ -120,7 +120,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="收款信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="提出书面提款申请提前天数(天)" name="" :rules="['int']">
         </yu-xform-item>
@@ -162,7 +162,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="支付信息" name="1" :rules="[]">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="支付方式" name="" ctype="select" data-code="zffs">
         </yu-xform-item>
@@ -182,7 +182,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="提前还款收取违约金方式" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="提前还款收取违约金方式" name="" ctype="select" data-code="danbao" :rules="[]">
         </yu-xform-item>
@@ -198,7 +198,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="担保条款" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="主担保方式" name="" ctype="select" data-code="danbao" :disabled="true" :rules="[]">
         </yu-xform-item>
@@ -222,7 +222,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="乙方承诺信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="每笔贷款本息到期前存入足额资金时效要求(天)" name="" :rules="['int']">
         </yu-xform-item>
@@ -230,7 +230,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="违约条款信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="乙方未按期纠正收取违约金比例(%)" name="" :rules="['money']">
         </yu-xform-item>
@@ -240,7 +240,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="用途信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="投向行业" name="" ctype="select" data-code="danbao">
         </yu-xform-item>
@@ -276,7 +276,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="统计信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="是否低风险业务" name="" ctype="select" data-code="shifou">
         </yu-xform-item>
@@ -362,7 +362,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="特别送达电子地址" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="特别约定手机号" name="" :rules="['lxfs']">
         </yu-xform-item>
@@ -375,7 +375,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="争议解决" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="争议解决方式" name="" data-code="zyjc">
         </yu-xform-item>
@@ -399,7 +399,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="其他约定事项" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="其他事项" name="" ctype="textarea">
         </yu-xform-item>
@@ -407,7 +407,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="签约信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="签约方式" name="" ctype="select">
         </yu-xform-item>

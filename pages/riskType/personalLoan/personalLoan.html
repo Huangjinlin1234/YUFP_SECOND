@@ -13,21 +13,29 @@
       <yu-xform-item label="合同编号" ctype="input" name="title" fuzzy-query="both"></yu-xform-item>
     </yu-xform-group>
   </yu-xform>
-  <div>个贷风险分类列表</div>
-  <yu-button type="primary" @click="exportFn">导出</yu-button>
-  <yu-xtable
-    index
-    border
-    row-number
-    ref="yutable"
-    :data-url="dataUrl"
-    style="width: 100%">
-  <yu-xtable-column
-    align="center"
-    v-for="(item,index) in tableTitle"
-    :key="index"
-    :prop="item.prop"
-    :label="item.label">
-  </yu-xtable-column>
-</yu-xtable>
+  <panel title="个贷风险分类列表"></panel>
+  <div class="yu-toolBar">
+    <el-button-group>
+      <el-button @click="exportFn">导出</el-button>
+    </el-button-group>
+  </div>
+  <el-row>
+    <el-col :span="24">
+      <yu-xtable
+        index
+        border
+        row-number
+        ref="yutable"
+        :data-url="dataUrl"
+        style="width: 100%">
+        <yu-xtable-column
+          align="center"
+          v-for="(item,index) in tableTitle"
+          :key="index"
+          :prop="item.prop"
+          :label="item.label">
+        </yu-xtable-column>
+      </yu-xtable>
+    </el-col>
+  </el-row>
 </div>

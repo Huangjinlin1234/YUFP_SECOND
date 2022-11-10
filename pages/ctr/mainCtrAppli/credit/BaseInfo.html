@@ -2,31 +2,31 @@
   <yu-collapse-item title="合同基本信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="客户编号" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="客户编号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="客户名称" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="客户名称" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="合同编号" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="合同编号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="合同类型" name="" ctype="select" :disabled="true" :rules="[]" data-code="ctrType">
+        <yu-xform-item label="合同类型" name="" ctype="select" :disabled="true" :rules="rule" data-code="ctrType">
         </yu-xform-item>
-        <yu-xform-item label="授信批复编号" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="授信批复编号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="授信额度编号" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="授信额度编号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="授信额度(元)" name="" :disabled="true" :rules="['money']">
         </yu-xform-item>
-        <yu-xform-item label="产品名称" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="产品名称" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="授信期限(月)" name="" :disabled="true" :rules="['int']">
         </yu-xform-item>
         <yu-xform-item label="授信起始日" name="" ctype="datepicker">
         </yu-xform-item>
-        <yu-xform-item label="授信到期日" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        <yu-xform-item label="授信到期日" name="" ctype="datepicker" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="是否循环" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        <yu-xform-item label="是否循环" name="" ctype="select" :disabled="true" :rules="rule" data-code="shifou">
         </yu-xform-item>
-        <yu-xform-item label="合同状态" name="" ctype="select" :disabled="true" :rules="[]" data-code="ctrStatus">
+        <yu-xform-item label="合同状态" name="" ctype="select" :disabled="true" :rules="rule" data-code="ctrStatus">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>
@@ -34,13 +34,13 @@
   <yu-collapse-item title="担保条款" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="主担保方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
+        <yu-xform-item label="主担保方式" name="" ctype="select" :disabled="true" :rules="rule" data-code="danbao">
         </yu-xform-item>
-        <yu-xform-item label="其他担保方式1" name="" ctype="select" :disabled="true" :rules="[]" data-code="dbfs1">
+        <yu-xform-item label="其他担保方式1" name="" ctype="select" :disabled="true" :rules="rule" data-code="dbfs1">
         </yu-xform-item>
-        <yu-xform-item label="其他担保方式2" name="" ctype="select" :disabled="true" :rules="[]" data-code="dbfs2">
+        <yu-xform-item label="其他担保方式2" name="" ctype="select" :disabled="true" :rules="rule" data-code="dbfs2">
         </yu-xform-item>
-        <yu-xform-item label="是否纳入风险分担机制" name="" ctype="select" :disabled="true" :rules="[]" data-code="shifou">
+        <yu-xform-item label="是否纳入风险分担机制" name="" ctype="select" :disabled="true" :rules="rule" data-code="shifou">
         </yu-xform-item>
         <yu-xform-item label="其他担保方式说明" name="" ctype="textarea">
         </yu-xform-item>
@@ -59,11 +59,11 @@
     <div>甲方信息</div>
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="贷款人" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="贷款人" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="负责人" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="负责人" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="住所" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="住所" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="邮政编码" name="" :disabled="true" :rules="['yzbm']">
         </yu-xform-item>
@@ -78,15 +78,15 @@
     <div>乙方信息</div>
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="借款人客户编号" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="借款人客户编号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="借款人名称" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="借款人名称" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="证件类型" name="" :disabled="true" :rules="[]" data-code="zjlx">
+        <yu-xform-item label="证件类型" name="" :disabled="true" :rules="rule" data-code="zjlx">
         </yu-xform-item>
         <yu-xform-item label="证件号码" name="" :disabled="true" :rules="['zjhm']">
         </yu-xform-item>
-        <yu-xform-item label="住所" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="住所" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="邮政编码" name="" :disabled="true" :rules="['yzbm']">
         </yu-xform-item>
@@ -147,11 +147,11 @@
   <yu-collapse-item title="签约信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="[]">
+        <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="签约日期" name="" ctype="datepicker">
         </yu-xform-item>
-        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="rule">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>
@@ -159,15 +159,15 @@
   <yu-collapse-item title="登记信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="登记人" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="登记人" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="登记机构" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="登记机构" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="管户人" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="管户人" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="管户机构" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="管户机构" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="登记日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        <yu-xform-item label="登记日期" name="" ctype="datepicker" :disabled="true" :rules="rule">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>

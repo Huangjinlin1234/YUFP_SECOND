@@ -15,7 +15,8 @@ define([''], function (require, exports) {
           formdata: {},
           dataUrl: '',
           baseParams: {},
-          tableData: []
+          tableData: [],
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
         };
       },
       methods: {

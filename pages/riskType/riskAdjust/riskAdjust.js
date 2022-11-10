@@ -2,7 +2,10 @@
  * @create by xxx on 2018-xx-xx
  * @description xx
  */
-define(function (require, exports) {
+define([
+  './custom/widgets/js/panel.js'
+
+], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
     // yufp.lookup.reg('CRUD_TYPE,NATIONALITY,PUBLISH_STATUS');
@@ -25,6 +28,7 @@ define(function (require, exports) {
             { label: '客户名称', prop: '' },
             { label: '调整前五级分类', prop: '' },
             { label: '调整后五级分类', prop: '' },
+            { label: '人工调整有效期至', prop: '' },
             { label: '所属机构', prop: '' },
             { label: '审批状态', prop: '' }
           ]

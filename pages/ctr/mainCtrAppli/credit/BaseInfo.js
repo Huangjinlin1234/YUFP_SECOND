@@ -13,7 +13,8 @@ define([''], function (require, exports) {
         return {
           disabled: data.viewType === 'VIEW',
           activeNames: ['1'],
-          formdata: {}
+          formdata: {},
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
         };
       },
       methods: {

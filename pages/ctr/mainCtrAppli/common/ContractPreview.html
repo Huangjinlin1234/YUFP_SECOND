@@ -1,6 +1,6 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="合同预览" name="1">
-    <yu-xtable ref="refTable" :data="tableData" row-number>
+    <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
       <yu-xtable-column label="合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
       <yu-xtable-column label="合同名称" prop="" data-code="item.dataCode"></yu-xtable-column>
     </yu-xtable>

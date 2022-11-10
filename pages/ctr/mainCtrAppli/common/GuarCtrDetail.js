@@ -10,8 +10,11 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          disabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {},
+          dataUrl: '',
+          baseParams: {},
           tableData: []
         };
       },

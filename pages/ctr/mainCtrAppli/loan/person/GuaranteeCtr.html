@@ -9,7 +9,7 @@
       <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">查看</yu-button>
     </yu-button-group>
   </yu-collapse-item>
-  <yu-xtable ref="refTable" :data="tableData" row-number>
+  <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
     <yu-xtable-column label="担保合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="担保合同类型" prop="" data-code="item.dataCode"></yu-xtable-column>
     <yu-xtable-column label="担保方式" prop="" data-code="item.dataCode"></yu-xtable-column>

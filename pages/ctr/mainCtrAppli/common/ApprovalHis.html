@@ -1,7 +1,7 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="审批历史列表" name="1">
     <yu-button-group>
-      <yu-xtable ref="refTable" :data="tableData" row-number>
+      <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
         <yu-xtable-column label="审批节点名称" prop="" data-code="item.dataCode"></yu-xtable-column>
         <yu-xtable-column label="办理人员名称" prop="" data-code="item.dataCode"></yu-xtable-column>
         <yu-xtable-column label="审批时间" prop="" data-code="item.dataCode"></yu-xtable-column>

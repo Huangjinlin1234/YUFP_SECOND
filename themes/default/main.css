@@ -2908,6 +2908,9 @@ a:active {
 .p20 {
   padding: 20px;
 }
+.bottom-foot{
+  min-height:80px;
+}
 .treeform-container {
   margin-left: 24px;
   height: 600px;

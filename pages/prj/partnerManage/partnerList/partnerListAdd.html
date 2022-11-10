@@ -35,7 +35,7 @@
             <yu-button type="primary" @click="tempSave">删除</yu-button>
             <yu-button type="primary" @click="tempSave">全部删除</yu-button>
           </yu-button-group>
-          <yu-xtable ref="refTable" :data="tableData" row-number>
+          <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
             <yu-xtable-column label="适用机构编号" prop="" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="适用机构名称" prop="" data-code="item.dataCode"></yu-xtable-column>
           </yu-xtable>
@@ -76,7 +76,7 @@
             <yu-button type="primary" @click="tempSave">引入</yu-button>
             <yu-button type="primary" @click="tempSave">删除</yu-button>
           </yu-button-group>
-          <yu-xtable ref="refTable" :data="tableData" row-number>
+          <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
             <yu-xtable-column label="合作方编号" prop="" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="合作方名称" prop="" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="合作方类型" prop="" data-code="item.dataCode"></yu-xtable-column>
@@ -86,7 +86,7 @@
           </yu-xtable>
         </yu-collapse-item>
         <yu-collapse-item title="保证金信息" name="1">
-          <yu-xtable ref="refTable" :data="tableData" row-number>
+          <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
             <yu-xtable-column label="合作方名称" prop="" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="保证金比例%" prop="" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="保证金放大倍数" prop="" data-code="item.dataCode"></yu-xtable-column>

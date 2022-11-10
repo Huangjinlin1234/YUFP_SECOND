@@ -50,9 +50,9 @@ define(function (require) {
       html: 'pages/common/template/hjlTemplate/allCtedit.html',
       js: 'pages/common/template/hjlTemplate/allCtedit.js'
     },
-    operatingFinance: {
-      html: 'pages/common/template/hjlTemplate/allCtedit.html',
-      js: 'pages/common/template/hjlTemplate/allCtedit.js'
+    oprFinance: {
+      html: 'pages/common/template/hjlTemplate/oprFinance.html',
+      js: 'pages/common/template/hjlTemplate/oprFinance.js'
     },
     methodInfo: {
       html: 'pages/common/template/hjlTemplate/methodInfo.html',
@@ -62,8 +62,6 @@ define(function (require) {
       html: 'pages/common/template/hjlTemplate/qualiafyInfo.html',
       js: 'pages/common/template/hjlTemplate/qualiafyInfo.js'
     }
-
-
   };
     // 注册路由表
   yufp.router.addRouteTable(routeTable);

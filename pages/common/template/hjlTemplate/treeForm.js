@@ -27,7 +27,8 @@ define([
       },
       methods: {
         nodeClick (node) {
-          if (node.id === 0) {
+          console.log(node.id);
+          if (node.id === '0') {
             return;
           }
           switch (node.id) {
@@ -38,10 +39,10 @@ define([
             yufp.router.to('allCtedit', {}, 'treeDetailPage');
             break;
           case '3':
-            yufp.router.to('operatingFinance', {}, 'treeDetailPage');
+            yufp.router.to('oprFinance', {}, 'treeDetailPage');
             break;
           default:
-            yufp.router.to('', {}, 'treeDetailPage');
+            yufp.router.to('creditManage', {}, 'treeDetailPage');
           }
         }
       }

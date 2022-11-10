@@ -3,12 +3,12 @@
  * @description 策略管理
  */
 define([
-  './custom/widgets/js/OrgCtrlSelector.js',
-  './custom/widgets/js/panel.js'
+  './custom/widgets/js/panel.js',
+  './custom/widgets/js/UserSelecter.js'
+
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
-    yufp.lookup.reg('CRUD_TYPE,ORG_LEVEL,STD_ORG_STATUS,STD_YES_NO');
     yufp.custom.vue({
       el: cite.el,
       data: function () {
@@ -32,7 +32,10 @@ define([
                   { validator: yufp.validator.number, message: '数字', trigger: 'blur' }
                 ]
               },
-              { field: 'yourField', label: '自定义', type: 'custom', is: 'yufp-demo-selector' }
+              { field: 'yourField',
+                label: '自定义',
+                type: 'custom',
+                is: 'div-user-selector' }
             ]
           }, {
             columnCount: 1,
@@ -43,7 +46,6 @@ define([
         };
       },
       mounted: function () {
-
       },
       methods: {
 

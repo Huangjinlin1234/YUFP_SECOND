@@ -3,7 +3,8 @@
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
-  './custom/widgets/js/panel.js'
+  './custom/widgets/js/panel.js',
+  './custom/api/common.js'
 
 ], function (require, exports) {
   // page加载完成后调用ready方法
@@ -95,6 +96,9 @@ define([
           var codedata2 = JSON.parse(localStorage.getItem('data2'));
           _this.tableData2 = codedata2;
         }
+        pubkey(function (data) {
+          console.log(JSON.stringify(data));
+        });
       },
       methods: {
         change: function () {

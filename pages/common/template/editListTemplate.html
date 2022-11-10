@@ -15,7 +15,7 @@
             </div>
         </yu-xdialog>
     <panel title="编辑列表模板"></panel>
-    <div class="yu-toolBar">
+    <div class="yu-toolBar mb5 mt5">
         <el-button-group>
             <el-button icon="plus" @click="addFn">新增</el-button>
             <el-button icon="edit" @click="modifyFn">修改</el-button>
@@ -23,7 +23,6 @@
             <el-button icon="delete" @click="delFn">删除</el-button>
         </el-button-group>
     </div>
-    <div class="spacing10"></div>
     <el-row>        
         <el-col :span="24">            
                 <yu-xtable
@@ -52,13 +51,12 @@
     </el-row>
 
     <panel title="编辑列表模板1"></panel>
-    <div class="yu-toolBar">
+    <div class="yu-toolBar mb5 mt5">
         <el-button-group>
             <el-button icon="plus" @click="addFn1">新增</el-button>
             <el-button icon="delete" @click="delFn1">删除</el-button>
         </el-button-group>
     </div>
-    <div class="spacing10"></div>
     <el-row>        
         <el-col :span="24">            
             <yu-xtable
@@ -93,8 +91,11 @@
               </yu-xtable>
               
         </el-col>  
+        <el-col :span="24"> 
         <div class="p20 align-center bottom-foot">
             <yu-button type="primary" @click="saveFn1">保存</yu-button>
-        </div>     
+        </div>    
+        <div class="spacing10"></div> 
+        </el-col>
     </el-row>    
 </div>

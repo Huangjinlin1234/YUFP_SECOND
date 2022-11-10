@@ -1,5 +1,5 @@
 ﻿/**
- * @create by fuzm on 2018-05-03
+ * @create
  * @description 产品表
  */
 define([

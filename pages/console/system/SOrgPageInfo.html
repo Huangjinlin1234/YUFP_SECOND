@@ -19,13 +19,13 @@
 
   <!-- 说明dialog可配置宽高属性，若不配置则宽度默认为屏幕50%，高度自适应 width="650px" height="380px" -->
   <el-dialog :title="viewTitle[viewType]" :visible.sync="dialogVisible" size="large">
-    <el-form-q ref="refq1" :field-data="queryOrgFields" :buttons="queryOrgButtons" style="padding-left:120px;width:1760px" v-if="viewType != 'DETAIL'"></el-form-q>
+    <el-form-q ref="refq1" :field-data="queryOrgFields" :buttons="queryOrgButtons" style="box-sizing:border-box;padding-left:160px;width:100%" v-if="viewType != 'DETAIL'"></el-form-q>
     <el-form-x ref="reformIsVirtOrg" label-suffix="：" :group-fields="isVirtOrgFields" :disabled="formDisabled" label-width="140px"></el-form-x>
     <el-form-x ref="reform" :group-fields="updateFields" label-suffix="：" :buttons="updateButtons" :disabled="formDisabled" label-width="120px"></el-form-x>
 
   </el-dialog>
   <el-dialog title="修改" :visible.sync="simpleDiaVis" size="large">
-    <el-form-q ref="refqe" :field-data="queryOrgFieldsEdit" :buttons="queryOrgButtonsEdit" style="padding-left:120px;width:1760px"></el-form-q>
+    <el-form-q ref="refqe" :field-data="queryOrgFieldsEdit" :buttons="queryOrgButtonsEdit" style="box-sizing:border-box;padding-left:160px;width:100%"></el-form-q>
     <el-form-x label-suffix="：" ref="simpleForm" :group-fields="updateSimpleFields" :buttons="updateSimpleButtons" label-width="120px"></el-form-x>
 
   </el-dialog>

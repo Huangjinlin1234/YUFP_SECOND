@@ -1,6 +1,6 @@
 /**
- * @create by fuzm on 2018-05-04
- * @description 策略管理
+ * @create
+ * @description 经营与财务分析页面
  */
 define([
   './custom/widgets/js/panel.js',

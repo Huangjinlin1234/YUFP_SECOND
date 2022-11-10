@@ -1,5 +1,5 @@
 ﻿/**
- * @create by xxx on 2018-04-23
+ * @create
  * @description 资源信息 管理
  */
 define(function (require, exports) {

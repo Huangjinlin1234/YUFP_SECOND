@@ -1,5 +1,5 @@
 ﻿/**
- * @create by xieziwei on 2020-09-25
+ * @create
  * @description 机构撤并申请表
  */
 define([

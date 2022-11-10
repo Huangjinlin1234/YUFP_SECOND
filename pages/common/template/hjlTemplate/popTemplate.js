@@ -13,7 +13,6 @@ define([
       el: cite.el,
       data: function () {
         return {
-
           updateFields: [
             {
               columnCount: 3,
@@ -24,7 +23,6 @@ define([
                   is: 'div-user-selector',
                   params: {orgLevel: ''},
                   selectFn: function (value, model, args) {
-                    console.log(value, model, args);
                     // this.$refs.reform.formdata.prpNo = args[1].prpNo;
                   }
                 }

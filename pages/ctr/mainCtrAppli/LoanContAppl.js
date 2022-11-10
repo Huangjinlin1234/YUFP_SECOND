@@ -44,9 +44,9 @@ define(['pages/ctr/mainCtrAppli/credit/index.js'], function (require, exports) {
             { label: '主担保方式', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '合同起始日', prop: 'ctrNo', width: 120, dataCode: '' },
             { label: '合同到期日', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记日期', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记人', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '登记机构', prop: 'ctrNo', width: 120, dataCode: '' },
+            { label: '登记日期', prop: 'ctrNo', width: 120 },
+            { label: '登记人', prop: 'ctrNo', width: 120 },
+            { label: '登记机构', prop: 'ctrNo', width: 120 },
             { label: '审批状态', prop: 'ctrNo', width: 120, options: [] },
           ],
         }

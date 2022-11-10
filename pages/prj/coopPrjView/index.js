@@ -15,6 +15,7 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
           formdata: {},
           formFields: [
             // { label: '申请流水号', name: 'ctrNo' },
+            { label: '合作项目编号', name: 'ctrNo', dataCode: '' },
             { label: '合作项目类型', name: 'ctrNo', dataCode: '' },
             { label: '合作项目名称', name: 'ctrNo', dataCode: '' },
             { label: '审批状态', name: 'ctrNo', options: [] },

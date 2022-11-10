@@ -1,28 +1,42 @@
-<!--
-	@create by 
-	@update by 
-	@description 
--->
-<div class="tree">
+<div class="treeform-container">
   <el-row>
-    <el-col :span="3">
-      <el-tree
-      :data="data"
-      node-key="id"
-      :current-node-key="2"
-      :props="defaultProps"
-      :highlight-current="true"
-      :default-expand-all="true"
-      accordion
-      @node-click="handleNodeClick">
-    </el-tree>
+    <el-col :span="6">
+      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
     </el-col>
-    <el-col :span="21">
-      <div id="info"></div>
-      <div>
-        <yu-button type="primary" @click="save">保存</yu-button>
-        <yu-button type="primary" @click="submit">提交</yu-button>
-        <yu-button type="primary" @click="back">返回</yu-button>
+    <el-col :span="18">
+      <div v-show="current=='1'" class="right-content">
+        <panel title="基本信息">
+          <yu-xform ref="refForm" label-width="160px" :disabled="true" v-model="formdata">
+            <yu-xform-group>
+              <yu-xform-item label="任务编号" ctype="input" name="title"></yu-xform-item>
+              <yu-xform-item label="认定状态" ctype="input" name="type"></yu-xform-item>
+              <yu-xform-item label="客户编号" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="客户名称" ctype="input" name="author"></yu-xform-item>
+              <yu-xform-item label="借据编号" ctype="input" name="title"></yu-xform-item>
+              <yu-xform-item label="合同编号" ctype="input" name="type"></yu-xform-item>
+              <yu-xform-item label="上次五级分类" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="上次五级分类时间" ctype="input" name="author"></yu-xform-item>
+              <yu-xform-item label="任务执行人" ctype="input" name="title"></yu-xform-item>
+              <yu-xform-item label="所属机构" ctype="input" name="type"></yu-xform-item>
+              <yu-xform-item label="任务生成日期" ctype="input" name="status"></yu-xform-item>
+              <yu-xform-item label="任务完成截止日期" ctype="input" name="author"></yu-xform-item>
+              <yu-xform-item label="分类时间" ctype="input" name="author"></yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </panel>
+      </div>
+      <div v-show="current=='2'">
+        <panel title="借据信息">
+          <el-table-x ref="reftable" :row-index="true" :radiobox="false" json-data="rows" :data-url="dataUrl" :table-columns="tableColumns" :request-type="'GET'" :pageable="false">
+        </panel>
+        <panel title="五级分类信息">
+          <yu-xform-x ref="reform" :group-fields="updateFields" label-suffix="：" :buttons="updateButtons" label-width="140px"></yu-xform-x>
+        </panel>
+      </div>
+      <div v-show="current=='3'">
+        <!-- <panel title="经营与财务分析">
+          <yu-xform-x ref="reform" :group-fields="updateFields" :buttons="updateButtons" label-width="80px"></yu-xform-x>
+        </panel> -->
       </div>
     </el-col>
   </el-row>

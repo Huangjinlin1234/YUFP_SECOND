@@ -1,5 +1,5 @@
 ﻿/**
- * @create by chenqm1 on 2018-05-03
+ * @create
  * @description 系统用户表
  */
 define([

@@ -104,7 +104,6 @@ define([
           this.$refs.yutable.validate();
         },
         cellClick: function (row, column, cell, event) {
-          console.log(row);
         },
         switchStatus: function (viewType, editable) {
           var _this = this;
@@ -116,14 +115,99 @@ define([
         addFn: function () {
           var _this = this;
           _this.switchStatus('ADD', true);
-          _this.$nextTick(function () {
-            _this.$refs.refForm.resetFields();
+
+          this.refreshFn();
+          _this.$refs.refForm.resetFields();
+        },
+        refreshFn: function () {
+          if (localStorage.getItem('data') && localStorage.getItem('data').length > 0) {
+            var codedata = JSON.parse(localStorage.getItem('data'));
+            this.tableData1 = codedata;
+          }
+        },
+        saveFn: function () {
+          var _this = this, newobject = [], editId;
+          if (_this.viewType === 'ADD') { // 新增
+            /** 生成新的ID**/
+            _this.formdataX.id = 'UID_CUST' + Math.floor(Math.random() * 100) + 1;
+            /** 追加数据**/
+            _this.formdataX.date = _this.dateConversion(_this.formdataX.date);
+            _this.tableData1.push(_this.formdataX);
+            localStorage.setItem('data', JSON.stringify(_this.tableData1));
+          } else { // 修改
+            editId = _this.formdataX.id;
+            _this.formdataX.date = _this.dateConversion(_this.formdataX.date);
+            _this.tableData1.forEach((x, i) => {
+              if (x.id === editId) {
+                x = _this.formdataX;
+              }
+              newobject.push(x);
+            });
+            _this.$nextTick(function () {
+              yufp.clone(newobject, _this.tableData1);
+            });
+            localStorage.setItem('data', JSON.stringify(newobject));
+          }
+          // 接口上送区域
+          _this.dialogVisible = false;
+        },
+        dateConversion: function (stamp) {
+          if (stamp && stamp.length < 11) {
+            return stamp;
+          }
+          var y, m, d;
+          y = stamp.getFullYear();
+          m = stamp.getMonth() + 1;
+          d = stamp.getDate();
+          return y + '-' + m + '-' + d;
+        },
+        modifyFn: function () {
+          if (this.$refs.yutable2.selections.length < 1) {
+            this.$message({message: '请先选择一条记录', type: 'warning'});
+            return;
+          }
+          this.refreshFn();
+          this.switchStatus('EDIT', true);
+          setTimeout(() => {
+            yufp.clone(this.$refs.yutable2.selections[0], this.formdataX);
+          }, 100);
+        },
+        delFn: function () {
+          this.formdataX = {};
+          if (this.$refs.yutable2.selections.length < 1) {
+            this.$message({message: '请先选择一条记录', type: 'warning'});
+            return;
+          }
+          var _this = this;
+          var newobject = [];
+          _this.tableData1.forEach((x, i) => {
+            if (x.id !== _this.$refs.yutable2.selections[0].id) {
+              newobject.push(x);
+            }
+          });
+          _this.tableData1 = newobject;
+          var newdata = JSON.stringify(_this.tableData1);
+          localStorage.setItem('data', newdata);
+        },
+        cancelFn: function () {
+          this.dialogVisible = false;
+        },
+        infoFn: function () {
+          if (this.$refs.yutable2.selections.length < 1) {
+            this.$message({message: '请先选择一条记录', type: 'warning'});
+            return;
+          }
+          this.switchStatus('DETAIL', false);
+          this.$nextTick(function () {
+            yufp.clone(this.$refs.yutable2.selections[0], this.formdataX);
           });
         },
+        rowClickFn: function (row) {
+          this.infoFn();
+        },
+        // 模板1方法
         addFn1: function () {
           var thisID, address;
-
-
           if (this.tableData2 && this.tableData2.length > 0) {
             thisID = this.tableData2[this.tableData2.length - 1].id;
             address = this.tableData2[this.tableData2.length - 1].address;
@@ -163,64 +247,7 @@ define([
             type: 'success'
           });
         },
-        saveFn: function () {
-          var _this = this;
-          var newdata;
-          if (localStorage.getItem('data') && localStorage.getItem('data').length > 0) {
-            var codedata = JSON.parse(localStorage.getItem('data'));
-            _this.tableData1 = codedata;
-          }
-          if (_this.viewType === 'ADD') { // 查看
-            /** 生成新的ID**/
-            var newId = _this.tableData1 && _this.tableData1.length > 0 ? _this.tableData1[_this.tableData1.length - 1].id * 1 + 1 : 0;
-            _this.formdataX.id = newId;
 
-            /** 追加数据**/
-            _this.tableData1.push(_this.formdataX);
-          } else { // 修改
-            var editId = _this.formdataX.id;
-            var newobject = [];
-            _this.tableData1.forEach((x, i) => {
-              if (x.id === editId) {
-                x = _this.formdataX;
-              }
-              newobject.push(x);
-            });
-            _this.tableData1 = [];
-            _this.tableData1 = [..._this.tableData1, ...newobject];
-          }
-
-          newdata = JSON.stringify(_this.tableData1);
-          localStorage.setItem('data', newdata);
-          _this.dialogVisible = false;
-        },
-        modifyFn: function () {
-          if (this.$refs.yutable2.selections.length < 1) {
-            this.$message({message: '请先选择一条记录', type: 'warning'});
-            return;
-          }
-          this.switchStatus('EDIT', true);
-          this.$nextTick(function () {
-            yufp.extend(this.formdataX, this.$refs.yutable2.selections[0]);
-          });
-        },
-        delFn: function () {
-          this.formdataX = {};
-          if (this.$refs.yutable2.selections.length < 1) {
-            this.$message({message: '请先选择一条记录', type: 'warning'});
-            return;
-          }
-          var _this = this;
-          var newobject = [];
-          _this.tableData1.forEach((x, i) => {
-            if (x.id !== _this.$refs.yutable2.selections[0].id) {
-              newobject.push(x);
-            }
-          });
-          _this.tableData1 = newobject;
-          var newdata = JSON.stringify(_this.tableData1);
-          localStorage.setItem('data', newdata);
-        },
         delFn1: function () {
           if (this.$refs.yutable3.selections.length < 1) {
             this.$message({message: '请先选择一条记录', type: 'warning'});
@@ -236,22 +263,6 @@ define([
           _this.tableData2 = newobject;
           var newdata = JSON.stringify(_this.tableData2);
           localStorage.setItem('data2', newdata);
-        },
-        cancelFn: function () {
-          this.dialogVisible = false;
-        },
-        infoFn: function () {
-          if (this.$refs.yutable2.selections.length < 1) {
-            this.$message({message: '请先选择一条记录', type: 'warning'});
-            return;
-          }
-          this.switchStatus('DETAIL', false);
-          this.$nextTick(function () {
-            yufp.extend(this.formdataX, this.$refs.yutable2.selections[0]);
-          });
-        },
-        rowClickFn: function (row) {
-          this.infoFn();
         }
       }
     });

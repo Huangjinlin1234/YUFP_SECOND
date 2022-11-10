@@ -13,14 +13,6 @@ define(function (require) {
             html: 'pages/riskType/companyLoan/fiveType.html',
             js: 'pages/riskType/companyLoan/fiveType.js'
         },
-        basicInfo: {
-            html: 'pages/riskType/companyLoan/basicInfo.html',
-            js: 'pages/riskType/companyLoan/basicInfo.js'
-        },
-        fiveTypeIdtf: {
-            html: 'pages/riskType/companyLoan/fiveTypeIdtf.html',
-            js: 'pages/riskType/companyLoan/fiveTypeIdtf.js'
-        },
         addPage: {
             html: 'pages/riskType/riskAdjust/addPage.html',
             js: 'pages/riskType/riskAdjust/addPage.js'

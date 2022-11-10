@@ -2905,8 +2905,13 @@ a:active {
   clear: both;
   overflow: hidden;
 }
-.p20{
+.p20 {
   padding: 20px;
+  overflow: hidden;
+}
+.bottom-foot{
+  min-height:80px;
+}
 .treeform-container {
   margin-left: 24px;
   height: 600px;

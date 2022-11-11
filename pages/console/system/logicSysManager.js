@@ -34,7 +34,7 @@ define([
               resizable: true,
               template: function () {
                 return '<template scope="scope">\
-                <yu-button type="text">保存</yu-button>\
+                <yu-button type="text" @click="_$event(\'custom-row-click\',scope)">保存</yu-button>\
               </template>';
               } }
           ]
@@ -43,7 +43,10 @@ define([
       mounted: function () {
       },
       methods: {
-
+        saveFn (row) {
+          console.log(row, 'rowwwwwthisis.row');
+          this.$message.success('保存成功');
+        }
       }
     });
   };

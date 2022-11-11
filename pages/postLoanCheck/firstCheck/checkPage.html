@@ -1,28 +1,10 @@
-<!--
-	@create by 
-	@update by 
-	@description 
--->
-<div class="tree">
+<div>
   <el-row>
     <el-col :span="3">
-      <el-tree
-      :data="data"
-      node-key="id"
-      :current-node-key="2"
-      :props="defaultProps"
-      :highlight-current="true"
-      :default-expand-all="true"
-      accordion
-      @node-click="handleNodeClick">
-    </el-tree>
+      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
     </el-col>
     <el-col :span="21">
-      <div id="info"></div>
-      <div>
-        <yu-button type="primary" @click="save">保存</yu-button>
-        <yu-button type="primary" @click="submit">提交</yu-button>
-        <yu-button type="primary" @click="back">返回</yu-button>
+      <div id="treeDetailPage">
       </div>
     </el-col>
   </el-row>

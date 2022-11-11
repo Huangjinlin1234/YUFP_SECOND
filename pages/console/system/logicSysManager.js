@@ -1,6 +1,6 @@
 /**
- * @create by fuzm on 2018-05-04
- * @description 策略管理
+ * @create
+ * @description
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
@@ -41,7 +41,6 @@ define([
         };
       },
       mounted: function () {
-        console.log(this.$refs.reftable, 'reftable');
       },
       methods: {
 

@@ -1,6 +1,6 @@
 /**
- * @create by fuzm on 2018-05-04
- * @description 模板二
+ * @create
+ * @description
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',

@@ -1,6 +1,4 @@
-/**
- * Created by yumeng on 2017/11/26.
- */
+
 define([
   './custom/widgets/js/YufpDemoSelector.js',
   './libs/js-xlsx/xlsx.full.min.js',

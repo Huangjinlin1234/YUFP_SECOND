@@ -72,15 +72,15 @@
   <yu-collapse-item title="利率信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="利率类型" name="" ctype="select" :disabled="true" :rules="[]" data-code="lllx">
+        <yu-xform-item label="利率类型" name="" ctype="select" :disabled="true" :rules="rule" data-code="lllx">
         </yu-xform-item>
         <yu-xform-item label="利率模式" name="" ctype="select" data-code="llms">
         </yu-xform-item>
-        <yu-xform-item label="利率档次" name="" ctype="select" :disabled="true" :rules="[]" data-code="lldc">
+        <yu-xform-item label="利率档次" name="" ctype="select" :disabled="true" :rules="rule" data-code="lldc">
         </yu-xform-item>
         <yu-xform-item label="报价利率(%)" name="" ctype="textarea" :rules="['float']">
         </yu-xform-item>
-        <yu-xform-item label="LPR发布日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        <yu-xform-item label="LPR发布日期" name="" ctype="datepicker" :disabled="true" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="利率加减点符号" name="" ctype="select" data-code="llms">
         </yu-xform-item>
@@ -112,13 +112,13 @@
   <yu-collapse-item title="放款信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="放款前提条件" name="" ctype="textarea" :disabled="true" :rules="[]" data-code="danbao">
+        <yu-xform-item label="放款前提条件" name="" ctype="textarea" :disabled="true" :rules="rule" data-code="danbao">
         </yu-xform-item>
         <yu-xform-item label="收款账号" name="">
         </yu-xform-item>
-        <yu-xform-item label="收款账号开户行" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="收款账号开户行" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
-        <yu-xform-item label="收款账号收款账号户名" name="" :disabled="true" :rules="[]">
+        <yu-xform-item label="收款账号收款账号户名" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>
@@ -130,7 +130,7 @@
         </yu-xform-item>
         <yu-xform-item label="还款账户户名" name="">
         </yu-xform-item>
-        <yu-xform-item label="还款方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="hkfs">
+        <yu-xform-item label="还款方式" name="" ctype="select" :disabled="true" :rules="rule" data-code="hkfs">
         </yu-xform-item>
         <yu-xform-item label="气球贷还款方式" name="" ctype="select" data-code="qqd">
         </yu-xform-item>
@@ -142,7 +142,7 @@
         </yu-xform-item>
         <yu-xform-item label="还息周期" name="" ctype="select" data-code="hxzq">
         </yu-xform-item>
-        <yu-xform-item label="扣款日确定方式" name="" ctype="select" :disabled="true" :rules="[]" data-code="danbao">
+        <yu-xform-item label="扣款日确定方式" name="" ctype="select" :disabled="true" :rules="rule" data-code="danbao">
         </yu-xform-item>
         <yu-xform-item label="扣款日" name="" ctype="datepicker">
         </yu-xform-item>
@@ -162,7 +162,7 @@
   <yu-collapse-item title="提前还款收取违约金方式" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
-        <yu-xform-item label="提前还款收取违约金方式" name="" ctype="select" data-code="danbao" :rules="[]">
+        <yu-xform-item label="提前还款收取违约金方式" name="" ctype="select" data-code="danbao" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="提前还款锁定期(月)" name="" :rules="['int']">
         </yu-xform-item>
@@ -333,7 +333,7 @@
         </yu-xform-item>
         <yu-xform-item label="签约日期" name="" ctype="datepicker">
         </yu-xform-item>
-        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="[]">
+        <yu-xform-item label="注销日期" name="" ctype="datepicker" :disabled="true" :rules="rule">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>

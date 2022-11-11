@@ -1,5 +1,5 @@
 ﻿/**
- * @create by fuzm on 2018-05-04
+ * @create
  * @description 系统机构表
  */
 define([

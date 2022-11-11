@@ -261,11 +261,10 @@ function (require, exports) {
       'i18nData': null,
       'extData': null
     };
-    console.log(List, 'llll');
     return lookupList;
   };
   exports.queryPrpFn = function () {
-    var prpList = [{prpNo: '999', custName: '基金水电费12'}, {prpNo: '888', custName: '基金水电费'}];
+    var prpList = [{prpNo: '0001', custName: '广州银行'}, {prpNo: '0002', custName: '东莞银行'}, {prpNo: '0003', custName: '广州银行1'}, {prpNo: '0004', custName: '东莞银行2'}];
     var lookupList = {
       'code': '0',
       'total': prpList.length,

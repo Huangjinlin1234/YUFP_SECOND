@@ -4,8 +4,8 @@
  */
 define([
   './custom/widgets/js/OrgCtrlSelector.js',
-  './custom/widgets/js/panel.js',
-  './custom/api/common.js'
+  './custom/widgets/js/panel.js'
+
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
@@ -14,7 +14,7 @@ define([
       data: function () {
         var _self = this;
         return {
-          dataUrl: queryFn(),
+          dataUrl: backend.ocaService + '/api/adminSmProp/queryAll',
           baseParams: {},
           queryFields: [
             { placeholder: '参数名', field: 'orgCode', type: 'input' },

@@ -23,7 +23,7 @@ define([
                   is: 'div-user-selector',
                   params: {orgLevel: ''},
                   selectFn: function (value, model, args) {
-                    // this.$refs.reform.formdata.prpNo = args[1].prpNo;
+                    console.log(value, model, '---');
                   }
                 }
 

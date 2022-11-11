@@ -35,7 +35,11 @@ define([
               { field: 'yourField',
                 label: '自定义',
                 type: 'custom',
-                is: 'div-user-selector' }
+                is: 'div-user-selector',
+                selectFn: function (value, row) {
+                  console.log(value, row, '===');
+                }
+              }
             ]
           }, {
             columnCount: 1,

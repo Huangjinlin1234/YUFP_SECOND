@@ -1,8 +1,9 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="合同基本信息" name="1">
     <yu-button-group>
-      <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('IMPORT')">引入</yu-button>
-      <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('CANCELIM')">取消引入</yu-button>
+      <yu-button v-if="checkPermission('import')" type="primary" icon="plus" @click="btnFn('IMPORT')">引入</yu-button>
+      <yu-button v-if="checkPermission('cancelImport')" type="primary" icon="edit" @click="btnFn('CANCELIM')">取消引入
+      </yu-button>
       <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
       <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('EDIT')">修改</yu-button>
       <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>

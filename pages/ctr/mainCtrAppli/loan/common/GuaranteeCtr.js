@@ -1,5 +1,5 @@
 /*
- * @description: 授信合同申请和授信合同申请历史
+ * @description: 借款合同担保合同信息（对公或个人）
  * @author: ljl
  * @date: 2022-11-07
  */

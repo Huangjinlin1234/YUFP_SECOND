@@ -24,29 +24,20 @@ define([], function (require, exports) {
             { label: '借款人名称', name: 'city' },
             { label: '担保方式', name: 'city', ctype: 'select', dataCode: 'dbfs' },
           ],
-          isShowAdd: false,
-          addFormData: {},
-          addFormFields: [
-            { label: '借款人客户编号', name: 'province' },
-            { label: '借款人名称', name: 'userName', ctype: 'select', dataCode: 'dbfs' },
-            { label: '是否授信项下', name: 'date' },
-            { label: '是否追加担保', name: 'city', ctype: 'select', dataCode: 'dbfs' },
-            { label: '担保合同类型', name: 'city', ctype: 'select', dataCode: 'dbfs' },
-            { label: '担保方式', name: 'city', ctype: 'select', dataCode: 'dbfs' },
-            { label: '质押合同类型', name: 'city', ctype: 'select', dataCode: 'dbfs' },
-          ],
           dataUrl: '',
           baseParams: {},
           tableFields: [
-            { label: '担保合同编号', prop: 'ctrNo' },
-            { label: '担保合同类型', prop: 'ctrNo', dataCode: '' },
-            { label: '借款人客户编号', prop: 'ctrNo' },
-            { label: '借款人名称', prop: 'ctrNo' },
-            { label: '担保方式', prop: 'ctrNo', dataCode: '' },
-            { label: '担保合同金额(元)', prop: 'ctrNo', dataCode: '' },
-            { label: '合同起始日', prop: 'ctrNo', dataCode: '' },
-            { label: '合同到期日', prop: 'ctrNo', },
-            { label: '担保合同状态', prop: 'ctrNo', dataCode: '' },
+            { label: '借据编号', prop: 'ctrNo' },
+            { label: '合同编号', prop: 'ctrNo', dataCode: '' },
+            { label: '客户编号', prop: 'ctrNo' },
+            { label: '客户名称', prop: 'ctrNo' },
+            { label: '产品名称', prop: 'ctrNo', dataCode: '' },
+            { label: '币种', prop: 'ctrNo', dataCode: 'bz' },
+            { label: '贷款金额(元)', prop: 'ctrNo', dataCode: '' },
+            { label: '贷款余额(元)', prop: 'ctrNo', dataCode: '' },
+            { label: '贷款起始日', prop: 'ctrNo', dataCode: '' },
+            { label: '贷款到期日', prop: 'ctrNo', },
+            { label: '台账状态', prop: 'ctrNo', dataCode: '' },
           ],
         }
       },
@@ -82,9 +73,6 @@ define([], function (require, exports) {
         },
         closeImport () {
           this.isShowImport = false;
-        },
-        closeAdd () {
-          this.isShowAdd = false;
         },
         nextFn () {
           let flag = true;

@@ -304,7 +304,7 @@ a:active {
 .yu-userInfo>div>img{width: 100%;height: 100%;}
 .yu-userInfo>p{float: left;width: 120px;margin-top: 10px; margin-left: 10px; display: block;line-height: 25px;color: #bfcbd9;}
 .yu-userInfo>p>b,.yu-userInfo>p>span{display: block;overflow: hidden;}
-.yu-userInfo>p>b{color: #20a0ff;}
+.yu-userInfo>p>b{color: #2647a7;}
 .yu-userInfo>p>b>i{margin-right: 5px;} */
 
 .yu-exit:link,
@@ -314,7 +314,7 @@ a:active {
   right: 10px;
   top: 10px;
   font-size: 16px;
-  color: #20a0ff;
+  color: #2647a7;
   text-decoration: none;
 }
 
@@ -436,7 +436,7 @@ a:active {
 
 .yu-idxTabs>div>a {
   border-radius: 5px 5px 0 0;
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-idxTabBox {
@@ -508,12 +508,12 @@ a:active {
 }
 
 #yu-idxTabDMenuBt:hover {
-  background: url(../common/images/arrow_up.gif) #20a0ff center center no-repeat;
-  border-color: #20a0ff;
+  background: url(../common/images/arrow_up.gif) #2647a7 center center no-repeat;
+  border-color: #2647a7;
 }
 
 #yu-idxTabDMenuBt:active {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 #yu-idxTabDMenuBt>div {
@@ -955,7 +955,7 @@ a:active {
 .yu-topMainMenu {
   display: block;
   height: 40px;
-  background-color: #20a0ff;
+  background-color: #2647a7;
   white-space: nowrap;
   padding: 0 10px;
 }
@@ -1863,7 +1863,7 @@ a:active {
 
 .yu-iconList>div:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-bottom: 2px #20a0ff solid;
+  border-bottom: 2px #2647a7 solid;
 }
 
 .yu-iconList>div>i {
@@ -1897,7 +1897,7 @@ a:active {
 
 .yu-iconList>div:hover>i {
   font-size: 40px;
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-iconList>div>span:hover {
@@ -1957,7 +1957,7 @@ a:active {
 
 .yu-treeMenuTypeM,
 .yu-treeMenuType1 {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 .yu-treeMenuTypeD,
@@ -2827,10 +2827,6 @@ a:active {
 
 .userCfg>.user-table {
   padding: 24px;
-}
-
-.el-button.el-button--primary {
-  background-color: #2647a7;
 }
 
 .adjust {

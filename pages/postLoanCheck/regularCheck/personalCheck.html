@@ -1,201 +1,132 @@
 <div>
-  <p>检查任务信息</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="任务编号" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="检查类型" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="客户编号" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="客户名称" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="经营实体名称" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="统一信用代码" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="法定代表人" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="实际控制人" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="成立日期" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="经营范围" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="授信额度" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="贷款余额" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="产品名称" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="任务执行人" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="所属机构" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="任务生成日期" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="任务完成截止日期" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="检查状态" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="检查日期" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="检查状态" ctype="radio" :options="options" name="author"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <p>贷款情况</p>
-  <div>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-  </div>
-  <p>预警信号信息</p>
-  <div>
-    <yu-button type="primary" @click="addSign">新增预警信号</yu-button>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle1"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-  </div>
-  <p>非现场检查信息</p>
-  <div>
-    <p>借款人及配偶基本信息</p>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle2"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-    <p>经营情况</p>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle2"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-    <p>担保人情况</p>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle2"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-    <p>抵押物情况</p>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle2"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-    <p>其他担保情况</p>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle3"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-  </div>
-  <p>现场检查信息</p>
-  <div>
-    <yu-xtable
-      index
-      border
-      row-number
-      :pageable="false"
-      :data-url="dataUrl"
-      style="width: 100%">
-      <yu-xtable-column
-        align="center"
-        v-for="(item,index) in tableTitle2"
-        :key="index"
-        :prop="item.prop"
-        :label="item.label">
-      </yu-xtable-column>
-    </yu-xtable>
-  </div>
-  <p>授信批复其他贷后管理要求</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="批复要求" ctype="textarea" name="author"></yu-xform-item>
-      <yu-xform-item label="贷后检查情况" ctype="textarea" name="author"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <p>其他贷后检查情况</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="其他贷后检查情况" ctype="textarea" name="author"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <p>其他异常情况</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="是否存在其他异常情况" ctype="select" :options="options1" name="author"></yu-xform-item>
-      <yu-xform-item label="产生异常情况原因" ctype="textarea" name="author"></yu-xform-item>
-      <yu-xform-item label="采取的风控措施" ctype="textarea" name="textarea"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <p>检查处理意见</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="经办客户经理意见" ctype="textarea" name="author"></yu-xform-item>
-      <yu-xform-item label="贷后管理监管等级" ctype="checkbox" :options="options2" name="author"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <p>登记信息</p>
-  <yu-xform ref="refFormDemo" label-width="180px" :hidden-rule="true" :disabled="disabled" v-model="formdata" form-type="edit" hidden-del-val>
-    <yu-xform-group>
-      <yu-xform-item label="登记人" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="登记机构" ctype="input" name="author"></yu-xform-item>
-      <yu-xform-item label="登记时间" ctype="input" name="author"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
+  <yu-collapse v-model="activeName" accordion>
+    <yu-collapse-item title="检查任务信息" name="1">
+      <yu-xform ref="refForm" label-width="160px" v-model="formdata">
+        <yu-xform-group>
+          <yu-xform-item label="任务编号" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="检查类型" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="客户编号" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="客户名称" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="经营实体名称" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="统一信用代码" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="法定代表人" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="实际控制人" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="成立日期" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="经营范围" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="授信额度" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="贷款余额" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="产品名称" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="任务执行人" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="所属机构" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="任务生成日期" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="任务完成截止日期" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="检查状态" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="检查日期" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="检查方式" ctype="checkbox" :options="options" name="author"></yu-xform-item>
+        </yu-xform-group>
+      </yu-xform>
+    </yu-collapse-item>
+    <yu-collapse-item title="贷款情况" name="2">
+      <yu-xtable ref="refTable2" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
+        <yu-xtable-column align="center" v-for="(item,index) in fields" :key="index" :prop="item.prop" :label="item.label" :width="item.width">
+        </yu-xtable-column>
+      </yu-xtable>
+    </yu-collapse-item>
+    <yu-collapse-item title="预警信号信息" name="3">
+      <div class="panel-class">
+        <div class="button-content">
+          <yu-button type="primary" @click="addSign">新增预警信号</yu-button>
+        </div>
+      </div>
+      <yu-xtable ref="refTable1" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
+        <yu-xtable-column align="center" v-for="(item,index) in fields1" :key="index" :prop="item.prop" :label="item.label" :width="item.width">
+        </yu-xtable-column>
+      </yu-xtable>
+    </yu-collapse-item>
+    <yu-collapse-item title="非现场检查信息" name="4">
+      <panel title="借款人及配偶基本信息"></panel>
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable3" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" label="项目"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在以上情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="具体内容"></yu-xtable-column>
+          </yu-xtable>
+        </el-col>
+      </el-row>
+      <panel title="经营情况"></panel>
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable3" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" label="项目"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在以上情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="具体内容"></yu-xtable-column>
+          </yu-xtable>
+        </el-col>
+      </el-row>
+      <panel title="担保人情况"></panel>
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable3" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" label="项目"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在以上情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="具体内容"></yu-xtable-column>
+          </yu-xtable>
+        </el-col>
+      </el-row>
+      <panel title="抵押物情况"></panel>
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable3" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" label="项目"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在以上情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="具体内容"></yu-xtable-column>
+          </yu-xtable>
+        </el-col>
+      </el-row>
+      <panel title="其他担保情况"></panel>
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable3" :data-url="dataUrl" border :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在其他担保情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="其他担保情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在异常"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="异常情况说明"></yu-xtable-column>
+          </yu-xtable>
+        </el-col>
+      </el-row>
+    </yu-collapse-item>
+    <yu-collapse-item title="现场检查信息" name="5">
+      <el-row>        
+        <el-col :span="24">            
+          <yu-xtable @cell-dblclick="cellClick" ref="refTable4" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+            <yu-xtable-column align="center" prop="" label="项目"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="是否存在以上情况"></yu-xtable-column>
+            <yu-xtable-column align="center" prop="" ctype="input" label="具体内容"></yu-xtable-column>          
+          </yu-xtable>
+        </el-col>
+      </el-row>
+    </yu-collapse-item>
+    <yu-collapse-item title="授信批复其他贷后管理要求" name="6">
+      <yu-xform-x ref="reform1" :group-fields="updateFields" label-suffix="：" label-width="160px"></yu-xform-x>
+    </yu-collapse-item>
+    <yu-collapse-item title="其他贷后检查情况" name="7">
+      <yu-xform-x ref="reform2" :group-fields="updateFields1" label-suffix="：" label-width="220px"></yu-xform-x>
+    </yu-collapse-item>
+    <yu-collapse-item title="其他异常情况" name="8">
+      <yu-xform-x ref="reform3" :group-fields="updateFields2" label-suffix="：" label-width="180px"></yu-xform-x>
+    </yu-collapse-item>
+    <yu-collapse-item title="其他异常情况" name="9">
+      <yu-xform-x ref="reform4" :group-fields="updateFields3" label-suffix="：" label-width="180px"></yu-xform-x>
+    </yu-collapse-item>
+    <yu-collapse-item title="登记信息" name="10">
+      <yu-xform ref="refForm4" label-width="120px" :disabled="true" v-model="formdata1">
+        <yu-xform-group>
+          <yu-xform-item label="登记人" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="登记机构" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="登记时间" ctype="input" name="author"></yu-xform-item>
+        </yu-xform-group>
+      </yu-xform>
+    </yu-collapse-item>
+  </yu-collapse>
 </div>

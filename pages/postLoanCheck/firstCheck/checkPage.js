@@ -1,61 +1,67 @@
 /**
- * @create by xxx on 2018-xx-xx
- * @description xx
+ * @create by fuzm on 2018-05-04
+ * @description 策略管理
  */
- define(function (require, exports) {
+ define([
+  './custom/widgets/js/OrgCtrlSelector.js',
+  './custom/widgets/js/panel.js'
+], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
-    // yufp.lookup.reg('CRUD_TYPE,NATIONALITY,PUBLISH_STATUS');
+    yufp.lookup.reg('CRUD_TYPE,ORG_LEVEL,STD_ORG_STATUS,STD_YES_NO');
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
-          data: [{
-            id: 1,
-            label: '首次检查',
-            children: [{
-              id: 2,
-              label: '检查信息'
-            },{
-              id: 3,
-              label: '首次检查报告'
-            },{
-              id: 4,
-              label: '征信查询'
-            },{
-              id: 5,
-              label: '影像资料'
-            },{
-              id: 6,
-              label: '审批历史'
-            }]
-          }],
-          defaultProps: {
-            children: 'children',
-            label: 'label'
-          }
+          currentKey: '1',
+          treeData: [
+            { id: '0', label: '首次检查', pid: '-1' },
+            { id: '1', label: '检查信息', pid: '0' },
+            { id: '2', label: '首次检查报告', pid: '0' },
+            { id: '3', label: '征信查询', pid: '0' },
+            { id: '4', label: '影像资料', pid: '0' },
+            { id: '5', label: '审批历史', pid: '0' }
+          ]
         };
       },
-      created() {
-        this.handleNodeClick(2);
+      mounted: function () {
+        yufp.router.to('checkInfo', {}, 'treeDetailPage');
       },
       methods: {
-        handleNodeClick(data) {
-          switch (data.id) {
-            case 2: yufp.router.to('checkInfo', {}, 'info'); break;
-            default: yufp.router.to('checkInfo', {}, 'info');
+        nodeClick (node) {
+          console.log(node.id);
+          if (node.id === '0') {
+            return;
           }
-        },
-        save() {
-          console.log('12121211212');
-        },
-        submit() {
-          console.log('12121211212');
-        },
-        back() {
-          yufp.router.to('firstCheck', {}, 'yu-idxTabBox');
+          switch (node.id) {
+          case '1':
+            yufp.router.to('checkInfo', {}, 'treeDetailPage');
+            break;
+          case '2':
+            yufp.router.to('', {}, 'treeDetailPage');
+            break;
+          case '3':
+            yufp.router.to('', {}, 'treeDetailPage');
+            break;
+          case '4':
+            yufp.router.to('', {}, 'treeDetailPage');
+            break;
+          case '5':
+            yufp.router.to('', {}, 'treeDetailPage');
+            break;
+          default:
+            yufp.router.to('checkInfo', {}, 'treeDetailPage');
+          }
         }
       }
     });
+  };
+  // 消息处理
+  exports.onmessage = function (type, message) {
+
+  };
+  // page销毁时触发destroy方法
+  exports.destroy = function (id, cite) {
+
   };
 });

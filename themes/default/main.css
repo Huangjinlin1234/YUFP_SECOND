@@ -376,7 +376,7 @@ a:active {
   text-decoration: none;
 }
 
-/* .yu-idxTabs>div>a:hover{background-color: #fff;color: #20a0ff;border-color: #20a0ff;} */
+/* .yu-idxTabs>div>a:hover{background-color: #fff;color: #2647a7;border-color: #2647a7;} */
 .yu-idxTabs>div>a:active {
   background-color: #f1f3f8;
   color: #ffffff;
@@ -476,14 +476,6 @@ a:active {
   padding-top: 24px;
 }
 
-.yu-idxTabBox .ck .ml24 {
-  margin: 24px;
-}
-
-.yu-idxTabBox .ck .ml24>div>div>.el-tree {
-  margin-top: 10px;
-}
-
 /* yu-idxTabBox>div.ck div div{padding: 0 24px;background-color: #ffff} */
 .yu-idxTabBox>div>iframe {
   display: block;
@@ -556,7 +548,7 @@ a:active {
 }
 
 #yu-idxTabDMenuBt>div>span:hover {
-  color: #20a0ff;
+  color: #2647a7;
   background-color: #e4e8f1;
 }
 
@@ -686,7 +678,7 @@ a:active {
 }
 
 .yu-themesList>span.default>i {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 .yu-themesList>span.orange>i {
@@ -1086,7 +1078,7 @@ a:active {
 
 .yu-topNavMenu>li ul>li:hover>a,
 .yu-topNavMenu>li ul>li>a:hover {
-  color: #20a0ff;
+  color: #2647a7;
   background-color: #e4e8f1;
 }
 
@@ -1231,7 +1223,7 @@ a:active {
 
 .yu-topTileMenu>li>div a:hover,
 .yu-topTileMenu>li>div span:hover {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu>li>div a:active,
@@ -1242,12 +1234,12 @@ a:active {
 .yu-topTileMenu>li>div a.ck:link,
 .yu-topTileMenu>li>div a.ck:visited,
 .yu-topTileMenu>li>div span.ck {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu>li>div a.ck:hover,
 .yu-topTileMenu>li>div span.ck:hover {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu>li>div a.ck:active,
@@ -1756,12 +1748,12 @@ a:active {
 .yu-toolBar>.el-button:hover>i,
 .yu-toolBar>.el-button-group>.el-button:hover,
 .yu-toolBar>.el-button-group>.el-button:hover>i {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-toolBar>.el-button:hover,
 .yu-toolBar>.el-button-group>.el-button:hover {
-  border-color: #20a0ff;
+  border-color: #2647a7;
 }
 
 .el-dialog__wrapper-x {
@@ -1901,7 +1893,7 @@ a:active {
 }
 
 .yu-iconList>div>span:hover {
-  color: #20a0ff;
+  color: #2647a7;
   text-decoration: underline;
 }
 
@@ -1941,7 +1933,7 @@ a:active {
 }
 
 .yu-iconSum>b {
-  color: #20a0ff;
+  color: #2647a7;
   padding: 0 5px;
 }
 
@@ -2874,10 +2866,6 @@ a:active {
   padding-left: 23px;
 }
 
-.el-form-item .el-form-item__content .is-disabled .el-input__inner {
-  color: #2647aa;
-}
-
 /* .yu-xtable {
 
 .yu-xtable {
@@ -2906,6 +2894,38 @@ a:active {
 
 .p20 {
   padding: 20px;
+}
+
+.pt5 {
+  padding-top: 5px;
+}
+
+.pb5 {
+  padding-bottom: 5px;
+}
+
+.pl5 {
+  padding-left: 5px;
+}
+
+.pr5 {
+  padding-right: 5px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.mr5 {
+  margin-right: 5px;
 }
 
 .bottom-foot {

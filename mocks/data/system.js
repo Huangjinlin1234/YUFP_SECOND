@@ -470,8 +470,8 @@ define([
       //   'menuName': '风险预警',
       //   'upMenuId': 'lp-80000',
       //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
+      //   'funcId': 'riskWarning',
+      //   'funcUrl': 'pages/riskWarning/riskWarning',
       //   'legalOrgCode': null
       // },
       // {

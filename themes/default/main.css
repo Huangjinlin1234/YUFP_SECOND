@@ -3053,3 +3053,46 @@ a:active {
   color: #fff;
   line-height: 24px;
 }
+.yu-menu-config {
+  height: 100%;
+  font-size: 14px;
+  box-shadow: none !important;
+  background: #f2f2f2 !important;
+}
+.yu-menu-config .no-choose {
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.yu-menu-config .no-choose > img {
+  float: none;
+  width: 25%;
+  margin-bottom: 16px;
+}
+.yu-menu-config .left-content {
+  float: left;
+  width: 400px;
+  margin-right: 24px;
+  background: #fff;
+  overflow: hidden;
+}
+.yu-menu-config .right-content {
+  float: left;
+  width: calc(100% - 424px);
+  background: #fff;
+}
+.yu-menu-config .content-box {
+  padding-top: 24px;
+}
+.yu-menu-config .left-content .content-box {
+  height: calc(100% - 66px);
+}
+.yu-menu-config .right-content .content-box {
+  padding-right: 24px;
+}

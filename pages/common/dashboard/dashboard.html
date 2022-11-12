@@ -119,8 +119,9 @@
       </yu-col>
       <yu-col :span="8">
         <div class="yu-dashboard-box" style="min-height: 160px;">
-          <div class="yu-zrc-title">
-            <h1>工具箱</h1>
+          <div @click="calendardialogVisible = !calendardialogVisible">
+            <i class="zrcbk-icon-yirili"></i>
+            <span>工作日历</span>
           </div>
           <div class="yu-toolkit-box">
             <div @click="calendardialogVisible = !calendardialogVisible">
@@ -207,4 +208,5 @@
       </div>
     </yu-row>
   </div>
+
 </div>

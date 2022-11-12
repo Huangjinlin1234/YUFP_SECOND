@@ -123,7 +123,13 @@ define(['echarts'], function (require, exports) {
 
         },
         openRepobaseFn: function () {
-
+          var options = {
+            id: 'wbRepoBase',
+            title: '知识库查询',
+            key: 'custom_20180108174857'
+          };
+          // this.$router.push({path: route, query: parms});// name:'', params:{}
+          yufp.frame.addTab(options);
         },
         openPage (index) {
           let route = '';

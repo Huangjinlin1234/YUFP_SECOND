@@ -65,6 +65,10 @@ define(function (require) {
     moreQuestions: {
       html: 'pages/common/dashboard/WbPrbCommAdd.html',
       js: 'pages/common/dashboard/WbPrbCommAdd.js'
+    },
+    wbRepoBase: {
+      html: 'pages/common/dashboard/wbRepoBase.html',
+      js: 'pages/common/dashboard/wbRepoBase.js'
     }
   };
     // 注册路由表

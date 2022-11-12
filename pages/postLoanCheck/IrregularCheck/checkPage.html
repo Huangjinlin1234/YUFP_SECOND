@@ -1,0 +1,11 @@
+<div>
+  <el-row>
+    <el-col :span="3">
+      <yu-xtree :local-data="treeData" node-key="id" :current-node-key="currentKey" data-id="id" data-label="label" data-pid="pid" data-root="0" @node-click="nodeClick"></yu-xtree>
+    </el-col>
+    <el-col :span="21">
+      <div id="treeDetailPage">
+      </div>
+    </el-col>
+  </el-row>
+</div>

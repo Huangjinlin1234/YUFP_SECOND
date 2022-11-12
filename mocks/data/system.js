@@ -448,6 +448,24 @@ define([
       //   'legalOrgCode': null
       // },
       // {
+      //   'menuId': 'lp-82031',
+      //   'menuName': '下发不定期检查任务',
+      //   'upMenuId': 'lp-82030',
+      //   'menuIcon': '',
+      //   'funcId': 'IrregularCheckIssue',
+      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheckIssue/IrregularCheckIssue',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-82032',
+      //   'menuName': '不定期检查',
+      //   'upMenuId': 'lp-82030',
+      //   'menuIcon': '',
+      //   'funcId': 'IrregularCheck',
+      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheck',
+      //   'legalOrgCode': null
+      // },
+      // {
       //   'menuId': 'lp-83000',
       //   'menuName': '风险预警',
       //   'upMenuId': 'lp-80000',

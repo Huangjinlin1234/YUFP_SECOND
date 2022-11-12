@@ -16,6 +16,9 @@
           <yu-xform-item label="授信额度" ctype="input" name="author"></yu-xform-item>
           <yu-xform-item label="贷款余额" ctype="input" name="author"></yu-xform-item>
           <yu-xform-item label="产品名称" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="任务来源" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="任务派发人" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="派发人所属机构" ctype="input" name="author"></yu-xform-item>
           <yu-xform-item label="任务执行人" ctype="input" name="author"></yu-xform-item>
           <yu-xform-item label="所属机构" ctype="input" name="author"></yu-xform-item>
           <yu-xform-item label="任务生成日期" ctype="input" name="author"></yu-xform-item>
@@ -26,24 +29,30 @@
         </yu-xform-group>
       </yu-xform>
     </yu-collapse-item>
-    <yu-collapse-item title="贷款情况" name="2">
-      <yu-xtable ref="refTable2" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
+    <yu-collapse-item title="本次要求核查的内容" name="2">
+      <yu-xtable ref="refTable" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
         <yu-xtable-column align="center" v-for="(item,index) in fields" :key="index" :prop="item.prop" :label="item.label" :width="item.width">
         </yu-xtable-column>
       </yu-xtable>
     </yu-collapse-item>
-    <yu-collapse-item title="预警信号信息" name="3">
-      <div class="panel-class">
-        <div class="button-content">
-          <yu-button type="primary" @click="addSign">新增预警信号</yu-button>
-        </div>
-      </div>
+    <yu-collapse-item title="贷款情况" name="3">
       <yu-xtable ref="refTable1" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
         <yu-xtable-column align="center" v-for="(item,index) in fields1" :key="index" :prop="item.prop" :label="item.label" :width="item.width">
         </yu-xtable-column>
       </yu-xtable>
     </yu-collapse-item>
-    <yu-collapse-item title="非现场检查信息" name="4">
+    <yu-collapse-item title="预警信号信息" name="4">
+      <div class="panel-class">
+        <div class="button-content">
+          <yu-button type="primary" @click="addSign">新增预警信号</yu-button>
+        </div>
+      </div>
+      <yu-xtable ref="refTable2" :data-url="dataUrl" border row-number :pageable="false" json-data="rows" style="width: 100%">
+        <yu-xtable-column align="center" v-for="(item,index) in fields2" :key="index" :prop="item.prop" :label="item.label" :width="item.width">
+        </yu-xtable-column>
+      </yu-xtable>
+    </yu-collapse-item>
+    <yu-collapse-item title="非现场检查信息" name="5">
       <panel title="借款人及配偶基本信息"></panel>
       <el-row>        
         <el-col :span="24">            
@@ -96,7 +105,7 @@
         </el-col>
       </el-row>
     </yu-collapse-item>
-    <yu-collapse-item title="现场检查信息" name="5">
+    <yu-collapse-item title="现场检查信息" name="6">
       <el-row>        
         <el-col :span="24">            
           <yu-xtable ref="refTable4" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
@@ -107,19 +116,19 @@
         </el-col>
       </el-row>
     </yu-collapse-item>
-    <yu-collapse-item title="授信批复其他贷后管理要求" name="6">
+    <yu-collapse-item title="授信批复其他贷后管理要求" name="7">
       <yu-xform-x ref="reform1" :group-fields="updateFields" label-suffix="：" label-width="160px"></yu-xform-x>
     </yu-collapse-item>
-    <yu-collapse-item title="其他贷后检查情况" name="7">
+    <yu-collapse-item title="其他贷后检查情况" name="8">
       <yu-xform-x ref="reform2" :group-fields="updateFields1" label-suffix="：" label-width="220px"></yu-xform-x>
     </yu-collapse-item>
-    <yu-collapse-item title="其他异常情况" name="8">
+    <yu-collapse-item title="其他异常情况" name="9">
       <yu-xform-x ref="reform3" :group-fields="updateFields2" label-suffix="：" label-width="180px"></yu-xform-x>
     </yu-collapse-item>
-    <yu-collapse-item title="其他异常情况" name="9">
+    <yu-collapse-item title="其他异常情况" name="10">
       <yu-xform-x ref="reform4" :group-fields="updateFields3" label-suffix="：" label-width="180px"></yu-xform-x>
     </yu-collapse-item>
-    <yu-collapse-item title="登记信息" name="10">
+    <yu-collapse-item title="登记信息" name="11">
       <yu-xform ref="refForm4" label-width="120px" :disabled="true" v-model="formdata1">
         <yu-xform-group>
           <yu-xform-item label="登记人" ctype="input" name="author"></yu-xform-item>

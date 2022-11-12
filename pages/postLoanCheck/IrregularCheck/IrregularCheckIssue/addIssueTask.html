@@ -1,0 +1,40 @@
+<!--
+	@create by 
+	@update by 
+	@description 
+-->
+
+<div>
+  <el-row>
+    <el-col>
+      <panel title="检查任务信息">
+        <yu-xform-x ref="reform" :group-fields="updateFields" label-suffix="：" :buttons="updateButtons" label-width="160px"></yu-xform-x>
+      </panel>
+      <panel title="客户检查列表">
+        <div class="yu-toolBar mb5 mt5">
+          <el-button-group>
+            <el-button icon="plus" @click="importFn">引入</el-button>
+            <el-button icon="delete" @click="cancelImportFn">取消引入</el-button>
+            <el-button icon="delete" @click="download">模板下载</el-button>
+            <el-button icon="delete" @click="guideFn">导入</el-button>
+          </el-button-group>
+        </div>
+        <el-row>        
+          <el-col :span="24">            
+            <yu-xtable ref="refTable4" :data-url="dataUrl" border row-number :pageable="false" style="width: 100%">
+              <yu-xtable-column align="center" prop="" label="客户编号"></yu-xtable-column>
+              <yu-xtable-column align="center" prop="" label="客户名称"></yu-xtable-column>
+              <yu-xtable-column align="center" prop="" label="任务执行人"></yu-xtable-column>
+              <yu-xtable-column align="center" prop="" label="所属机构"></yu-xtable-column>
+              <yu-xtable-column align="center" prop="" ctype="input" label="检查内容"></yu-xtable-column>
+            </yu-xtable>
+          </el-col>  
+        </el-row>
+      </panel>
+      <div>
+        <yu-button type="primary" @click="save">保存</yu-button>
+        <yu-button type="primary" @click="back">返回</yu-button>
+      </div>
+    </el-col>
+  </el-row>
+</div>

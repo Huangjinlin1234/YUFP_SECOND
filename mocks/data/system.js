@@ -484,6 +484,42 @@ define([
       //   'legalOrgCode': null
       // },
       // {
+      //   'menuId': 'lp-84010',
+      //   'menuName': '电催结果',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'phoneResult',
+      //   'funcUrl': 'pages/postLoanColl/phoneResult/phoneResult',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84020',
+      //   'menuName': '下发催收任务',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collTask',
+      //   'funcUrl': 'pages/postLoanColl/collTask/collTask',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84030',
+      //   'menuName': '催收结果登记',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collResult',
+      //   'funcUrl': 'pages/postLoanColl/collResult/collResult',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84040',
+      //   'menuName': '催收台账',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collParameter',
+      //   'funcUrl': 'pages/postLoanColl/collParameter/collParameter',
+      //   'legalOrgCode': null
+      // },
+      // {
       //   'menuId': 'lp-85000',
       //   'menuName': '贷款核销',
       //   'upMenuId': 'lp-80000',

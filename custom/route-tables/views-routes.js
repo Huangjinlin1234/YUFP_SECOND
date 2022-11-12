@@ -49,7 +49,10 @@ define(function (require) {
             html: 'pages/postLoanCheck/IrregularCheck/checkInfo.html',
             js: 'pages/postLoanCheck/IrregularCheck/checkInfo.js'
         },
-
+        addTask1: {
+            html: 'pages/postLoanColl/collTask/addTask.html',
+            js: 'pages/postLoanColl/collTask/addTask.js'
+        },
     };
     //注册路由表
     yufp.router.addRouteTable(routeTable);

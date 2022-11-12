@@ -11,7 +11,7 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
-          disabled: data.viewType === 'VIEW',
+          isDisabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {}
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],

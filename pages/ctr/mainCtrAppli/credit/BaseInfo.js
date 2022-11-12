@@ -6,12 +6,12 @@
 define([''], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
-    console.log(hashCode, 'hashCode::: ');
+    console.log(hashCode, data, 'hashCode::: data');
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
-          disabled: data.viewType === 'VIEW',
+          isDisabled: data.viewType === 'VIEW',
           activeNames: ['1'],
           formdata: {},
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],

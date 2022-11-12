@@ -1,22 +1,35 @@
 <yu-collapse v-model="activeNames">
   <yu-collapse-item title="关联借款合同列表" name="1">
     <yu-button-group>
-      <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="addFn">新增</yu-button>
-      <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="modifySimFn">修改</yu-button>
-      <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="deleteFn">删除</yu-button>
-      <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">查看</yu-button>
+      <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
+      <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('ETID')">修改</yu-button>
+      <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>
+      <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
     </yu-button-group>
+    <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
+      <yu-xtable-column label="借款合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="客户名称" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同类型" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="主担保方式" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="币种" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同金额(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同起始日" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="合同到期日" prop="" data-code="item.dataCode"></yu-xtable-column>
+      <yu-xtable-column label="审批状态" prop="" data-code="item.dataCode"></yu-xtable-column>
+    </yu-xtable>
   </yu-collapse-item>
-  <yu-xtable ref="refTable" :data="tableData" row-number :data-url="dataUrl" :base-params="baseParams">
-    <yu-xtable-column label="借款合同编号" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="客户编号" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="客户名称" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="合同类型" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="主担保方式" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="币种" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="合同金额(元)" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="合同起始日" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="合同到期日" prop="" data-code="item.dataCode"></yu-xtable-column>
-    <yu-xtable-column label="审批状态" prop="" data-code="item.dataCode"></yu-xtable-column>
-  </yu-xtable>
 </yu-collapse>
+<yu-xdialog title="授信合同新增申请" :visible.sync="isShowAddLoan" @close="handleClose">
+  <yu-xform ref="refDForm" v-model="dFormData" label-width="140px">
+    <yu-xform-group>
+      <yu-xform-item v-for="(item,index) in dFormFields" :key="index" :label="item.label" :ctype="item.ctype"
+        :name="item.name" :disabled="item.disabled" :rules="rule" :icon="item.icon" :on-icon-click="item.iconClickFn"
+        :value-format="item.valueFormat"></yu-xform-item>
+    </yu-xform-group>
+  </yu-xform>
+  <span slot="footer" class="dialog-footer">
+    <yu-button type="primary" @click="nextFn">下一步</yu-button>
+    <yu-button @click="handleClose">返回</yu-button>
+  </span>
+</yu-xdialog>

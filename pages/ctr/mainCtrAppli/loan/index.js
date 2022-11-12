@@ -35,15 +35,15 @@ define([''], function (require, exports) {
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId);
         },
-        clickNode (data) {
+        clickNode (selectRow) {
           let routerids = ['LoanBaseInfo', 'LoanGuaranteeCtr', 'LoanThirdGuarCtr', 'LoanRelCredCtr', 'LoanBorrowerCtr', '', 'LoanContractPreview', '', 'LoanApprovalHis'];
-          if (routerids[data.id]) {
+          if (routerids[selectRow.id]) {
             if (hashCode === 'LoanContDetailC') {
-              routerid = routerids[data.id] + 'C'
+              routerid = routerids[selectRow.id] + 'C'
             } else {
-              routerid = routerids[data.id] + 'P'
+              routerid = routerids[selectRow.id] + 'P'
             }
-            yufp.router.to(routerid, {}, this.ctrDetail)
+            yufp.router.to(routerid, data, this.ctrDetail)
           }
         }
       }

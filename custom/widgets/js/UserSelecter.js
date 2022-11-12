@@ -46,7 +46,6 @@
     data: function () {
       var _self = this;
       return {
-        tableData: [{prpNo: '0001', custName: '广州银行'}, {prpNo: '0002', custName: '东莞银行'}],
         selections: [],
         selectedVal: '',
         baseParams: {},

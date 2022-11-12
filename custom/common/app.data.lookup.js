@@ -3,16 +3,20 @@
  * created by helin3 2017-12-04
  */
 define(function (require, exports) {
-    exports.localLookup = {
+  exports.localLookup = {
     	CRUD_TYPE: [
-            {enname: 'ADD', cnname: '新增'},
-            {enname: 'EDIT', cnname: '修改'},
-            {enname: 'DETAIL', cnname: '详情'}
-        ],
-        QT_ANSWER_CORT: [
+      {enname: 'ADD', cnname: '新增'},
+      {enname: 'EDIT', cnname: '修改'},
+      {enname: 'DETAIL', cnname: '详情'}
+    ],
+    QT_ANSWER_CORT: [
 
-        ]
-        /*CRUD_TYPE: [
+    ],
+    STD_YES_NO: [
+      {enname: 'Y', cnname: '是'},
+      {enname: 'N', cnname: '否'}
+    ]
+    /* CRUD_TYPE: [
             {key: 'ADD', value: '新增'},
             {key: 'EDIT', value: '修改'},
             {key: 'DETAIL', value: '详情'}
@@ -202,5 +206,5 @@ define(function (require, exports) {
             {'key': '2', 'value': '浮动利率'},
         ]
 */
-    };
+  };
 });

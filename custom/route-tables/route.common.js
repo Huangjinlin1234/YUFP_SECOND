@@ -61,6 +61,14 @@ define(function (require) {
     qualiafyInfo: {
       html: 'pages/common/template/hjlTemplate/qualiafyInfo.html',
       js: 'pages/common/template/hjlTemplate/qualiafyInfo.js'
+    },
+    moreQuestions: {
+      html: 'pages/common/dashboard/WbPrbCommAdd.html',
+      js: 'pages/common/dashboard/WbPrbCommAdd.js'
+    },
+    wbRepoBase: {
+      html: 'pages/common/dashboard/wbRepoBase.html',
+      js: 'pages/common/dashboard/wbRepoBase.js'
     }
   };
     // 注册路由表

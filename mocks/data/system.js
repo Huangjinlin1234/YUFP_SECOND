@@ -448,12 +448,30 @@ define([
       //   'legalOrgCode': null
       // },
       // {
+      //   'menuId': 'lp-82031',
+      //   'menuName': '下发不定期检查任务',
+      //   'upMenuId': 'lp-82030',
+      //   'menuIcon': '',
+      //   'funcId': 'IrregularCheckIssue',
+      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheckIssue/IrregularCheckIssue',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-82032',
+      //   'menuName': '不定期检查',
+      //   'upMenuId': 'lp-82030',
+      //   'menuIcon': '',
+      //   'funcId': 'IrregularCheck',
+      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheck',
+      //   'legalOrgCode': null
+      // },
+      // {
       //   'menuId': 'lp-83000',
       //   'menuName': '风险预警',
       //   'upMenuId': 'lp-80000',
       //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
+      //   'funcId': 'riskWarning',
+      //   'funcUrl': 'pages/riskWarning/riskWarning',
       //   'legalOrgCode': null
       // },
       // {
@@ -463,6 +481,42 @@ define([
       //   'menuIcon': '',
       //   'funcId': null,
       //   'funcUrl': null,
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84010',
+      //   'menuName': '电催结果',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'phoneResult',
+      //   'funcUrl': 'pages/postLoanColl/phoneResult/phoneResult',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84020',
+      //   'menuName': '下发催收任务',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collTask',
+      //   'funcUrl': 'pages/postLoanColl/collTask/collTask',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84030',
+      //   'menuName': '催收结果登记',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collResult',
+      //   'funcUrl': 'pages/postLoanColl/collResult/collResult',
+      //   'legalOrgCode': null
+      // },
+      // {
+      //   'menuId': 'lp-84040',
+      //   'menuName': '催收台账',
+      //   'upMenuId': 'lp-84000',
+      //   'menuIcon': '',
+      //   'funcId': 'collParameter',
+      //   'funcUrl': 'pages/postLoanColl/collParameter/collParameter',
       //   'legalOrgCode': null
       // },
       // {

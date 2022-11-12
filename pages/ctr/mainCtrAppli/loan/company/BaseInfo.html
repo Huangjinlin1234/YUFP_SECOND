@@ -2,7 +2,7 @@
   <yu-collapse-item title="合同基本信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
-        <yu-xform-item label="客户编号12" name="" icon="" :rules="rule">
+        <yu-xform-item label="客户编号" name="" icon="" :rules="rule">
         </yu-xform-item>
         <yu-xform-item label="客户名称" name="">
         </yu-xform-item>
@@ -29,7 +29,7 @@
   </yu-collapse-item>
   <!-- 当合同建立来源为授信申请时才显示本栏目，否则隐藏 -->
   <yu-collapse-item title="授信合同信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="授信合同编号" name="">
         </yu-xform-item>
@@ -48,7 +48,7 @@
   </yu-collapse-item>
   <!-- 当合同建立来源为单笔单批时才显示本栏目，否则隐藏 -->
   <yu-collapse-item title="单笔单批批复信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="批复编号" name="">
         </yu-xform-item>
@@ -61,8 +61,8 @@
       </yu-xform-group>
     </yu-xform>
   </yu-collapse-item>
-  <yu-collapse-item title="金额期限" name="1" :rules="rule">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+  <yu-collapse-item title="金额期限" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="币种" name="" ctype="select" data-code="bizhong">
         </yu-xform-item>
@@ -79,7 +79,7 @@
       </yu-xform-group>
     </yu-xform>
   </yu-collapse-item>
-  <yu-collapse-item title="利率信息" name="1" :rules="rule">
+  <yu-collapse-item title="利率信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="利率类型" name="" ctype="select" :disabled="true" :rules="rule" data-code="lllx">
@@ -138,7 +138,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="还款信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
       <yu-xform-group>
         <yu-xform-item label="还款账号" name="" :disabled="true" :rules="rule">
         </yu-xform-item>
@@ -161,7 +161,7 @@
       </yu-xform-group>
     </yu-xform>
   </yu-collapse-item>
-  <yu-collapse-item title="支付信息" name="1" :rules="rule">
+  <yu-collapse-item title="支付信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
       <yu-xform-group>
         <yu-xform-item label="支付方式" name="" ctype="select" data-code="zffs">
@@ -252,7 +252,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="合作方信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="合作项目编号" name="" icon="">
         </yu-xform-item>
@@ -266,7 +266,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="第三方额度信息" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="是否使用第三方额度" name="" ctype="select" data-code="shifou">
         </yu-xform-item>
@@ -319,7 +319,7 @@
   </yu-collapse-item>
   <yu-collapse-item title="合同当事人" name="1">
     <div>甲方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="贷款人" name="">
         </yu-xform-item>
@@ -338,7 +338,7 @@
       </yu-xform-group>
     </yu-xform>
     <div>乙方信息</div>
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="借款人客户编号" name="">
         </yu-xform-item>
@@ -385,7 +385,7 @@
     </yu-xform>
   </yu-collapse-item>
   <yu-collapse-item title="合同份数" name="1">
-    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true" :rules="rule">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
         <yu-xform-item label="合同签订份数" name="" :rules="['int']">
         </yu-xform-item>
@@ -439,4 +439,5 @@
 </yu-collapse>
 <yu-button type="primary" @click="tempSave">暂存</yu-button>
 <yu-button type="primary" @click="tempSave">保存</yu-button>
-<yu-button type="primary" @click="tempSave">返回</yu-button>
+<yu-button type="primary" @click="tempSave">提交</yu-button>
+<yu-button type="primary">返回</yu-button>

@@ -76,11 +76,6 @@ define(function (require) {
       html: 'pages/ctr/mainCtrAppli/credit/JointCreditorCtr.html',
       js: 'pages/ctr/mainCtrAppli/credit/JointCreditorCtr.js'
     },
-    // 授信合同申请共同授信人信息
-    CredContractPreview: {
-      html: 'pages/ctr/mainCtrAppli/common/ContractPreview.html',
-      js: 'pages/ctr/mainCtrAppli/common/ContractPreview.js'
-    },
     // 授信合同申请合同预览
     CredContractPreview: {
       html: 'pages/ctr/mainCtrAppli/common/ContractPreview.html',

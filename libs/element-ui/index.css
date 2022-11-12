@@ -7328,7 +7328,7 @@
 .el-input.is-disabled .el-input__inner {
   background-color: #eef1f6;
   border-color: #d1dbe5;
-  color: #bbb;
+  color: #2647a7;
   cursor: not-allowed;
 }
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder {

@@ -1,0 +1,54 @@
+<div id="moreQuestions">
+  <panel title="问题交流列表">
+    <yu-xform v-model="searchForm" related-table-name="yutable" form-type="search">
+      <yu-xform-group :column="4">
+        <yu-xform-item label="问题和意见" placeholder="问题和意见" ctype="input" name="title"></yu-xform-item>
+        <yu-xform-item label="问题类型" placeholder="问题类型" ctype="select" name="type"></yu-xform-item>
+        <yu-xform-item label="问题状态" placeholder="问题状态" ctype="select" data-code="STD_WB_PRB_STATUS" name="status"></yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <yu-button @click="viewQuestion">查看问题</yu-button>
+    <yu-button @click="answerQst">回复问题</yu-button>
+    <yu-xtable index selection-type="radio" ref="yutable" :data-url="dataUrl" style="width: 100%" request-type="POST">
+      <yu-xtable-column prop="messageType" label="问题类型" data-code="STD_WB_RISK_MESSAGE_TYPE"> </yu-xtable-column>
+      <yu-xtable-column prop="content" label="问题和意见"> </yu-xtable-column>
+      <yu-xtable-column prop="updIdName" label="发布人姓名"> </yu-xtable-column>
+      <yu-xtable-column prop="managerBrIdName" label="发布人所属机构"> </yu-xtable-column>
+      <yu-xtable-column prop="inputDate" label="发布时间"> </yu-xtable-column>
+      <yu-xtable-column prop="status" data-code="STD_WB_PRB_STATUS" label="问题状态"> </yu-xtable-column>
+    </yu-xtable>
+  </panel>
+  <yu-xdialog title="查看问题" @open="initData" :visible.sync="dialogResizeVisible" width="80%">
+    <panel title="问题详情">
+      <yu-xform ref="refdetailForm" label-width="150px" v-model="detailForm" :disabled="true">
+        <yu-xform-group :column="2">
+          <yu-xform-item label="问题流水号" ctype="input" name="id"></yu-xform-item>
+          <yu-xform-item label="问题和意见" ctype="input" name="content"></yu-xform-item>
+          <yu-xform-item label="发布人姓名" ctype="input" name="updIdName"></yu-xform-item>
+          <yu-xform-item label="发布人工号" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="发布人所属机构" ctype="input" name="managerBrIdName"></yu-xform-item>
+          <yu-xform-item label="发布时间" ctype="timepicker" name="inputDate"></yu-xform-item>
+          <yu-xform-item label="问题状态" ctype="select" name="status" data-code="STD_WB_PRB_STATUS"></yu-xform-item>
+          <yu-xform-item label="附件" ctype="input" name="redradio"></yu-xform-item>
+
+        </yu-xform-group>
+      </yu-xform>
+    </panel>
+    <panel title="回复内容">
+      <yu-xform ref="refreciveForm" label-width="150px" v-model="reciveForm" :disabled="true">
+        <yu-xform-group :column="2">
+          <yu-xform-item label="回复内容" name="title" placeholder="问题流水号"></yu-xform-item>
+          <yu-xform-item label="回复人姓名" ctype="select" name="type"></yu-xform-item>
+          <yu-xform-item label="回复人工号" ctype="select" name="status"></yu-xform-item>
+          <yu-xform-item label="回复人所属机构" ctype="input" name="author"></yu-xform-item>
+          <yu-xform-item label="发布人所属机构" ctype="input" name="tel"></yu-xform-item>
+
+        </yu-xform-group>
+      </yu-xform>
+    </panel>
+    <span slot="footer" class="dialog-footer">
+      <yu-button @click="dialogResizeVisible = false">关闭问题</yu-button>
+      <yu-button type="primary" @click="dialogResizeVisible = false">重新打开</yu-button>
+    </span>
+  </yu-xdialog>
+</div>

@@ -12,14 +12,43 @@ define([
       el: cite.el,
       data: function () {
         var _self = this;
-        return {};
+        return {
+          activeName: 'first',
+          detailForm1: {},
+          debxFormData: {},
+          calcTypeOpt: [
+            {value: '面积、单价', key: '1'},
+            {value: '贷款总价', key: '2'}
+          ]
+        };
+      },
+      created () {
+        // 页面创建,字典初始化
+        let oldLoanTerm = [];
+        for (let i = 2; i <= 30; i++) {
+          let count = i * 12;
+          let item = {
+            key: count.toString(),
+            value: `${i}年(${count}期)`
+          };
+          oldLoanTerm.push(item);
+        }
+        this.options.oldLoanTerm = oldLoanTerm;
+
+        let percent = [];
+        for (let i = 2; i <= 9; i++) {
+          let item = {
+            key: i.toString(),
+            value: `${i}成`
+          };
+          percent.push(item);
+        }
+        this.options.percent = percent;
       },
       mounted () {
 
       },
-      methods: {
-
-      }
+      methods: {}
     });
   };
 

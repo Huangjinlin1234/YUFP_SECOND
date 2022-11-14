@@ -1,141 +1,29 @@
 <div id="calcPage">
-  <yu-tabs v-model="activeName" @tab-click="handleClick">
+  <yu-tabs v-model="activeName">
     <yu-tab-pane label="等额本息还款法" name="first">
-      <yu-xform ref="refForm1" label-width="120px" v-model="formdata1" :disabled="formDisabled">
-        <yu-xform-group>
-          <yu-xform-item label="贷款类别" placeholder="贷款类别" name="loanType" rules="required" ctype="select"
-            :options="[{ key: '1', value: '商业贷款' }, { key: '2', value: '公积金' }, { key: '3', value: '组合型' }]" value="1"></yu-xform-item>
-          <yu-xform-item label="计算方式" placeholder="计算方式" name="calType" rules="required" colspan="12" ctype="radio" :options="options.calType"></yu-xform-item>
+      <yu-xform ref="refFormDemo" label-width="150px" :hidden-rule="true" v-model="debxFormData" form-type="edit">
+        <yu-xform-group :column="2">
+          <yu-xform-item label="贷款类别" ctype="select" name="serno"></yu-xform-item>
+          <yu-xform-item label="计算方式" name="messageType" ctype="radio" :options="calcTypeOpt" required></yu-xform-item>
+          <yu-xform-item label="单价" type="num" name="messageType" ctype="input" unit="元/平方" required></yu-xform-item>
         </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="商业性" placeholder="商业性" name="busiAmt" @change="formdata1.loanAmt = accAdd(formdata1.busiAmt, formdata1.accAmt)" rules="required" ctype="yu-num"
-            number-formatter="0,000.00" unit="元" :hidden="formdata1.loanType != 3"></yu-xform-item>
-          <yu-xform-item label="公积金" placeholder="公积金" name="accAmt" @change="formdata1.loanAmt = accAdd(formdata1.busiAmt, formdata1.accAmt)" rules="required" ctype="yu-num"
-            number-formatter="0,000.00" unit="元" :hidden="formdata1.loanType != 3"></yu-xform-item>
+        <yu-xform-group :column="1">
+          <yu-xform-item label="问题和意见" name="suggestions" ctype="textarea" :autosize="{ minRows: 3}" required></yu-xform-item>
         </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="单价" placeholder="单价" name="price" rules="required" ctype="yu-num" unit="元/平方" :hidden="formdata1.calType != 1"></yu-xform-item>
-          <yu-xform-item label="面积" placeholder="面积" name="area" rules="required" ctype="yu-num" unit="平方米" :hidden="formdata1.calType != 1"></yu-xform-item>
-          <yu-xform-item label="按揭成数" placeholder="按揭成数" name="percent" rules="required" ctype="select" :options="options.percent" :hidden="formdata1.calType != 1"></yu-xform-item>
-          <yu-xform-item label="贷款总额" placeholder="贷款总额" name="loanAmt" :disabled="formdata1.loanType == 3" rules="required" ctype="yu-num" unit="元" :hidden="formdata1.calType != 2"></yu-xform-item>
+        <yu-xform-group :column="2">
+          <yu-xform-item label="发布人姓名" ctype="input" name="managerIdName"></yu-xform-item>
+          <yu-xform-item label="发布人工号" name="managerId" ctype="input"></yu-xform-item>
+          <yu-xform-item label="发布人所属机构" name="managerBrIdName" ctype="input"></yu-xform-item>
         </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="公积金按揭月数" placeholder="公积金按揭月数" @change="changeMon" name="accMonNum"
-            :rules="[{ required: true, message: '字段不能为空' }, { max: 360, type: 'number', message: '最长不超过360月', trigger: 'blur' }]" ctype="yu-currency" unit="月" :hidden="formdata1.loanType == 1">
-          </yu-xform-item>
-          <yu-xform-item label="公积金利率" placeholder="公积金利率" name="accRate" rules="required" filterable allow-create ctype="select" :options="options.accRate" :hidden="formdata1.loanType == 1">
-          </yu-xform-item>
-          <yu-xform-item label="按揭月数" placeholder="按揭月数" name="monNum" rules="required" ctype="yu-num" precision="0" unit="月" :hidden="formdata1.loanType == 2"></yu-xform-item>
-          <yu-xform-item label="贷款年利率" placeholder="贷款年利率" name="yrate" rules="required" ctype="yu-num" number-formatter="00.00%" :hidden="formdata1.loanType == 2"></yu-xform-item>
-        </yu-xform-group>
-        <div class="yu-grpButton">
-          <yu-button icon="check" type="primary" @click="saveFn(1)">开始计算</yu-button>
-          <yu-button icon="yx-undo2" type="primary" @click="resetFn(1)">重置</yu-button>
-        </div>
-      </yu-xform>
-      <el-divider content-position="left">计算结果</el-divider>
-      <yu-xform ref="detailForm1" label-width="120px" v-model="detailForm1" form-type="details">
-        <yu-xform-group>
-          <yu-xform-item label="房屋总价" name="fangkuanTotal" ctype="input"></yu-xform-item>
-          <yu-xform-item label="贷款总额" name="daikuanTotal" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="还款总额" name="allTotal" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="支付利息款" name="accrual" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="首期付款" name="moneyFirst" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="贷款月数" name="month" ctype="input"></yu-xform-item>
-          <yu-xform-item label="月均还款" name="monthMoney" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-        </yu-xform-group>
+
       </yu-xform>
     </yu-tab-pane>
     <yu-tab-pane label="等额本金还款法" name="second">
-      <yu-xform ref="refForm2" label-width="120px" v-model="formdata2" :disabled="formDisabled">
-        <yu-xform-group>
-          <yu-xform-item label="贷款类别" placeholder="贷款类别" name="loanType" rules="required" ctype="select"
-            :options="[{ key: '1', value: '商业贷款' }, { key: '2', value: '公积金' }, { key: '3', value: '组合型' }]" value="1"></yu-xform-item>
-          <yu-xform-item label="计算方式" placeholder="计算方式" name="calType" rules="required" colspan="12" ctype="radio" :options="options.calType"></yu-xform-item>
-        </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="商业性" placeholder="商业性" name="busiAmt" @change="formdata2.loanAmt = accAdd(formdata2.busiAmt, formdata2.accAmt)" rules="required" ctype="yu-num"
-            number-formatter="0,000.00" unit="元" :hidden="formdata2.loanType != 3"></yu-xform-item>
-          <yu-xform-item label="公积金" placeholder="公积金" name="accAmt" @change="formdata2.loanAmt = accAdd(formdata2.busiAmt, formdata2.accAmt)" rules="required" ctype="yu-num"
-            number-formatter="0,000.00" unit="元" :hidden="formdata2.loanType != 3"></yu-xform-item>
-        </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="单价" placeholder="单价" name="price" rules="required" ctype="yu-num" unit="元/平方" :hidden="formdata2.calType != 1"></yu-xform-item>
-          <yu-xform-item label="面积" placeholder="面积" name="area" rules="required" ctype="yu-num" unit="平方米" :hidden="formdata2.calType != 1"></yu-xform-item>
-          <yu-xform-item label="按揭成数" placeholder="按揭成数" name="percent" rules="required" ctype="select" :options="options.percent" :hidden="formdata2.calType != 1"></yu-xform-item>
-          <yu-xform-item label="贷款总额" placeholder="贷款总额" name="loanAmt" :disabled="formdata2.loanType == 3" rules="required" ctype="yu-num" unit="元" :hidden="formdata2.calType != 2"></yu-xform-item>
-        </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="公积金按揭月数" placeholder="公积金按揭月数" @change="changeMon" name="accMonNum"
-            :rules="[{ required: true, message: '字段不能为空' }, { max: 360, type: 'number', message: '最长不超过360月', trigger: 'blur' }]" ctype="yu-currency" unit="月" :hidden="formdata2.loanType == 1">
-          </yu-xform-item>
-          <yu-xform-item label="公积金利率" placeholder="公积金利率" name="accRate" rules="required" filterable allow-create ctype="select" :options="options.accRate" :hidden="formdata2.loanType == 1">
-          </yu-xform-item>
-          <yu-xform-item label="按揭月数" placeholder="按揭月数" name="monNum" rules="required" ctype="yu-num" precision="0" unit="月" :hidden="formdata2.loanType == 2"></yu-xform-item>
-          <yu-xform-item label="贷款年利率" placeholder="贷款年利率" name="yrate" rules="required" ctype="yu-num" number-formatter="00.00%" :hidden="formdata2.loanType == 2"></yu-xform-item>
-        </yu-xform-group>
-        <div class="yu-grpButton">
-          <yu-button icon="check" type="primary" @click="saveFn(2)">开始计算</yu-button>
-          <yu-button icon="yx-undo2" type="primary" @click="resetFn(2)">重置</yu-button>
-        </div>
-      </yu-xform>
-      <el-divider content-position="left">计算结果</el-divider>
-      <yu-xform ref="detailForm2" label-width="120px" v-model="detailForm2" form-type="details">
-        <yu-xform-group>
-          <yu-xform-item label="房屋总价" name="fangkuanTotal" ctype="input"></yu-xform-item>
-          <yu-xform-item label="贷款总额" name="daikuanTotal" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="还款总额" name="allTotal" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="支付利息款" name="accrual" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="首期付款" name="moneyFirst" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="贷款月数" name="month" ctype="input"></yu-xform-item>
-          <yu-xform-item label="月还金额" name="monthMoney" style="white-space: pre-line;" ctype="textarea" :rows="5" :colspan="24"></yu-xform-item>
-          <!--<yu-xform-item label="月还金额" ctype="custom" colspan="24">
-                 <yu-timeline>
-                    <yu-timeline-item title="￥990.00" v-for="(item, index) in 360" :key="`timelineItems${index}`" :timeline-items="timelineItems" date="2018-10-10"></yu-timeline-item>
-                </yu-timeline>
-              </yu-xform-item>-->
-        </yu-xform-group>
-      </yu-xform>
+
+
     </yu-tab-pane>
     <yu-tab-pane label="提前还贷计算器(新利率)" name="third">
-      <yu-xform ref="refForm3" label-width="120px" v-model="formdata3" :disabled="formDisabled">
-        <yu-xform-group>
-          <yu-xform-item label="贷款总额" placeholder="贷款总额" name="loanAmt" rules="required" ctype="yu-num" unit="万元"></yu-xform-item>
-          <yu-xform-item label="原贷款期限" placeholder="原贷款期限" name="oldLoanTerm" @change="changeMon3" rules="required" ctype="select" :options="options.oldLoanTerm"></yu-xform-item>
-          <yu-xform-item label="贷款类别" placeholder="贷款类别" name="loanType" rules="required" ctype="radio" :options="[{ key: '1', value: '公积金贷款' }, { key: '2', value: '商业性贷款' }]" value="2">
-          </yu-xform-item>
-          <yu-xform-item label="贷款年利率" placeholder="贷款年利率" name="yrate" rules="required" ctype="yu-num" number-formatter="00.00%" :hidden="formdata3.loanType == 1"></yu-xform-item>
-          <yu-xform-item label="公积金利率" placeholder="公积金利率" name="yrate" rules="required" filterable allow-create ctype="select" :options="options.accRate" :hidden="formdata3.loanType == 2">
-          </yu-xform-item>
-          <yu-xform-item label="第一次还款时间" placeholder="日期" name="repayDate" rules="required" ctype="datepicker" type="month"></yu-xform-item>
-          <yu-xform-item label="预计提前还款时间" placeholder="日期" name="prepayDate" rules="required" ctype="datepicker" type="month"></yu-xform-item>
-        </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="还款方式" placeholder="还款方式" name="repayWay" rules="required" ctype="radio" :options="options.repayWay"></yu-xform-item>
-          <yu-xform-item label="提前还款金额" placeholder="不含当月应还款额" name="repayAmt" rules="required" ctype="yu-num" number-formatter="0,000.00" unit="万元" :hidden="formdata3.repayWay != 2"></yu-xform-item>
-        </yu-xform-group>
-        <yu-xform-group>
-          <yu-xform-item label="处理方式" :colspan="24" placeholder="处理方式" rules="required" name="dealWay" ctype="radio" :options="options.dealWay" :hidden="formdata3.repayWay != 2"></yu-xform-item>
-        </yu-xform-group>
-        <div class="yu-grpButton">
-          <yu-button icon="check" type="primary" @click="saveFn(3)">开始计算</yu-button>
-          <yu-button icon="yx-undo2" type="primary" @click="resetFn(3)">重置</yu-button>
-        </div>
-      </yu-xform>
-      <el-divider content-position="left">计算结果</el-divider>
-      <yu-xform ref="detailForm3" label-width="120px" v-model="detailForm3" form-type="details">
-        <yu-xform-group>
-          <yu-xform-item label="原月还款额" name="ykhke" ctype="yu-num" number-formatter="0,000.00" value="0" unit="元"></yu-xform-item>
-          <yu-xform-item label="该月一次还款额" name="gyyihke" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="原最后还款期" name="yzhhkq" ctype="input"></yu-xform-item>
-          <yu-xform-item label="下月起月还款额" name="xyqyhke" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="已还款总额" name="yhkze" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="新的最后还款期" name="xdzhhkq" ctype="input"></yu-xform-item>
-          <yu-xform-item label="已还利息额" name="yhlxe" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="节省利息支出" name="jslxzc" ctype="yu-num" number-formatter="0,000.00" value="0"></yu-xform-item>
-          <yu-xform-item label="计算结果提示" name="jsjgts" style="white-space: pre-line;" ctype="textarea" :colspan="24" :rows="5"></yu-xform-item>
-        </yu-xform-group>
-      </yu-xform>
+
     </yu-tab-pane>
   </yu-tabs>
   <!-- <div>测试页面</div> -->

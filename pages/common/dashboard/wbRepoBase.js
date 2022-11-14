@@ -15,7 +15,7 @@ define([
         var _self = this;
         return {
           data: [{ id: '0', label: '根节点', pid: '-1', children: [{ id: '1', label: '一级-1', pid: '0', children: [{ id: '4', label: '二级-1-1', pid: '1', children: [{ id: '9', label: '三级-1-1-1', pid: '4' }] }, { id: '5', label: '二级-1-2', pid: '1' }] }, { id: '2', label: '一级-2', pid: '0', children: [{ id: '6', label: '二级-2-1', pid: '2' }, { id: '7', label: '二级-2-2', pid: '2' }] }, { id: '3', label: '一级-3', pid: '0', children: [{ id: '8', label: '二级-3-1', pid: '3' }] }] }],
-          dataUrl: `${backend.cmisCfg}/api/wbrepobase/`,
+          dataUrl: '/api/wbrepobase',
           param: {},
           treeUrl: `${backend.cmisCfg}/api/adminsmtreedic/treeInput`,
           formdata: {
@@ -38,6 +38,7 @@ define([
           fileListInfo: [],
           fileList: [],
           searchFormdata: {},
+
           roleParms: {
             title: '选择角色',
             method: 'get',
@@ -53,12 +54,15 @@ define([
             checkbox: true,
             rowkey: 'orgCode',
             queryFields: [{ placeholder: '机构编号', field: 'orgCode', type: 'input', fuzzyQuery: 'both' }, { placeholder: '机构名称', field: 'orgName', type: 'input', fuzzyQuery: 'both' }],
-            dataUrl: `${backend.appOcaService}/api/selectAllOrg`,
+            dataUrl: '/api/selectAllOrg',
             tableColumns: [{ label: '机构编号', prop: 'orgCode' }, { label: '机构名称 ', prop: 'orgName' }, { label: '状态 ', prop: 'orgSts', dataCode: 'DATA_STS'}]
           }
         };
       },
       created: function () {
+        this.getTreeData();
+      },
+      mounted () {
 
       },
       methods: {
@@ -92,17 +96,18 @@ define([
         /** 获取目录树树数据 */
         getTreeData () {
           var _this = this;
-          _this
-            .$request({
-              method: 'POST',
-              url: this.treeUrl,
-              data: { root: '', optType: 'STD_WB_REPO_BASE' }
-            })
-            .then(({ code, message, data }) => {
-              if (code === '0') {
-                _this.menuTreeData = data;
+          yufp.service.request({
+            method: 'POST',
+            url: '/api/getTresDta',
+            data: {},
+            callback: function (code, message, res) {
+              console.log('111111', code, message, res);
+              if (code == '0') {
+                _this.menuTreeData = res.rows;
+                console.log(res, '---------------');
               }
-            });
+            }
+          });
         },
         /** 目录树过滤方法 */
         filterMenuTreeNode: function (value, data) {
@@ -219,11 +224,12 @@ define([
         },
         /** 树节点点击事件 */
         treeNodeClick (nodeData, node, self) {
+          console.log(nodeData, node, self, '==');
           //   var _this = this;
           // 如果当前表单为编辑模式 且 已改动过部分字段数据
           this.upMenuId = nodeData.id;
           this.upLocate = nodeData.locate;
-          this.param = { condition: { locate: nodeData.locate, roles: this.roleStr, orgCode: this.org.code } };
+          this.param = { condition: { locate: nodeData.locate} };
         },
         /**
      * 取消

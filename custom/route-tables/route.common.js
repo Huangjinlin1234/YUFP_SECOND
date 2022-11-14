@@ -69,6 +69,10 @@ define(function (require) {
     wbRepoBase: {
       html: 'pages/common/dashboard/wbRepoBase.html',
       js: 'pages/common/dashboard/wbRepoBase.js'
+    },
+    calcPage: {
+      html: 'pages/common/dashboard/calcPage.html',
+      js: 'pages/common/dashboard/calcPage.js'
     }
   };
     // 注册路由表

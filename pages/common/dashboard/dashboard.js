@@ -1,7 +1,10 @@
 /**
  * Created by wangyin on 2017/11/16.
  */
-define(['echarts'], function (require, exports) {
+define([
+  'echarts',
+  './custom/widgets/js/YuSingleUpload.js'
+], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
     yufp.lookup.reg('STD_WB_RISK_MESSAGE_TYPE,STD_WB_RISK_MESSAGE_TYPE ,STD_WB_NOTICE_TYPE,STD_WB_PRB_MESSAGE_TYPE,STD_WB_PRB_STATUS');
@@ -28,7 +31,12 @@ define(['echarts'], function (require, exports) {
             badassetsUrl: '/api/batbizbadassets/',
             assetsAnalyse: '/api/batbizassetsanalyse/',
             xdhxTotalUrl: '/api/accloan/dscms2sjzt/xdhxQueryTotalList/'
-          }
+          },
+          wbpDialogVisible: false,
+          calcDialogVisible: false,
+          questionFormdata: {},
+          // 需要展示的文件数
+          fileListInfo: []
         };
       },
       created: function () {
@@ -40,6 +48,11 @@ define(['echarts'], function (require, exports) {
         this.getPrbcommDataFn();
       },
       methods: {
+        initData () {
+          this.$nextTick(()=>{
+            yufp.router.to('calcPage', {}, 'calcContent');
+          });
+        },
         queryWorkbench: function () {
           var _this = this;
           yufp.service.request({
@@ -119,8 +132,11 @@ define(['echarts'], function (require, exports) {
         doXWD: function () {
 
         },
+        openCalcFn () {
+          this.calcDialogVisible = true;
+        },
         addwbprbCommFn: function () {
-
+          this.wbpDialogVisible = true;
         },
         openRepobaseFn: function () {
           var options = {
@@ -130,6 +146,19 @@ define(['echarts'], function (require, exports) {
           };
           // this.$router.push({path: route, query: parms});// name:'', params:{}
           yufp.frame.addTab(options);
+        },
+        /** 上传文件 */
+        uploadedFn (fileItem, num) {
+          fileItem.icon && delete fileItem.icon;
+          this.fileList.push(fileItem);
+        },
+        /** 删除文件 */
+        deleteFileFn (file) {
+          this.fileList.forEach((item, index) => {
+            if (item.filePath === file.filePath) {
+              this.fileList.splice(index, 1);
+            }
+          });
         },
         openPage (index) {
           let route = '';

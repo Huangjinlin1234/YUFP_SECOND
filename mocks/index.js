@@ -30,6 +30,7 @@ function (require, exports) {
     // { url: backend.uaaService + '/api/session/info', method: 'GET', fn: system.sessionInfoFn },
     { url: backend.uaaService + '/api/session/info', method: 'POST', fn: system.sessionInfoFn },
     { url: backend.uaaService + '/api/account/menuandcontr', method: 'POST', fn: system.menuAndContrFn },
+    { url: backend.uaaService + '/api/common/template', method: 'POST', fn: system.templateFn },
     // { url: backend.uaaService + '/api/account/datacontr', method: 'GET', fn: system.dataContrFn },
     { url: backend.uaaService + '/api/account/password', method: 'GET', fn: system.passwordFn },
     { url: backend.uaaService + '/api/contr/url', method: 'GET', fn: system.contrUrlFn },

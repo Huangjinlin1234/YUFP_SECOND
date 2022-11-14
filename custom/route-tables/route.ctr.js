@@ -185,26 +185,36 @@ define(function (require) {
 
 
     //  主合同管理 start
-    // 授信合同管理待签授信合同
-    UnsignCredCtr: {
+    // 授信合同管理 (待签授信合同和历史授信合同)
+    CredCtrManage: {
       html: 'pages/ctr/mainCtrManage/index.html',
       js: 'pages/ctr/mainCtrManage/index.js'
     },
-    // 授信合同管理历史授信合同
-    HisCredCtr: {
+    // 借款合同管理 (待签借款合同和历史借款合同)
+    LoanCtrManage: {
       html: 'pages/ctr/mainCtrManage/index.html',
       js: 'pages/ctr/mainCtrManage/index.js'
     },
-    // 借款合同管理待签授信合同
-    UnsignLoanCtr: {
-      html: 'pages/ctr/mainCtrManage/index.html',
-      js: 'pages/ctr/mainCtrManage/index.js'
-    },
-    // 借款合同管理历史授信合同
-    HisLoanCtr: {
-      html: 'pages/ctr/mainCtrManage/index.html',
-      js: 'pages/ctr/mainCtrManage/index.js'
-    },
+    // // 授信合同管理待签授信合同
+    // UnsignCredCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 授信合同管理历史授信合同
+    // HisCredCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 借款合同管理待签授信合同
+    // UnsignLoanCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 借款合同管理历史授信合同
+    // HisLoanCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
     // 授信合同签订页面 借款合同签订页面
     ContratSign: {
       html: 'pages/ctr/mainCtrManage/common/ContratSign.html',

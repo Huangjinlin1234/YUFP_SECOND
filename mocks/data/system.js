@@ -307,7 +307,7 @@ define([
       //   menuIcon: '',
       //   funcId: 'CredContHis',
       //   funcUrl: 'pages/ctr/mainCtrAppli/index'
-      // },
+      // // },
       // {
       //   menuId: 'lp-61300',
       //   menuName: '借款合同申请',
@@ -326,6 +326,14 @@ define([
       // },
       // {
       //   menuId: 'lp-62100',
+      //   menuName: '授信合同管理',
+      //   upMenuId: 'lp-62000',
+      //   menuIcon: '',
+      //   funcId: 'CredCtrManage',
+      //   funcUrl: 'pages/ctr/mainCtrManage/index'
+      // },
+      // {
+      //   menuId: 'lp-62100',
       //   menuName: '待签授信合同',
       //   upMenuId: 'lp-62000',
       //   menuIcon: '',
@@ -340,6 +348,14 @@ define([
       //   funcId: 'HisCredCtr',
       //   funcUrl: 'pages/ctr/mainCtrManage/index'
       // },
+      {
+        menuId: 'lp-62300',
+        menuName: '借款合同管理',
+        upMenuId: 'lp-62000',
+        menuIcon: '',
+        funcId: 'LoanCtrManage',
+        funcUrl: 'pages/ctr/mainCtrManage/index'
+      },
       // {
       //   menuId: 'lp-62300',
       //   menuName: '待签借款合同',

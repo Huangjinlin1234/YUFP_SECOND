@@ -6,13 +6,23 @@
 define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/index.js'], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
+    console.log(hashCode, "=== hashCode");
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           pageType: hashCode,
-          pageTypes: ['CredContAppl', 'CredContHis', 'LoanContAppl', 'LoanContHis'],
+          isHis: false,
+          pageTypes: ['CredContAppl', 'LoanContAppl',],
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          tabFields: 'CredContAppl' === hashCode ? [
+            { label: '授信合同申请', name: '1' },
+            { label: '授信合同申请历史', name: '2' },
+          ] : [
+            { label: '借款合同申请', name: '1' },
+            { label: '借款合同申请历史', name: '2' },
+          ],
           formdata: {},
           formFields: [
             // { label: '申请流水号', name: 'ctrNo' },
@@ -29,13 +39,13 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
             {
               label: '主担保方式',
               name: 'ctrNo',
-              pageTypes: ['CredContAppl', 'CredContHis'],
+              pageTypes: ['CredContAppl'],
               dataCode: ''
             },
             {
               label: '产品名称',
               name: 'ctrNo',
-              pageTypes: ['LoanContAppl', 'LoanContHis'],
+              pageTypes: ['LoanContAppl'],
               readonly: true,
               icon: 'search',
               clickIconFn: this.ttt,
@@ -81,6 +91,14 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
       methods: {
         ttt (item) {
           console.log(item, '111::: ')
+        },
+        handleClick (tab) {
+          console.log(tab.name, "=== tab.name");
+          if (tab.name === '2') {
+            this.isHis = true
+          } else {
+            this.isHis = false;
+          }
         },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)

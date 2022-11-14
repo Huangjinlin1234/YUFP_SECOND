@@ -36,9 +36,6 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
         })
       },
       methods: {
-        ttt (item) {
-          console.log(item, '111::: ');
-        },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },

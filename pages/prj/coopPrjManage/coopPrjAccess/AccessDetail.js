@@ -23,9 +23,6 @@ define([''], function (require, exports) {
         }
       },
       methods: {
-        ttt (item) {
-          console.log(item, '111::: ')
-        },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },

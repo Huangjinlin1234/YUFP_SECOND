@@ -208,13 +208,13 @@
   <yu-collapse-item title="合作方信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
       <yu-xform-group>
-        <yu-xform-item label="合作项目编号" name="" icon="">
+        <yu-xform-item label="合作项目编号" name="projectCode" icon="">
         </yu-xform-item>
-        <yu-xform-item label="合作项目名称" name="">
+        <yu-xform-item label="合作项目名称" name="projectNameCn">
         </yu-xform-item>
-        <yu-xform-item label="合作方编号" name="">
+        <yu-xform-item label="合作方编号" name="partnerCode">
         </yu-xform-item>
-        <yu-xform-item label="合作方名称" name="">
+        <yu-xform-item label="合作方名称" name="partnerName">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>
@@ -264,9 +264,9 @@
         </yu-xform-item>
         <yu-xform-item label="借款人名称" name="">
         </yu-xform-item>
-        <yu-xform-item label="证件类型" name="" data-code="zjlx">
+        <yu-xform-item label="证件类型" name="certType" data-code="zjlx">
         </yu-xform-item>
-        <yu-xform-item label="证件号码" name="" :rules="['zjhm']">
+        <yu-xform-item label="证件号码" name="certNo" :rules="['zjhm']">
         </yu-xform-item>
         <yu-xform-item label="住所" name="">
         </yu-xform-item>
@@ -341,15 +341,15 @@
   <yu-collapse-item title="登记信息" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea">
       <yu-xform-group>
-        <yu-xform-item label="登记人" name="">
+        <yu-xform-item label="登记人" name="inputId">
         </yu-xform-item>
-        <yu-xform-item label="登记机构" name="">
+        <yu-xform-item label="登记机构" name="inputBrId">
         </yu-xform-item>
         <yu-xform-item label="管户人" name="">
         </yu-xform-item>
         <yu-xform-item label="管户机构" name="">
         </yu-xform-item>
-        <yu-xform-item label="登记日期" name="" ctype="datepicker">
+        <yu-xform-item label="登记日期" name="inputDate" ctype="datepicker">
         </yu-xform-item>
         <yu-xform-item label="财务机构" name="">
         </yu-xform-item>

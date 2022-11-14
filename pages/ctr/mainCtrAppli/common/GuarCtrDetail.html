@@ -219,11 +219,11 @@
             <yu-xform-group>
               <yu-xform-item label="担保人" name="" :disabled="true" :rules="rule">
               </yu-xform-item>
-              <yu-xform-item label="法定代表人" name="" :disabled="true" :rules="rule">
+              <yu-xform-item label="法定代表人" name="legalPersonName" :disabled="true" :rules="rule">
               </yu-xform-item>
-              <yu-xform-item label="证件类型" name="" :disabled="true" :rules="rule" data-code="zjlx">
+              <yu-xform-item label="证件类型" name="certType" :disabled="true" :rules="rule" data-code="zjlx">
               </yu-xform-item>
-              <yu-xform-item label="证件号码" name="" :disabled="true" :rules="['zjhm']">
+              <yu-xform-item label="证件号码" name="certNo" :disabled="true" :rules="['zjhm']">
               </yu-xform-item>
               <yu-xform-item label="住所" name="" :disabled="true" :rules="rule">
               </yu-xform-item>
@@ -300,15 +300,15 @@
         <yu-collapse-item title="登记信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
             <yu-xform-group>
-              <yu-xform-item label="登记人" name="" :disabled="true" :rules="rule">
+              <yu-xform-item label="登记人" name="inputId" :disabled="true" :rules="rule">
               </yu-xform-item>
-              <yu-xform-item label="登记机构" name="" :disabled="true" :rules="rule">
+              <yu-xform-item label="登记机构" name="inputBrId" :disabled="true" :rules="rule">
               </yu-xform-item>
               <yu-xform-item label="管户人" name="" :disabled="true" :rules="rule">
               </yu-xform-item>
               <yu-xform-item label="管户机构" name="" :disabled="true" :rules="rule">
               </yu-xform-item>
-              <yu-xform-item label="登记日期" name="" ctype="datepicker" :disabled="true" :rules="rule">
+              <yu-xform-item label="登记日期" name="inputDate" ctype="datepicker" :disabled="true" :rules="rule">
               </yu-xform-item>
             </yu-xform-group>
           </yu-xform>

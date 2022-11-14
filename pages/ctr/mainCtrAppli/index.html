@@ -2,7 +2,8 @@
 <div>
   <yu-tabs v-model="activeName" @tab-click="handleClick">
     <yu-tab-pane v-for="(item, index) in tabFields" :key="index" :label="item.label" :name="item.name">
-      <yu-xform ref="refForm" v-model="formdata" hidden-del-val label-width="140px">
+      <yu-xform ref="refForm" related-table-name="refTable" v-model="formdata" hidden-del-val label-width="140px"
+        form-type="search">
         <yu-xform-group :column="3">
           <yu-xform-item v-for="(item, index) in formFields" :key="index" :label="item.label" :name="item.name"
             :ctype="item.ctype" :options="item.options" :data-code="item.dataCode" :icon="item.icon"

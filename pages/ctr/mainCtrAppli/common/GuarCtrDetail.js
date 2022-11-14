@@ -10,8 +10,10 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
-          isDisabled: data.viewType === 'VIEW',
+          isMaxMount: data.isMaxMount, // false为一般担保合同，true为最高额担保合同
+          isDisabled: data.viewType && data.viewType === 'VIEW',
           activeNames: ['1'],
+          activeName: '1',
           formdata: {},
           dataUrl: '',
           baseParams: {},

@@ -7,23 +7,13 @@ define(function (require) {
   // 定义路由表
   var routeTable = {
     //  主合同申请 start
-    // 授信合同申请
+    // 授信合同申请 和 授信合同申请历史
     CredContAppl: {
       html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
       js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
     },
-    // 授信合同申请历史
-    CredContHis: {
-      html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
-      js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
-    },
-    // 借款合同申请
+    // 借款合同申请 和 借款合同申请历史
     LoanContAppl: {
-      html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
-      js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
-    },
-    // 借款合同申请历史
-    LoanContHis: {
       html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
       js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
     },
@@ -182,7 +172,6 @@ define(function (require) {
       js: 'pages/ctr/contractApprv/index.js'
     },
     //  合同审批 end
-
 
     //  主合同管理 start
     // 授信合同管理 (待签授信合同和历史授信合同)

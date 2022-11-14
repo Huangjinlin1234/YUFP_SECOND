@@ -1,5 +1,5 @@
 /*
- * @description: 授信合同申请和授信合同申请历史
+ * @description: 授信合同担保信息
  * @author: ljl
  * @date: 2022-11-07
  */
@@ -93,7 +93,7 @@ define([], function (require, exports) {
           // })
           if (flag) {
             this.closeAdd();
-            yufp.router.to('GuarCtrDetail', data, 'yu-idxTabBox');
+            yufp.router.to('GuarCtrDetail', { ...data, isMaxMount: true }, 'yu-idxTabBox');
           }
         },
       },

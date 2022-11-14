@@ -74,16 +74,6 @@ define([], function (require, exports) {
         closeImport () {
           this.isShowImport = false;
         },
-        nextFn () {
-          let flag = true;
-          // this.$refs.refAddForm.validate(vali => {
-          //   flag = vali;
-          // })
-          if (flag) {
-            this.closeAdd();
-            yufp.router.to('GuarCtrDetail', data, 'yu-idxTabBox');
-          }
-        },
       },
     })
   }

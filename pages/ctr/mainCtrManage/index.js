@@ -10,8 +10,18 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           pageType: hashCode,
-          pageTypes: ['UnsignCredCtr', 'HisCredCtr', 'UnsignLoanCtr', 'HisLoanCtr'],
+          isHis: false,
+          pageTypes: ['CredCtrManage', 'LoanCtrManage',],
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          tabFields: 'CredCtrManage' === hashCode ? [
+            { label: '待签授信合同', name: '1' },
+            { label: '历史授信合同', name: '2' },
+          ] : [
+            { label: '待签借款合同', name: '1' },
+            { label: '历史借款合同', name: '2' },
+          ],
           formdata: {},
           formFields: [
             // { label: '申请流水号', name: 'ctrNo' },
@@ -28,13 +38,13 @@ define([''], function (require, exports) {
             {
               label: '主担保方式',
               name: 'ctrNo',
-              pageTypes: ['UnsignCredCtr', 'HisCredCtr'],
+              pageTypes: ['CredCtrManage'],
               dataCode: ''
             },
             {
               label: '产品名称',
               name: 'ctrNo',
-              pageTypes: ['UnsignLoanCtr', 'HisLoanCtr'],
+              pageTypes: ['LoanCtrManage'],
               readonly: true,
               icon: 'search',
               clickIconFn: this.selProduct,
@@ -68,6 +78,14 @@ define([''], function (require, exports) {
         })
       },
       methods: {
+        handleClick (tab) {
+          console.log(tab.name, "=== tab.name");
+          if (tab.name === '2') {
+            this.isHis = true
+          } else {
+            this.isHis = false;
+          }
+        },
         selCust (item) {
           console.log(item, '111::: ')
         },

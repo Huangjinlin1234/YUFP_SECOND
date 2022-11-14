@@ -79,7 +79,11 @@ function (require, exports) {
     { url: '/api/accloan/dscms2sjzt/xdhxQueryTotalList/', method: 'POST', fn: hjlMock.getList},
     { url: '/api/wbcommRisk', method: 'POST', fn: hjlMock.getPrbcommDataFn},
     { url: '/api/wbcommfunc', method: 'POST', fn: hjlMock.getPrbcommDataFn},
-    { url: '/api/monitor/auditlogdata', method: 'POST', fn: hjlMock.getAuditlogdata}
+    { url: '/api/monitor/auditlogdata', method: 'POST', fn: hjlMock.getAuditlogdata},
+
+    // 首页工具箱
+    { url: '/api/getTresDta', method: 'POST', fn: hjlMock.getTresDta},
+    { url: '/api/wbrepobase', method: 'POST', fn: hjlMock.selectAllOrg}
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}
   ];

@@ -14,7 +14,7 @@
         </div>
       </div>
       <yu-xtree ref="refMenuTree" class="menu-tree" :local-data="menuTreeData" @node-click="treeNodeClick" :filter-node-method="filterMenuTreeNode" data-id="id" data-label="label" data-pid="pid"
-        data-root="0"></yu-xtree>
+        data-id="id" data-label="label" data-root="0"></yu-xtree>
       <yu-xdialog :title="viewTitle[viewType]" :visible.sync="menudialogVisible">
         <yu-xform ref="refMenuForm" label-width="130px" v-model="menuformdata" :disabled="formDisabled">
           <yu-xform-group :column="1">
@@ -46,7 +46,7 @@
         <yu-button v-if="check" @click="infoFn">详情</yu-button>
         <yu-button v-if="check" @click="deleteFn">删除</yu-button>
       </div>
-      <yu-xtable ref="refTable" style="margin-top:10px;" request-type="POST" condition-key="condition" selection-type="radio" row-number :data-url="dataUrl" :base-params="param" :default-load="true">
+      <yu-xtable ref="refTable" style="margin-top:10px;" request-type="POST" json-data="rows" :default-load="true" selection-type="radio" row-number :data-url="dataUrl">
         <yu-xtable-column label="标题" prop="title"></yu-xtable-column>
         <yu-xtable-column label="内容简述" prop="content">
           <template slot="scope">
@@ -55,9 +55,9 @@
             </a> -->
           </template>
         </yu-xtable-column>
-        <yu-xtable-column label="发布人" prop="inputIdName"></yu-xtable-column>
+        <yu-xtable-column label="发布人" prop="managerBrId"></yu-xtable-column>
         <yu-xtable-column label="发布人所属机构" prop="inputBrIdName"></yu-xtable-column>
-        <yu-xtable-column label="发布时间" prop="inputDate"></yu-xtable-column>
+        <yu-xtable-column label="发布时间" prop="pubTime"></yu-xtable-column>
         <yu-xtable-column label="状态" prop="status" data-code="STD_WB_REPO_STATUS"></yu-xtable-column>
       </yu-xtable>
       <!-- 新增、修改、查看表单弹窗 -->

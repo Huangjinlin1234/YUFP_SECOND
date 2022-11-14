@@ -482,7 +482,7 @@ a:active {
   margin: 24px;
 }
 
-.yu-idxTabBox .ck .ml24>div>div>.el-tree {
+.yu-idxTabBox .ck .ml24 > div > div > .el-tree {
   margin-top: 10px;
 }
 
@@ -3062,6 +3062,7 @@ a:active {
   line-height: 24px;
 }
 .yu-menu-config {
+  display: flex;
   height: 100%;
   font-size: 14px;
   box-shadow: none !important;
@@ -3077,7 +3078,13 @@ a:active {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+.frame-height .content-title {
+  font-weight: 700;
+  font-size: 16px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #ededed;
+}
 .yu-menu-config .no-choose > img {
   float: none;
   width: 25%;

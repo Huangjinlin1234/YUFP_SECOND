@@ -33,7 +33,26 @@ define(function (require) {
             html: 'pages/postLoanCheck/regularCheck/checkPage.html',
             js: 'pages/postLoanCheck/regularCheck/checkPage.js'
         },
-
+        addIssueTask: {
+            html: 'pages/postLoanCheck/IrregularCheck/IrregularCheckIssue/addIssueTask.html',
+            js: 'pages/postLoanCheck/IrregularCheck/IrregularCheckIssue/addIssueTask.js'
+        },
+        addTask: {
+            html: 'pages/postLoanCheck/IrregularCheck/addTask.html',
+            js: 'pages/postLoanCheck/IrregularCheck/addTask.js'
+        },
+        checkPage2: {
+            html: 'pages/postLoanCheck/IrregularCheck/checkPage.html',
+            js: 'pages/postLoanCheck/IrregularCheck/checkPage.js'
+        },
+        checkInfo1: {
+            html: 'pages/postLoanCheck/IrregularCheck/checkInfo.html',
+            js: 'pages/postLoanCheck/IrregularCheck/checkInfo.js'
+        },
+        addTask1: {
+            html: 'pages/postLoanColl/collTask/addTask.html',
+            js: 'pages/postLoanColl/collTask/addTask.js'
+        },
     };
     //注册路由表
     yufp.router.addRouteTable(routeTable);

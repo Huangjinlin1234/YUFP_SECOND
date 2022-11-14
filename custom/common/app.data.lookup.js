@@ -3,16 +3,36 @@
  * created by helin3 2017-12-04
  */
 define(function (require, exports) {
-    exports.localLookup = {
+  exports.localLookup = {
     	CRUD_TYPE: [
-            {enname: 'ADD', cnname: '新增'},
-            {enname: 'EDIT', cnname: '修改'},
-            {enname: 'DETAIL', cnname: '详情'}
-        ],
-        QT_ANSWER_CORT: [
+      {enname: 'ADD', cnname: '新增'},
+      {enname: 'EDIT', cnname: '修改'},
+      {enname: 'DETAIL', cnname: '详情'}
+    ],
+    QT_ANSWER_CORT: [
 
-        ]
-        /*CRUD_TYPE: [
+    ],
+    STD_YES_NO: [
+      {enname: 'Y', cnname: '是'},
+      {enname: 'N', cnname: '否'}
+    ],
+    STD_WB_RISK_MESSAGE_TYPE: [
+      { cnname: '系统报障', enname: '1' },
+      { cnname: '优化建议', enname: '2' },
+      { cnname: '其他问题', enname: '3' }
+    ],
+    STD_WB_PRB_STATUS: [
+      { 'cnname': '已提交', 'enname': '1' },
+      { 'cnname': '已回复', 'enname': '2' },
+      { 'cnname': '重新打开', 'enname': '3' },
+      { 'cnname': '已关闭', 'enname': '4' }
+    ],
+    STD_WB_PRB_MESSAGE_TYPE: [
+      { 'cnname': '系统报障', 'enname': '1' },
+      { 'cnname': '优化建议', 'enname': '2' },
+      { 'cnname': '其他问题', 'enname': '3' }
+    ]
+    /* CRUD_TYPE: [
             {key: 'ADD', value: '新增'},
             {key: 'EDIT', value: '修改'},
             {key: 'DETAIL', value: '详情'}
@@ -202,5 +222,5 @@ define(function (require, exports) {
             {'key': '2', 'value': '浮动利率'},
         ]
 */
-    };
+  };
 });

@@ -1,33 +1,42 @@
 /**
  * Created by wangyin on 2017/11/16.
  */
-define(['echarts'], function (require, exports) {
+define([
+  'echarts',
+  './custom/widgets/js/YuSingleUpload.js'
+], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
-    yufp.lookup.reg('STD_WB_RISK_MESSAGE_TYPE,STD_WB_NOTICE_TYPE,STD_WB_PRB_MESSAGE_TYPE,STD_WB_PRB_STATUS');
+    yufp.lookup.reg('STD_WB_RISK_MESSAGE_TYPE,STD_WB_RISK_MESSAGE_TYPE ,STD_WB_NOTICE_TYPE,STD_WB_PRB_MESSAGE_TYPE,STD_WB_PRB_STATUS');
     var _self = yufp.custom.vue({
       el: cite.el,
       data: function () {
         var _self = this;
         return {
           tipsData: { back: 0, done: 0, ticket: 0, poolsize: 0, his: 0, copy: 0},
-          myData: [],
+          myData: [ ],
+          risknum: 0,
+          prbnum: 0,
           activeName: 'first',
-          hiddenRisk: true,
-          activeIndex: 3,
+          hiddenRisk: false,
+          activeIndex: 1,
           riskData: [],
           coloryellow: [0, 4, 7, 10, 13],
           colordefault: [1, 6, 11, 15],
           colorpurple: [2, 5, 9, 12],
           colorgreen: [3, 8, 14],
-          prbnum: 0,
           prbcommData: [],
           url: {
             bizCusCountUrl: '/api/batbizcuscount/',
             badassetsUrl: '/api/batbizbadassets/',
             assetsAnalyse: '/api/batbizassetsanalyse/',
             xdhxTotalUrl: '/api/accloan/dscms2sjzt/xdhxQueryTotalList/'
-          }
+          },
+          wbpDialogVisible: false,
+          calcDialogVisible: false,
+          questionFormdata: {},
+          // 需要展示的文件数
+          fileListInfo: []
         };
       },
       created: function () {
@@ -35,16 +44,21 @@ define(['echarts'], function (require, exports) {
         this.getMydata();
         // 我的工作台
         this.queryWorkbench();
+        this.getRiskDataFn();
         this.getPrbcommDataFn();
       },
       methods: {
+        initData () {
+          this.$nextTick(()=>{
+            yufp.router.to('calcPage', {}, 'calcContent');
+          });
+        },
         queryWorkbench: function () {
           var _this = this;
           yufp.service.request({
             method: 'POST',
             url: '/api/custom/bench/count',
             callback: function (code, message, res) {
-              console.log(code, message, res, 'ffrrr');
               if (code == '0') {
                 _this.tipsData = res.data;
               }
@@ -57,10 +71,8 @@ define(['echarts'], function (require, exports) {
             method: 'POST',
             url: '/api/wbcommfunc/mydata',
             callback: function (code, message, res) {
-              console.log(code, message, res, 'ffrrr');
               if (code == '0') {
-                _this.myData = JSON.parse(res.data);
-                console.log(_this.myData, 'my');
+                _this.myData = res.data;
               }
             }
           });
@@ -74,15 +86,29 @@ define(['echarts'], function (require, exports) {
               if (response.code == '0') {
                 _this.prbnum = response.total;
                 _this.prbcommData = response.data;
-                console.log(_this.prbcommData, 'pp');
               } else {
                 _this.$message({ message: '数据查询失败！', type: 'error' });
               }
             }
           });
         },
-        getlookup (index, type) {
-          return yufp.lookup.find(type, false)[index];
+        getRiskDataFn: function () {
+          var _this = this;
+          yufp.service.request({
+            method: 'POST',
+            url: '/api/wbcommRisk',
+            callback: function (code, message, response) {
+              if (response.code == '0') {
+                _this.risknum = response.total;
+                _this.riskData = response.data;
+              } else {
+                _this.$message({ message: '数据查询失败！', type: 'error' });
+              }
+            }
+          });
+        },
+        getlookup (key, type) {
+          return yufp.lookup.convertKey(type, key);
         },
         openGuar: function () {
 
@@ -106,11 +132,33 @@ define(['echarts'], function (require, exports) {
         doXWD: function () {
 
         },
+        openCalcFn () {
+          this.calcDialogVisible = true;
+        },
         addwbprbCommFn: function () {
-
+          this.wbpDialogVisible = true;
         },
         openRepobaseFn: function () {
-
+          var options = {
+            id: 'wbRepoBase',
+            title: '知识库查询',
+            key: 'custom_20180108174857'
+          };
+          // this.$router.push({path: route, query: parms});// name:'', params:{}
+          yufp.frame.addTab(options);
+        },
+        /** 上传文件 */
+        uploadedFn (fileItem, num) {
+          fileItem.icon && delete fileItem.icon;
+          this.fileList.push(fileItem);
+        },
+        /** 删除文件 */
+        deleteFileFn (file) {
+          this.fileList.forEach((item, index) => {
+            if (item.filePath === file.filePath) {
+              this.fileList.splice(index, 1);
+            }
+          });
         },
         openPage (index) {
           let route = '';
@@ -137,7 +185,13 @@ define(['echarts'], function (require, exports) {
             break;
           default:
           }
-          this.$router.push({path: route, query: parms});// name:'', params:{}
+          var options = {
+            id: 'moreQuestions',
+            title: '问题交流',
+            key: 'custom_20180108174856'
+          };
+          // this.$router.push({path: route, query: parms});// name:'', params:{}
+          yufp.frame.addTab(options);
         }
       }
     });

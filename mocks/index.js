@@ -11,7 +11,8 @@ define([
   './mocks/data/maintable.js',
   './mocks/data/subtable.js',
   './mocks/data/app-preview-mock.js',
-  './mocks/data/demo.js'
+  './mocks/data/demo.js',
+  './mocks/data/hjlMock.js'
 ],
 function (require, exports) {
   var system = yufp.require.use('./mocks/data/system.js');
@@ -21,6 +22,7 @@ function (require, exports) {
   var subtable = yufp.require.use('./mocks/data/subtable.js');
   var appPreviewMock = yufp.require.use('./mocks/data/app-preview-mock.js');
   var demo = yufp.require.use('./mocks/data/demo.js');
+  var hjlMock = yufp.require.use('./mocks/data/hjlMock.js');
 
   var registerService = [
     // 连接后台服务时，请注释下述几行
@@ -67,8 +69,22 @@ function (require, exports) {
     { url: backend.ocaService + '/api/adminsmlookupdict/list', method: 'GET', fn: demo.lookupListFn},
     { url: backend.ocaService + '/api/adminSmProp/queryAll', method: 'GET', fn: demo.queryAllFn},
     { url: backend.consoleService + '/api/user/oper/logs', method: 'GET', fn: demo.queryLogFn},
-    { url: backend.consoleService + '/api/s/creditPrp', method: 'GET', fn: demo.queryPrpFn}
+    { url: backend.consoleService + '/api/s/creditPrp', method: 'GET', fn: demo.queryPrpFn},
 
+    // 工作台
+    { url: '/api/custom/bench/count', method: 'POST', fn: hjlMock.queryCountFn},
+    { url: '/api/wbcommfunc/mydata', method: 'POST', fn: hjlMock.queryMydata},
+    { url: '/api/batbizcuscount/', method: 'POST', fn: hjlMock.getList},
+    { url: '/api/batbizbadassets/', method: 'POST', fn: hjlMock.getList},
+    { url: '/api/batbizassetsanalyse/', method: 'POST', fn: hjlMock.getList},
+    { url: '/api/accloan/dscms2sjzt/xdhxQueryTotalList/', method: 'POST', fn: hjlMock.getList},
+    { url: '/api/wbcommRisk', method: 'POST', fn: hjlMock.getPrbcommDataFn},
+    { url: '/api/wbcommfunc', method: 'POST', fn: hjlMock.getPrbcommDataFn},
+    { url: '/api/monitor/auditlogdata', method: 'POST', fn: hjlMock.getAuditlogdata},
+
+    // 首页工具箱
+    { url: '/api/getTresDta', method: 'POST', fn: hjlMock.getTresDta},
+    { url: '/api/wbrepobase', method: 'POST', fn: hjlMock.selectAllOrg}
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}
   ];

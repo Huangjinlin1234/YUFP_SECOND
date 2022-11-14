@@ -90,7 +90,6 @@ define([
           this.viewType = 'EDIT';
           this.isShowEditSysPropDialog = true;
           this.$nextTick(()=>{
-            console.log(this.$refs.reform, 'this.$refs.reform');
             this.$refs.reform.formModel = row;
           });
         },

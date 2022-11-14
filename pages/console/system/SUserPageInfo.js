@@ -9,7 +9,7 @@ define([
 ], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
-    yufp.lookup.reg('CRUD_TYPE,USER_STATUS,STD_ZX_SEX,ZB_POS_LEVEL,ZB_DEGREE,STD_YES_NO');
+    yufp.lookup.reg('STD_YES_NO,USER_STATUS,STD_ZX_SEX,ZB_POS_LEVEL,ZB_DEGREE,STD_YES_NO');
     var vm = yufp.custom.vue({
       el: cite.el,
       data: function () {

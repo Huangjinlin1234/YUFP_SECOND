@@ -10,8 +10,18 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           pageType: hashCode,
-          pageTypes: ['UnsignCredCtr', 'HisCredCtr', 'UnsignLoanCtr', 'HisLoanCtr'],
+          isHis: false,
+          pageTypes: ['CredCtrManage', 'LoanCtrManage',],
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          tabFields: 'CredCtrManage' === hashCode ? [
+            { label: '待签授信合同', name: '1' },
+            { label: '历史授信合同', name: '2' },
+          ] : [
+            { label: '待签借款合同', name: '1' },
+            { label: '历史借款合同', name: '2' },
+          ],
           formdata: {},
           formFields: [
             // { label: '申请流水号', name: 'ctrNo' },
@@ -22,22 +32,22 @@ define([''], function (require, exports) {
               name: 'ctrNo',
               readonly: true,
               icon: 'search',
-              clickIconFn: this.ttt,
+              clickIconFn: this.selCust,
             },
             { label: '客户名称', name: 'ctrNo' },
             {
               label: '主担保方式',
               name: 'ctrNo',
-              pageTypes: ['UnsignCredCtr', 'HisCredCtr'],
+              pageTypes: ['CredCtrManage'],
               dataCode: ''
             },
             {
               label: '产品名称',
               name: 'ctrNo',
-              pageTypes: ['UnsignLoanCtr', 'HisLoanCtr'],
+              pageTypes: ['LoanCtrManage'],
               readonly: true,
               icon: 'search',
-              clickIconFn: this.ttt,
+              clickIconFn: this.selProduct,
             },
             { label: '合同状态', name: 'ctrNo', options: [] },
             { label: '签约方式', name: 'ctrNo', dataCode: 'qyfs' },
@@ -68,39 +78,37 @@ define([''], function (require, exports) {
         })
       },
       methods: {
-        ttt (item) {
+        handleClick (tab) {
+          console.log(tab.name, "=== tab.name");
+          if (tab.name === '2') {
+            this.isHis = true
+          } else {
+            this.isHis = false;
+          }
+        },
+        selCust (item) {
+          console.log(item, '111::: ')
+        },
+        selProduct (item) {
           console.log(item, '111::: ')
         },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },
-        addFn () { },
-        modifySimFn () { },
-        deleteFn () { },
-        infoFn () {
-          let data = {}
-          let index = this.pageTypes.indexOf(this.pageType);
-          let detailPages = ['CredContDetail', 'LoanContDetail'];
-          // switch (this.pageTypes.indexOf(this.pageType)) {
-          //   case 0:
-          //     index = 0;
-          //     break;
-          //   case 1:
-          //     index = 0;
-          //     break;
-          //   case 2:
-          //     index = 1;
-          //     break;
-          //   case 3:
-          //     index = 1;
-          //     break;
-          //   default:
-          //     return;
-          //     break;
+        btnFn (type) {
+          let selection = this.$refs.refTable.selections;
+          // if (!selection.length) {
+          //   this.$message.warning('请先选择一条数据！');
+          //   return;
           // }
-          console.log(detailPages[Math.floor(index / 2)], "=== detailPages[Math.floor(index / 2)");
-          yufp.router.to(detailPages[Math.floor(index / 2)] + 'C', data, 'yu-idxTabBox')
-          // yufp.router.to(detailPages[index], data, 'yu-idxTabBox')
+          // 【打印】：只有待签订状态才能打印合同！
+          // 【签订】：选中合同状态为待签订且签约方式为线下签约的记录。
+          // 【注销】：选中合同状态为待签订的记录，合同注销需提交审核流程进行审批，提交后系统生成待办任务，下一环节审核人员通过我的待办进行处理。
+          if (type === 'VIEW') {
+            yufp.router.to('CredContDetail', {}, 'yu-idxTabBox');
+          } else if (type === 'SIGN') {
+            yufp.router.to('ContratSign', {}, 'yu-idxTabBox');
+          }
         },
       },
     })

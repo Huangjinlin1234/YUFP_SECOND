@@ -6,12 +6,23 @@
 define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/index.js'], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
+    console.log(hashCode, "=== hashCode");
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           pageType: hashCode,
-          pageTypes: ['CredContAppl', 'CredContHis', 'LoanContAppl', 'LoanContHis'],
+          isHis: false,
+          pageTypes: ['CredContAppl', 'LoanContAppl',],
+          rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          tabFields: 'CredContAppl' === hashCode ? [
+            { label: '授信合同申请', name: '1' },
+            { label: '授信合同申请历史', name: '2' },
+          ] : [
+            { label: '借款合同申请', name: '1' },
+            { label: '借款合同申请历史', name: '2' },
+          ],
           formdata: {},
           formFields: [
             // { label: '申请流水号', name: 'ctrNo' },
@@ -28,13 +39,13 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
             {
               label: '主担保方式',
               name: 'ctrNo',
-              pageTypes: ['CredContAppl', 'CredContHis'],
+              pageTypes: ['CredContAppl'],
               dataCode: ''
             },
             {
               label: '产品名称',
               name: 'ctrNo',
-              pageTypes: ['LoanContAppl', 'LoanContHis'],
+              pageTypes: ['LoanContAppl'],
               readonly: true,
               icon: 'search',
               clickIconFn: this.ttt,
@@ -58,6 +69,19 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
             { label: '登记机构', prop: 'ctrNo', width: 120 },
             // { label: '申请流水号', prop: 'ctrNo', width: 120, dataCode: '' },
           ],
+          dFormFields: [
+            { label: '授信批复信息', name: 'date', disabled: true, icon: 'search', iconClickFn: this.selectAprv },
+            { label: '客户编号', name: 'userName', disabled: true },
+            { label: '客户名称', name: 'province', disabled: true },
+            { label: '主担保方式', name: 'city', disabled: true, ctype: 'select', dataCode: 'zdbfs' },
+            { label: '其他担保方式1', name: 'city', disabled: true, ctype: 'select', dataCode: 'qtdbfs1' },
+            { label: '其他担保方式2', name: 'address', disabled: true, ctype: 'select', dataCode: 'qtdbfs2' },
+            { label: '合同类型', name: 'zip', disabled: true, ctype: 'select', dataCode: 'htlx' },
+            { label: '产品名称', name: 'zip', disabled: true },
+            { label: '合同种类', name: 'zip', ctype: 'select', dataCode: 'htzl', disabled: true },
+          ],
+          isShowAddAppli: false,
+          dFormData: {},
         }
       },
       created () {
@@ -68,36 +92,54 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
         ttt (item) {
           console.log(item, '111::: ')
         },
+        handleClick (tab) {
+          console.log(tab.name, "=== tab.name");
+          if (tab.name === '2') {
+            this.isHis = true
+          } else {
+            this.isHis = false;
+          }
+        },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },
-        addFn () { },
-        modifySimFn () { },
-        deleteFn () { },
-        infoFn () {
-          let data = {}
+        btnFn (type) {
+          if (type === 'ADD') {
+            this.isShowAddAppli = true;
+            return;
+          }
+          let selection = this.$refs.refTable.selections;
+          if (!selection.length) {
+            this.$message.warning('请先选择一条数据！');
+            return;
+          }
+          // 审批状态为“待发起、退回”，才能进行修改或删除！
+        },
+        // pageTypes: ['CredContAppl', 'CredContHis', 'LoanContAppl', 'LoanContHis'],
+        viewDetail (viewType) {
+          let data = { viewType };
           let index = this.pageTypes.indexOf(this.pageType);
-          let detailPages = ['CredContDetail', 'LoanContDetail'];
-          // switch (this.pageTypes.indexOf(this.pageType)) {
-          //   case 0:
-          //     index = 0;
-          //     break;
-          //   case 1:
-          //     index = 0;
-          //     break;
-          //   case 2:
-          //     index = 1;
-          //     break;
-          //   case 3:
-          //     index = 1;
-          //     break;
-          //   default:
-          //     return;
-          //     break;
-          // }
-          console.log(detailPages[Math.floor(index / 2)], "=== detailPages[Math.floor(index / 2)");
-          yufp.router.to(detailPages[Math.floor(index / 2)] + 'C', data, 'yu-idxTabBox')
-          // yufp.router.to(detailPages[index], data, 'yu-idxTabBox')
+          if (Math.floor(index / 2)) {
+            yufp.router.to('LoanContDetail' + 'C', data, 'yu-idxTabBox');
+          } else {
+            yufp.router.to('CredContDetail', data, 'yu-idxTabBox');
+          }
+        },
+        selectAprv () {
+          console.log('selectAprv', "=== 111");
+        },
+        handleClose () {
+          this.isShowAddAppli = false;
+        },
+        nextFn () {
+          let flag = true;
+          // this.$refs.refDForm.validate(vali => {
+          //   flag = vali;
+          // })
+          if (flag) {
+            this.handleClose();
+            this.viewDetail('ADD');
+          }
         },
       },
     })

@@ -305,7 +305,7 @@ a:active {
 .yu-userInfo>div>img{width: 100%;height: 100%;}
 .yu-userInfo>p{float: left;width: 120px;margin-top: 10px; margin-left: 10px; display: block;line-height: 25px;color: #bfcbd9;}
 .yu-userInfo>p>b,.yu-userInfo>p>span{display: block;overflow: hidden;}
-.yu-userInfo>p>b{color: #20a0ff;}
+.yu-userInfo>p>b{color: #2647a7;}
 .yu-userInfo>p>b>i{margin-right: 5px;} */
 
 .yu-exit:link,
@@ -315,7 +315,7 @@ a:active {
   right: 10px;
   top: 10px;
   font-size: 16px;
-  color: #20a0ff;
+  color: #2647a7;
   text-decoration: none;
 }
 
@@ -377,7 +377,7 @@ a:active {
   text-decoration: none;
 }
 
-/* .yu-idxTabs>div>a:hover{background-color: #fff;color: #20a0ff;border-color: #20a0ff;} */
+/* .yu-idxTabs>div>a:hover{background-color: #fff;color: #2647a7;border-color: #2647a7;} */
 .yu-idxTabs > div > a:active {
   background-color: #f1f3f8;
   color: #ffffff;
@@ -438,7 +438,7 @@ a:active {
 
 .yu-idxTabs > div > a {
   border-radius: 5px 5px 0 0;
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-idxTabBox {
@@ -478,6 +478,14 @@ a:active {
   padding-top: 24px;
 }
 
+.yu-idxTabBox .ck .ml24 {
+  margin: 24px;
+}
+
+.yu-idxTabBox .ck .ml24 > div > div > .el-tree {
+  margin-top: 10px;
+}
+
 /* yu-idxTabBox>div.ck div div{padding: 0 24px;background-color: #ffff} */
 .yu-idxTabBox > div > iframe {
   display: block;
@@ -503,12 +511,12 @@ a:active {
 }
 
 #yu-idxTabDMenuBt:hover {
-  background: url(../common/images/arrow_up.gif) #20a0ff center center no-repeat;
-  border-color: #20a0ff;
+  background: url(../common/images/arrow_up.gif) #2647a7 center center no-repeat;
+  border-color: #2647a7;
 }
 
 #yu-idxTabDMenuBt:active {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 #yu-idxTabDMenuBt > div {
@@ -551,7 +559,7 @@ a:active {
 }
 
 #yu-idxTabDMenuBt > div > span:hover {
-  color: #20a0ff;
+  color: #2647a7;
   background-color: #e4e8f1;
 }
 
@@ -681,7 +689,7 @@ a:active {
 }
 
 .yu-themesList > span.default > i {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 .yu-themesList > span.orange > i {
@@ -950,7 +958,7 @@ a:active {
 .yu-topMainMenu {
   display: block;
   height: 40px;
-  background-color: #20a0ff;
+  background-color: #2647a7;
   white-space: nowrap;
   padding: 0 10px;
 }
@@ -1081,7 +1089,7 @@ a:active {
 
 .yu-topNavMenu > li ul > li:hover > a,
 .yu-topNavMenu > li ul > li > a:hover {
-  color: #20a0ff;
+  color: #2647a7;
   background-color: #e4e8f1;
 }
 
@@ -1228,7 +1236,7 @@ a:active {
 
 .yu-topTileMenu > li > div a:hover,
 .yu-topTileMenu > li > div span:hover {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu > li > div a:active,
@@ -1239,12 +1247,12 @@ a:active {
 .yu-topTileMenu > li > div a.ck:link,
 .yu-topTileMenu > li > div a.ck:visited,
 .yu-topTileMenu > li > div span.ck {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu > li > div a.ck:hover,
 .yu-topTileMenu > li > div span.ck:hover {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-topTileMenu > li > div a.ck:active,
@@ -1753,12 +1761,12 @@ a:active {
 .yu-toolBar > .el-button:hover > i,
 .yu-toolBar > .el-button-group > .el-button:hover,
 .yu-toolBar > .el-button-group > .el-button:hover > i {
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-toolBar > .el-button:hover,
 .yu-toolBar > .el-button-group > .el-button:hover {
-  border-color: #20a0ff;
+  border-color: #2647a7;
 }
 
 .el-dialog__wrapper-x {
@@ -1860,7 +1868,7 @@ a:active {
 
 .yu-iconList > div:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-bottom: 2px #20a0ff solid;
+  border-bottom: 2px #2647a7 solid;
 }
 
 .yu-iconList > div > i {
@@ -1894,11 +1902,11 @@ a:active {
 
 .yu-iconList > div:hover > i {
   font-size: 40px;
-  color: #20a0ff;
+  color: #2647a7;
 }
 
 .yu-iconList > div > span:hover {
-  color: #20a0ff;
+  color: #2647a7;
   text-decoration: underline;
 }
 
@@ -1938,7 +1946,7 @@ a:active {
 }
 
 .yu-iconSum > b {
-  color: #20a0ff;
+  color: #2647a7;
   padding: 0 5px;
 }
 
@@ -1954,7 +1962,7 @@ a:active {
 
 .yu-treeMenuTypeM,
 .yu-treeMenuType1 {
-  background-color: #20a0ff;
+  background-color: #2647a7;
 }
 
 .yu-treeMenuTypeD,
@@ -2829,10 +2837,6 @@ a:active {
   padding: 24px;
 }
 
-.el-button.el-button--primary {
-  background-color: #2647a7;
-}
-
 .adjust {
   position: absolute;
   right: 0;
@@ -2878,9 +2882,6 @@ a:active {
   padding-left: 23px;
 }
 
-.el-form-item .el-form-item__content .is-disabled .el-input__inner {
-  color: #2647aa;
-}
 /* .yu-xtable {
 
 .yu-xtable {
@@ -2900,96 +2901,213 @@ a:active {
 .align-center {
   text-align: center;
 }
+
 .spacing10 {
   height: 10px;
   clear: both;
   overflow: hidden;
 }
+
 .p20 {
   padding: 20px;
 }
-.pt5{
-  padding-top:5px;
+
+.pt5 {
+  padding-top: 5px;
 }
-.pb5{
-  padding-bottom:5px;
+
+.pb5 {
+  padding-bottom: 5px;
 }
-.pl5{
-  padding-left:5px;
+
+.pl5 {
+  padding-left: 5px;
 }
-.pr5{
-  padding-right:5px;
+
+.pr5 {
+  padding-right: 5px;
 }
-.mt5{
-  margin-top:5px;
+
+.mt5 {
+  margin-top: 5px;
 }
-.mb5{
-  margin-bottom:5px;
+
+.mb5 {
+  margin-bottom: 5px;
 }
-.ml5{
-  margin-left:5px;
+
+.ml5 {
+  margin-left: 5px;
 }
-.mr5{
-  margin-right:5px;
+
+.mr5 {
+  margin-right: 5px;
 }
-.bottom-foot{
-  min-height:80px;
+
+.bottom-foot {
+  min-height: 80px;
 }
+
 .treeform-container {
   margin-left: 24px;
   height: 600px;
 }
+
 .treeform-container .el-row,
 .el-col {
   height: 100%;
 }
+
 .treeform-container .panel-class {
   display: flex;
   justify-content: space-between;
 }
+
 .right-content {
   height: 100%;
   overflow: auto;
 }
+
 .symple-add .dialog-panel {
   border-bottom: 1px solid #ededed;
   margin-bottom: 5px;
 }
+
 .symple-add .form-content {
   margin: 0 auto;
   width: 500px;
 }
+
 .symple-add .symple-foot {
   text-align: center;
   padding: 10px 0;
 }
+
 .tab-container {
   height: 600px;
   overflow: hidden;
 }
+
 .tab-container .el-tabs {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .tab-container .el-tabs .el-tabs__content {
   flex: 1;
   overflow: auto;
 }
+
 .symple-add .dialog-panel {
   border-bottom: 1px solid #ededed;
   margin-bottom: 5px;
 }
+
 .form-content {
   margin: 0 auto;
   width: 500px;
 }
+
 .symple-add .symple-foot {
   text-align: center;
   padding: 10px 0;
 }
+
 .el-collapse-item__header {
   font-size: 16px;
   font-weight: 600;
   color: #000000;
+}
+.yu-dashboard-content .risk-row {
+  margin-top: 24px;
+  font-size: 14px;
+}
+.yu-dashboard-content .risk-row > span:nth-child(3) {
+  float: right;
+}
+.yu-dashboard-content .risk-row > span:nth-child(2) {
+  line-height: 24px;
+  padding-left: 0px;
+  margin-left: 8px;
+}
+.yu-dashboard-content .risk-row .messageType1 {
+  background-color: #efb917;
+  padding: 0px 8px;
+  height: 24px;
+  display: block;
+  float: left;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 24px;
+}
+.yu-dashboard-content .risk-row .messageType2 {
+  background-color: #183075;
+  padding: 0px 8px;
+  height: 24px;
+  display: block;
+  float: left;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 24px;
+}
+.yu-dashboard-content .risk-row .messageType3 {
+  background-color: #999999;
+  padding: 0px 8px;
+  height: 24px;
+  display: block;
+  float: left;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 24px;
+}
+.yu-menu-config {
+  display: flex;
+  height: 100%;
+  font-size: 14px;
+  box-shadow: none !important;
+  background: #f2f2f2 !important;
+}
+.yu-menu-config .no-choose {
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.frame-height .content-title {
+  font-weight: 700;
+  font-size: 16px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #ededed;
+}
+.yu-menu-config .no-choose > img {
+  float: none;
+  width: 25%;
+  margin-bottom: 16px;
+}
+.yu-menu-config .left-content {
+  float: left;
+  width: 400px;
+  margin-right: 24px;
+  background: #fff;
+  overflow: hidden;
+}
+.yu-menu-config .right-content {
+  float: left;
+  width: calc(100% - 424px);
+  background: #fff;
+}
+.yu-menu-config .content-box {
+  padding-top: 24px;
+}
+.yu-menu-config .left-content .content-box {
+  height: calc(100% - 66px);
+}
+.yu-menu-config .right-content .content-box {
+  padding-right: 24px;
 }

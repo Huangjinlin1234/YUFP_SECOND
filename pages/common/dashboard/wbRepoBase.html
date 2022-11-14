@@ -1,0 +1,95 @@
+<div class="yu-menu-config clear">
+  <div class="left-content frame-height">
+    <div class="content-title">
+      <span>目录</span>
+    </div>
+    <div class="content-box">
+      <div class="clear">
+        <yu-input class="filter-textrepo" v-model="filterText" size="small" icon="search"></yu-input>
+        <div class="handle-box">
+          <yu-button v-if="check" plain icon="yu-icon-plus5" title="新增" @click="confirmAddMenu"></yu-button>
+          <yu-button v-if="check" plain icon="yu-icon-edit" title="修改" @click="editMenu"></yu-button>
+          <yu-button v-if="check" plain icon="yu-icon-delete2" title="删除" @click="deleteMenu"></yu-button>
+          <!-- <yu-button v-norepeat.disabled plain :icon="!isManaging?'yu-icon-setting3':'yu-icon-cancel'" title="管理" @click="isManaging=!isManaging"></yu-button> -->
+        </div>
+      </div>
+      <yu-xtree ref="refMenuTree" class="menu-tree" :local-data="menuTreeData" @node-click="treeNodeClick" :filter-node-method="filterMenuTreeNode" data-id="id" data-label="label" data-pid="pid"
+        data-id="id" data-label="label" data-root="0"></yu-xtree>
+      <yu-xdialog :title="viewTitle[viewType]" :visible.sync="menudialogVisible">
+        <yu-xform ref="refMenuForm" label-width="130px" v-model="menuformdata" :disabled="formDisabled">
+          <yu-xform-group :column="1">
+            <yu-xform-item label="目录编号" placeholder="目录编号" name="enName" ctype="input" disabled :hidden="!menuformdata.enName"></yu-xform-item>
+            <yu-xform-item label="目录名称" placeholder="目录名称" name="cnName" ctype="input" rules="required"></yu-xform-item>
+            <yu-xform-item label="创建人" placeholder="创建人" name="inputIdName" ctype="input" disabled></yu-xform-item>
+            <yu-xform-item label="创建机构" placeholder="创建机构" name="inputBrIdName" ctype="input" disabled></yu-xform-item>
+          </yu-xform-group>
+          <div class="yu-grpButton">
+            <yu-button v-show="saveBtnShow" icon="check" type="primary" @click="saveMenuFn">保存</yu-button>
+            <yu-button icon="yx-undo2" type="primary" @click="menudialogVisible = !menudialogVisible">取消</yu-button>
+          </div>
+        </yu-xform>
+      </yu-xdialog>
+    </div>
+  </div>
+  <div class="right-content frame-height">
+    <div class="content-title">知识库列表</div>
+    <div class="content-box" style="padding: 19px 24px 24px 24px;">
+      <yu-xform related-table-name="refTable" form-type="search" v-model="searchFormdata" label-width="120px">
+        <yu-xform-group :column="3">
+          <yu-xform-item placeholder="标题" name="title" ctype="input" fuzzy-query="both"></yu-xform-item>
+          <yu-xform-item placeholder="内容简述" name="content" ctype="input" fuzzy-query="both"></yu-xform-item>
+        </yu-xform-group>
+      </yu-xform>
+      <div class="yu-toolBar">
+        <yu-button v-if="check" @click="addFn">新增</yu-button>
+        <yu-button v-if="check" @click="modifyFn">修改</yu-button>
+        <yu-button v-if="check" @click="infoFn">详情</yu-button>
+        <yu-button v-if="check" @click="deleteFn">删除</yu-button>
+      </div>
+      <yu-xtable ref="refTable" style="margin-top:10px;" request-type="POST" json-data="rows" :default-load="true" selection-type="radio" row-number :data-url="dataUrl">
+        <yu-xtable-column label="标题" prop="title"></yu-xtable-column>
+        <yu-xtable-column label="内容简述" prop="content">
+          <template slot="scope">
+            <!-- <a style="color:#20A0FF;" href="javaScript:void(0);" @click="$alert(scope.row.content,'详细内容',{confirmButtonText:'确定'})">
+              {{ scope.row.content.length>7?scope.row.content.substr(0,7)+'...':scope.row.content }}
+            </a> -->
+          </template>
+        </yu-xtable-column>
+        <yu-xtable-column label="发布人" prop="managerBrId"></yu-xtable-column>
+        <yu-xtable-column label="发布人所属机构" prop="inputBrIdName"></yu-xtable-column>
+        <yu-xtable-column label="发布时间" prop="pubTime"></yu-xtable-column>
+        <yu-xtable-column label="状态" prop="status" data-code="STD_WB_REPO_STATUS"></yu-xtable-column>
+      </yu-xtable>
+      <!-- 新增、修改、查看表单弹窗 -->
+      <yu-xdialog :title="viewTitle[viewType]" :visible.sync="dialogVisible">
+        <yu-xform ref="refForm" label-width="120px" v-model="formdata" :form-type="formDisabled?'details':''" :disabled="formDisabled">
+          <yu-xform-group>
+            <yu-xform-item label="内容流水号" placeholder="内容流水号" disabled name="serno" ctype="input"></yu-xform-item>
+            <yu-xform-item label="所属目录" placeholder="所属目录" disabled name="catalogName" ctype="input"></yu-xform-item>
+          </yu-xform-group>
+          <yu-xform-group>
+            <yu-xform-item label="标题" placeholder="标题" rules="required" name="title" ctype="input"></yu-xform-item>
+            <yu-xform-item label="内容简述" placeholder="内容" rules="required" name="content" ctype="textarea" :autosize="{ minRows: 3 }" colspan="24" maxlength="500"></yu-xform-item>
+            <yu-xform-item label="角色权限" placeholder="角色权限" rules="required" name="roleRight" ctype="select" data-code="STD_WB_RIGHT_RANGE"></yu-xform-item>
+            <yu-xform-item label="部分角色范围" placeholder="部分角色范围" rules="required" name="roleRange" ctype="YufpZrcSelector" :params="roleParms" @select-fn="selectRole" colspan="24"
+              :hidden="formdata.roleRight==1"></yu-xform-item>
+            <yu-xform-item label="机构权限" placeholder="机构权限" rules="required" name="orgRight" ctype="select" data-code="STD_WB_RIGHT_RANGE"></yu-xform-item>
+            <yu-xform-item label="部分机构范围" placeholder="部分机构范围" rules="required" name="orgRange" ctype="YufpZrcSelector" :params="orgParms" @select-fn="selectOrg" colspan="24"
+              :hidden="formdata.orgRight==1"></yu-xform-item>
+            <yu-xform-item label="发布人姓名" placeholder="登记人" name="inputIdName" disabled ctype="input"></yu-xform-item>
+            <yu-xform-item label="发布人工号" placeholder="登记人" name="inputId" disabled ctype="input"></yu-xform-item>
+            <yu-xform-item label="发布人所属机构" placeholder="登记机构" name="inputBrIdName" disabled ctype="input"></yu-xform-item>
+            <yu-xform-item label="附件" ctype="custom" colspan="24">
+              <yu-single-upload :file="fileListInfo" :disabled="formDisabled" upload-text="请使用平台上传附件组件（可以传多个附件,点击文件可以下载）" @uploaded="uploadedFn" @delete="deleteFileFn"></yu-single-upload>
+            </yu-xform-item>
+          </yu-xform-group>
+          <div class="yu-grpButton">
+            <yu-button v-show="saveBtnShow" icon="el-icon-yx-floppy-disk" type="primary" @click="saveFn(1)">暂存</yu-button>
+            <yu-button v-show="saveBtnShow" icon="check" type="primary" @click="saveFn(2)">发布</yu-button>
+            <yu-button icon="yx-undo2" type="primary" @click="cancelFn">取消</yu-button>
+          </div>
+        </yu-xform>
+      </yu-xdialog>
+    </div>
+  </div>
+</div>

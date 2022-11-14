@@ -1,0 +1,43 @@
+<!--
+	@create by 
+	@update by 
+	@description 
+-->
+
+<div>
+	<yu-xform v-model="formdata1" related-table-name="yutable" form-type="search" :remove-empty="true">
+    <yu-xform-group :column="3">
+      <yu-xform-item label="任务编号" ctype="input" name="title" fuzzy-query="both"></yu-xform-item>
+    </yu-xform-group>
+  </yu-xform>
+  <panel title="催收任务下发列表"></panel>
+  <div class="yu-toolBar">
+    <el-button-group>
+      <el-button @click="add">新增</el-button>
+      <el-button @click="modify">修改</el-button>
+      <el-button @click="deleteFn">删除</el-button>
+      <el-button @click="view">查看</el-button>
+      <el-button @click="issue">下发</el-button>
+      <el-button @click="back">撤回</el-button>
+    </el-button-group>
+  </div>
+  <el-row>
+    <el-col>
+      <yu-xtable
+        index
+        border
+        row-number
+        ref="yutable"
+        :data-url="dataUrl"
+        style="width: 100%">
+        <yu-xtable-column
+          align="center"
+          v-for="(item,index) in tableTitle"
+          :key="index"
+          :prop="item.prop"
+          :label="item.label">
+        </yu-xtable-column>
+      </yu-xtable>
+    </el-col>
+  </el-row>
+</div>

@@ -1,5 +1,5 @@
 /*
- * @description: 授信合同申请和授信合同申请历史
+ * @description: 审批流程
  * @author: ljl
  * @date: 2022-11-07
  */

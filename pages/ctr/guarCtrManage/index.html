@@ -9,16 +9,13 @@
     </yu-xform-group>
   </yu-xform>
   <yu-button-group>
-    <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="addFn">打印</yu-button>
-    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="deleteFn">注销</yu-button>
-    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">查看</yu-button>
+    <yu-button v-if="checkPermission('print')" type="primary" icon="plus" @click="btnFn('PRINT')">打印</yu-button>
+    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DETELE')">注销</yu-button>
+    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
   </yu-button-group>
   <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
     <yu-xtable-column v-for="(item, index) in tableFields" :key="index" :label="item.label" :prop="item.prop"
       :data-code="item.dataCode">
-      <!-- <template slot="scope">
-        <span v-if=""></span>
-      </template> -->
     </yu-xtable-column>
   </yu-xtable>
 </div>

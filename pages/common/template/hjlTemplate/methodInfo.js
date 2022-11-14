@@ -24,7 +24,7 @@ define([
               hidden: false,
               template: function () {
                 return '<template scope="scope">\
-                <yu-switch   v-model="scope.row.enableFlag" ></yu-switch>\
+                <yu-switch   v-model="scope.row.enableFlag"  ></yu-switch>\
               </template>';
               } },
             { label: '策略详情', prop: 'crelDetail', resizable: true, hidden: true }
@@ -38,6 +38,9 @@ define([
       methods: {
         viewFn () {
           this.$refs.reform.formdata = yufp.util.clone({ oprType: '正常', prpId: '9999' });
+        },
+        changeFn (value) {
+          console.log(value, 'value');
         }
       }
     });

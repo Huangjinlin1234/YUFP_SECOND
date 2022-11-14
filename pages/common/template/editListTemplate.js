@@ -36,27 +36,7 @@ define([
             {key: '02', value: '已发布'},
             {key: '03', value: '已删除'}
           ],
-          tableData1: [{
-            id: '1',
-            date: '2016-05-03',
-            name: '01',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            id: '2',
-            date: '2016-05-02',
-            name: '02',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            id: '3',
-            date: '2016-05-04',
-            name: '03',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            id: '4',
-            date: '2016-05-04',
-            name: '02',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }],
+          tableData1: '',
           tableData2: [{
             id: '1',
             date: '2016-05-03',
@@ -96,11 +76,15 @@ define([
           var codedata2 = JSON.parse(localStorage.getItem('data2'));
           _this.tableData2 = codedata2;
         }
-        pubkey(function (data) {
-          console.log(JSON.stringify(data));
-        });
+        this.document();
       },
       methods: {
+        document: function () {
+          var _this = this;
+          getTableData(function (data) {
+            _this.tableData1 = data;
+          });
+        },
         change: function () {
           yufp.logger.info(1);
         },

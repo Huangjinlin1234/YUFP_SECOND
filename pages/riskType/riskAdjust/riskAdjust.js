@@ -36,7 +36,6 @@ define([
       },
       methods: {
         add() {
-          console.log('123121313');
           yufp.router.to('addPage', {}, 'yu-idxTabBox');
         },
         upadate() {

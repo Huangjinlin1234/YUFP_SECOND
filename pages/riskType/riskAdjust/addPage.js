@@ -61,6 +61,12 @@
         };
       },
       methods: {
+        save () {
+          console.log('dsadasd');
+        },
+        submit () {
+          console.log('dsadasd');
+        },
         back() {
           yufp.router.to('riskAdjust', {}, 'yu-idxTabBox');
         }

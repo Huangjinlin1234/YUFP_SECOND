@@ -15,10 +15,10 @@ define([
 ],
   function (require, exports) {
     /**
-           * GET请求URL参数转换
-           * @param url
-           * @returns {{}}
-           */
+             * GET请求URL参数转换
+             * @param url
+             * @returns {{}}
+             */
     var paramUrl2Obj = function (url) {
       var search = url.split('?')[1];
       if (!search) {
@@ -26,6 +26,27 @@ define([
       }
       return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"').replace(/\n/g, '\\n') + '"}');
     };
+    var tableData = [{
+      id: '1',
+      date: '2016-05-03',
+      name: '01',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }, {
+      id: '2',
+      date: '2016-05-02',
+      name: '02',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }, {
+      id: '3',
+      date: '2016-05-04',
+      name: '03',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }, {
+      id: '4',
+      date: '2016-05-04',
+      name: '02',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }];
     var demoMenus = [
       {
         'menuId': 'lp-10000',
@@ -192,369 +213,220 @@ define([
         'funcUrl': 'pages/console/system/SUserOperLog',
         'legalOrgCode': null
       },
-      // //一级菜单
-      // {
-      //   menuId: 'lp-30000',
-      //   menuName: '合作项目与合作方管理',
-      //   upMenuId: null,
-      //   menuIcon: 'el-icon-yx-books'
-      // },
+      //一级菜单
+      {
+        menuId: 'lp-30000',
+        menuName: '合作项目与合作方管理',
+        upMenuId: null,
+        menuIcon: 'el-icon-yx-books'
+      },
 
-      // //二级菜单
-      // {
-      //   menuId: 'lp-31000',
-      //   menuName: '合作项目管理',
-      //   upMenuId: 'lp-30000',
-      //   menuIcon: 'el-icon-yx-books'
-      // },
-      // {
-      //   menuId: 'lp-32000',
-      //   menuName: '合作方管理',
-      //   upMenuId: 'lp-30000',
-      //   menuIcon: 'el-icon-yx-books'
-      // },
-      // {
-      //   menuId: 'lp-33000',
-      //   menuName: '合作项目营运视图',
-      //   upMenuId: 'lp-30000',
-      //   menuIcon: 'el-icon-yx-books',
-      //   funcId: 'CoopPrjManage',
-      //   funcUrl: 'pages/prj/coopPrjManage/index'
-      // },
-      // //三级菜单
-      // {
-      //   menuId: 'lp-31100',
-      //   menuName: '合作项目准入',
-      //   upMenuId: 'lp-31000',
-      //   menuIcon: '',
-      //   funcId: 'CoopPrjAccess',
-      //   funcUrl: 'pages/prj/coopPrjManage/index'
-      // },
-      // {
-      //   menuId: 'lp-31200',
-      //   menuName: '合作项目维护',
-      //   upMenuId: 'lp-31000',
-      //   menuIcon: '',
-      //   funcId: 'CoopPrjMaintain',
-      //   funcUrl: 'pages/prj/coopPrjManage/index'
-      // },
-      // {
-      //   menuId: 'lp-31300',
-      //   menuName: '合作项目台账',
-      //   upMenuId: 'lp-31000',
-      //   menuIcon: '',
-      //   funcId: 'CoopPrjAccount',
-      //   funcUrl: 'pages/prj/coopPrjManage/index'
-      // },
-      // {
-      //   menuId: 'lp-32100',
-      //   menuName: '合作方名单管理',
-      //   upMenuId: 'lp-32000',
-      //   menuIcon: '',
-      //   funcId: 'PartnerList',
-      //   funcUrl: 'pages/prj/partnerManage/partnerList/index'
-      // },
-      // {
-      //   menuId: 'lp-32200',
-      //   menuName: '合作方协议管理',
-      //   upMenuId: 'lp-32000',
-      //   menuIcon: '',
-      //   funcId: 'PartnerAgr',
-      //   funcUrl: 'pages/prj/partnerManage/partnerAgr/index'
-      // },
-      // //一级菜单
-      // {
-      //   menuId: 'lp-60000',
-      //   menuName: '合同管理',
-      //   upMenuId: null,
-      //   menuIcon: 'el-icon-yx-books'
-      // },
-
-      // //二级菜单
-      // {
-      //   menuId: 'lp-61000',
-      //   menuName: '主合同申请',
-      //   upMenuId: 'lp-60000',
-      //   menuIcon: 'el-icon-yx-books'
-      // },
-      // {
-      //   menuId: 'lp-62000',
-      //   menuName: '主合同管理',
-      //   upMenuId: 'lp-60000',
-      //   menuIcon: 'el-icon-yx-books'
-      // },
-      // {
-      //   menuId: 'lp-63000',
-      //   menuName: '担保合同管理',
-      //   upMenuId: 'lp-60000',
-      //   menuIcon: 'el-icon-yx-books',
-      //   funcId: 'GuarCtrManage',
-      //   funcUrl: 'pages/ctr/guarCtrManage/index'
-      // },
-      // //三级菜单
-      // {
-      //   menuId: 'lp-61100',
-      //   menuName: '授信合同申请',
-      //   upMenuId: 'lp-61000',
-      //   menuIcon: '',
-      //   funcId: 'CredContAppl',
-      //   funcUrl: 'pages/ctr/mainCtrAppli/index'
-      // },
-      // {
-      //   menuId: 'lp-61200',
-      //   menuName: '授信合同申请历史',
-      //   upMenuId: 'lp-61000',
-      //   menuIcon: '',
-      //   funcId: 'CredContHis',
-      //   funcUrl: 'pages/ctr/mainCtrAppli/index'
-      // },
-      // {
-      //   menuId: 'lp-61300',
-      //   menuName: '借款合同申请',
-      //   upMenuId: 'lp-61000',
-      //   menuIcon: '',
-      //   funcId: 'LoanContAppl',
-      //   funcUrl: 'pages/ctr/mainCtrAppli/index'
-      // },
-      // {
-      //   menuId: 'lp-61400',
-      //   menuName: '借款合同申请历史',
-      //   upMenuId: 'lp-61000',
-      //   menuIcon: '',
-      //   funcId: 'LoanContHis',
-      //   funcUrl: 'pages/ctr/mainCtrAppli/index'
-      // },
-      // {
-      //   menuId: 'lp-62100',
-      //   menuName: '待签授信合同',
-      //   upMenuId: 'lp-62000',
-      //   menuIcon: '',
-      //   funcId: 'UnsignCredCtr',
-      //   funcUrl: 'pages/ctr/mainCtrManage/index'
-      // },
-      // {
-      //   menuId: 'lp-62200',
-      //   menuName: '历史授信合同',
-      //   upMenuId: 'lp-62000',
-      //   menuIcon: '',
-      //   funcId: 'HisCredCtr',
-      //   funcUrl: 'pages/ctr/mainCtrManage/index'
-      // },
-      // {
-      //   menuId: 'lp-62300',
-      //   menuName: '待签借款合同',
-      //   upMenuId: 'lp-62000',
-      //   menuIcon: '',
-      //   funcId: 'UnsignLoanCtr',
-      //   funcUrl: 'pages/ctr/mainCtrManage/index'
-      // },
-      // {
-      //   menuId: 'lp-62400',
-      //   menuName: '历史借款合同',
-      //   upMenuId: 'lp-62000',
-      //   menuIcon: '',
-      //   funcId: 'HisLoanCtr',
-      //   funcUrl: 'pages/ctr/mainCtrManage/index'
-      // },
-
-      // {
-      //   'menuId': 'lp-80000',
-      //   'menuName': '贷后管理',
-      //   'upMenuId': '',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-81000',
-      //   'menuName': '风险分类',
-      //   'upMenuId': 'lp-80000',
-      //   'menuIcon': '',
-      //   'funcId': 'lookupdict',
-      //   'funcUrl': 'pages/console/system/lookupdict',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-81010',
-      //   'menuName': '个贷风险分类',
-      //   'upMenuId': 'lp-81000',
-      //   'menuIcon': '',
-      //   'funcId': 'personalLoan',
-      //   'funcUrl': 'pages/riskType/personalLoan/personalLoan',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-81020',
-      //   'menuName': '对公风险分类',
-      //   'upMenuId': 'lp-81000',
-      //   'menuIcon': '',
-      //   'funcId': 'companyLoan',
-      //   'funcUrl': 'pages/riskType/companyLoan/companyLoan',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-81030',
-      //   'menuName': '风险分类调整申请',
-      //   'upMenuId': 'lp-81000',
-      //   'menuIcon': '',
-      //   'funcId': 'riskAdjust',
-      //   'funcUrl': 'pages/riskType/riskAdjust/riskAdjust',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-81040',
-      //   'menuName': '风险分类台账',
-      //   'upMenuId': 'lp-81000',
-      //   'menuIcon': '',
-      //   'funcId': 'riskType',
-      //   'funcUrl': 'pages/riskType/riskType/riskType',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82000',
-      //   'menuName': '贷后检查',
-      //   'upMenuId': 'lp-80000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82010',
-      //   'menuName': '首次检查',
-      //   'upMenuId': 'lp-82000',
-      //   'menuIcon': '',
-      //   'funcId': 'firstCheck',
-      //   'funcUrl': 'pages/postLoanCheck/firstCheck/firstCheck',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82020',
-      //   'menuName': '定期检查',
-      //   'upMenuId': 'lp-82000',
-      //   'menuIcon': '',
-      //   'funcId': 'regularCheck',
-      //   'funcUrl': 'pages/postLoanCheck/regularCheck/regularCheck',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82030',
-      //   'menuName': '不定期检查',
-      //   'upMenuId': 'lp-82000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82031',
-      //   'menuName': '下发不定期检查任务',
-      //   'upMenuId': 'lp-82030',
-      //   'menuIcon': '',
-      //   'funcId': 'IrregularCheckIssue',
-      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheckIssue/IrregularCheckIssue',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-82032',
-      //   'menuName': '不定期检查',
-      //   'upMenuId': 'lp-82030',
-      //   'menuIcon': '',
-      //   'funcId': 'IrregularCheck',
-      //   'funcUrl': 'pages/postLoanCheck/IrregularCheck/IrregularCheck',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-83000',
-      //   'menuName': '风险预警',
-      //   'upMenuId': 'lp-80000',
-      //   'menuIcon': '',
-      //   'funcId': 'riskWarning',
-      //   'funcUrl': 'pages/riskWarning/riskWarning',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-84000',
-      //   'menuName': '贷后催收',
-      //   'upMenuId': 'lp-80000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-84010',
-      //   'menuName': '电催结果',
-      //   'upMenuId': 'lp-84000',
-      //   'menuIcon': '',
-      //   'funcId': 'phoneResult',
-      //   'funcUrl': 'pages/postLoanColl/phoneResult/phoneResult',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-84020',
-      //   'menuName': '下发催收任务',
-      //   'upMenuId': 'lp-84000',
-      //   'menuIcon': '',
-      //   'funcId': 'collTask',
-      //   'funcUrl': 'pages/postLoanColl/collTask/collTask',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-84030',
-      //   'menuName': '催收结果登记',
-      //   'upMenuId': 'lp-84000',
-      //   'menuIcon': '',
-      //   'funcId': 'collResult',
-      //   'funcUrl': 'pages/postLoanColl/collResult/collResult',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-84040',
-      //   'menuName': '催收台账',
-      //   'upMenuId': 'lp-84000',
-      //   'menuIcon': '',
-      //   'funcId': 'collParameter',
-      //   'funcUrl': 'pages/postLoanColl/collParameter/collParameter',
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-85000',
-      //   'menuName': '贷款核销',
-      //   'upMenuId': 'lp-80000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-85010',
-      //   'menuName': '单户核销登记',
-      //   'upMenuId': 'lp-85000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-85020',
-      //   'menuName': '批量核销登记',
-      //   'upMenuId': 'lp-85000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
-      // {
-      //   'menuId': 'lp-85030',
-      //   'menuName': '已核销资产台账',
-      //   'upMenuId': 'lp-85000',
-      //   'menuIcon': '',
-      //   'funcId': null,
-      //   'funcUrl': null,
-      //   'legalOrgCode': null
-      // },
+      //二级菜单
+      {
+        menuId: 'lp-31000',
+        menuName: '合作项目管理',
+        upMenuId: 'lp-30000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-32000',
+        menuName: '合作方管理',
+        upMenuId: 'lp-30000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-33000',
+        menuName: '合作项目营运视图',
+        upMenuId: 'lp-30000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'CoopPrjManage',
+        funcUrl: 'pages/prj/coopPrjManage/index'
+      },
+      //三级菜单
+      {
+        menuId: 'lp-31100',
+        menuName: '合作项目准入',
+        upMenuId: 'lp-31000',
+        menuIcon: '',
+        funcId: 'CoopPrjAccess',
+        funcUrl: 'pages/prj/coopPrjManage/index'
+      },
+      {
+        menuId: 'lp-31200',
+        menuName: '合作项目维护',
+        upMenuId: 'lp-31000',
+        menuIcon: '',
+        funcId: 'CoopPrjMaintain',
+        funcUrl: 'pages/prj/coopPrjManage/index'
+      },
+      {
+        menuId: 'lp-31300',
+        menuName: '合作项目台账',
+        upMenuId: 'lp-31000',
+        menuIcon: '',
+        funcId: 'CoopPrjAccount',
+        funcUrl: 'pages/prj/coopPrjManage/index'
+      },
+      {
+        menuId: 'lp-32100',
+        menuName: '合作方名单管理',
+        upMenuId: 'lp-32000',
+        menuIcon: '',
+        funcId: 'PartnerList',
+        funcUrl: 'pages/prj/partnerManage/partnerList/index'
+      },
+      {
+        menuId: 'lp-32200',
+        menuName: '合作方协议管理',
+        upMenuId: 'lp-32000',
+        menuIcon: '',
+        funcId: 'PartnerAgr',
+        funcUrl: 'pages/prj/partnerManage/partnerAgr/index'
+      },
+      {
+        'menuId': 'lp-80000',
+        'menuName': '贷后管理',
+        'upMenuId': '',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-81000',
+        'menuName': '风险分类',
+        'upMenuId': 'lp-80000',
+        'menuIcon': '',
+        'funcId': 'lookupdict',
+        'funcUrl': 'pages/console/system/lookupdict',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-81010',
+        'menuName': '个贷风险分类',
+        'upMenuId': 'lp-81000',
+        'menuIcon': '',
+        'funcId': 'personalLoan',
+        'funcUrl': 'pages/riskType/personalLoan/personalLoan',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-81020',
+        'menuName': '对公风险分类',
+        'upMenuId': 'lp-81000',
+        'menuIcon': '',
+        'funcId': 'companyLoan',
+        'funcUrl': 'pages/riskType/companyLoan/companyLoan',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-81030',
+        'menuName': '风险分类调整申请',
+        'upMenuId': 'lp-81000',
+        'menuIcon': '',
+        'funcId': 'riskAdjust',
+        'funcUrl': 'pages/riskType/riskAdjust/riskAdjust',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-81040',
+        'menuName': '风险分类台账',
+        'upMenuId': 'lp-81000',
+        'menuIcon': '',
+        'funcId': 'riskType',
+        'funcUrl': 'pages/riskType/riskType/riskType',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-82000',
+        'menuName': '贷后检查',
+        'upMenuId': 'lp-80000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-82010',
+        'menuName': '首次检查',
+        'upMenuId': 'lp-82000',
+        'menuIcon': '',
+        'funcId': 'firstCheck',
+        'funcUrl': 'pages/postLoanCheck/firstCheck/firstCheck',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-82020',
+        'menuName': '定期检查',
+        'upMenuId': 'lp-82000',
+        'menuIcon': '',
+        'funcId': 'regularCheck',
+        'funcUrl': 'pages/postLoanCheck/regularCheck/regularCheck',
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-82030',
+        'menuName': '不定期检查',
+        'upMenuId': 'lp-82000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-83000',
+        'menuName': '风险预警',
+        'upMenuId': 'lp-80000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-84000',
+        'menuName': '贷后催收',
+        'upMenuId': 'lp-80000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-85000',
+        'menuName': '贷款核销',
+        'upMenuId': 'lp-80000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-85010',
+        'menuName': '单户核销登记',
+        'upMenuId': 'lp-85000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-85020',
+        'menuName': '批量核销登记',
+        'upMenuId': 'lp-85000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
+      {
+        'menuId': 'lp-85030',
+        'menuName': '已核销资产台账',
+        'upMenuId': 'lp-85000',
+        'menuIcon': '',
+        'funcId': null,
+        'funcUrl': null,
+        'legalOrgCode': null
+      },
       // 一级菜单 模板
       {
         'menuId': 'lp-080000',
@@ -618,7 +490,69 @@ define([
         'funcId': 'editListTemplate',
         'funcUrl': 'pages/common/template/editListTemplate',
         'legalOrgCode': null
-      }
+      },
+      //一级菜单
+      {
+        menuId: 'lp-60000',
+        menuName: '合同管理',
+        upMenuId: null,
+        menuIcon: 'el-icon-yx-books'
+      },
+
+      //二级菜单
+      {
+        menuId: 'lp-61000',
+        menuName: '主合同申请',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-62000',
+        menuName: '主合同管理',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books'
+      },
+      {
+        menuId: 'lp-63000',
+        menuName: '担保合同管理',
+        upMenuId: 'lp-60000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'GuarCtrManage',
+        funcUrl: 'pages/ctr/guarCtrManage/index'
+      },
+      // 三级菜单
+      {
+        menuId: 'lp-61100',
+        menuName: '授信合同申请',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'CredContAppl',
+        funcUrl: 'pages/ctr/mainCtrAppli/index'
+      },
+      {
+        menuId: 'lp-61200',
+        menuName: '借款合同申请',
+        upMenuId: 'lp-61000',
+        menuIcon: '',
+        funcId: 'LoanContAppl',
+        funcUrl: 'pages/ctr/mainCtrAppli/index'
+      },
+      {
+        menuId: 'lp-62100',
+        menuName: '授信合同管理',
+        upMenuId: 'lp-62000',
+        menuIcon: '',
+        funcId: 'CredCtrManage',
+        funcUrl: 'pages/ctr/mainCtrManage/index'
+      },
+      {
+        menuId: 'lp-62200',
+        menuName: '借款合同管理',
+        upMenuId: 'lp-62000',
+        menuIcon: '',
+        funcId: 'LoanCtrManage',
+        funcUrl: 'pages/ctr/mainCtrManage/index'
+      },
     ];
     /**
      * POST请求BODY参数转换
@@ -657,21 +591,23 @@ define([
     };
 
     /**
-           * 注销模拟
-           * @param config
-           */
+             * 注销模拟
+             * @param config
+             */
     exports.logoutFn = function (config) {
       return {
         code: 0,
         message: 'logout success!'
       };
     };
-
+    exports.templateFn = function (config) {
+      return tableData;
+    };
     /**
-           * 模拟会话信息
-           * @param config
-           * @returns
-           */
+             * 模拟会话信息
+             * @param config
+             * @returns
+             */
     exports.sessionInfoFn = function (config) {
       var data = paramUrl2Obj(config.url);
       console.log('session info here');
@@ -699,9 +635,9 @@ define([
     };
 
     /**
-           * 模拟菜单、控制点数据
-           * @returns {{menus, ctrls}}
-           */
+             * 模拟菜单、控制点数据
+             * @returns {{menus, ctrls}}
+             */
     exports.menuAndContrFn = function () {
       // var menus = demoMenus.concat(loanMenu).concat(riskMenu).concat(ctrMenu).concat(limitMenu).concat(consoleMenu);
       var menus = demoMenus;
@@ -716,31 +652,31 @@ define([
     };
 
     /**
-           * 数据权限数据
-           */
+             * 数据权限数据
+             */
     exports.dataContrFn = function () {
       return demoDataContr;
     };
 
     /**
-           * 密码加密
-           */
+             * 密码加密
+             */
     exports.passwordFn = function () {
 
     };
 
     /**
-           * 查询全部控制点信息
-           */
+             * 查询全部控制点信息
+             */
     exports.contrUrlFn = function () {
       return {};
     };
 
     /**
-           * 模拟后台数据字典库
-           * @type
-           * @private
-           */
+             * 模拟后台数据字典库
+             * @type
+             * @private
+             */
     var _all_lookup = {
       USER_STATUS: [
         { key: '01', value: '正常' },

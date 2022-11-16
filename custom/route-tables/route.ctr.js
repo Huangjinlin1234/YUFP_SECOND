@@ -7,23 +7,13 @@ define(function (require) {
   // 定义路由表
   var routeTable = {
     //  主合同申请 start
-    // 授信合同申请
+    // 授信合同申请 和 授信合同申请历史
     CredContAppl: {
       html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
       js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
     },
-    // 授信合同申请历史
-    CredContHis: {
-      html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
-      js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
-    },
-    // 借款合同申请
+    // 借款合同申请 和 借款合同申请历史
     LoanContAppl: {
-      html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
-      js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
-    },
-    // 借款合同申请历史
-    LoanContHis: {
       html: 'pages/ctr/mainCtrAppli/ContractAppli.html',
       js: 'pages/ctr/mainCtrAppli/ContractAppli.js'
     },
@@ -86,11 +76,7 @@ define(function (require) {
       html: 'pages/ctr/mainCtrAppli/common/ApprovalHis.html',
       js: 'pages/ctr/mainCtrAppli/common/ApprovalHis.js'
     },
-    // 最高额担保合同详情
-    CredMaxAmountGuar: {
-      html: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.html',
-      js: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.js'
-    },
+
     // 借款合同申请详情（对公）
     LoanContDetailC: {
       html: 'pages/ctr/mainCtrAppli/loan/index.html',
@@ -103,8 +89,8 @@ define(function (require) {
     },
     // 借款合同申请担保合同信息（对公）
     LoanGuaranteeCtrC: {
-      html: 'pages/ctr/mainCtrAppli/loan/company/GuaranteeCtr.html',
-      js: 'pages/ctr/mainCtrAppli/loan/company/GuaranteeCtr.js'
+      html: 'pages/ctr/mainCtrAppli/loan/common/GuaranteeCtr.html',
+      js: 'pages/ctr/mainCtrAppli/loan/common/GuaranteeCtr.js'
     },
     // 借款合同申请第三方担保合同信息（对公）
     LoanThirdGuarCtrC: {
@@ -143,8 +129,8 @@ define(function (require) {
     },
     // 借款合同申请担保合同信息（个人）
     LoanGuaranteeCtrP: {
-      html: 'pages/ctr/mainCtrAppli/loan/person/GuaranteeCtr.html',
-      js: 'pages/ctr/mainCtrAppli/loan/person/GuaranteeCtr.js'
+      html: 'pages/ctr/mainCtrAppli/loan/common/GuaranteeCtr.html',
+      js: 'pages/ctr/mainCtrAppli/loan/common/GuaranteeCtr.js'
     },
     // 借款合同申请第三方担保合同信息（个人）
     LoanThirdGuarCtrP: {
@@ -171,15 +157,15 @@ define(function (require) {
       html: 'pages/ctr/mainCtrAppli/common/ApprovalHis.html',
       js: 'pages/ctr/mainCtrAppli/common/ApprovalHis.js'
     },
-    // 一般担保合同详情
-    LoanGeneralGuar: {
+    // 最高额担保合同详情和一般担保合同详情
+    GuarCtrDetail: {
       html: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.html',
       js: 'pages/ctr/mainCtrAppli/common/GuarCtrDetail.js'
     },
     //  主合同申请 end
 
 
-    //  合同审批 start
+    // 合同审批 start
     // 合同审批
     ContractApprv: {
       html: 'pages/ctr/contractApprv/index.html',
@@ -187,27 +173,46 @@ define(function (require) {
     },
     //  合同审批 end
 
-
     //  主合同管理 start
-    // 授信合同管理待签授信合同
-    UnsignCredCtr: {
+    // 授信合同管理 (待签授信合同和历史授信合同)
+    CredCtrManage: {
       html: 'pages/ctr/mainCtrManage/index.html',
       js: 'pages/ctr/mainCtrManage/index.js'
     },
-    // 授信合同管理历史授信合同
-    HisCredCtr: {
+    // 借款合同管理 (待签借款合同和历史借款合同)
+    LoanCtrManage: {
       html: 'pages/ctr/mainCtrManage/index.html',
       js: 'pages/ctr/mainCtrManage/index.js'
     },
-    // 借款合同管理待签授信合同
-    UnsignLoanCtr: {
-      html: 'pages/ctr/mainCtrManage/index.html',
-      js: 'pages/ctr/mainCtrManage/index.js'
+    // // 授信合同管理待签授信合同
+    // UnsignCredCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 授信合同管理历史授信合同
+    // HisCredCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 借款合同管理待签授信合同
+    // UnsignLoanCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // // 借款合同管理历史授信合同
+    // HisLoanCtr: {
+    //   html: 'pages/ctr/mainCtrManage/index.html',
+    //   js: 'pages/ctr/mainCtrManage/index.js'
+    // },
+    // 授信合同签订页面 借款合同签订页面
+    ContratSign: {
+      html: 'pages/ctr/mainCtrManage/common/ContratSign.html',
+      js: 'pages/ctr/mainCtrManage/common/ContratSign.js'
     },
-    // 借款合同管理历史授信合同
-    HisLoanCtr: {
-      html: 'pages/ctr/mainCtrManage/index.html',
-      js: 'pages/ctr/mainCtrManage/index.js'
+    // 借款合同项下业务信息
+    BusiInfo: {
+      html: 'pages/ctr/mainCtrAppli/loan/common/BusiInfo.html',
+      js: 'pages/ctr/mainCtrAppli/loan/common/BusiInfo.js'
     },
     //  主合同管理 end
 

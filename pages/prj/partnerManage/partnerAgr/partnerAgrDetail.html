@@ -10,11 +10,11 @@
         <yu-collapse-item title="原协议信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
             <yu-xform-group>
-              <yu-xform-item label="协议登记流水号" name="" icon="">
+              <yu-xform-item label="协议登记流水号" name="serNo" icon="">
               </yu-xform-item>
-              <yu-xform-item label="合作方编号" name="">
+              <yu-xform-item label="合作方编号" name="partnerCode">
               </yu-xform-item>
-              <yu-xform-item label="合作方名称" name="">
+              <yu-xform-item label="合作方名称" name="partnerName">
               </yu-xform-item>
               <yu-xform-item label="关联合作项目编号" name="" ctype="select" data-code="ctrType">
               </yu-xform-item>
@@ -46,7 +46,7 @@
               </yu-xform-item>
               <yu-xform-item label="协议是否长期有效" name="" ctype="select" data-code="shifou">
               </yu-xform-item>
-              <yu-xform-item label="操作类型" name="" ctype="select" data-code="shifou">
+              <yu-xform-item label="操作类型" name="oprType" ctype="select" data-code="shifou">
               </yu-xform-item>
               <yu-xform-item label="协议起始日" name="" ctype="datepicker">
               </yu-xform-item>
@@ -64,11 +64,11 @@
         <yu-collapse-item title="登记信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea">
             <yu-xform-group>
-              <yu-xform-item label="登记人" name="">
+              <yu-xform-item label="登记人" name="inputId">
               </yu-xform-item>
-              <yu-xform-item label="登记机构" name="">
+              <yu-xform-item label="登记机构" name="inputBrId">
               </yu-xform-item>
-              <yu-xform-item label="登记日期" name="" ctype="datepicker">
+              <yu-xform-item label="登记日期" name="inputDate" ctype="datepicker">
               </yu-xform-item>
             </yu-xform-group>
           </yu-xform>

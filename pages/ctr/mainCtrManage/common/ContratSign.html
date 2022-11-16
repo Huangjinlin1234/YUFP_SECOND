@@ -1,0 +1,75 @@
+<yu-collapse v-model="activeNames">
+  <yu-collapse-item :title="basetitle" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+      <yu-xform-group>
+        <yu-xform-item label="客户编号" name="" :rules="rule" :disabled="false" :readonly="true" icon="search"
+          @on-icon-click="selCust">
+        </yu-xform-item>
+        <yu-xform-item label="客户名称" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="合同编号" name="" :rules="rule" :disabled="false" :readonly="true" icon="search"
+          @on-icon-click="selCtr">
+        </yu-xform-item>
+        <yu-xform-item label="合同类型" name="" ctype="select" :rules="rule" data-code="htlx">
+        </yu-xform-item>
+        <yu-xform-item label="主担保方式" name="" ctype="select" :rules="rule" data-code="zdbfs">
+        </yu-xform-item>
+        <yu-xform-item label="授信申请流水号" name="" :rules="['']">
+        </yu-xform-item>
+        <!-- 授信 -->
+        <yu-xform-item label="授信额度(元)" name="" :rules="['']">
+        </yu-xform-item>
+        <!-- 借款 -->
+        <yu-xform-item label="单笔单批流水号" name="" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="产品名称" name="" :rules="['']">
+        </yu-xform-item>
+        <!-- 授信 -->
+        <yu-xform-item label="授信期限(月)" name="" :rules="['int']">
+        </yu-xform-item>
+        <yu-xform-item label="授信起始日" name="" ctype="datepicker" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="授信到期日" name="" ctype="datepicker" :rules="['']">
+        </yu-xform-item>
+        <yu-xform-item label="是否循环" name="" :rules="['']" data-code="shifou">
+        </yu-xform-item>
+        <!-- 借款 -->
+        <yu-xform-item label="合同金额(元)" name="" :rules="['money']">
+        </yu-xform-item>
+        <yu-xform-item label="币种" name="" ctype="select" :rules="['']" data-code="bz">
+        </yu-xform-item>
+        <yu-xform-item label="合同期限(月)" name="" :rules="['int']">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <yu-collapse-item title="签约信息" name="1">
+    <yu-xform ref="refForm" v-model="formdata" label-width="140px">
+      <yu-xform-group>
+        <yu-xform-item label="签约方式" name="" ctype="select" :disabled="true" :rules="rule" data-code="shifou">
+        </yu-xform-item>
+        <yu-xform-item label="签约日期" name="" ctype="datepicker" :rules="rule">
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+  </yu-collapse-item>
+  <!-- 待签订担保合同（展示授信合同关联的待签订状态的最高额担保合同列表；如果授信合同下无待签订状态的最高额担保合同，则本列表隐藏不显示） -->
+  <!-- 如果借款合同的主担保方式非信用，则展示借款合同项下担保合同信息列表；否则隐藏不显示 -->
+  <yu-collapse-item title="担保合同信息" name="1">
+    <yu-button-group>
+      <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
+        <yu-xtable-column v-for="(item, index) in GuarTableFields" :key="index" :label="item.label" :prop="item.prop"
+          :data-code="item.dataCode">
+        </yu-xtable-column>
+      </yu-xtable>
+  </yu-collapse-item>
+  <!-- 待签订借款合同（展示授信合同关联的待签订状态的借款合同列表；如果授信合同下无待签订状态的借款合同，则本列表隐藏不显示） -->
+  <yu-collapse-item title="待签订借款合同" name="1">
+    <yu-button-group>
+      <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
+        <yu-xtable-column v-for="(item, index) in LoanTableFields" :key="index" :label="item.label" :prop="item.prop"
+          :data-code="item.dataCode">
+        </yu-xtable-column>
+      </yu-xtable>
+  </yu-collapse-item>
+</yu-collapse>

@@ -32,6 +32,7 @@ function (require, exports) {
     // { url: backend.uaaService + '/api/session/info', method: 'GET', fn: system.sessionInfoFn },
     { url: backend.uaaService + '/api/session/info', method: 'POST', fn: system.sessionInfoFn },
     { url: backend.uaaService + '/api/account/menuandcontr', method: 'POST', fn: system.menuAndContrFn },
+    { url: backend.uaaService + '/api/common/template', method: 'POST', fn: system.templateFn },
     // { url: backend.uaaService + '/api/account/datacontr', method: 'GET', fn: system.dataContrFn },
     { url: backend.uaaService + '/api/account/password', method: 'GET', fn: system.passwordFn },
     { url: backend.uaaService + '/api/contr/url', method: 'GET', fn: system.contrUrlFn },
@@ -79,7 +80,11 @@ function (require, exports) {
     { url: '/api/accloan/dscms2sjzt/xdhxQueryTotalList/', method: 'POST', fn: hjlMock.getList},
     { url: '/api/wbcommRisk', method: 'POST', fn: hjlMock.getPrbcommDataFn},
     { url: '/api/wbcommfunc', method: 'POST', fn: hjlMock.getPrbcommDataFn},
-    { url: '/api/monitor/auditlogdata', method: 'POST', fn: hjlMock.getAuditlogdata}
+    { url: '/api/monitor/auditlogdata', method: 'POST', fn: hjlMock.getAuditlogdata},
+
+    // 首页工具箱
+    { url: '/api/getTresDta', method: 'POST', fn: hjlMock.getTresDta},
+    { url: '/api/wbrepobase', method: 'POST', fn: hjlMock.selectAllOrg}
     // { url: 'app/rest/stencil-sets/editor', method: 'GET', fn: demo.getStencilSets}
     // { url: '/api/biz/event/chart/stencil-sets', method: 'GET', fn: demo.getStencilSets}
   ];

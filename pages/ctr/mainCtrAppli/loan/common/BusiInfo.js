@@ -11,11 +11,34 @@ define([], function (require, exports) {
       data: function () {
         return {
           activeNames: ['1'],
-          isDisabled: false,
-          formdata: {},
+          tableData: [],
           dataUrl: '',
           baseParams: {},
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          isShowImport: false,
+          importFormData: {},
+          importFormFields: [
+            { label: '担保合同编号', name: 'province' },
+            { label: '担保合同类型', name: 'userName', ctype: 'select', dataCode: 'dbfs' },
+            { label: '借款人客户编号', name: 'date', icon: 'search', iconClickFn: this.selectCust },
+            { label: '借款人名称', name: 'city' },
+            { label: '担保方式', name: 'city', ctype: 'select', dataCode: 'dbfs' },
+          ],
+          dataUrl: '',
+          baseParams: {},
+          tableFields: [
+            { label: '借据编号', prop: '' },
+            { label: '合同编号', prop: '', dataCode: '' },
+            { label: '客户编号', prop: '' },
+            { label: '客户名称', prop: '' },
+            { label: '产品名称', prop: '', dataCode: '' },
+            { label: '币种', prop: '', dataCode: 'bz' },
+            { label: '贷款金额(元)', prop: '', dataCode: '' },
+            { label: '贷款余额(元)', prop: '', dataCode: '' },
+            { label: '贷款起始日', prop: '', dataCode: '' },
+            { label: '贷款到期日', prop: '', },
+            { label: '台账状态', prop: '', dataCode: '' },
+          ],
         }
       },
       created () {
@@ -50,19 +73,6 @@ define([], function (require, exports) {
         },
         closeImport () {
           this.isShowImport = false;
-        },
-        closeAdd () {
-          this.isShowAdd = false;
-        },
-        nextFn () {
-          let flag = true;
-          // this.$refs.refAddForm.validate(vali => {
-          //   flag = vali;
-          // })
-          if (flag) {
-            this.closeAdd();
-            yufp.router.to('GuarCtrDetail', { ...data, isMaxMount: true }, 'yu-idxTabBox');
-          }
         },
       },
     })

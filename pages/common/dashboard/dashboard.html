@@ -119,15 +119,16 @@
       </yu-col>
       <yu-col :span="8">
         <div class="yu-dashboard-box" style="min-height: 160px;">
-          <div class="yu-zrc-title">
-            <h1>工具箱</h1>
+          <div @click="calendardialogVisible = !calendardialogVisible">
+            <i class="zrcbk-icon-yirili"></i>
+            <span>工作日历</span>
           </div>
           <div class="yu-toolkit-box">
             <div @click="calendardialogVisible = !calendardialogVisible">
               <i class="zrcbk-icon-yirili"></i>
               <span>工作日历</span>
             </div>
-            <div @click="loanCalcdialogVisible = !loanCalcdialogVisible">
+            <div @click="openCalcFn">
               <i class="zrcbk-icon-yijisuanqi"></i>
               <span>贷款计算器</span>
             </div>
@@ -207,4 +208,34 @@
       </div>
     </yu-row>
   </div>
+  <yu-xdialog title="发布问题" :visible.sync="wbpDialogVisible" width="85%">
+    <yu-xform ref="refFormDemo" label-width="150px" :hidden-rule="true" v-model="questionFormdata" form-type="edit">
+      <yu-xform-group :column="2">
+        <yu-xform-item label="问题流水号" ctype="input" name="serno"></yu-xform-item>
+        <yu-xform-item label="问题类型" name="messageType" ctype="select" data-code="STD_WB_PRB_MESSAGE_TYPE" required></yu-xform-item>
+      </yu-xform-group>
+      <yu-xform-group :column="1">
+        <yu-xform-item label="问题和意见" name="suggestions" ctype="textarea" :autosize="{ minRows: 3}" required></yu-xform-item>
+      </yu-xform-group>
+      <yu-xform-group :column="2">
+        <yu-xform-item label="发布人姓名" ctype="input" name="managerIdName"></yu-xform-item>
+        <yu-xform-item label="发布人工号" name="managerId" ctype="input"></yu-xform-item>
+        <yu-xform-item label="发布人所属机构" name="managerBrIdName" ctype="input"></yu-xform-item>
+      </yu-xform-group>
+      <yu-xform-group :column="1">
+        <yu-xform-item label="附件" name="accessory" ctype="custom">
+          <yu-single-upload dir-name="notice" :file="fileListInfo" upload-text="请使用平台上传附件组件（可以传多个附件,点击文件可以下载）" @uploaded="uploadedFn" @delete="deleteFileFn"></yu-single-upload>
+        </yu-xform-item>
+      </yu-xform-group>
+    </yu-xform>
+    <span slot="footer" class="dialog-footer">
+      <yu-button type="primary" @click="wbpDialogVisible = false">确认发布</yu-button>
+    </span>
+  </yu-xdialog>
+  <yu-xdialog title="贷款计算器" :visible.sync="calcDialogVisible" @open="initData" width="60%">
+    <div id="calcContent"></div>
+    <span slot="footer" class="dialog-footer">
+      <yu-button type="primary" @click="calcDialogVisible = false">确认发布</yu-button>
+    </span>
+  </yu-xdialog>
 </div>

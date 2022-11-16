@@ -14,25 +14,25 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
           pageTypes: ['CredContAppl', 'CredContHis', 'LoanContAppl', 'LoanContHis'],
           formdata: {},
           formFields: [
-            // { label: '申请流水号', name: 'ctrNo' },
-            { label: '合作方名称', name: 'ctrNo', dataCode: '' },
-            { label: '合作方编号', name: 'ctrNo', dataCode: '' },
-            { label: '登记日期', name: 'ctrNo', ctype: 'datepicker' },
-            { label: '登记人', name: 'ctrNo' },
-            { label: '登记机构', name: 'ctrNo' },
+            // { label: '申请流水号', name: 'serNo' },
+            { label: '合作方名称', name: 'partnerName', dataCode: '' },
+            { label: '合作方编号', name: '', dataCode: '' },
+            { label: '登记日期', name: 'inputDate', ctype: 'datepicker' },
+            { label: '登记人', name: 'inputId' },
+            { label: '登记机构', name: 'inputBrId' },
           ],
           dataUrl: '',
           baseParams: {},
           tableFields: [
-            // { label: '申请流水号', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '合作方编号', prop: 'ctrNo1', width: 120 },
-            { label: '合作方名称', prop: 'ctrNo', width: 120 },
-            { label: '合作方类型', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '证件类型', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '证件号码', prop: 'ctrNo', width: 120 },
-            { label: '登记日期', prop: 'ctrNo', width: 120 },
-            { label: '登记人', prop: 'ctrNo', width: 120 },
-            { label: '登记机构', prop: 'ctrNo', width: 120 },
+            // { label: '申请流水号', prop: 'serNo', width: 120, dataCode: '' },
+            { label: '合作方编号', prop: 'partnerCode', width: 120 },
+            { label: '合作方名称', prop: 'partnerName', width: 120 },
+            { label: '合作方类型', prop: 'partnerType', width: 120, dataCode: '' },
+            { label: '证件类型', prop: 'certType', width: 120, dataCode: '' },
+            { label: '证件号码', prop: 'certNo', width: 120 },
+            { label: '登记日期', prop: 'inputDate', width: 120 },
+            { label: '登记人', prop: 'inputId', width: 120 },
+            { label: '登记机构', prop: 'inputBrId', width: 120 },
           ],
         }
       },
@@ -41,9 +41,6 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
         })
       },
       methods: {
-        ttt (item) {
-          console.log(item, '111::: ')
-        },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },

@@ -1,0 +1,30 @@
+<div id="calcPage">
+  <yu-tabs v-model="activeName">
+    <yu-tab-pane label="等额本息还款法" name="first">
+      <yu-xform ref="refFormDemo" label-width="150px" :hidden-rule="true" v-model="debxFormData" form-type="edit">
+        <yu-xform-group :column="2">
+          <yu-xform-item label="贷款类别" ctype="select" name="serno"></yu-xform-item>
+          <yu-xform-item label="计算方式" name="messageType" ctype="radio" :options="calcTypeOpt" required></yu-xform-item>
+          <yu-xform-item label="单价" type="num" name="messageType" ctype="input" unit="元/平方" required></yu-xform-item>
+        </yu-xform-group>
+        <yu-xform-group :column="1">
+          <yu-xform-item label="问题和意见" name="suggestions" ctype="textarea" :autosize="{ minRows: 3}" required></yu-xform-item>
+        </yu-xform-group>
+        <yu-xform-group :column="2">
+          <yu-xform-item label="发布人姓名" ctype="input" name="managerIdName"></yu-xform-item>
+          <yu-xform-item label="发布人工号" name="managerId" ctype="input"></yu-xform-item>
+          <yu-xform-item label="发布人所属机构" name="managerBrIdName" ctype="input"></yu-xform-item>
+        </yu-xform-group>
+
+      </yu-xform>
+    </yu-tab-pane>
+    <yu-tab-pane label="等额本金还款法" name="second">
+
+
+    </yu-tab-pane>
+    <yu-tab-pane label="提前还贷计算器(新利率)" name="third">
+
+    </yu-tab-pane>
+  </yu-tabs>
+  <!-- <div>测试页面</div> -->
+</div>

@@ -6,58 +6,68 @@
 define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/index.js'], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
+    console.log(hashCode, "=== hashCode");
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           pageType: hashCode,
-          pageTypes: ['CredContAppl', 'CredContHis', 'LoanContAppl', 'LoanContHis'],
+          isHis: false,
+          pageTypes: ['CredContAppl', 'LoanContAppl',],
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
+          tabFields: 'CredContAppl' === hashCode ? [
+            { label: '授信合同申请', name: '1' },
+            { label: '授信合同申请历史', name: '2' },
+          ] : [
+            { label: '借款合同申请', name: '1' },
+            { label: '借款合同申请历史', name: '2' },
+          ],
           formdata: {},
           formFields: [
-            // { label: '申请流水号', name: 'ctrNo' },
-            { label: '合同编号', name: 'ctrNo' },
-            { label: '合同类型', name: 'ctrNo', dataCode: '' },
+            // { label: '申请流水号', name: '' },
+            { label: '合同编号', name: '' },
+            { label: '合同类型', name: '', dataCode: '' },
             {
               label: '客户编号',
-              name: 'ctrNo',
+              name: '',
               readonly: true,
               icon: 'search',
               clickIconFn: this.ttt,
             },
-            { label: '客户名称', name: 'ctrNo' },
+            { label: '客户名称', name: '' },
             {
               label: '主担保方式',
-              name: 'ctrNo',
-              pageTypes: ['CredContAppl', 'CredContHis'],
+              name: '',
+              pageTypes: ['CredContAppl'],
               dataCode: ''
             },
             {
               label: '产品名称',
-              name: 'ctrNo',
-              pageTypes: ['LoanContAppl', 'LoanContHis'],
+              name: '',
+              pageTypes: ['LoanContAppl'],
               readonly: true,
               icon: 'search',
               clickIconFn: this.ttt,
             },
-            { label: '审批状态', name: 'ctrNo', options: [] },
+            { label: '审批状态', name: 'approveStatus', options: [] },
           ],
           dataUrl: '',
           baseParams: {},
           tableFields: [
-            { label: '合同编号', prop: 'ctrNo1', width: 120 },
-            { label: '合同类型', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '客户编号', prop: 'ctrNo', width: 120 },
-            { label: '客户名称', prop: 'ctrNo', width: 120 },
-            { label: '币种', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '合同金额(元)', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '主担保方式', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '产品名称', prop: 'ctrNo', width: 120, dataCode: '' },
-            { label: '审批状态', prop: 'ctrNo', width: 120, options: [] },
-            { label: '登记日期', prop: 'ctrNo', width: 120 },
-            { label: '登记人', prop: 'ctrNo', width: 120 },
-            { label: '登记机构', prop: 'ctrNo', width: 120 },
-            // { label: '申请流水号', prop: 'ctrNo', width: 120, dataCode: '' },
+            { label: '合同编号', prop: '', width: 120 },
+            { label: '合同类型', prop: '', width: 120, dataCode: '' },
+            { label: '客户编号', prop: '', width: 120 },
+            { label: '客户名称', prop: '', width: 120 },
+            { label: '币种', prop: '', width: 120, dataCode: '' },
+            { label: '合同金额(元)', prop: '', width: 120, dataCode: '' },
+            { label: '主担保方式', prop: '', width: 120, dataCode: '' },
+            { label: '产品名称', prop: '', width: 120, dataCode: '' },
+            { label: '审批状态', prop: 'approveStatus', width: 120, options: [] },
+            { label: '登记日期', prop: 'inputDate', width: 120 },
+            { label: '登记人', prop: 'inputId', width: 120 },
+            { label: '登记机构', prop: 'inputBrId', width: 120 },
+            // { label: '申请流水号', prop: '', width: 120, dataCode: '' },
           ],
           dFormFields: [
             { label: '授信批复信息', name: 'date', disabled: true, icon: 'search', iconClickFn: this.selectAprv },
@@ -81,6 +91,14 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
       methods: {
         ttt (item) {
           console.log(item, '111::: ')
+        },
+        handleClick (tab) {
+          console.log(tab.name, "=== tab.name");
+          if (tab.name === '2') {
+            this.isHis = true
+          } else {
+            this.isHis = false;
+          }
         },
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)

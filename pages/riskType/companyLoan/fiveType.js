@@ -33,14 +33,8 @@
                 dataCode: 'NATIONALITY',
                 rules: [
                   { required: true, message: '必填项', trigger: 'blur' }
-                ]},
-              // { field: 'pageviews',
-              //   label: '阅读数',
-              //   rules: [
-              //     { validator: yufp.validator.number, message: '数字', trigger: 'blur' }
-              //   ]
-              // },
-              // { field: 'yourField', label: '自定义', type: 'custom', is: 'yufp-demo-selector' }
+                ]
+              }
             ]
           }, {
             columnCount: 1,
@@ -67,19 +61,7 @@
             { label: '担保方式', prop: 'crelName' },
             { label: '五级分类', prop: 'crelName' },
             { label: '上次五级分类', prop: 'crelName' },
-            { label: '上次五级分类时间', prop: 'crelName' },
-            // { label: '策略描述', prop: 'crelDescribe', sortable: true, resizable: true },
-            // { label: '策略分类', prop: 'actionType', sortable: true, resizable: true, dataCode: 'ORG_LEVEL' },
-            // { label: '是否启用',
-            //   prop: 'enableFlag',
-            //   resizable: true,
-            //   hidden: false,
-            //   template: function () {
-            //     return '<template scope="scope">\
-            //     <yu-switch   v-model="scope.row.enableFlag" ></yu-switch>\
-            //   </template>';
-            //   } },
-            // { label: '策略详情', prop: 'crelDetail', resizable: true, hidden: true }
+            { label: '上次五级分类时间', prop: 'crelName' }
           ]
         };
       },
@@ -87,13 +69,19 @@
 
       },
       methods: {
-        view () {
-          this.$refs.refForm.formdata = {title: '111'};
-        },
         nodeClick (node) {
           console.log(node, 'ddd');
           this.current = node.id;
-        }
+        },
+        save () {
+          console.log('dsadasd');
+        },
+        submit () {
+          console.log('dsadasd');
+        },
+        back () {
+          yufp.router.to('companyLoan', {}, 'yu-idxTabBox');
+        },
       }
     });
   };

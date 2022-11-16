@@ -10,15 +10,15 @@
         <yu-collapse-item title="基本信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
             <yu-xform-group>
-              <yu-xform-item label="申请流水号" name="serNo" icon="">
+              <yu-xform-item label="申请流水号" name="serNo">
               </yu-xform-item>
-              <yu-xform-item label="操作类型" name="oprType">
-              </yu-xform-item>
-              <yu-xform-item label="合作项目类型" name="projectType">
-              </yu-xform-item>
-              <yu-xform-item label="合作项目名称" name="projectNameCn" ctype="select" data-code="ctrType">
+              <yu-xform-item label="操作类型" name="oprType" dataCode="czlx">
               </yu-xform-item>
               <yu-xform-item label="合作项目编号" name="projectCode">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目类型" name="projectType" dataCode="hzxmlx">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目名称" name="projectNameCn" ctype="select" data-code="ctrType">
               </yu-xform-item>
               <yu-xform-item label="是否全行适用" name="isAllOrg" ctype="select" data-code="shifou">
               </yu-xform-item>

@@ -12,8 +12,8 @@ define([''], function (require, exports) {
         return {
           isMaxMount: data.isMaxMount, // false为一般担保合同，true为最高额担保合同
           isDisabled: data.viewType && data.viewType === 'VIEW',
-          activeNames: ['1'],
           activeName: '1',
+          activeNames: ['1'],
           formdata: {},
           dataUrl: '',
           baseParams: {},

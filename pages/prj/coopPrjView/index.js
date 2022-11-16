@@ -53,34 +53,19 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },
-        addFn () { },
-        modifySimFn () { },
-        deleteFn () { },
-        infoFn () {
-          let data = {}
-          let index = this.pageTypes.indexOf(this.pageType);
-          let detailPages = ['CredContDetail', 'LoanContDetail'];
-          // switch (this.pageTypes.indexOf(this.pageType)) {
-          //   case 0:
-          //     index = 0;
-          //     break;
-          //   case 1:
-          //     index = 0;
-          //     break;
-          //   case 2:
-          //     index = 1;
-          //     break;
-          //   case 3:
-          //     index = 1;
-          //     break;
-          //   default:
-          //     return;
-          //     break;
-          // }
-          console.log(detailPages[Math.floor(index / 2)], "=== detailPages[Math.floor(index / 2)");
-          yufp.router.to(detailPages[Math.floor(index / 2)] + 'C', data, 'yu-idxTabBox')
-          // yufp.router.to(detailPages[index], data, 'yu-idxTabBox')
+        btnFn (type) {
+          if (type === 'ADD') {
+            this.isShowAddAppli = true;
+            return;
+          }
+          let selection = this.$refs.refTable.selections;
+          if (!selection.length) {
+            this.$message.warning('请先选择一条数据！');
+            return;
+          }
+          // 审批状态为“待发起、退回”，才能进行修改或删除！
         },
+        // yufp.router.to('', data, 'yu-idxTabBox')
       },
     })
   }

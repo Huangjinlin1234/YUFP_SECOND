@@ -1,0 +1,48 @@
+<div>
+  <yu-tabs v-model="activeName">
+    <yu-tab-pane label="申请信息" name="1">
+      <yu-collapse v-model="activeNames">
+        <yu-collapse-item title="申请信息" name="1">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
+            <yu-xform-group>
+              <yu-xform-item label="申请流水号" name="serNo" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="操作类型" name="oprType" dataCode="czlx" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目编号" name="projectCode" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目类型" name="projectType" dataCode="hzxmlx" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目名称" name="projectNameCn" ctype="select" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="申请原因" name="" ctype="textarea" data-code="ctrType" :disabled="false" :rules="rule">
+              </yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </yu-collapse-item>
+        <yu-collapse-item title="登记信息" name="1">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="isDisabled">
+            <yu-xform-group>
+              <yu-xform-item label="登记人" name="inputId" :disabled="true" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="登记机构" name="inputBrId" :disabled="true" :rules="rule">
+              </yu-xform-item>
+              <yu-xform-item label="登记日期" name="inputDate" ctype="datepicker" :disabled="true" :rules="rule">
+              </yu-xform-item>
+            </yu-xform-group>
+          </yu-xform>
+        </yu-collapse-item>
+      </yu-collapse>
+    </yu-tab-pane>
+    <yu-tab-pane label="合作项目信息" name="2">
+
+    </yu-tab-pane>
+    <yu-tab-pane label="审批历史" name="3">
+
+    </yu-tab-pane>
+  </yu-tabs>
+  <yu-button type="primary" @click="tempSave">暂存</yu-button>
+  <yu-button type="primary" @click="tempSave">保存</yu-button>
+  <yu-button type="primary" @click="tempSave">提交</yu-button>
+  <yu-button type="primary" @click="tempSave">返回</yu-button>
+</div>

@@ -9,11 +9,10 @@
     </yu-xform-group>
   </yu-xform>
   <yu-button-group>
-    <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="addFn">新增</yu-button>
-    <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="modifySimFn">修改</yu-button>
-    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="deleteFn">删除</yu-button>
-    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">查看</yu-button>
-    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="infoFn">作废</yu-button>
+    <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
+    <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('ETID')">修改</yu-button>
+    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>
+    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
   </yu-button-group>
   <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
     <yu-xtable-column v-for="(item, index) in tableFields" :key="index" :label="item.label" :prop="item.prop"
@@ -24,3 +23,16 @@
     </yu-xtable-column>
   </yu-xtable>
 </div>
+<yu-xdialog title="合作方协议申请新增-向导" :visible.sync="isShowAddAppli" @close="handleClose">
+  <yu-xform ref="refDForm" v-model="dFormData" label-width="140px">
+    <yu-xform-group :span="1">
+      <yu-xform-item v-for="(item,index) in dFormFields" :key="index" :label="item.label" :ctype="item.ctype"
+        :name="item.name" :disabled="item.disabled" :rules="rule" :icon="item.icon" :on-icon-click="item.iconClickFn"
+        :value-format="item.valueFormat"></yu-xform-item>
+    </yu-xform-group>
+  </yu-xform>
+  <span slot="footer" class="dialog-footer">
+    <yu-button type="primary" @click="nextFn">下一步</yu-button>
+    <yu-button @click="handleClose">返回</yu-button>
+  </span>
+</yu-xdialog>

@@ -40,6 +40,15 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
             { label: '登记人', prop: 'inputId', width: 120 },
             { label: '登记机构', prop: 'inputBrId', width: 120 },
           ],
+          isShowAddAppli: false,
+          dFormData: {},
+          dFormFields: [
+            { label: '操作类型', name: 'oprType', ctype: 'radio', dataCode: 'czlx' },
+            { label: '合作方编号', name: 'projectType', icon: 'search', clickIcon: this.selProject },
+            { label: '合作方名称', name: 'projectNameCn' },
+            { label: '关联合作项目编号', name: 'projectCode', icon: 'search', clickIcon: this.selProject },
+            { label: '关联合作项目名称', name: 'projectNameCn' },
+          ],
         }
       },
       created () {
@@ -50,33 +59,41 @@ define(['pages/ctr/mainCtrAppli/credit/index.js', 'pages/ctr/mainCtrAppli/loan/i
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },
-        addFn () { },
-        modifySimFn () { },
-        deleteFn () { },
-        infoFn () {
-          let data = {}
-          let index = this.pageTypes.indexOf(this.pageType);
-          let detailPages = ['CredContDetail', 'LoanContDetail'];
-          // switch (this.pageTypes.indexOf(this.pageType)) {
-          //   case 0:
-          //     index = 0;
-          //     break;
-          //   case 1:
-          //     index = 0;
-          //     break;
-          //   case 2:
-          //     index = 1;
-          //     break;
-          //   case 3:
-          //     index = 1;
-          //     break;
-          //   default:
-          //     return;
-          //     break;
-          // }
-          console.log(detailPages[Math.floor(index / 2)], "=== detailPages[Math.floor(index / 2)");
-          yufp.router.to(detailPages[Math.floor(index / 2)] + 'C', data, 'yu-idxTabBox')
-          // yufp.router.to(detailPages[index], data, 'yu-idxTabBox')
+        selProject () {
+
+        },
+        btnFn (type) {
+          if (type === 'ADD') {
+            this.isShowAddAppli = true;
+            return;
+          }
+          let selection = this.$refs.refTable.selections;
+          if (!selection.length) {
+            this.$message.warning('请先选择一条数据！');
+            return;
+          }
+          // 审批状态为“待发起、退回”，才能进行修改或删除！
+        },
+
+        handleClose () {
+          this.isShowAddAppli = false;
+        },
+        nextFn () {
+          let flag = true;
+          // this.$refs.refDForm.validate(vali => {
+          //   flag = vali;
+          // })
+          if (flag) {
+            this.handleClose();
+            yufp.router.to('partnerAgrDetail', data, 'yu-idxTabBox')
+            // if (hashCode === 'CoopPrjAccess') {
+            //   yufp.router.to('AccessDetail', data, 'yu-idxTabBox');
+            // } else if (hashCode === 'CoopPrjMaintain') {
+            //   yufp.router.to('MaintainDetail', data, 'yu-idxTabBox');
+            // } else if (hashCode === 'CoopPrjAccount') {
+            //   yufp.router.to('AccountDetail', data, 'yu-idxTabBox');
+            // }
+          }
         },
       },
     })

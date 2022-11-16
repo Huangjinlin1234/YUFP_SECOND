@@ -11,24 +11,36 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           activeNames: ['1'],
           formdata: {},
           tableData: [],
           dataUrl: '',
           baseParams: {},
-          treeData: [
-            { id: 0, label: '业务信息', }
-            { id: 1, label: '审批流程', }
-          ],
+          treeData: [{
+            id: 100, label: '合作方信息', children: [
+              { id: 0, label: '基本信息', },
+              { id: 1, label: '影响信息', }
+            ]
+          }],
         }
       },
       methods: {
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId)
         },
-        addFn () { },
-        modifySimFn () { },
-        deleteFn () { },
+        btnFn (type) {
+          if (type === 'ADD') {
+            this.isShowAddAppli = true;
+            return;
+          }
+          let selection = this.$refs.refTable.selections;
+          if (!selection.length) {
+            this.$message.warning('请先选择一条数据！');
+            return;
+          }
+          // 审批状态为“待发起、退回”，才能进行修改或删除！
+        },
         infoFn () {
           yufp.router.to('CredContDetail', {}, 'yu-idxTabBox')
         },

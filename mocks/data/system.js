@@ -49,169 +49,169 @@ define([
     }];
     var demoMenus = [
       {
-        'menuId': 'lp-10000',
-        'menuName': '首页',
-        'upMenuId': null,
-        'menuIcon': 'el-icon-yx-home',
-        'funcId': 'dashboard',
-        'funcUrl': 'pages/common/dashboard/dashboard',
-        'legalOrgCode': null
+        menuId: 'lp-10000',
+        menuName: '首页',
+        upMenuId: null,
+        menuIcon: 'el-icon-yx-home',
+        funcId: 'dashboard',
+        funcUrl: 'pages/common/dashboard/dashboard',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-90000',
-        'menuName': '系统管理',
-        'upMenuId': '',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-90000',
+        menuName: '系统管理',
+        upMenuId: '',
+        menuIcon: 'el-icon-yx-books',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       // 二级菜单 组织管理
       {
-        'menuId': 'lp-92000',
-        'menuName': '组织管理',
-        'upMenuId': 'lp-90000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-92000',
+        menuName: '组织管理',
+        upMenuId: 'lp-90000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92010',
-        'menuName': '用户管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'sUserPageInfo',
-        'funcUrl': 'pages/console/system/SUserPageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92010',
+        menuName: '用户管理',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'sUserPageInfo',
+        funcUrl: 'pages/console/system/SUserPageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92020',
-        'menuName': '机构管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'sOrgPageInfo',
-        'funcUrl': 'pages/console/system/SOrgPageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92020',
+        menuName: '机构管理',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'sOrgPageInfo',
+        funcUrl: 'pages/console/system/SOrgPageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92040',
-        'menuName': '岗位管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'sDutyPageInfo',
-        'funcUrl': 'pages/console/system/sDutyPageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92040',
+        menuName: '岗位管理',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'sDutyPageInfo',
+        funcUrl: 'pages/console/system/sDutyPageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92050',
-        'menuName': '角色管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': 'el-icon-yx-command',
-        'funcId': 'SRolePageInfo',
-        'funcUrl': 'pages/console/system/SRolePageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92050',
+        menuName: '角色管理',
+        upMenuId: 'lp-92000',
+        menuIcon: 'el-icon-yx-command',
+        funcId: 'SRolePageInfo',
+        funcUrl: 'pages/console/system/SRolePageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92060',
-        'menuName': '资源定义',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'SResourcePageInfo',
-        'funcUrl': 'pages/console/system/SResourcePageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92060',
+        menuName: '资源定义',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'SResourcePageInfo',
+        funcUrl: 'pages/console/system/SResourcePageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92070',
-        'menuName': '资源权限',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'SRoleRescRulePageInfo',
-        'funcUrl': 'pages/console/system/SRoleRescRulePageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92070',
+        menuName: '资源权限',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'SRoleRescRulePageInfo',
+        funcUrl: 'pages/console/system/SRoleRescRulePageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92080',
-        'menuName': '报表权限管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'SPrdOrgPageInfo',
-        'funcUrl': 'pages/console/system/SPrdOrgPageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92080',
+        menuName: '报表权限管理',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'SPrdOrgPageInfo',
+        funcUrl: 'pages/console/system/SPrdOrgPageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92090',
-        'menuName': '数据权限',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'SRoleDataRulePageInfo',
-        'funcUrl': 'pages/console/system/SRoleDataRulePageInfo',
-        'legalOrgCode': null
+        menuId: 'lp-92090',
+        menuName: '数据权限',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'SRoleDataRulePageInfo',
+        funcUrl: 'pages/console/system/SRoleDataRulePageInfo',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-92100',
-        'menuName': '策略管理',
-        'upMenuId': 'lp-92000',
-        'menuIcon': '',
-        'funcId': 'logicSysManager',
-        'funcUrl': 'pages/console/system/logicSysManager',
-        'legalOrgCode': null
+        menuId: 'lp-92100',
+        menuName: '策略管理',
+        upMenuId: 'lp-92000',
+        menuIcon: '',
+        funcId: 'logicSysManager',
+        funcUrl: 'pages/console/system/logicSysManager',
+        legalOrgCode: null
       },
       // 二级功能 参数管理
       {
-        'menuId': 'lp-93000',
-        'menuName': '参数管理',
-        'upMenuId': 'lp-90000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-93000',
+        menuName: '参数管理',
+        upMenuId: 'lp-90000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-93010',
-        'menuName': '数据字典配置',
-        'upMenuId': 'lp-93000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'lookupdict',
-        'funcUrl': 'pages/console/system/lookupdict',
-        'legalOrgCode': null
+        menuId: 'lp-93010',
+        menuName: '数据字典配置',
+        upMenuId: 'lp-93000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'lookupdict',
+        funcUrl: 'pages/console/system/lookupdict',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-93020',
-        'menuName': '系统参数',
-        'upMenuId': 'lp-93000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'sysprop',
-        'funcUrl': 'pages/console/system/sysprop',
-        'legalOrgCode': null
+        menuId: 'lp-93020',
+        menuName: '系统参数',
+        upMenuId: 'lp-93000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'sysprop',
+        funcUrl: 'pages/console/system/sysprop',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-93030',
-        'menuName': '系统提示消息管理',
-        'upMenuId': 'lp-93000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'messageManager',
-        'funcUrl': 'pages/console/system/messageManager',
-        'legalOrgCode': null
+        menuId: 'lp-93030',
+        menuName: '系统提示消息管理',
+        upMenuId: 'lp-93000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'messageManager',
+        funcUrl: 'pages/console/system/messageManager',
+        legalOrgCode: null
       },
       // 二级菜单 系统监控
       {
-        'menuId': 'lp-94000',
-        'menuName': '系统监控',
-        'upMenuId': 'lp-90000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-94000',
+        menuName: '系统监控',
+        upMenuId: 'lp-90000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-94010',
-        'menuName': '日志管理',
-        'upMenuId': 'lp-94000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'SUserOperLog',
-        'funcUrl': 'pages/console/system/SUserOperLog',
-        'legalOrgCode': null
+        menuId: 'lp-94010',
+        menuName: '日志管理',
+        upMenuId: 'lp-94000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'SUserOperLog',
+        funcUrl: 'pages/console/system/SUserOperLog',
+        legalOrgCode: null
       },
       //一级菜单
       {
@@ -238,7 +238,7 @@ define([
         menuId: 'lp-33000',
         menuName: '合作项目营运视图',
         upMenuId: 'lp-30000',
-        menuIcon: 'el-icon-yx-books',
+        menuIcon: 'el-icon-yx-file-text2',
         funcId: 'CoopPrjManage',
         funcUrl: 'pages/prj/coopPrjManage/index'
       },
@@ -284,212 +284,207 @@ define([
         funcUrl: 'pages/prj/partnerManage/partnerAgr/index'
       },
       {
-        'menuId': 'lp-80000',
-        'menuName': '贷后管理',
-        'upMenuId': '',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-80000',
+        menuName: '贷后管理',
+        upMenuId: '',
+        menuIcon: 'el-icon-yx-books',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-81000',
-        'menuName': '风险分类',
-        'upMenuId': 'lp-80000',
-        'menuIcon': '',
-        'funcId': 'lookupdict',
-        'funcUrl': 'pages/console/system/lookupdict',
-        'legalOrgCode': null
+        menuId: 'lp-81000',
+        menuName: '风险分类',
+        upMenuId: 'lp-80000',
+        menuIcon: 'el-icon-yx-books',
       },
       {
-        'menuId': 'lp-81010',
-        'menuName': '个贷风险分类',
-        'upMenuId': 'lp-81000',
-        'menuIcon': '',
-        'funcId': 'personalLoan',
-        'funcUrl': 'pages/riskType/personalLoan/personalLoan',
-        'legalOrgCode': null
+        menuId: 'lp-81010',
+        menuName: '个贷风险分类',
+        upMenuId: 'lp-81000',
+        menuIcon: '',
+        funcId: 'personalLoan',
+        funcUrl: 'pages/riskType/personalLoan/personalLoan',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-81020',
-        'menuName': '对公风险分类',
-        'upMenuId': 'lp-81000',
-        'menuIcon': '',
-        'funcId': 'companyLoan',
-        'funcUrl': 'pages/riskType/companyLoan/companyLoan',
-        'legalOrgCode': null
+        menuId: 'lp-81020',
+        menuName: '对公风险分类',
+        upMenuId: 'lp-81000',
+        menuIcon: '',
+        funcId: 'companyLoan',
+        funcUrl: 'pages/riskType/companyLoan/companyLoan',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-81030',
-        'menuName': '风险分类调整申请',
-        'upMenuId': 'lp-81000',
-        'menuIcon': '',
-        'funcId': 'riskAdjust',
-        'funcUrl': 'pages/riskType/riskAdjust/riskAdjust',
-        'legalOrgCode': null
+        menuId: 'lp-81030',
+        menuName: '风险分类调整申请',
+        upMenuId: 'lp-81000',
+        menuIcon: '',
+        funcId: 'riskAdjust',
+        funcUrl: 'pages/riskType/riskAdjust/riskAdjust',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-81040',
-        'menuName': '风险分类台账',
-        'upMenuId': 'lp-81000',
-        'menuIcon': '',
-        'funcId': 'riskType',
-        'funcUrl': 'pages/riskType/riskType/riskType',
-        'legalOrgCode': null
+        menuId: 'lp-81040',
+        menuName: '风险分类台账',
+        upMenuId: 'lp-81000',
+        menuIcon: '',
+        funcId: 'riskType',
+        funcUrl: 'pages/riskType/riskType/riskType',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-82000',
-        'menuName': '贷后检查',
-        'upMenuId': 'lp-80000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-82000',
+        menuName: '贷后检查',
+        upMenuId: 'lp-80000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-82010',
-        'menuName': '首次检查',
-        'upMenuId': 'lp-82000',
-        'menuIcon': '',
-        'funcId': 'firstCheck',
-        'funcUrl': 'pages/postLoanCheck/firstCheck/firstCheck',
-        'legalOrgCode': null
+        menuId: 'lp-82010',
+        menuName: '首次检查',
+        upMenuId: 'lp-82000',
+        menuIcon: '',
+        funcId: 'firstCheck',
+        funcUrl: 'pages/postLoanCheck/firstCheck/firstCheck',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-82020',
-        'menuName': '定期检查',
-        'upMenuId': 'lp-82000',
-        'menuIcon': '',
-        'funcId': 'regularCheck',
-        'funcUrl': 'pages/postLoanCheck/regularCheck/regularCheck',
-        'legalOrgCode': null
+        menuId: 'lp-82020',
+        menuName: '定期检查',
+        upMenuId: 'lp-82000',
+        menuIcon: '',
+        funcId: 'regularCheck',
+        funcUrl: 'pages/postLoanCheck/regularCheck/regularCheck',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-82030',
-        'menuName': '不定期检查',
-        'upMenuId': 'lp-82000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-82030',
+        menuName: '不定期检查',
+        upMenuId: 'lp-82000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-83000',
-        'menuName': '风险预警',
-        'upMenuId': 'lp-80000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-83000',
+        menuName: '风险预警',
+        upMenuId: 'lp-80000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-84000',
-        'menuName': '贷后催收',
-        'upMenuId': 'lp-80000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-84000',
+        menuName: '贷后催收',
+        upMenuId: 'lp-80000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-85000',
-        'menuName': '贷款核销',
-        'upMenuId': 'lp-80000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-85000',
+        menuName: '贷款核销',
+        upMenuId: 'lp-80000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-85010',
-        'menuName': '单户核销登记',
-        'upMenuId': 'lp-85000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-85010',
+        menuName: '单户核销登记',
+        upMenuId: 'lp-85000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-85020',
-        'menuName': '批量核销登记',
-        'upMenuId': 'lp-85000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-85020',
+        menuName: '批量核销登记',
+        upMenuId: 'lp-85000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-85030',
-        'menuName': '已核销资产台账',
-        'upMenuId': 'lp-85000',
-        'menuIcon': '',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-85030',
+        menuName: '已核销资产台账',
+        upMenuId: 'lp-85000',
+        menuIcon: '',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       // 一级菜单 模板
       {
-        'menuId': 'lp-080000',
-        'menuName': '模板',
-        'upMenuId': '',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': null,
-        'funcUrl': null,
-        'legalOrgCode': null
+        menuId: 'lp-080000',
+        menuName: '模板',
+        upMenuId: '',
+        menuIcon: 'el-icon-yx-books',
+        funcId: null,
+        funcUrl: null,
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080001',
-        'menuName': '树形页面模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'treeForm',
-        'funcUrl': 'pages/common/template/hjlTemplate/treeForm',
-        'legalOrgCode': null
+        menuId: 'lp-080001',
+        menuName: '树形页面模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'treeForm',
+        funcUrl: 'pages/common/template/hjlTemplate/treeForm',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080002',
-        'menuName': '标签页面模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'tabTemplate',
-        'funcUrl': 'pages/common/template/hjlTemplate/tabTemplate',
-        'legalOrgCode': null
+        menuId: 'lp-080002',
+        menuName: '标签页面模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'tabTemplate',
+        funcUrl: 'pages/common/template/hjlTemplate/tabTemplate',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080003',
-        'menuName': 'POP页面模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'popTemplate',
-        'funcUrl': 'pages/common/template/hjlTemplate/popTemplate',
-        'legalOrgCode': null
+        menuId: 'lp-080003',
+        menuName: 'POP页面模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'popTemplate',
+        funcUrl: 'pages/common/template/hjlTemplate/popTemplate',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080004',
-        'menuName': '简洁新增模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'sympleAdd',
-        'funcUrl': 'pages/common/template/hjlTemplate/sympleAdd',
-        'legalOrgCode': null
+        menuId: 'lp-080004',
+        menuName: '简洁新增模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'sympleAdd',
+        funcUrl: 'pages/common/template/hjlTemplate/sympleAdd',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080005',
-        'menuName': '多列表页面模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'treeMoreTable',
-        'funcUrl': 'pages/common/template/hjlTemplate/treeMoreTable',
-        'legalOrgCode': null
+        menuId: 'lp-080005',
+        menuName: '多列表页面模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'treeMoreTable',
+        funcUrl: 'pages/common/template/hjlTemplate/treeMoreTable',
+        legalOrgCode: null
       },
       {
-        'menuId': 'lp-080006',
-        'menuName': '编辑列表页面模板',
-        'upMenuId': 'lp-080000',
-        'menuIcon': 'el-icon-yx-books',
-        'funcId': 'editListTemplate',
-        'funcUrl': 'pages/common/template/editListTemplate',
-        'legalOrgCode': null
+        menuId: 'lp-080006',
+        menuName: '编辑列表页面模板',
+        upMenuId: 'lp-080000',
+        menuIcon: 'el-icon-yx-books',
+        funcId: 'editListTemplate',
+        funcUrl: 'pages/common/template/editListTemplate',
+        legalOrgCode: null
       },
       //一级菜单
       {

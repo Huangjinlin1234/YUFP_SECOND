@@ -1,11 +1,6 @@
 <div>
-  <yu-row :gutter="16">
-    <yu-col :span="5">
-      <yu-tree ref="refTree" :data="treeData" node-key="id" highlight-current default-expand-all @node-click="clickNode"
-        :current-node-key="2">
-      </yu-tree>
-    </yu-col>
-    <yu-col :span="19">
+  <yu-tabs v-model="activeName">
+    <yu-tab-pane label="合作项目信息" name="1">
       <yu-collapse v-model="activeNames">
         <yu-collapse-item title="基本信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
@@ -16,9 +11,9 @@
               </yu-xform-item>
               <yu-xform-item label="合作项目编号" name="projectCode">
               </yu-xform-item>
-              <yu-xform-item label="合作项目类型" name="projectType" dataCode="hzxmlx">
-              </yu-xform-item>
               <yu-xform-item label="合作项目名称" name="projectNameCn" ctype="select" data-code="ctrType">
+              </yu-xform-item>
+              <yu-xform-item label="合作项目类型" name="projectType" dataCode="hzxmlx">
               </yu-xform-item>
               <yu-xform-item label="是否全行适用" name="isAllOrg" ctype="select" data-code="shifou">
               </yu-xform-item>
@@ -43,7 +38,7 @@
         <yu-collapse-item title="项目合作信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
             <yu-xform-group>
-              <yu-xform-item label="总合作额度(元)" name="">
+              <yu-xform-item label="总合作额度(元)" name="" :hidden="pageType === '01'">
               </yu-xform-item>
               <yu-xform-item label="是否长期合作" name="isLongTermCooperatioin" data-code="shifou">
               </yu-xform-item>
@@ -60,7 +55,8 @@
               </yu-xform-item>
               <yu-xform-item label="已用合作额度(元)" name="usedLimit" disabled :rules="['money']">
               </yu-xform-item>
-              <yu-xform-item label="可用合作额度(元)" name="usableLimit" disabled :rules="['money']">
+              <yu-xform-item label="可用合作额度(元)" name="usableLimit" disabled :rules="['money']"
+                :hidden="pageType === '01'">
               </yu-xform-item>
               <yu-xform-item label="风险分担比例" name="riskSharingRate" :rules="['lv']">
               </yu-xform-item>
@@ -82,6 +78,7 @@
             <yu-xtable-column label="合作方类型" prop="partnerType" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="证件类型" prop="certType" data-code="item.dataCode"></yu-xtable-column>
             <yu-xtable-column label="证件号码" prop="certNo" data-code="item.dataCode"></yu-xtable-column>
+            <!-- 风险资金池、业务合作 -->
             <yu-xtable-column label="是否缴存保证金" prop="" data-code="shifou"></yu-xtable-column>
           </yu-xtable>
         </yu-collapse-item>
@@ -98,7 +95,7 @@
           </yu-xtable>
         </yu-collapse-item>
         <yu-collapse-item title="登记信息" name="1">
-          <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea">
+          <yu-xform ref="refForm" v-model="formdata" label-width="140px" ctype="textarea" disabled>
             <yu-xform-group>
               <yu-xform-item label="登记人" name="inputId">
               </yu-xform-item>
@@ -114,6 +111,9 @@
       <yu-button type="primary" @click="tempSave">保存</yu-button>
       <yu-button type="primary" @click="tempSave">提交</yu-button>
       <yu-button type="primary" @click="tempSave">返回</yu-button>
-    </yu-col>
-  </yu-row>
+    </yu-tab-pane>
+    <yu-tab-pane label="影像信息" name="2">
+
+    </yu-tab-pane>
+  </yu-tabs>
 </div>

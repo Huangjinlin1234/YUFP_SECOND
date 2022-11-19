@@ -1,11 +1,6 @@
 <div>
-  <yu-row :gutter="16">
-    <yu-col :span="5">
-      <yu-tree ref="refTree" :data="treeData" node-key="id" highlight-current default-expand-all @node-click="clickNode"
-        :current-node-key="2">
-      </yu-tree>
-    </yu-col>
-    <yu-col :span="19">
+  <yu-tabs v-model="activeName">
+    <yu-tab-pane label="合作方协议信息" name="1">
       <yu-collapse v-model="activeNames">
         <yu-collapse-item title="原协议信息" name="1">
           <yu-xform ref="refForm" v-model="formdata" label-width="140px" :disabled="true">
@@ -78,6 +73,9 @@
       <yu-button type="primary" @click="tempSave">保存</yu-button>
       <yu-button type="primary" @click="tempSave">提交</yu-button>
       <yu-button type="primary" @click="tempSave">返回</yu-button>
-    </yu-col>
-  </yu-row>
+    </yu-tab-pane>
+    <yu-tab-pane label="影像信息" name="2">
+
+    </yu-tab-pane>
+  </yu-tabs>
 </div>

@@ -17,6 +17,10 @@ define([''], function (require, exports) {
           rule: [{ required: true, message: '字段不能为空', triggle: 'blur' }],
         };
       },
+      mounted () {
+        data.page = this;
+        console.log(this, "=== this");
+      },
       methods: {
         checkPermission: function (ctrlCode) {
           return !yufp.session.checkCtrl(ctrlCode, cite.menuId);

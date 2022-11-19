@@ -18,8 +18,6 @@ define(function (require) {
       html: 'pages/prj/coopPrjManage/AccessDetail.html',
       js: 'pages/prj/coopPrjManage/AccessDetail.js',
     },
-
-
     // 合作项目维护
     CoopPrjMaintain: {
       html: 'pages/prj/coopPrjManage/index.html',

@@ -11,6 +11,7 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          activeName: '1',
           activeNames: ['1'],
           formdata: {},
           tableData: [],

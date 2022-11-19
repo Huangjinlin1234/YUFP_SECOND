@@ -1,0 +1,22 @@
+<div>
+  <yu-xform ref="refForm" v-model="formdata" hidden-del-val label-width="140px">
+    <yu-xform-group :column="3">
+      <yu-xform-item v-for="(item, index) in formFields" :key="index" :label="item.label" :name="item.name"
+        :ctype="item.ctype" :options="item.options" :data-code="item.dataCode" :icon="item.icon"
+        :on-icon-click="item.clickIconFn" :readonly="item.readonly"
+        :hidden="item.pageTypes && !(item.pageTypes.includes(pageType))">
+      </yu-xform-item>
+    </yu-xform-group>
+  </yu-xform>
+  <yu-button-group>
+    <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
+    <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('ETID')">修改</yu-button>
+    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>
+    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
+  </yu-button-group>
+  <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
+    <yu-xtable-column v-for="(item, index) in tableFields" :key="index" :label="item.label" :prop="item.prop"
+      :data-code="item.dataCode">
+    </yu-xtable-column>
+  </yu-xtable>
+</div>

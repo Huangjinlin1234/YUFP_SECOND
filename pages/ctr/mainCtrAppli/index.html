@@ -1,42 +1,22 @@
-<!-- <div class="mt24"> -->
-<div>
-  <yu-tabs v-model="activeName" @tab-click="handleClick">
-    <yu-tab-pane v-for="(item, index) in tabFields" :key="index" :label="item.label" :name="item.name">
-      <yu-xform ref="refForm" related-table-name="refTable" v-model="formdata" hidden-del-val label-width="140px"
-        form-type="search">
-        <yu-xform-group :column="3">
-          <yu-xform-item v-for="(item, index) in formFields" :key="index" :label="item.label" :name="item.name"
-            :ctype="item.ctype" :options="item.options" :data-code="item.dataCode" :icon="item.icon"
-            :on-icon-click="item.clickIconFn" :readonly="item.readonly"
-            :hidden="item.pageTypes && !(item.pageTypes.includes(pageType))">
-          </yu-xform-item>
-        </yu-xform-group>
-      </yu-xform>
-      <yu-button-group>
-        <yu-button v-if="isHis" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
-        <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
-        <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('ETID')">修改</yu-button>
-        <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>
-        <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
-      </yu-button-group>
-      <yu-xtable ref="refTable" :data-url="dataUrl" :base-params="baseParams" row-number>
-        <yu-xtable-column v-for="(item, index) in tableFields" :key="index" :label="item.label" :prop="item.prop"
-          :data-code="item.dataCode">
-        </yu-xtable-column>
-      </yu-xtable>
-    </yu-tab-pane>
-  </yu-tabs>
-</div>
-<yu-xdialog title="授信合同新增申请" :visible.sync="isShowAddAppli" @close="handleClose">
-  <yu-xform ref="refDForm" v-model="dFormData" label-width="140px">
-    <yu-xform-group>
-      <yu-xform-item v-for="(item,index) in dFormFields" :key="index" :label="item.label" :ctype="item.ctype"
-        :name="item.name" :disabled="item.disabled" :rules="rule" :icon="item.icon" :on-icon-click="item.iconClickFn"
-        :value-format="item.valueFormat"></yu-xform-item>
-    </yu-xform-group>
-  </yu-xform>
-  <span slot="footer" class="dialog-footer">
-    <yu-button type="primary" @click="nextFn">下一步</yu-button>
-    <yu-button @click="handleClose">返回</yu-button>
-  </span>
-</yu-xdialog>
+<main-page :have-tab="true" :tab-params="tabParams" :form-params="formParams" :table-params="tableParams"
+  @tab-click="tabClick">
+  <template slot='btn'>
+    <yu-button v-if="checkPermission('create')" type="primary" icon="plus" @click="btnFn('ADD')">新增</yu-button>
+    <yu-button v-if="checkPermission('edit')" type="primary" icon="edit" @click="btnFn('ETID')">修改</yu-button>
+    <yu-button v-if="checkPermission('delete')" type="primary" icon="yx-bin" @click="btnFn('DELETE')">删除</yu-button>
+    <yu-button v-if="checkPermission('detail')" type="primary" icon="document" @click="btnFn('VIEW')">查看</yu-button>
+  </template>
+</main-page>
+<!-- <yu-tabs v-model="activeName" @tab-click="handleClick">
+  <yu-tab-pane name="1" label="5555">
+    <zhfp-route-div ref="hhhh" route-id="LoanThirdGuarCtrC" name="LoanThirdGuarCtrC" :route-data="{}">
+    </zhfp-route-div>
+  </yu-tab-pane>
+  <yu-tab-pane name="2" label="5555">
+    <process-aprv></process-aprv>
+  </yu-tab-pane>
+</yu-tabs> -->
+<guide-page :dialog-title="dialogTitle" :dialog-show.sync="isShowAddAppli" :form-params="dFormParams" @next-fn="nextFn">
+</guide-page>
+<!-- <select-page dialog-title="授信合同新增申请" :dialog-show.sync="isShowAddAppli" :form-params="formParams"
+  :table-params="tableParams" @select-fn="selectFn"></select-page> -->

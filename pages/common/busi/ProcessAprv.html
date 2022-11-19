@@ -2,8 +2,8 @@
   <yu-collapse-item title="审批操作" name="1">
     <yu-xform ref="refForm" v-model="formdata" label-width="140px">
       <yu-xform-group :span="1">
-        <yu-xform-item v-for="(item,index) in formFields" :key="key" :label="item" :name="item.name" :ctype="item.ctype"
-          :rules="item.rules" :data-code="dataCode">
+        <yu-xform-item v-for="(item,index) in formFields" :key="index" :label="item.label" :name="item.name"
+          :ctype="item.ctype" :rules="item.rules" :data-code="item.dataCode">
         </yu-xform-item>
       </yu-xform-group>
     </yu-xform>
@@ -12,6 +12,6 @@
     </yu-button-group>
   </yu-collapse-item>
   <yu-collapse-item title="流程审批历史" name="1">
-    <aprv-his :dataUrl="dataUrl" :baseParams="baseParams"></aprv-his>
+    <aprv-his></aprv-his>
   </yu-collapse-item>
 </yu-collapse>

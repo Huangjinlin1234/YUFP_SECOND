@@ -11,7 +11,10 @@ define([''], function (require, exports) {
       el: cite.el,
       data: function () {
         return {
+          pageType: data.pageType,
+          pageTypes: ['01', '04'],
           activeNames: ['1'],
+          activeName: '1',
           formdata: {},
           tableData: [],
           dataUrl: '',

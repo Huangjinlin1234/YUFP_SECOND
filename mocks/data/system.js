@@ -226,19 +226,23 @@ define([
         menuId: 'lp-31000',
         menuName: '合作项目管理',
         upMenuId: 'lp-30000',
-        menuIcon: 'el-icon-yx-books'
+        menuIcon: 'el-icon-yx-books',
+        funcId: '0',
+        funcUrl: '0'
       },
       {
         menuId: 'lp-32000',
         menuName: '合作方管理',
         upMenuId: 'lp-30000',
-        menuIcon: 'el-icon-yx-books'
+        menuIcon: 'el-icon-yx-books',
+        funcId: '0',
+        funcUrl: '0'
       },
       {
         menuId: 'lp-33000',
         menuName: '合作项目营运视图',
         upMenuId: 'lp-30000',
-        menuIcon: 'el-icon-yx-file-text2',
+        menuIcon: '',
         funcId: 'CoopPrjManage',
         funcUrl: 'pages/prj/coopPrjManage/index'
       },
@@ -271,7 +275,7 @@ define([
         menuId: 'lp-32100',
         menuName: '合作方名单管理',
         upMenuId: 'lp-32000',
-        menuIcon: '',
+        menuIcon: 'el-icon-yx-file-text2',
         funcId: 'PartnerList',
         funcUrl: 'pages/prj/partnerManage/partnerList/index'
       },
@@ -279,7 +283,7 @@ define([
         menuId: 'lp-32200',
         menuName: '合作方协议管理',
         upMenuId: 'lp-32000',
-        menuIcon: '',
+        menuIcon: 'el-icon-yx-file-text2',
         funcId: 'PartnerAgr',
         funcUrl: 'pages/prj/partnerManage/partnerAgr/index'
       },
@@ -547,6 +551,31 @@ define([
         menuIcon: '',
         funcId: 'LoanCtrManage',
         funcUrl: 'pages/ctr/mainCtrManage/index'
+      },
+      //一级菜单
+      {
+        menuId: 'lp-140000',
+        menuName: '额度管理',
+        upMenuId: null,
+        menuIcon: 'el-icon-yx-books'
+      },
+
+      //二级菜单
+      {
+        menuId: 'lp-141000',
+        menuName: '额度台账',
+        upMenuId: 'lp-140000',
+        menuIcon: '',
+        funcId: 'lmtAccount',
+        funcUrl: 'pages/lmt/lmtAccount/index'
+      },
+      {
+        menuId: 'lp-142000',
+        menuName: '额度冻结/解冻',
+        upMenuId: 'lp-140000',
+        menuIcon: '',
+        funcId: 'lmtFrzOrUn',
+        funcUrl: 'pages/lmt/lmtFreezingOrUn/index'
       },
     ];
     /**

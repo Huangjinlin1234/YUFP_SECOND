@@ -1,0 +1,26 @@
+<div>
+  <yu-xform ref="refForm" v-model="formdata" hidden-del-val label-width="140px">
+    <yu-xform-group :column="3">
+      <yu-xform-item v-for="(item, index) in formFields" :key="index" :label="item.label" :name="item.name"
+        :ctype="item.ctype" :options="item.options" :data-code="item.dataCode" :icon="item.icon"
+        :on-icon-click="item.clickIconFn" :readonly="item.readonly"
+        :hidden="item.pageTypes && !(item.pageTypes.includes(pageType))">
+      </yu-xform-item>
+    </yu-xform-group>
+  </yu-xform>
+  <yu-xtable ref="refCreditDetail" :data-url="creditDetailUrl" :base-params="creditDetailParams" row-number>
+    <yu-xtable-column v-for="(item, index) in creditDetailFields" :key="index" :label="item.label" :prop="item.prop"
+      :data-code="item.dataCode">
+    </yu-xtable-column>
+  </yu-xtable>
+  <yu-xtable ref="refBusiCtr" :data-url="busiCtrUrl" :base-params="busiCtrParams" row-number>
+    <yu-xtable-column v-for="(item, index) in busiCtrFields" :key="index" :label="item.label" :prop="item.prop"
+      :data-code="item.dataCode">
+    </yu-xtable-column>
+  </yu-xtable>
+  <yu-xtable ref="refIOU" :data-url="IOUUrl" :base-params="IOUParams" row-number>
+    <yu-xtable-column v-for="(item, index) in IOUFields" :key="index" :label="item.label" :prop="item.prop"
+      :data-code="item.dataCode">
+    </yu-xtable-column>
+  </yu-xtable>
+</div>

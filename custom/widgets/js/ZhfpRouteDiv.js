@@ -54,8 +54,6 @@
         yufp.extend(true, this.privateRouteData, this.routeData)
         this.privateRouteData[this.locatedTabKey] = this
         this.isLoaded = !0;
-        console.log(this.panelRootId, "=== this.panelRootId");
-
         this.$nextTick(() => {
           yufp.router.to(this.routeId, this.privateRouteData, this.panelRootId)
         })
@@ -85,11 +83,8 @@
       },
       'privateRouteData.page': function () {
         this.page = this.privateRouteData.page;
-        console.log(this.page, "=== this.page");
         this.$parent.pageInstances = {}
-        if (this.$parent.pageInstances) {
-          this.$parent.pageInstances[this.name ? this.name : this.index] = this.page;
-        }
+        this.$parent.pageInstances[this.name ? this.name : this.index] = this.page;
       }
     },
     computed: {

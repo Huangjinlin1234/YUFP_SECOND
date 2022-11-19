@@ -69,6 +69,7 @@
     './custom/route-tables/route.console.js',
     './custom/route-tables/route.ctr.js',
     './custom/route-tables/route.prj.js',
+    './custom/route-tables/route.lmt.js',
     './custom/route-tables/views-routes.js'
   ];
   var env = 'DEV'; // 设置当前环境 PRD/UAT/DEV
@@ -239,7 +240,10 @@
        * @param data
        * @param cite
        */
-      ready: function (exports, code, data, cite) { },
+      ready: function (exports, code, data, cite) {
+        console.log(this, "11111=== this");
+        console.log(exports, code, data, cite, "=== ");
+      },
 
       /**
        * 卸载路由内容前执行

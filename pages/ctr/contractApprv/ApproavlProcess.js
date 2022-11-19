@@ -3,14 +3,19 @@
  * @author: ljl
  * @date: 2022-11-07
  */
-define(function (require, exports) {
+define(['pages/common/busi/AprvHis.js'], function (require, exports) {
   // page加载完成后调用ready方法
   exports.ready = function (hashCode, data, cite) {
     yufp.custom.vue({
       el: cite.el,
       data: function () {
         return {
+          activeNames: ['1'],
           formdata: {},
+          formFields: [
+            { label: '审批结果', name: '', ctype: 'select', dataCode: '', rules: [{ required: true, message: '字段不能为空', triggle: 'blur' }] },
+            { label: '审批意见', name: '', ctype: 'textarea', rules: [{ required: true, message: '字段不能为空', triggle: 'blur' }] },
+          ],
           dataUrl: '',
           baseParams: {},
         }
